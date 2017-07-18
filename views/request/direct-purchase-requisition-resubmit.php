@@ -633,25 +633,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     <div class="col-lg-12">
 
 
-                       <?= Html::a('CANCEL PR',FALSE, ['value'=>Url::to([
-                        'information/cancel-pr',
-                        'seller'=>$seller,
-                        'project'=> (string)$project,
-                        'approver'=>$approver,
-                        'buyer'=> $buyer,
-                        'path' => 'request'
-                        ]),'class' => 'btn btn-warning','id'=>'cancelpr']) ?>
-
-
-                        <?= Html::a('CHANGE APPROVER', [
-                        '#/#',
-
-                        ], [
-                        'class' => 'btn btn-default',
-                        ]) ?>
-
-
-
                        <?= Html::a('REQUEST APPROVAL',FALSE, ['value'=>Url::to([
                         'generate/generate-direct-purchase-requisition',
                         'seller'=>$seller,

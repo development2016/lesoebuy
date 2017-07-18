@@ -12,11 +12,8 @@ use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
 
-
-$this->title = 'Purchase Requisition';
+$this->title = strtoupper('Purchase Requisition');
 $this->params['breadcrumbs'][] = $this->title;
-
-
 
 $script = <<< JS
 $(document).ready(function(){
@@ -28,13 +25,6 @@ $(document).ready(function(){
 
     });
 
-    $('#rqapp').click(function(){
-        $('#modalmd').modal('show')
-        .find('#modalContentMd')
-        .load($(this).attr('value'));
-
-    });
-
     $('#cancelpr').click(function(){
         $('#modalmd').modal('show')
         .find('#modalContentMd')
@@ -42,7 +32,12 @@ $(document).ready(function(){
 
     });
 
-    
+    $('#rqapp').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
+
+    });
 
     $('.edit_model').click(function(){
         $('#modalmd').modal('show')
@@ -108,6 +103,7 @@ $(document).ready(function(){
 
     });
 
+
     
 }); 
 JS;
@@ -117,22 +113,18 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 ?>
 
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-block">
-          
 
-                <?= Html::a('ADD ITEM',FALSE, ['value'=>Url::to([
+            <?= Html::a('ADD ITEM',FALSE, ['value'=>Url::to([
                     'information/item',
                     'seller'=>$seller,
                     'project'=>(string)$project,
-                    'path' => 'source',
+                    'path' => 'check',
                     'approver' => $approver
                     ]),'class' => 'btn btn-info pull-right','id'=>'create','style'=>'color:#fff;text-decoration:none;cursor:pointer;']) ?>
-
-
 
                 <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
                 <h6 class="card-subtitle">Description About Panel</h6> 
@@ -182,7 +174,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="col-md-7">
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">To : </h4></div>
-                        <div class="col-md-7"> 
+                        <div class="col-md-7"> <h4>
                             <?php if (empty($list[0]['sellers'][0]['seller'])) { ?>
 
 
@@ -193,7 +185,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     'project'=>(string)$project,
                                     'approver'=>$approver,
                                     'buyer'=>$buyer,
-                                    'path' => 'direct'
+                                    'path' => 'check'
                                     ]),'class' => 'add_company','id'=>'add_company','style'=>'cursor:pointer;']) ?>
 
 
@@ -210,19 +202,18 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     'project'=>(string)$project,
                                     'approver'=>$approver,
                                     'buyer'=>$buyer,
-                                    'path' => 'direct'
+                                    'path' => 'check'
                                     ]),'class' => 'add_company','id'=>'add_company','style'=>'cursor:pointer;']) ?>
 
 
                                 </h4>
 
                             <?php } ?>
-                            
 
 
 
 
-                        </div>
+                        </h4></div>
                     </div>
 
                     <div class="row static-info">
@@ -237,7 +228,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'project'=>(string)$project,
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
-                                        'path' => 'direct'
+                                        'path' => 'check'
                                         ]),'class' => 'add_delivery','id'=>'add_delivery','style'=>'cursor:pointer;']) ?>
 
 
@@ -268,10 +259,11 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'project'=>(string)$project,
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
-                                        'path' => 'direct'
+                                        'path' => 'check'
                                         ]),'class' => 'add_delivery','id'=>'add_delivery']) ?>
 
                                     </h4>
+
 
                                 <?php } ?>
 
@@ -310,7 +302,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'project'=>(string)$project,
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
-                                        'path' => 'direct'
+                                        'path' => 'check'
                                         ]),'class' => 'deliveryBefore','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
                             <?php } else { ?>
                                 <?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['delivery_before'])); ?>
@@ -321,13 +313,14 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'project'=>(string)$project,
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
-                                        'path' => 'direct'
+                                        'path' => 'check'
                                         ]),'class' => 'deliveryBefore','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
                     
                             <?php } ?>
 
                         </h4></div>
                     </div>
+
 
 
                 </div>
@@ -337,8 +330,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             <br>
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive m-t-40" style="clear: both;">
-                    <table class="table table-hover">
+                    <table class="table">
                         <thead>
                             <tr>
                                 <th><h4><span class="bold">NO</span></h4></th>
@@ -368,12 +360,11 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'project'=>(string)$list[0]['_id'],
                                         'seller'=>$list[0]['sellers'][0]['seller'],
                                         'arrayItem' => $arrayItem,
-                                        'path' => 'direct',
+                                        'path' => 'check',
                                         'approver' => $approver
                                         ]),'class'=>'edit_model']); ?>
                                     </h4>
 
-                        
                                     <h4>
                                     <b>Brand : </b> <?= $value['brand'] ?>
                                     <br>
@@ -387,7 +378,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'seller'=>$list[0]['sellers'][0]['seller'],
                                         //'item_id'=>$value['item_id'],
                                         'arrayItem' => $arrayItem,
-                                        'path' => 'direct',
+                                        'path' => 'check',
                                         'approver' => $approver
                                         ]),'class'=>'edit_sale']); ?>
 
@@ -408,7 +399,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                            // 'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'installation']); ?>
 
@@ -420,7 +411,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'installation']); ?>
 
@@ -432,7 +423,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'installation']); ?>
 
@@ -457,7 +448,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'shipping']); ?>
 
@@ -469,7 +460,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                            // 'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'shipping']); ?>
 
@@ -481,7 +472,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                             ]),'class'=>'shipping']); ?>
 
@@ -501,16 +492,18 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 </td>
                                 <td>
                                     <h4><span>
-            
-                                            <?= Html::a($value['quantity'],FALSE, ['value'=>Url::to([
-                                            'information/sale-quantity-update',
-                                                'project'=>(string)$list[0]['_id'],
-                                                'seller'=>$list[0]['sellers'][0]['seller'],
-                                                //'item_id'=>$value['item_id'],
-                                                'arrayItem' => $arrayItem,
-                                                'path' => 'direct',
-                                                 'approver' => $approver
-                                            ]),'class'=>'quantity']); ?>
+             
+                                        
+                                    <?= Html::a($value['quantity'],FALSE, ['value'=>Url::to([
+                                        'information/sale-quantity-update',
+                                            'project'=>(string)$list[0]['_id'],
+                                            'seller'=>$list[0]['sellers'][0]['seller'],
+                                            //'item_id'=>$value['item_id'],
+                                            'arrayItem' => $arrayItem,
+                                            'path' => 'check',
+                                             'approver' => $approver
+                                        ]),'class'=>'quantity']); ?>
+
 
 
                                     </span></h4>
@@ -525,7 +518,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $arrayItem,
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                              'approver' => $approver
                                         ]),'class'=>'unit_price']); ?>
 
@@ -558,7 +551,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'seller'=>$list[0]['sellers'][0]['seller'],
                                             //'item_id'=>$value['item_id'],
                                             'arrayItem' => $value['item_id'],
-                                            'path' => 'direct',
+                                            'path' => 'check',
                                             'approver' => $approver
                                             ], ['class' => 'btn btn-sm btn-danger','title'=>'Remove']) ?>
 
@@ -571,7 +564,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
                     </table>
-                    </div>
 
                 </div>
             </div>
@@ -637,8 +629,25 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     <div class="col-lg-12">
 
 
+                       <?= Html::a('CANCEL PR',FALSE, ['value'=>Url::to([
+                        'information/cancel-pr',
+                        'seller'=>$seller,
+                        'project'=> (string)$project,
+                        'approver'=>$approver,
+                        'buyer'=> $buyer,
+                        'path' => 'check'
+                        ]),'class' => 'btn btn-warning','id'=>'cancelpr','style'=>'color:#fff;']) ?>
+
+                        <?= Html::a('CHANGE APPROVER', [
+                        '#/#',
+
+                        ], [
+                        'class' => 'btn btn-secondary',
+                        ]) ?>
+
+
                        <?= Html::a('REQUEST APPROVAL',FALSE, ['value'=>Url::to([
-                        'generate/generate-direct-purchase-requisition',
+                        'generate/generate-direct-purchase-requisition-next',
                         'seller'=>$seller,
                         'project'=> (string)$project,
                         'approver'=>$approver,
@@ -652,15 +661,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
 
+
+
             </div>
         </div>
     </div>
 </div>
-
-
-
-
-
 
 
         

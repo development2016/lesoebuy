@@ -373,6 +373,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="row">
                     <div class="col-lg-12">
 
+                    <?= Html::a('REVISE PO',FALSE, ['value'=>Url::to([
+                    'information/revise-po',
+                    'seller'=>$seller,
+                    'project'=> (string)$project,
+                    'buyer'=> $buyer,
+                    ]),'class' => 'btn btn-warning','id'=>'revisepo','style'=>'color:#fff;']) ?>
 
 
 

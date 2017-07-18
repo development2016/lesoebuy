@@ -11,25 +11,18 @@ use app\models\LookupModel;
 use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
-
-$country = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
-$state = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
-
-
-
-
-$this->title = 'Purchase Order';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Purchase Requisition';
 
 $script = <<< JS
 $(document).ready(function(){
-
-    $('#revisepo').click(function(){
+    
+    $('#reject').click(function(){
         $('#modalmd').modal('show')
         .find('#modalContentMd')
         .load($(this).attr('value'));
 
     });
+    
 }); 
 JS;
 $this->registerJs($script);
@@ -37,7 +30,6 @@ $this->registerJs($script);
 $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $showShipping = $sumShipping = $price = $showPrice = $sumPrice = 0;
 
 ?>
-
 
 <div class="row">
     <div class="col-md-12">
@@ -79,7 +71,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 </div>
                 <div class="col-md-5 col-xs-5">
                     <h1 class="bold">
-                        PURCHASE ORDER
+                        PURCHASE REQUISITION
                     </h1>
                 </div>
                  <div class="col-md-3 col-xs-3">
@@ -93,10 +85,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         <div class="col-md-5"> <h4 class="bold">To : </h4></div>
                         <div class="col-md-7"> <h4><?= $list[0]['sellers'][0]['seller'] ?></h4></div>
                     </div>
+
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">Delivery Address : </h4></div>
                         <div class="col-md-7"> 
                                     <?php if (empty($list[0]['sellers'][0]['warehouses'])) { ?>
+               
 
                                        
                                     <?php } else { ?>
@@ -142,22 +136,18 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                 <div class="col-md-3">
                     <div class="row static-info">
-                        <div class="col-md-6"> <h4 class="bold">PO No : </h4></div>
-                        <div class="col-md-6"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_order_no'] ?><?php if (empty($list[0]['sellers'][0]['purchase_order_no_revise'])) {
-                           
-                        } else {
-                            echo $list[0]['sellers'][0]['purchase_order_no_revise'];
-                        }  ?></h4></div>
+                        <div class="col-md-6"> <h4 class="bold">PR No : </h4></div>
+                        <div class="col-md-6"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></h4></div>
                     </div>
                     <div class="row static-info">
                         <div class="col-md-6"> <h4 class="bold">Date : </h4></div>
-                        <div class="col-md-6"> <h4><?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['date_purchase_order'])); ?></h4></div>
+                        <div class="col-md-6"> <h4><?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['date_purchase_requisition'])); ?></h4></div>
                     </div>
                     <div class="row static-info">
                         <div class="col-md-6"> <h4 class="bold">Term : </h4></div>
                         <div class="col-md-6"> <h4><?= $list[0]['sellers'][0]['term'] ?></h4></div>
                     </div>
-                    <div class="row static-info">
+                                        <div class="row static-info">
                         <div class="col-md-6"> <h4 class="bold">Delivery Before : </h4></div>
                         <div class="col-md-6"> <h4>
        
@@ -172,7 +162,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                         </h4></div>
                     </div>
-
                 </div>
 
 
@@ -180,7 +169,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             <br>
             <div class="row">
                 <div class="col-lg-12">
-                <div class="table-responsive m-t-40" style="clear: both;">
                     <table class="table">
                         <thead>
                             <tr>
@@ -191,8 +179,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 <th><h4><span class="bold">QTY</span></h4></th>
                                 <th><h4><span class="bold">U / PRICE</span></h4></th>
                                 <th><h4><span class="bold">AMOUNT</span></h4></th>
-          
-                        
+
+                          
                             </tr>
                         </thead>
                         <tbody>
@@ -203,13 +191,17 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     </td>
                                     <td>
                                         <h4><b>Item Code : </b><?= $value['item_code'] ?></h4>
-                                        <h4><b>Item Name : </b><span class="text-center"><?= $value['item_name']; ?></span></h4>
+                                        <h4>
+                                            <b>Item Name : </b><span class="text-center"><?= $value['item_name']; ?></span>
+                                            <br>
+                                        </h4>
                                         <h4>
                                         <b>Brand : </b> <?= $value['brand'] ?>
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
                                         <b>Specification : </b> <?= $value['specification'] ?>
+                                            <br>
                                         </h4>
  
                                     </td>
@@ -311,7 +303,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
                     </table>
-                    </div>
 
                 </div>
             </div>
@@ -346,8 +337,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 
                         ?>
                         <h4>
-                            <span><?= $list[0]['sellers'][0]['tax']; ?>% 
-                            <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?> : </span> <span class="pull-right font-red-sunglo bold">
+                            <span><?= $list[0]['sellers'][0]['tax']; ?>% GST : </span> <span class="pull-right font-red-sunglo bold">
 
                                 <?php  echo number_format((float)$deductGst,2,'.',','); ?>
                                 
@@ -355,7 +345,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         </h4>
                         <br>
                         <h3>
-                            <span><b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>) : </span> <span class="pull-right bold">
+                            <span><b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% GST Included) : </span> <span class="pull-right bold">
                                 <?php
 
                                     $grandTotal = $total + $deductGst;
@@ -373,36 +363,32 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="row">
                     <div class="col-lg-12">
 
+                    <?= Html::a('REJECT PR',FALSE, ['value'=>Url::to([
+                    'request/reject-pr-next',
+                    'seller'=>$seller,
+                    'project'=> (string)$project,
+                    'approver'=>$approver,
+                    'buyer'=> $buyer,
+                    ]),'class' => 'btn btn-warning','id'=>'reject','style'=>'color:#fff;']) ?>
 
 
 
+                        <?= Html::a('APPROVE', [
+                        'request/approve-next',
+                        'seller'=>$seller,
+                        'project'=> (string)$project,
+                        'approver' => $approver,
+                        ], [
+                        'class' => 'btn btn-primary pull-right',
 
-                    <?php if ($getUser->account_name == $list[0]['sellers'][0]['PO_process_by']) { ?>
-
-                            <?= Html::a('SUBMIT PO', [
-                            'generate/generate-direct-purchase-order',
-                            'seller'=>$seller,
-                            'project'=> (string)$project,
-                            'buyer' => $buyer
-                            ], [
-                            'class' => 'btn btn-info pull-right',
-     
-                            ]) ?>
-                        
-                    <?php } else { ?>
-
-                    <?php } ?>
-
-
+                        ]) ?>
                     </div>
                 </div>
-
 
             </div>
         </div>
     </div>
 </div>
-
 
 
 
