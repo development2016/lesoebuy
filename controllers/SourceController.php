@@ -125,32 +125,17 @@ class SourceController extends Controller
 		]);
 
 
-
-        $log = $collection->aggregate([
-            [
-                '$unwind' => '$sellers'
-            ], 
+        $collectionLog = Yii::$app->mongo->getCollection('log');
+        $log = $collectionLog->aggregate([
             [
                 '$match' => [
-                    '$or' => [
-                        [
-                            'sellers' => [
-                                '$size' =>0
-                            ]
-                        ],
-                        [
-                            'sellers.status' => 'PR Cancel'
-                        ],
-
-
-
-
-                    ],
                     '$and' => [
-                            [
-                                'buyers.buyer' => $user->account_name
-                            ],
- 
+                        [
+                            'request_by' => $user->account_name
+                        ],
+                        [
+                            'status' => 'Request Approval'
+                        ],
 
                             
                     ],
@@ -158,49 +143,10 @@ class SourceController extends Controller
                     
                 ]
             ],
-            [
-                '$group' => [
-                    '_id' => '$_id',
-                    'title' => ['$first' => '$title' ],
-                    'due_date' => ['$first' => '$due_date'],
-                    'date_create' => ['$first' => '$date_create'],
-                    'description' => ['$first' => '$description' ],
-                    'url_myspot' => ['$first' => '$url_myspot' ],
-                    'type_of_project' => ['$first' => '$type_of_project' ],
-                    'quotation_file' => ['$first' => '$quotation_file' ],
-                    'project_no' => ['$first' => '$project_no' ],
-                    'buyers' => ['$first' => '$buyers'],
-                    'sellers' => [
-                        '$push' => [
-                            'purchase_requisition_no' => '$sellers.purchase_requisition_no',
-                            'status' => '$sellers.status',
-                            'approval' => '$sellers.approval',
-                            'seller' => '$sellers.seller',
-                            'revise' => '$sellers.revise',
-                            'items' => '$sellers.items',
-                            'approver' => '$sellers.approver',
 
-                            
-                        ],
-                        
-                    ],
-
-
-            
-                ]
-            ],
-            [
-                '$sort' => [
-                    '_id' => -1
-                ]
-            ],
 
 
         ]);
-
-
-
-
 
 
 

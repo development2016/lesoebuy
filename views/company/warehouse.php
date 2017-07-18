@@ -44,10 +44,10 @@ $this->registerJs($script);
 <div class="breadcrumbs">
     <h1><?= Html::encode($this->title) ?></h1>
 </div>
-
+<?php $form = ActiveForm::begin(); ?>
 <div class="row">
 
-	<?php $form = ActiveForm::begin(); ?>
+	
 	<div class="col-lg-4 col-xs-12 col-sm-12">
 
 		<?= $form->field($model, 'warehouses[person_in_charge]')->label('Person In Charge') ?>

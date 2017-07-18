@@ -103,7 +103,7 @@ $this->registerJs($script);
 
 
         <?= Html::submitButton($modelCompany->isNewRecord ? 'Submit' : 'Submit', [
-        'class' => $modelCompany->isNewRecord ? 'btn btn-primary' : 'btn btn-primary',
+        'class' => $modelCompany->isNewRecord ? 'btn btn-info' : 'btn btn-info',
 
         ]) ?>
 

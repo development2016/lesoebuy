@@ -46,6 +46,7 @@ class NotificationController extends Controller
 
         } elseif ($model->status_buyer == 'Complete') {
 
+            $model->read_unread = 1;
             $model->status_approver = 'Noted';
             $model->save();
             return $this->redirect([$model->url]);
@@ -79,6 +80,9 @@ class NotificationController extends Controller
                         [
                             'to_who' => $user->account_name
                         ],
+                        [
+                            'read_unread' => 1
+                        ]
 
                     ],
                     '$or' => [

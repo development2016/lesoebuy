@@ -335,6 +335,41 @@ class GenerateController extends Controller
 
                         }
 
+                        $dataRequest = $collection->aggregate([
+                            [
+                                '$unwind' => '$sellers'
+                            ],
+                            [
+                                '$match' => [
+                                    '$and' => [
+                                        [
+                                            '_id' => $newProject_id
+                                        ],
+                                        [
+                                            'sellers.seller' => $seller,
+                                        ],
+                                    ],
+                                    
+                                ]
+                            ],
+              
+
+                        ]); 
+
+                        $dataRequestLog = serialize($dataRequest);
+
+
+                        $collectionLog = Yii::$app->mongo->getCollection('log');
+                        $collectionLog->insert([
+                            'status' => 'Request Approval',
+                            'date_request' => date('Y-m-d h:i:s'),
+                            'request_by' => $buyer,
+                            unserialize($dataRequestLog)
+
+                        ]);
+
+
+
 
                             $notify = new Notification();
                             $notify->status_buyer = 'Active';

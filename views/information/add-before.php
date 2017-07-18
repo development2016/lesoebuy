@@ -11,7 +11,13 @@ use dosamigos\datepicker\DatePicker;
 
 $this->title = 'Delivery Before';
 
+$script = <<< JS
+$(document).ready(function(){
 
+ $('#mdate').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
+}); 
+JS;
+$this->registerJs($script);
 
 ?>
 <h1><?= Html::encode($this->title) ?></h1>
@@ -19,17 +25,11 @@ $this->title = 'Delivery Before';
 
          <?php $form = ActiveForm::begin(); ?>
         <div class="col-lg-12 col-xs-12 col-sm-12">
-            <?= $form->field($model, 'sellers[delivery_before]')->widget(
-                DatePicker::className(), [
-                    'clientOptions' => [
-                        'autoclose' => true,
-                        'format' => 'yyyy-mm-dd',
-                       // 'placeholder' => 'hah'
-                    ]
-            ])->label('Delivery Before');?>
+            <?= $form->field($model, 'sellers[delivery_before]')->textInput(['id'=>'mdate'])->label('Delivery Before') ?>
+
             
 <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', [
-                                'class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary',
+                                'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info',
 
                                 ]) ?>
 

@@ -103,9 +103,8 @@ $this->registerJs($script);
 
             <div class="form-group">
 
-                <?= Html::submitButton($model->isNewRecord ? '<span class="ladda-label">Save</span>' : '<span class="ladda-label">Save</span>', [
-                'class' => $model->isNewRecord ? 'btn btn-primary mt-ladda-btn ladda-button' : 'btn btn-primary mt-ladda-btn ladda-button',
-                'data-style' => 'slide-up'
+                <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', [
+                'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info',
                 ]) ?>
 
             </div>

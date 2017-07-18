@@ -28,30 +28,17 @@ $this->registerJs($script);
 
 
 ?>
-<div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-    </div>
-</div>
-
 
 <div class="row">
+  <div class="col-md-6">
+      <div class="card">
+        <div class="card-block">
+   
+        <?= Html::a('Add Branch',FALSE, ['value'=>Url::to(['company/warehouse','company_id'=>(string)$newCompanyid]),'class' => 'btn btn-info pull-right warehouse-add','id'=>'create','style'=>'color:#fff;']) ?>
+            <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+            <h6 class="card-subtitle">Description About Panel</h6> 
 
-    <div class="col-lg-6">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;">
-            <h3 class="panel-title" style="color: #fff;">
-              <span><?= Html::encode($this->title) ?></span>
-              <?= Html::a('Add Branch',FALSE, ['value'=>Url::to(['company/warehouse','company_id'=>(string)$newCompanyid]),'class' => 'pull-right warehouse-add','id'=>'create']) ?>
 
-            </h3>
-
-        </div>
-        <div class="panel-body">
 
         <?php if (empty($process)) { ?>
    
@@ -65,7 +52,7 @@ $this->registerJs($script);
 
             ?>
 
-                  <div class="col-md-4">
+                
                         <h4><b><?php echo $country->country; ?> / <?php echo $state->state; ?> / <?php echo $value['location']; ?></b></h4>
                         <?= GMapMarker::widget([
                             'width' => '300px', // Using pure number for 98% of width.
@@ -97,8 +84,6 @@ $this->registerJs($script);
 
                         </table>
 
-                  </div>
-
             <?php } ?>
 
 
@@ -107,23 +92,20 @@ $this->registerJs($script);
 
 
 
-
         </div>
+
+
+
+
+
       </div>
-    </div>
+  </div>
+  <div class="col-md-6">
+      <div class="card">
+            <div class="card-block">
 
-
-    <div class="col-lg-6">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;">
-            <h3 class="panel-title" style="color: #fff;">
-              <span>Branch</span>
-
-
-            </h3>
-
-        </div>
-        <div class="panel-body">
+            <h4 class="card-title">Branch</h4>
+            <h6 class="card-subtitle">Description About Panel</h6> 
 
 
         <?php if (empty($process)) { ?>
@@ -160,12 +142,12 @@ $this->registerJs($script);
 
         <?php } ?>
 
+
+
+            </div>
         </div>
-      </div>
     </div>
 
-
-    
 
 
 </div>

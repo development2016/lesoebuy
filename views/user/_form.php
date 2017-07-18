@@ -63,48 +63,32 @@ $this->registerJs($script);
 ?>
 
     <?php $form = ActiveForm::begin(); ?>
-
-    <div class="col-lg-6 col-xs-12 col-sm-12">
+<div class="row">
+    <div class="col-lg-6">
 
         <?= $form->field($model, 'username')->textInput(['maxlength' => true,'id'=>'username','class'=>'form-control username_to_search']) ?>
         <span class="show-username"></span>
 
         <?= $form->field($model, 'password_hash')->passwordInput(['maxlength' => true])->label('Password') ?>
 
-        <label class="control-label">Role</label>
+        <label class="control-label"><b>Role</b></label>
         <br>
         <?php if ($type == 'Buyer') { ?>
 
+            <input type="checkbox" name="LookupRole[role_id][]" id="buyer" class="filled-in chk-col-light-green" value="3100" />
+            <label for="buyer">Buyer</label>
 
-            <div class="checkbox">
-              <label> 
-                <input type="checkbox" value="3100" name="LookupRole[role_id][]">
-                Buyer
-              </label>
-            </div>
+            <input type="checkbox" name="LookupRole[role_id][]" id="approver" class="filled-in chk-col-light-green" value="3200" />
+            <label for="approver">Approver</label>
 
-            <div class="checkbox">
-              <label> 
-                <input type="checkbox" value="3200" name="LookupRole[role_id][]">
-                Approver
-              </label>
-            </div>
-            <div class="checkbox">
-              <label> 
-                <input type="checkbox" value="3400" name="LookupRole[role_id][]">
-                User
-              </label>
-            </div>
+            <input type="checkbox" name="LookupRole[role_id][]" id="user" class="filled-in chk-col-light-green" value="3400" />
+            <label for="user">User</label>
 
 
         <?php } else if($type == 'Seller') { ?>
-        
-            <div class="checkbox">
-              <label> 
-                <input type="checkbox" value="2100" name="LookupRole[role_id][]">
-                Seller
-              </label>
-            </div>
+
+            <input type="checkbox" name="LookupRole[role_id][]" id="seller" class="filled-in chk-col-light-green" value="2100" />
+            <label for="seller">Seller</label>
 
 
         <?php } ?>
@@ -114,26 +98,24 @@ $this->registerJs($script);
         
 
     </div>
-    <div class="col-lg-6 col-xs-12 col-sm-12">
+    <div class="col-lg-6">
 
 
-        <label class="control-label">Branch</label>
+        <label class="control-label"><b>Branch</b></label>
         <br>
 
-            <div class="radio">
-              <label>
-                <input type="radio" name="User[branch]" id="optionsRadios2" value="100" checked>
-                LesoShoppe KL
-              </label>
-            </div>
+
+            <input name="User[branch]" type="radio" id="kl" class="radio-col-light-green" value="100" />
+            <label for="kl">LesoShoppe KL</label>
+
+
+
+
         <?php foreach ($company->warehouses as $key => $value) { ?>
 
-            <div class="radio">
-              <label>
-                <input type="radio" name="User[branch]" id="optionsRadios2" value="<?php echo $key ?>">
-                <?php echo $value['warehouse_name'];?>
-              </label>
-            </div>
+            <input name="User[branch]" type="radio" id="<?php echo $key ?>" class="radio-col-light-green" value="<?php echo $key ?>" />
+            <label for="<?php echo $key ?>"><?php echo $value['warehouse_name'];?></label>
+
 
         <?php } ?>
 
@@ -157,11 +139,11 @@ $this->registerJs($script);
         <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
 
         <div class="form-group">
-            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+            <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-info pull-right' : 'btn btn-info pull-right']) ?>
         </div>
 
     </div>
 
-
+</div>
     <?php ActiveForm::end(); ?>
 

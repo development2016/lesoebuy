@@ -187,9 +187,11 @@ $this->registerJs($script);
 
                 </div>
             </div>
-            <div class="tab-pane  p-20" id="log" role="tabpanel">
-              
-                  <table class="table" id="log-history">
+            <div class="tab-pane" id="log" role="tabpanel">
+                <div class="p-20 ">
+                  <div class="table-responsive m-t-40">
+
+                    <table class="table" id="log-history">
                       <thead >
                         <tr>
                             <th>No</th>
@@ -199,66 +201,91 @@ $this->registerJs($script);
                         </tr>
                       </thead>
                       <tbody>
-                      <?php $i=0; foreach ($log as $key_log => $value_log) { $i++;?>
+                        <?php $i=0; foreach ($log as $key_log => $value_log) { $i++;?>
                         <tr>
                           <td><?= $i; ?></td>
-                          <td><?= $value_log['project_no'] ?></td>
+                          <td><?= $value_log[0][0]['project_no']; ?></td>
                           <td>
-                                  <ul class="list-group">
-                                      <li class="list-group-item"><b>Title</b> : <?= $value_log['title']; ?></li>
-                                      <li class="list-group-item"><b>Description</b> : <?= $value_log['description']; ?></li>
-                                      <li class="list-group-item"><b>Due Date</b> : <?= $value_log['due_date']; ?></li>
-                                      <li class="list-group-item"><b>Date Create</b> : <?= $value_log['date_create']; ?></li>
+                              <ul class="list-group">
+                                  <li class="list-group-item"><b>Title</b> : <?= $value_log[0][0]['title']; ?></li>
+                                  <li class="list-group-item"><b>Description</b> : <?= $value_log[0][0]['description']; ?></li>
+                                  <li class="list-group-item"><b>Due Date</b> : <?= $value_log[0][0]['due_date']; ?></li>
+                                  <li class="list-group-item"><b>Date Create</b> : <?= $value_log[0][0]['date_create']; ?></li>
 
-                                  </ul>
+                              </ul>
 
                           </td>
                           <td>
                               <table class="table table-bordered" >
-                                <thead class="thead-default">
-                                  <tr>
-                                      <th>SELLER NAME</th>
-                                      <th>STATUS</th>
-                                      <th>ACTION</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <?php foreach ($value_log['sellers'] as $key => $value2_log) { ?>
-                                  <tr>
-                                      <td><?php echo $value2_log['seller'] ?></td>
-                                      <td><?php echo $status =  $value2_log['status'] ?></td>
-                                      <td>
+                                  <thead class="thead-default">
+                                    <tr>
+                                        <th>Seller Name</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                        <td>
+                                          <?php if (empty($value_log[0][0]['sellers']['seller'])) {
+                                            
+                                          } else {
+
+                                            echo $value_log[0][0]['sellers']['seller'];
+
+                                          }?>
                                           
-                                          <div class="btn-group">
-                                            <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                              <span class="caret"></span>
-                                              <span class="sr-only">Toggle Dropdown</span>
-                                            </button>
-                                            <ul class="dropdown-menu">
-                                              <li>
-                                                <?= Html::a('<b>'.$value2_log['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html-cancel',
-                                                      'project'=>(string)$value_log['_id'],
-                                                      'seller'=>$value2_log['seller'],
-                                                      'buyer'=>$value_log['buyers'][0]['buyer'],
-                                                      ],['target'=>'_blank']) ?>
-                                              </li>
-               
-                                            </ul>
-                                          </div>
+                                        </td>
+                                        <td>
+                                            <?php echo $value_log[0][0]['sellers']['status']; ?>
+                                        </td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    Purchase Requisition
+                                                </button>
+                                                <div class="dropdown-menu animated flipInX">
+                                                    
+                                                      <?= Html::a('<b>'.$value_log[0][0]['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                            'project'=>(string)$value_log[0][0]['_id'],
+                                                            'seller'=>$value_log[0][0]['sellers']['seller'],
+                                                           'buyer'=>$value_log[0][0]['buyers'][0]['buyer'],
+                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="btn-group">
+                                                <?= Html::a('File', ['file/index'],['class'=>'btn btn-primary']) ?>
+                                            </div>
 
 
-                                      </td>
-                                  </tr>
-                                  <?php } ?>
+                                        </td>
+
+                                        
+                                    </tr>
+
                                   </tbody>
-     
                               </table>
+
+
                           </td>
+
                         </tr>
-                      <?php } ?>
+
+                        <?php } ?>
                       </tbody>
                     </table>
+
+
+                   
+
+
+                  </div>
+                </div>
+
+            
+              
+
 
 
 

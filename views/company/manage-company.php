@@ -35,38 +35,21 @@ $this->registerJs($script);
 
 $this->title = strtoupper('Manage Company');
 ?>
-<div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-    </div>
-</div>
 
 
 <div class="row">
-
-    <div class="col-lg-12">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;">
-            <h3 class="panel-title" style="color: #fff;">
-              <span><?= Html::encode($this->title) ?></span>
-              <?= Html::a('Upload Logo <i class="fa fa-upload"></i>',FALSE, ['value'=>Url::to(['company/upload','company_id'=>$company_id]),'class' => 'pull-right uploads','id'=>'','title'=>'Upload Logo']) ?>
-
-            </h3>
-
-        </div>
-        <div class="panel-body">
-
-        <?php $form = ActiveForm::begin(); ?>
+  <div class="col-md-12">
+      <div class="card">
+        <div class="card-block">
+   
+        <?= Html::a('Upload Logo <i class="fa fa-upload"></i>',FALSE, ['value'=>Url::to(['company/upload','company_id'=>$company_id]),'class' => 'btn btn-info pull-right uploads','id'=>'','title'=>'Upload Logo','style'=>'color:#fff;']) ?>
+            <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+            <h6 class="card-subtitle">Description About Panel</h6> 
 
 
-
-            <?= $form->errorSummary($model); ?>
-
-            <div class="col-lg-6">
+            <?php $form = ActiveForm::begin(); ?>
+            <div class="row">
+                <div class="col-lg-6">
 
                     <?php if (empty($model->logo)) { ?>
                     
@@ -113,11 +96,11 @@ $this->title = strtoupper('Manage Company');
 
                         <?= $form->field($model, 'zip_code') ?>
 
+                </div>
 
 
-                
-            </div>
-            <div class="col-lg-6">
+                <div class="col-lg-6">
+
 
 
                         <?= $form->field($model, 'tax_no') ?>
@@ -159,23 +142,19 @@ $this->title = strtoupper('Manage Company');
                         <?= $form->field($model, 'keyword')->textarea(['rows' => 6]) ?>
 
                         <div class="form-group pull-right">
-                            <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                            <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
                         </div>
 
 
-
-
+                    
+                </div>
                 
             </div>
 
-        <?php ActiveForm::end(); ?>
 
-
+            <?php ActiveForm::end(); ?>
 
         </div>
-     </div>
-    </div>
+      </div>
+  </div>
 </div>
-
-
-

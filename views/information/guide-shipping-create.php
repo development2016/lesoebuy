@@ -35,7 +35,7 @@ $this->title = 'Shipping';
 
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

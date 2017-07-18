@@ -39,51 +39,32 @@ $this->registerJs($script);
 $buyer = $approval = $user= $seller = $admin= 0;
 
 ?>
-<div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-    </div>
-</div>
 
 <div class="row">
+  <div class="col-md-6">
+      <div class="card">
+        <div class="card-block">
+   
 
-    <div class="col-lg-6">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;overflow: hidden;">
-
-          <h4 class="panel-title pull-left" style="padding-top: 7.5px;padding-bottom: 5px;color: #fff;">CHARTS</h4>
-
-        </div>
-        <div class="panel-body">
+            <h4 class="card-title">CHARTS</h4>
+            <h6 class="card-subtitle">Description About Panel</h6> 
 
         </div>
       </div>
-    </div>
+  </div>
+  <div class="col-md-6">
+      <div class="card">
+        <div class="card-block">
 
-    <div class="col-lg-6">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;overflow: hidden;">
-
-        <h4 class="panel-title pull-left" style="padding-top: 7.5px;color: #fff;">LIST USER</h4>
-
-            <div class="btn-group btn-group-sm pull-right">
-              <?= Html::a('Add',FALSE, [
+          <?= Html::a('Add',FALSE, [
           'value'=>Url::to([
             'user/create',
             'company_id'=>(string)$company->_id,
             'type'=>$company->type
-          ]),'class' => 'btn btn-success','id'=>'create']) ?>
+          ]),'class' => 'btn btn-info pull-right','id'=>'create','style'=>'color:#fff;']) ?>
 
-    
-            </div>
-
-
-        </div>
-        <div class="panel-body">
+            <h4 class="card-title">LIST USER</h4>
+            <h6 class="card-subtitle">Description About Panel</h6> 
 
         <table class="table">
             <thead>
@@ -139,13 +120,17 @@ $buyer = $approval = $user= $seller = $admin= 0;
         </table>
 
 
-
-
+            
 
         </div>
+
+        
       </div>
-    </div>
+  </div>
 
 
 
 </div>
+
+
+

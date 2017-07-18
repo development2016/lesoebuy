@@ -360,7 +360,7 @@ $this->registerJs($script);
                             <li class="breadcrumb-item active">Breadcrumb</li>
                         </ol>
                     </div>
-                    <div class="col-md-7 col-4 align-self-center">
+                    <!-- <div class="col-md-7 col-4 align-self-center">
                         <div class="d-flex m-t-10 justify-content-end">
                             <div class="d-flex m-r-20 m-l-10 hidden-md-down">
                                 <div class="chart-text m-r-10">
@@ -380,7 +380,7 @@ $this->registerJs($script);
                             </div>
 
                         </div>
-                    </div>
+                    </div> -->
                 </div>
 
 

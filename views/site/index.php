@@ -2,7 +2,7 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
-$this->title = 'E-Procument';
+$this->title = 'Dashboard';
 ?>
 
 

@@ -109,6 +109,9 @@ class Notification extends \yii\mongodb\ActiveRecord
                         [
                             'to_who' => $user->account_name
                         ],
+                        [
+                            'read_unread' => 0
+                        ]
 
                     ],
                     '$or' => [
@@ -160,6 +163,10 @@ class Notification extends \yii\mongodb\ActiveRecord
                         [
                             'to_who' => $user->account_name
                         ],
+                        [
+                            'read_unread' => 0
+                        ]
+                        
 
                     ],
                     '$or' => [
