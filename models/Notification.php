@@ -43,7 +43,8 @@ class Notification extends \yii\mongodb\ActiveRecord
     {
         return [
             '_id',
-            'status',
+            'status_buyer',
+            'status_approver',
             'details',
             'date_request',
             'project_no',
@@ -54,7 +55,9 @@ class Notification extends \yii\mongodb\ActiveRecord
             'date_create',
             'url',
             'seller',
-            'approver'
+            'approver',
+            'url_for_buyer',
+            
         ];
     }
 
@@ -64,7 +67,7 @@ class Notification extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['status', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver'], 'safe']
+            [['status_buyer', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver','url_for_buyer','status_approver'], 'safe']
         ];
     }
 
@@ -75,7 +78,7 @@ class Notification extends \yii\mongodb\ActiveRecord
     {
         return [
             '_id' => 'ID',
-            'status' => 'Status',
+            'status_buyer' => 'Status',
             'details' => 'Details',
             'date_request' => 'Date Request',
             'project_no' => 'Project No',
@@ -84,6 +87,8 @@ class Notification extends \yii\mongodb\ActiveRecord
             'to_who' => 'To Who',
             'read_unread' => 'Read Unread',
             'date_create' => 'Date Create',
+            'status_approver' => ''
+
         ];
     }
 
@@ -93,9 +98,46 @@ class Notification extends \yii\mongodb\ActiveRecord
 
         $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
-        $model = Notification::find()->where(['read_unread' => 0,'to_who'=>$user->account_name])->count();  
+        $collection = Yii::$app->mongo->getCollection('notification');
+        $model = $collection->aggregate([
+            [
+                '$unwind' => '$to_who'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            'to_who' => $user->account_name
+                        ],
 
-        return $model;
+                    ],
+                    '$or' => [
+                        [
+                            'status_approver' => 'Waiting Approval'
+                        ],
+                        [
+                            'status_approver' => 'Approve'
+                        ],
+                        [
+                            'status_approver' => 'Next Approver'
+                        ],
+                        [
+                            'status_buyer' => 'Change Buyer'
+                        ],
+
+
+                    ]
+
+                    
+                ]
+            ],
+   
+
+        ]);
+
+        $total = count($model);
+
+        return $total;
 
     }
 
@@ -106,11 +148,47 @@ class Notification extends \yii\mongodb\ActiveRecord
 
         $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
-        $model = Notification::find()->where(['read_unread' => 0,'to_who'=>$user->account_name])->all();  
+        $collection = Yii::$app->mongo->getCollection('notification');
+        $model = $collection->aggregate([
+            [
+                '$unwind' => '$to_who'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+
+                        [
+                            'to_who' => $user->account_name
+                        ],
+
+                    ],
+                    '$or' => [
+                        [
+                            'status_approver' => 'Waiting Approval'
+                        ],
+                        [
+                            'status_approver' => 'Approve'
+                        ],
+                        [
+                            'status_approver' => 'Next Approver'
+                        ],
+                        [
+                            'status_buyer' => 'Change Buyer'
+                        ],
+                        
+
+                    ]
+                    
+                ]
+            ],
+   
+
+        ]);
 
         return $model;
 
     }
+
 
 
 

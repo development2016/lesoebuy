@@ -186,7 +186,7 @@ class SiteController extends Controller
         $model6 = new Acl();
         $model7 = new UserCompany();
 
-        $this->layout = 'login';
+        $this->layout = 'register';
 
         if ($model->load(Yii::$app->request->post()) && $model2->load(Yii::$app->request->post()) ) {
 

@@ -134,6 +134,7 @@ $this->registerJs($script);
                                                                   <td>
                                                                     <?php foreach ($value2['approval'] as $key => $app) { ?>
                                                                       <?= $app['approval']; ?>
+                                                                      <br>
                                                                     <?php } ?>
                                                                   </td>
                                                                   <td>
@@ -321,16 +322,17 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -360,35 +362,34 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
-
-                                                                    <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                                  <div class="btn-group">
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          Purchase Requisition
                                                                       </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
-                                                                    </div>
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
-                                                                    </div>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                          
+                                                                          
+                                                                      </div>
+                                                                  </div>
+
+        
+                                                                  <div class="btn-group">
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          File
+                                                                      </button>
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          
+                                                                          
+                                                                          
+                                                                      </div>
+                                                                  </div>
 
                                                                   </td>
 
@@ -409,34 +410,33 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
-                                                                    <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                                  <div class="btn-group">
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          Purchase Requisition
                                                                       </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
-                                                                    </div>
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
-                                                                    </div>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                          
+                                                                          
+                                                                      </div>
+                                                                  </div>
+
+                                                                  <div class="btn-group">
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          File
+                                                                      </button>
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          
+                                                                          
+                                                                          
+                                                                      </div>
+                                                                  </div>
 
                                                                   </td>
 
@@ -469,16 +469,17 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -535,35 +536,33 @@ $this->registerJs($script);
                                                                     'role'=>'user'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-default choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition']) ?>
-
-
+                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
+
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -584,65 +583,59 @@ $this->registerJs($script);
                                                                     <?php echo $value2['status']; ?>
                                                                   </td>
                                                                   <td>
-                                                                      <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default"> Submit To Approver</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Submit To Approver
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                              <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
                                                                               'seller'=>$value2['seller'],
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
-                                                                              ]),'class' => 'choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
-
-                                                                          </li>
-                                                                          <li>
+                                                                              ]),'class' => 'dropdown-item choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
+                                                                              <div class="dropdown-divider"></div>
                                                                               <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
-                                                                                          'request/choose-approval-level',
-                                                                                          'project'=>(string)$value['_id'],
-                                                                                          'seller'=>$value2['seller'],
-                                                                                          'buyer'=>$user->account_name,
-                                                                                          'type' => 'direct',
-                                                   
-                                                                                          ]),'class' => 'choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
-                                                                      </div>
+                                                                                  'request/choose-approval-level',
+                                                                                  'project'=>(string)$value['_id'],
+                                                                                  'seller'=>$value2['seller'],
+                                                                                  'buyer'=>$user->account_name,
+                                                                                  'type' => 'direct',
+                                           
+                                                                                  ]),'class' => 'dropdown-item choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
-                                                                    
-                                                                      <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                               <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                                              'project'=>(string)$value['_id'],
-                                                                                              'seller'=>$value2['seller'],
-                                                                                             'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                              ],['target'=>'_blank']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
-                                                                      </div>
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                                            'project'=>(string)$value['_id'],
+                                                                                            'seller'=>$value2['seller'],
+                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
 
 
@@ -662,21 +655,22 @@ $this->registerJs($script);
                                                                   </td>
                                                                   <td>
                                                                     
-                                                                    <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
+                                                                    <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-check',
                                                                     'project'=>(string)$value['_id'],
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -698,33 +692,32 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
                                                                   </td>
@@ -745,33 +738,32 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+
+                                                                      <div class="btn-group">
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Purchase Requisition
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                                              'project'=>(string)$value['_id'],
+                                                                                              'seller'=>$value2['seller'],
+                                                                                             'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                              
+                                                                              
+                                                                          </div>
+                                                                      </div>
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                                            'project'=>(string)$value['_id'],
-                                                                                            'seller'=>$value2['seller'],
-                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
-                                                                    </div>
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -806,17 +798,18 @@ $this->registerJs($script);
                                                                   'seller'=>$value2['seller'],
                                                                   'buyer'=>$value['buyers'][0]['buyer'],
                                                                   'approver'=>$value2['approver'],
-                                                                  ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                  ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                  <div class="btn-group">
-                                                                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                          <i class="fa fa-angle-down"></i>
-                                                                      </a>
-                                                                      <ul class="dropdown-menu">
-                                    
-                                
-                                                                      </ul>
-                                                                  </div>
+                                                                <div class="btn-group">
+                                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        File
+                                                                    </button>
+                                                                    <div class="dropdown-menu animated flipInX">
+                                                                        
+                                                                        
+                                                                        
+                                                                    </div>
+                                                                </div>
 
 
                                                                 </td>
@@ -842,34 +835,34 @@ $this->registerJs($script);
                                                                     'role'=>'user'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-default choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition']) ?>
+                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
 
                                                                     
+
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
                                                                   </td>
@@ -889,65 +882,61 @@ $this->registerJs($script);
                                                                     <?php echo $value2['status']; ?>
                                                                   </td>
                                                                   <td>
-                                                                      <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default"> Submit To Approver</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Submit To Approver
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                              <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
                                                                               'seller'=>$value2['seller'],
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
-                                                                              ]),'class' => 'choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
-
-                                                                          </li>
-                                                                          <li>
-                                                                              <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
+                                                                              ]),'class' => 'dropdown-item choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
+                                                                            <div class="dropdown-divider"></div>
+                                                                            <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
                                                                                           'request/choose-approval-level',
                                                                                           'project'=>(string)$value['_id'],
                                                                                           'seller'=>$value2['seller'],
                                                                                           'buyer'=>$user->account_name,
                                                                                           'type' => 'direct',
                                                    
-                                                                                          ]),'class' => 'choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
-                                                                      </div>
+                                                                                          ]),'class' => 'dropdown-item choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
+                                                                        </div>
+                                                                    </div>
+
 
                                                                     
-                                                                      <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
                                                                         </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                               <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                                              'project'=>(string)$value['_id'],
-                                                                                              'seller'=>$value2['seller'],
-                                                                                             'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                              ],['target'=>'_blank']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
-                                                                      </div>
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                                            'project'=>(string)$value['_id'],
+                                                                                            'seller'=>$value2['seller'],
+                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
+
+
+
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
                                                                   </td>
 
@@ -970,16 +959,17 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -1002,34 +992,34 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
-                                                                    <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                                            'project'=>(string)$value['_id'],
-                                                                                            'seller'=>$value2['seller'],
-                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
-                                                                    </div>
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
-                                                                    </div>
+
+                                                                      <div class="btn-group">
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Purchase Requisition
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                                              'project'=>(string)$value['_id'],
+                                                                                              'seller'=>$value2['seller'],
+                                                                                             'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                              
+                                                                              
+                                                                          </div>
+                                                                      </div>
+
+                                                                      <div class="btn-group">
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              File
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              
+                                                                              
+                                                                              
+                                                                          </div>
+                                                                      </div>
 
 
                                                                   </td>
@@ -1052,33 +1042,32 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
                                                                   </td>
@@ -1112,17 +1101,18 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
-                                                                    </div>
+                                                                  <div class="btn-group">
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          File
+                                                                      </button>
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          
+                                                                          
+                                                                          
+                                                                      </div>
+                                                                  </div>
                                                                   </td>
 
 
@@ -1176,7 +1166,7 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
 
 
@@ -1188,35 +1178,33 @@ $this->registerJs($script);
                                                                     'role'=>'buyer'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-default choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition']) ?>
-
+                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
 
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                          <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                        </div>
                                                                     </div>
+
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -1237,13 +1225,10 @@ $this->registerJs($script);
                                                                   </td>
                                                                   <td>
                                                                       <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default"> Submit To Approver</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
-                                                                        </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Submit To Approver
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
                                                                               <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
@@ -1251,49 +1236,48 @@ $this->registerJs($script);
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
-                                                                              ]),'class' => 'choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
+                                                                              ]),'class' => 'dropdown-item choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
 
-                                                                          </li>
-                                                                          <li>
+                                                                              <div class="dropdown-divider"></div>
                                                                               <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
-                                                                                          'request/choose-approval-level',
-                                                                                          'project'=>(string)$value['_id'],
-                                                                                          'seller'=>$value2['seller'],
-                                                                                          'buyer'=>$user->account_name,
-                                                                                          'type' => 'direct',
-                                                   
-                                                                                          ]),'class' => 'choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
+                                                                                  'request/choose-approval-level',
+                                                                                  'project'=>(string)$value['_id'],
+                                                                                  'seller'=>$value2['seller'],
+                                                                                  'buyer'=>$user->account_name,
+                                                                                  'type' => 'direct',
+                                           
+                                                                                  ]),'class' => 'dropdown-item choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
+
+
+                                                  
+                                                                              
+                                                                          </div>
                                                                       </div>
 
-                                                                    
                                                                       <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
-                                                                        </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                               <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Purchase Requisition
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                               'project'=>(string)$value['_id'],
                                                                                               'seller'=>$value2['seller'],
                                                                                              'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                              ],['target'=>'_blank']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
+                                                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                       
+                                                                              
+                                                                          </div>
                                                                       </div>
+                                                                    
                                                                       <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              File
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              
+                                                                              
+                                                                              
+                                                                          </div>
                                                                       </div>
 
                                                                   </td>
@@ -1364,16 +1348,17 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -1395,33 +1380,35 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+
+
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                                            'project'=>(string)$value['_id'],
-                                                                                            'seller'=>$value2['seller'],
-                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+
+                                                                    <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    'seller'=>$value2['seller'],
+                                                                    'buyer'=>$value['buyers'][0]['buyer'],
+                                                                    ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+
+                                                                        </div>
                                                                     </div>
+
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -1452,16 +1439,17 @@ $this->registerJs($script);
                                                                   'seller'=>$value2['seller'],
                                                                   'buyer'=>$value['buyers'][0]['buyer'],
                                                                   'approver'=>$value2['approver'],
-                                                                  ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                  ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                   <div class="btn-group">
-                                                                      <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                          <i class="fa fa-angle-down"></i>
-                                                                      </a>
-                                                                      <ul class="dropdown-menu">
-                                    
-                                
-                                                                      </ul>
+                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          File
+                                                                      </button>
+                                                                      <div class="dropdown-menu animated flipInX">
+                                                                          
+                                                                          
+                                                                          
+                                                                      </div>
                                                                   </div>
 
 
@@ -1484,7 +1472,7 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
                                                                     
                                                                     <?= Html::a('Choose Buyer',FALSE, ['value'=>Url::to([
@@ -1495,34 +1483,34 @@ $this->registerJs($script);
                                                                     'role'=>'buyer'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-default choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition']) ?>
+                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
 
-                                                                    
+
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
+
+
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
                                                                   </td>
@@ -1543,14 +1531,13 @@ $this->registerJs($script);
                                                                     <?php echo $value2['status']; ?>
                                                                   </td>
                                                                   <td>
+
                                                                       <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default"> Submit To Approver</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
-                                                                        </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Submit To Approver
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                              
                                                                               <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
@@ -1558,49 +1545,45 @@ $this->registerJs($script);
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
-                                                                              ]),'class' => 'choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
+                                                                              ]),'class' => 'dropdown-item choose-approval','id'=>'choose-approval','title'=>'Choose Approver']) ?>
 
-                                                                          </li>
-                                                                          <li>
-                                                                              <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
-                                                                                          'request/choose-approval-level',
-                                                                                          'project'=>(string)$value['_id'],
-                                                                                          'seller'=>$value2['seller'],
-                                                                                          'buyer'=>$user->account_name,
-                                                                                          'type' => 'direct',
-                                                   
-                                                                                          ]),'class' => 'choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
-                                                                          </li>
+                                                                              <div class="dropdown-divider"></div>
+                                                                                <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
+                                                                                'request/choose-approval-level',
+                                                                                'project'=>(string)$value['_id'],
+                                                                                'seller'=>$value2['seller'],
+                                                                                'buyer'=>$user->account_name,
+                                                                                'type' => 'direct',
                                          
-                                                                        </ul>
+                                                                                ]),'class' => 'dropdown-item choose-approval-level','id'=>'choose-approval-level','title'=>'Choose Approver By Level']) ?>
+                                                                        
+                                                                          </div>
                                                                       </div>
 
-                                                                    
                                                                       <div class="btn-group">
-                                                                        <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                          <span class="caret"></span>
-                                                                          <span class="sr-only">Toggle Dropdown</span>
-                                                                        </button>
-                                                                        <ul class="dropdown-menu">
-                                                                          <li>
-                                                                               <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              Purchase Requisition
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                               'project'=>(string)$value['_id'],
                                                                                               'seller'=>$value2['seller'],
                                                                                              'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                              ],['target'=>'_blank']) ?>
-                                                                          </li>
-                                         
-                                                                        </ul>
+                                                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                              
+                                                                              
+                                                                          </div>
                                                                       </div>
+
                                                                       <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              File
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              
+                                                                              
+                                                                              
+                                                                          </div>
                                                                       </div>
 
                                                                   </td>
@@ -1623,16 +1606,17 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
 
 
@@ -1656,34 +1640,33 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                      <button type="button" class="btn btn-default">Purchase Requisition</button>
-                                                                      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                        <span class="caret"></span>
-                                                                        <span class="sr-only">Toggle Dropdown</span>
-                                                                      </button>
-                                                                      <ul class="dropdown-menu">
-                                                                        <li>
-                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            Purchase Requisition
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                            ],['target'=>'_blank']) ?>
-                                                                        </li>
-                                       
-                                                                      </ul>
+                                                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                                            
+                                                                            
+                                                                        </div>
                                                                     </div>
-                                                                    <div class="btn-group">
-                                                                        <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> File
-                                                                            <i class="fa fa-angle-down"></i>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                      
-                                  
-                                                                        </ul>
-                                                                    </div>
+
+                                                                      <div class="btn-group">
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              File
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              
+                                                                              
+                                                                              
+                                                                          </div>
+                                                                      </div>
 
 
                                                                   </td>

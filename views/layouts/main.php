@@ -37,6 +37,8 @@ $listnotify = Notification::listnotify();
 
 
 
+
+
 $script = <<< JS
 $(document).ready(function(){
 
@@ -113,7 +115,7 @@ $this->registerJs($script);
                                     </li>
 
                                     <li>
-                                        <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                        <?= Html::a('<strong>Check all notifications</strong> <i class="fa fa-angle-right"></i>', ['notification/index','id'=>Yii::$app->user->identity->id],['class'=>'nav-link text-center','title'=>'Check all notifications']) ?>
                                     </li>
                                 </ul>
                             </div>
@@ -161,7 +163,8 @@ $this->registerJs($script);
                                         </li>
                                         
                                         <li>
-                                            <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                                            <?= Html::a('<strong>Check all notifications</strong> <i class="fa fa-angle-right"></i>', ['notification/index','id'=>Yii::$app->user->identity->id],['class'=>'nav-link text-center','title'=>'Check all notifications']) ?>
+
                                         </li>
 
                                     </ul>
@@ -337,7 +340,10 @@ $this->registerJs($script);
                 <!-- item-->
                 <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
                 <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+
+                <?= Html::a('<i class="mdi mdi-power"></i>', ['site/logout'],['class'=>'link','title'=>'Logout','data-method'=>'POST']) ?>
+
+
             </div>
             <!-- End Bottom points-->
         </aside>

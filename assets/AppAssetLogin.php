@@ -21,6 +21,7 @@ class AppAssetLogin extends AssetBundle
         'materialpro/assets/plugins/bootstrap/css/bootstrap.min.css',
         'materialpro/css/style.css',
         'materialpro/css/colors/blue.css',
+        'css/site.css'
 
     ];
     public $js = [

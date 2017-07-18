@@ -32,10 +32,12 @@ $this->registerJs($script);
 
 ?>
 <h1><?= Html::encode($this->title) ?></h1>
+
+<?php $form = ActiveForm::begin(); ?>
 <div class="row">
 
-    <?php $form = ActiveForm::begin(); ?>
-    <div class="col-lg-4 col-xs-12 col-sm-12">
+    
+    <div class="col-lg-4">
 
         <?= $form->field($modelCompany, 'company_name')->textInput(['id'=>'companyname']) ?>
 
@@ -66,7 +68,7 @@ $this->registerJs($script);
         ]) ?>
 
     </div>
-    <div class="col-lg-4 col-xs-12 col-sm-12">
+    <div class="col-lg-4">
 
         <?= $form->field($modelCompany, 'city')->textInput(['id'=>'city']) ?>
 
@@ -106,7 +108,6 @@ $this->registerJs($script);
         ]) ?>
 
     </div>
-    <?php ActiveForm::end(); ?>
-
-
+    
 </div>
+<?php ActiveForm::end(); ?>

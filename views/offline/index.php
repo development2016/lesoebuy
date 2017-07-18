@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				    <?= $form->field($model3, 'due_date')->textInput(['id'=>'mdate']) ?>
 
 					<?= Html::submitButton($model3->isNewRecord ? 'Save' : 'Save', [
-							    'class' => $model3->isNewRecord ? 'btn btn-primary pull-right' : 'btn btn-primary',
+							    'class' => $model3->isNewRecord ? 'btn btn-info pull-right' : 'btn btn-info',
 
 							    ]) ?>
 

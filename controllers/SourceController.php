@@ -566,9 +566,9 @@ class SourceController extends Controller
             echo "<br>";
 
         }
-
+        echo "<br>";
         echo "<div class='form-group'>";
-        echo Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']);
+        echo Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']);
         echo "</div>";
 
         ActiveForm::end();

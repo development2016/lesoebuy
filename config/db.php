@@ -1,7 +1,7 @@
 <?php
 //$cert = 'C:\xampp\htdocs\procument\compose.crt';
 
-$cert = '/var/www/vhosts/lesoebuy.com/httpdocs/procument/compose.crt';
+$cert = '/var/www/vhosts/lesoebuy.com/httpdocs/compose.crt';
 
 $ctx = stream_context_create(array(
     "ssl" => array(

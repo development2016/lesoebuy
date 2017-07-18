@@ -63,7 +63,7 @@ class GenerateController extends Controller
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
         $projectModel = Project::find()->where(['_id'=>$newProject_id])->one();
 
-        $notify = new Notification();
+        
 
 
         $collection = Yii::$app->mongo->getCollection('project');
@@ -335,25 +335,26 @@ class GenerateController extends Controller
 
                         }
 
-                        $notify->status = 'Waiting Approval';
-                        $notify->details = $model[0]['sellers']['purchase_requisition_no'];
-                        $notify->date_request = date('Y-m-d H:i:s');
-                        $notify->project_no = $model[0]['project_no'];
-                        $notify->project_id = $newProject_id;
-                        $notify->from_who = $buyer;
-                        $notify->to_who = $model[0]['sellers']['approval'][0]['approval'];
-                        $notify->date_create = date('Y-m-d H:i:s');
-                        $notify->read_unread = 0;
-                        $notify->url = 'request/direct-purchase-requisition-approve';
-                        $notify->seller = $model[0]['sellers']['seller'];
-                        $notify->approver = $model[0]['sellers']['approver'];;
 
+                            $notify = new Notification();
+                            $notify->status_buyer = 'Active';
+                            $notify->status_approver = 'Waiting Approval';
+                            $notify->details = $model[0]['sellers']['purchase_requisition_no'];
+                            $notify->date_request = date('Y-m-d H:i:s');
+                            $notify->project_no = $model[0]['project_no'];
+                            $notify->project_id = $newProject_id;
+                            $notify->from_who = $buyer;
+                            $notify->to_who = $model[0]['sellers']['approval'][0]['approval'];
+                            $notify->date_create = date('Y-m-d H:i:s');
+                            $notify->read_unread = 0;
+                            $notify->url = 'request/direct-purchase-requisition-approve';
+                            $notify->url_for_buyer = 'request/direct-purchase-requisition';
+                            $notify->seller = $model[0]['sellers']['seller'];
+                            $notify->approver = $model[0]['sellers']['approver'];;
 
-                        $notify->save();
+                            $notify->save();
 
-
-
-
+                    
 
                         return $this->redirect(['request/index']);
 
@@ -665,25 +666,25 @@ class GenerateController extends Controller
 
 
         }
-        $notify = new Notification();
-
-                        $notify->status = 'Waiting Approval';
-                        $notify->details = $model[0]['sellers']['purchase_requisition_no'];
-                        $notify->date_request = date('Y-m-d H:i:s');
-                        $notify->project_no = $model[0]['project_no'];
-                        $notify->project_id = $newProject_id;
-                        $notify->from_who = $buyer;
-                        $notify->to_who = $model[0]['sellers']['approval'][0]['approval'];
-                        $notify->date_create = date('Y-m-d H:i:s');
-                        $notify->read_unread = 0;
-                        $notify->url = 'request/direct-purchase-requisition-approve-next';
-                        $notify->seller = $model[0]['sellers']['seller'];
-                        $notify->approver = $model[0]['sellers']['approver'];;
 
 
-                        $notify->save();
+            $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+            $notify->status_buyer = 'Active';
+            $notify->status_approver = 'Waiting Approval';
+            $notify->details = $model[0]['sellers']['purchase_requisition_no'];
+            $notify->date_request = date('Y-m-d H:i:s');
+            $notify->project_no = $model[0]['project_no'];
+            $notify->project_id = $newProject_id;
+            $notify->from_who = $buyer;
+            $notify->to_who = $model[0]['sellers']['approval'][0]['approval'];
+            $notify->date_create = date('Y-m-d H:i:s');
+            $notify->read_unread = 0;
+            $notify->url = 'request/direct-purchase-requisition-approve-next';
+            $notify->url_for_buyer = 'request/direct-purchase-requisition';
+            $notify->seller = $model[0]['sellers']['seller'];
+            $notify->approver = $model[0]['sellers']['approver'];;
 
-
+            $notify->save();
 
 
             return $this->redirect(['request/index']);
@@ -793,6 +794,14 @@ class GenerateController extends Controller
             unserialize($dataPOLog)
 
         ]);
+
+        $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+        $notify->status_buyer = 'Solve';
+        $notify->status_approver = 'Solve';
+
+        $notify->save();
+
 
 
 

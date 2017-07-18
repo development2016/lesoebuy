@@ -58,10 +58,11 @@ $this->registerJs($script);
 
 ?>
 <h1><?= Html::encode($this->title) ?></h1>
-<div class="row">
 
-         <?php $form = ActiveForm::begin(); ?>
-        <div class="col-lg-4 col-xs-12 col-sm-12">
+<?php $form = ActiveForm::begin(); ?>
+<div class="row">
+         
+        <div class="col-lg-4">
            
 
             <?= $form->field($model, 'sellers[warehouses][person_in_charge]')->textInput(['id'=>'person_in_charge'])->label('Person In Charge') ?>
@@ -87,7 +88,7 @@ $this->registerJs($script);
 
         </div>
 
-        <div class="col-lg-4 col-xs-12 col-sm-12">
+        <div class="col-lg-4">
 
 
             <?= $form->field($model, 'sellers[warehouses][warehouse_name]')->textInput(['id'=>'warehouse_name'])->label('Warehouse Name') ?>
@@ -115,7 +116,7 @@ $this->registerJs($script);
 
 
 
-        <div class="col-lg-4 col-xs-12 col-sm-12" style="height: 560px; overflow-y: auto; overflow-x: auto;   border-left: solid #b7b7b7 1px;">
+        <div class="col-lg-4" style="height: 560px; overflow-y: auto; overflow-x: auto;   border-left: solid #b7b7b7 1px;">
 
             <ul style="list-style-type: none; ">
             <?php foreach ($companyBuyer->warehouses as $key => $value) { ?>

@@ -65,6 +65,7 @@ $this->registerJs($script);
             <div class="tab-pane active" id="active" role="tabpanel">
                 <div class="p-20 ">
                   <div class="table-responsive m-t-40">
+                  
                   <table class="table" id="example">
                       <thead >
                         <tr>
@@ -120,7 +121,7 @@ $this->registerJs($script);
 
                                                   <div class="btn-group">
                                                       <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                          Action
+                                                          Choose Approver
                                                       </button>
                                                       <div class="dropdown-menu animated flipInX">
                                                           <?= Html::a('Approver',FALSE, ['value'=>Url::to([

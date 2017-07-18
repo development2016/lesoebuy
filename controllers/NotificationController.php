@@ -30,21 +30,80 @@ class NotificationController extends Controller
 
         $model = $this->findModel($id);
 
+        if ($model->status_buyer == 'Active') {
+     
+            $model->status_approver = 'Pending';
+            $model->read_unread = 1;
+            $model->save();
+            return $this->redirect([$model->url, 
+                'project' => (string)$model->project_id,
+                'seller'=>$model->seller,
+                'buyer'=>$model->from_who,
+                'approver'=>$model->approver,
 
-        $model->read_unread = 1;
-        $model->save();
-        return $this->redirect([$model->url, 
-        	'project' => (string)$model->project_id,
-        	'seller'=>$model->seller,
-        	'buyer'=>$model->from_who,
-        	'approver'=>$model->approver,
+            ]);
+
+
+        } elseif ($model->status_buyer == 'Complete') {
+
+            $model->status_approver = 'Noted';
+            $model->save();
+            return $this->redirect([$model->url]);
+
+        }  elseif ($model->status_buyer == 'Change Buyer') {
+
+            $model->status_buyer = 'Changed';
+            $model->save();
+            return $this->redirect([$model->url]);
+
+        } 
+
+        
+
+
+    }
+
+    public function actionIndex($id)
+    {
+        $user = User::find()->where(['id'=>$id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('notification');
+        $model = $collection->aggregate([
+            [
+                '$unwind' => '$to_who'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+
+                        [
+                            'to_who' => $user->account_name
+                        ],
+
+                    ],
+                    '$or' => [
+                        [
+                            'status_approver' => 'Pending'
+                        ],
+                        [
+                            'status_approver' => 'Noted'
+                        ],
+
+
+                    ]
+                    
+                ]
+            ],
+   
 
         ]);
 
 
 
+        return $this->render('index',[
 
-
+            'model' => $model
+        ]);
     }
 
 

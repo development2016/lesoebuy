@@ -7,18 +7,13 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AppAssetHtml;
+use app\assets\AppAssetRegister;
 use yii\widgets\Menu;
 use yii\bootstrap\Modal;
 use app\models\LoginForm;
 use yii\helpers\Url;
 
-
-
-AppAssetHtml::register($this);
-
-
-
+AppAssetRegister::register($this);
 
 
 ?>

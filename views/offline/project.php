@@ -129,7 +129,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						    <?php } ?>
 
 							<div class="pull-right">
-				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-primary uploads','id'=>'','title'=>'Upload Image','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
+				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-info uploads','id'=>'','title'=>'Upload Image','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
 
 				            </div>
 
@@ -262,7 +262,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 							    <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Submit', [
-							    'class' => $model->isNewRecord ? 'btn btn-primary' : 'btn btn-primary',
+							    'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info',
 
 							    ]) ?>
 

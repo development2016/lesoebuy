@@ -137,30 +137,31 @@ $bank = ArrayHelper::map(LookupBank::find()->asArray()->all(), 'bank', 'bank');
 
 
 ?>
-
 <div class="row">
-<br>
-    <div class="col-lg-12">
-        <div class="panel panel-default" >
-            <div class="panel-heading" style="background-color: #025b80;">
-                <h3 class="panel-title" style="color: #fff;">
-                  <span><?= Html::encode($this->title) ?></span>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-                </h3>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6> 
 
             </div>
-            <div class="panel-body">
 
-                <ul class="nav nav-tabs" id="myTabs">
-                  <li role="presentation" class="active"><a href="#basic">Basic</a></li>
-                  <li role="presentation"><a href="#acc">Account</a></li>
-                </ul>
 
-                <?php $form = ActiveForm::begin(); ?>
+            <ul class="nav nav-tabs customtab" role="tablist">
+                <li class="nav-item"> 
+                  <a class="nav-link active" data-toggle="tab" href="#active" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Active</span></a> 
+                </li>
+                <li class="nav-item"> 
+                  <a class="nav-link" data-toggle="tab" href="#log" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Log</span></a> 
+                </li>
 
-                <div class="tab-content">
-                    <div class="tab-pane active" id="basic">
-                      <br>
+            </ul>
+            <?php $form = ActiveForm::begin(); ?>
+            <div class="tab-content">
+                <div class="tab-pane active" id="active" role="tabpanel">
+                    <div class="p-20 ">
+
                         <?= $form->field($model2, 'company_name')->textInput(['id'=>'company_name','class'=>'form-control company_name_to_search','style'=>'text-transform:uppercase;']) ?>
                       <span class="show-company"></span>
 
@@ -203,11 +204,11 @@ $bank = ArrayHelper::map(LookupBank::find()->asArray()->all(), 'bank', 'bank');
 
                         <?= $form->field($model2, 'tax_no')->textInput(['id'=>'','class'=>'form-control']) ?>
 
-
                     </div>
+                </div>
 
-                    <div class="tab-pane" id="acc">
-                      <br>
+                <div class="tab-pane  p-20" id="log" role="tabpanel">
+
 
                       <?= $form->field($model, 'email')->textInput(['id'=>'','class'=>'form-control']) ?>
 
@@ -216,14 +217,14 @@ $bank = ArrayHelper::map(LookupBank::find()->asArray()->all(), 'bank', 'bank');
 
                       <?= $form->field($model, 'password_hash')->passwordInput(['id'=>'','class'=>'form-control '])->label('Password') ?>
 
-                      <?= Html::submitButton('Submit', ['class' => 'btn btn-primary', 'name' => 'register-button']) ?>
+                      <?= Html::submitButton('Submit', ['class' => 'btn btn-info', 'name' => 'register-button']) ?>
 
-                    </div>
 
-                     
+
                 </div>
+            </div>
+            <?php ActiveForm::end(); ?>
 
-                <?php ActiveForm::end(); ?>
 
 
 
@@ -231,8 +232,4 @@ $bank = ArrayHelper::map(LookupBank::find()->asArray()->all(), 'bank', 'bank');
             </div>
         </div>
     </div>
-
-
-
-    
 </div>

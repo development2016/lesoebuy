@@ -29,6 +29,9 @@ $this->registerJs($script);
 
 $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $showShipping = $sumShipping = $price = $showPrice = $sumPrice = 0;
 
+
+
+
 ?>
 
 

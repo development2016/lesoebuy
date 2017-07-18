@@ -32,30 +32,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 ?>
 
 <div class="row">
-    <div class="col-lg-12">
-      <ol class="breadcrumb">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Library</a></li>
-        <li class="active">Data</li>
-      </ol>
-    </div>
-</div>
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-<div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;">
-            <h3 class="panel-title" style="color: #fff;">
-                <span style="color: #fff;"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></span>
-              <span class="pull-right">
-
-                <b>Due Date : </b> <?= $list[0]['due_date']; ?>
-                  
-              </span>
-            </h3>
-
-        </div>
-        <div class="panel-body">
+                <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6>
 
             <div class="row">
 
@@ -387,7 +369,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     'project'=> (string)$project,
                     'approver'=>$approver,
                     'buyer'=> $buyer,
-                    ]),'class' => 'btn btn-warning','id'=>'reject']) ?>
+                    ]),'class' => 'btn btn-warning','id'=>'reject','style'=>'color:#fff;']) ?>
 
 
 
@@ -403,16 +385,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     </div>
                 </div>
 
-
-
-
-
-
+            </div>
         </div>
-      </div>
     </div>
 </div>
-
 
 
 

@@ -113,28 +113,22 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 ?>
 
-
-
 <div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default" >
-        <div class="panel-heading" style="background-color: #025b80;overflow: hidden;">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-            <h4 class="panel-title pull-left" style="padding-top: 7.5px;color: #fff;"><?= Html::encode(strtoupper($this->title)) ?> - <?= $list[0]['project_no']; ?></h4>
-
-            <div class="btn-group btn-group-sm pull-right">
-              <?= Html::a('ADD ITEM',FALSE, ['value'=>Url::to([
+            <?= Html::a('ADD ITEM',FALSE, ['value'=>Url::to([
                     'information/item',
                     'seller'=>$seller,
                     'project'=>(string)$project,
                     'path' => 'check',
                     'approver' => $approver
-                    ]),'class' => 'btn btn-success','id'=>'create','style'=>'color:#fff;text-decoration:none;cursor:pointer;']) ?>
+                    ]),'class' => 'btn btn-info pull-right','id'=>'create','style'=>'color:#fff;text-decoration:none;cursor:pointer;']) ?>
 
-            </div>
+                <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6> 
 
-        </div>
-        <div class="panel-body">
 
             <div class="row">
 
@@ -642,16 +636,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         'approver'=>$approver,
                         'buyer'=> $buyer,
                         'path' => 'check'
-                        ]),'class' => 'btn btn-warning','id'=>'cancelpr']) ?>
-
-
-
+                        ]),'class' => 'btn btn-warning','id'=>'cancelpr','style'=>'color:#fff;']) ?>
 
                         <?= Html::a('CHANGE APPROVER', [
                         '#/#',
 
                         ], [
-                        'class' => 'btn btn-default',
+                        'class' => 'btn btn-secondary',
                         ]) ?>
 
 
@@ -661,7 +652,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         'project'=> (string)$project,
                         'approver'=>$approver,
                         'buyer'=> $buyer,
-                        ]),'class' => 'btn btn-primary pull-right','id'=>'rqapp']) ?>
+                        ]),'class' => 'btn btn-info pull-right','id'=>'rqapp','style'=>'color:#fff;']) ?>
 
 
 
@@ -671,19 +662,11 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
 
+
+            </div>
         </div>
-       </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
 
 
         

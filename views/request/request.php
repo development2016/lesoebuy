@@ -181,19 +181,20 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver'=>$value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
 
 
-                                                                            <div class="btn-group">
-                                                                              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                  <i class="fa fa-angle-down"></i>
-                                                                              </a>
-                                                                              <ul class="dropdown-menu">
-                                            
-                                        
-                                                                              </ul>
-                                                                            </div>
+                                                                          <div class="btn-group">
+                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                  File
+                                                                              </button>
+                                                                              <div class="dropdown-menu animated flipInX">
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                              </div>
+                                                                          </div>
                                                                             
                                                                           <?php } else { ?>
 
@@ -202,17 +203,18 @@ $this->registerJs($script);
                                                                                 'seller'=>$value2['seller'],
                                                                                 'buyer'=>$value['buyers'][0]['buyer'],
                                                                                 'approver' => $value2['approver'],
-                                                                                ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                                ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                             <div class="btn-group">
-                                                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </a>
-                                                                                <ul class="dropdown-menu">
-                                              
-                                          
-                                                                                </ul>
-                                                                            </div>
+                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                  File
+                                                                              </button>
+                                                                              <div class="dropdown-menu animated flipInX">
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                              </div>
+                                                                          </div>
 
                                                                           <?php } ?>
                                                                           
@@ -248,17 +250,18 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
 
                                                                     </td>
@@ -303,16 +306,17 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                       <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
+                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                              File
+                                                                          </button>
+                                                                          <div class="dropdown-menu animated flipInX">
+                                                                              
+                                                                              
+                                                                              
+                                                                          </div>
                                                                       </div>
 
 
@@ -348,19 +352,19 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver'=>$value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
 
-
-                                                                            <div class="btn-group">
-                                                                              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                  <i class="fa fa-angle-down"></i>
-                                                                              </a>
-                                                                              <ul class="dropdown-menu">
-                                            
-                                        
-                                                                              </ul>
-                                                                            </div>
+                                                                          <div class="btn-group">
+                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                  File
+                                                                              </button>
+                                                                              <div class="dropdown-menu animated flipInX">
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                              </div>
+                                                                          </div>
                                                                             
                                                                           <?php } else { ?>
 
@@ -369,16 +373,17 @@ $this->registerJs($script);
                                                                                 'seller'=>$value2['seller'],
                                                                                 'buyer'=>$value['buyers'][0]['buyer'],
                                                                                 'approver' => $value2['approver'],
-                                                                                ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                                ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                            <div class="btn-group">
-                                                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </a>
-                                                                                <ul class="dropdown-menu">
-                                              
-                                          
-                                                                                </ul>
+                                                                             <div class="btn-group">
+                                                                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                    File
+                                                                                </button>
+                                                                                <div class="dropdown-menu animated flipInX">
+                                                                                    
+                                                                                    
+                                                                                    
+                                                                                </div>
                                                                             </div>
 
                                                                           <?php } ?>
@@ -410,20 +415,21 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver'=>$value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
 
 
-                                                                            <div class="btn-group">
-                                                                              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                  <i class="fa fa-angle-down"></i>
-                                                                              </a>
-                                                                              <ul class="dropdown-menu">
-                                            
-                                        
-                                                                              </ul>
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                File
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated flipInX">
+                                                                                
+                                                                                
+                                                                                
                                                                             </div>
-                                                                            
+                                                                        </div>
+                                                                                                                                                    
                                                                           <?php } else { ?>
 
                                                                             <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve-next',
@@ -431,17 +437,18 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                            <div class="btn-group">
-                                                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </a>
-                                                                                <ul class="dropdown-menu">
-                                              
-                                          
-                                                                                </ul>
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                File
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated flipInX">
+                                                                                
+                                                                                
+                                                                                
                                                                             </div>
+                                                                        </div>
 
                                                                           <?php } ?>
                                                                           
@@ -476,17 +483,18 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
 
                                                                     </td>
@@ -530,17 +538,18 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                File
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated flipInX">
+                                                                                
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
 
 
                                                                     </td>
@@ -573,18 +582,19 @@ $this->registerJs($script);
                                                                               'seller'=>$value2['seller'],
                                                                               'buyer'=>$value['buyers'][0]['buyer'],
                                                                               'approver'=>$value2['approver'],
-                                                                              ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                              ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
 
 
                                                                                 <div class="btn-group">
-                                                                                  <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                      <i class="fa fa-angle-down"></i>
-                                                                                  </a>
-                                                                                  <ul class="dropdown-menu">
-                                                
-                                            
-                                                                                  </ul>
+                                                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                        File
+                                                                                    </button>
+                                                                                    <div class="dropdown-menu animated flipInX">
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                    </div>
                                                                                 </div>
                                                                                 
                                                                               <?php } else { ?>
@@ -594,16 +604,17 @@ $this->registerJs($script);
                                                                                     'seller'=>$value2['seller'],
                                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                                     'approver' => $value2['approver'],
-                                                                                    ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
                                                                                 <div class="btn-group">
-                                                                                    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                        <i class="fa fa-angle-down"></i>
-                                                                                    </a>
-                                                                                    <ul class="dropdown-menu">
-                                                  
-                                              
-                                                                                    </ul>
+                                                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                        File
+                                                                                    </button>
+                                                                                    <div class="dropdown-menu animated flipInX">
+                                                                                        
+                                                                                        
+                                                                                        
+                                                                                    </div>
                                                                                 </div>
 
                                                                               <?php } ?>
@@ -636,20 +647,21 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver'=>$value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
 
 
-                                                                            <div class="btn-group">
-                                                                              <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                  <i class="fa fa-angle-down"></i>
-                                                                              </a>
-                                                                              <ul class="dropdown-menu">
-                                            
-                                        
-                                                                              </ul>
-                                                                            </div>
-                                                                            
+                                                                          <div class="btn-group">
+                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                  File
+                                                                              </button>
+                                                                              <div class="dropdown-menu animated flipInX">
+                                                                                  
+                                                                                  
+                                                                                  
+                                                                              </div>
+                                                                          </div>
+                                                                                                                                                      
                                                                           <?php } else { ?>
 
                                                                             <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve-next',
@@ -657,17 +669,18 @@ $this->registerJs($script);
                                                                           'seller'=>$value2['seller'],
                                                                           'buyer'=>$value['buyers'][0]['buyer'],
                                                                           'approver' => $value2['approver'],
-                                                                          ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                            <div class="btn-group">
-                                                                                <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                                    <i class="fa fa-angle-down"></i>
-                                                                                </a>
-                                                                                <ul class="dropdown-menu">
-                                              
-                                          
-                                                                                </ul>
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                File
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated flipInX">
+                                                                                
+                                                                                
+                                                                                
                                                                             </div>
+                                                                        </div>
 
                                                                           <?php } ?>
                                                                           

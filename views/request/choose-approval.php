@@ -28,12 +28,9 @@ $this->title = 'Choose Approval';
 		    	<li class="list-group-item justify-content-between">
 		    		<?php echo $value['account_name'] ?>
 
+		    		<input name="Project[sellers][approval][]" type="radio" id="<?php echo $value['account_name'] ?>" class="radio-col-light-green" value="<?php echo $value['account_name'] ?>" />
+                    <label for="<?php echo $value['account_name'] ?>"></label>
 
-					<label class="custom-control custom-checkbox ">
-					  <input type="checkbox" class="custom-control-input " value="<?php echo $value['account_name'] ?>" name="Project[sellers][approval][]">
-					  <span class="custom-control-indicator"></span>
-
-					</label>
 
 
 		        </li>

@@ -1050,6 +1050,24 @@ class RequestController extends Controller
 
                         ]);
 
+                        $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+                        $notify->status_buyer = 'Complete';
+                        $notify->status_approver = 'Approve';
+                        $notify->details = $dataApprove[0]['sellers']['purchase_requisition_no'];
+                        $notify->date_request = date('Y-m-d H:i:s');
+                        $notify->project_no = $dataApprove[0]['project_no'];
+                        $notify->project_id = $newProject_id;
+                        $notify->from_who = $dataApprove[0]['sellers']['approver_level'];
+                        $notify->to_who = $dataApprove[0]['buyers'][0]['buyer'];
+                        $notify->date_create = date('Y-m-d H:i:s');
+                        $notify->read_unread = 0;
+                        $notify->url = 'request/index';
+                        $notify->seller = $dataApprove[0]['sellers']['seller'];
+                        $notify->approver = $dataApprove[0]['sellers']['approver'];;
+
+
+                        $notify->save();
 
 
                         // update status to approve
@@ -1239,8 +1257,24 @@ class RequestController extends Controller
 
                         ]);
 
+                        $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+                        $notify->status_buyer = 'Active';
+                        $notify->status_approver = 'Next Approver';
+                        $notify->details = $dataApprove[0]['sellers']['purchase_requisition_no'];
+                        $notify->date_request = date('Y-m-d H:i:s');
+                        $notify->project_no = $dataApprove[0]['project_no'];
+                        $notify->project_id = $newProject_id;
+                        $notify->from_who = $dataApprove[0]['buyers'][0]['buyer']; 
+                        $notify->to_who = $dataApprove[0]['sellers']['approver_level'];
+                        $notify->date_create = date('Y-m-d H:i:s');
+                        $notify->read_unread = 0;
+                        $notify->url = 'request/direct-purchase-requisition-approve';
+                        $notify->seller = $dataApprove[0]['sellers']['seller'];
+                        $notify->approver = $dataApprove[0]['sellers']['approver'];;
 
 
+                        $notify->save();
 
 
 
@@ -1327,9 +1361,9 @@ class RequestController extends Controller
             ]);
 
 
-            $notify = new Notification();
-
-            $notify->status = 'Approve';
+            $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+            $notify->status_buyer = 'Complete';
+            $notify->status_approver = 'Approve';
             $notify->details = $dataApprove[0]['sellers']['purchase_requisition_no'];
             $notify->date_request = date('Y-m-d H:i:s');
             $notify->project_no = $dataApprove[0]['project_no'];
@@ -1339,8 +1373,9 @@ class RequestController extends Controller
             $notify->date_create = date('Y-m-d H:i:s');
             $notify->read_unread = 0;
             $notify->url = 'request/index';
+            $notify->url_for_buyer = 'request/direct-purchase-requisition';
             $notify->seller = $dataApprove[0]['sellers']['seller'];
-            $notify->approver = $dataApprove[0]['sellers']['approver'];;
+            $notify->approver = $dataApprove[0]['sellers']['approver'];
 
 
             $notify->save();
@@ -1526,6 +1561,25 @@ class RequestController extends Controller
                         ]);
 
 
+
+                        $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+                        $notify->status_buyer = 'Complete';
+                        $notify->status_approver = 'Approve';
+                        $notify->details = $dataApproveNext[0]['sellers']['purchase_requisition_no'];
+                        $notify->date_request = date('Y-m-d H:i:s');
+                        $notify->project_no = $dataApproveNext[0]['project_no'];
+                        $notify->project_id = $newProject_id;
+                        $notify->from_who = $dataApproveNext[0]['sellers']['approver_level'];
+                        $notify->to_who = $dataApproveNext[0]['buyers'][0]['buyer'];
+                        $notify->date_create = date('Y-m-d H:i:s');
+                        $notify->read_unread = 0;
+                        $notify->url = 'request/index';
+                        $notify->seller = $dataApproveNext[0]['sellers']['seller'];
+                        $notify->approver = $dataApproveNext[0]['sellers']['approver'];;
+
+
+                        $notify->save();
 
 
 
@@ -1714,7 +1768,24 @@ class RequestController extends Controller
                         ]);
 
 
+                        $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
+                        $notify->status_buyer = 'Active';
+                        $notify->status_approver = 'Next Approver';
+                        $notify->details = $dataApproveNext[0]['sellers']['purchase_requisition_no'];
+                        $notify->date_request = date('Y-m-d H:i:s');
+                        $notify->project_no = $dataApproveNext[0]['project_no'];
+                        $notify->project_id = $newProject_id;
+                        $notify->from_who = $dataApproveNext[0]['buyers'][0]['buyer']; 
+                        $notify->to_who = $dataApproveNext[0]['sellers']['approver_level'];
+                        $notify->date_create = date('Y-m-d H:i:s');
+                        $notify->read_unread = 0;
+                        $notify->url = 'request/direct-purchase-requisition-approve-next';
+                        $notify->seller = $dataApproveNext[0]['sellers']['seller'];
+                        $notify->approver = $dataApproveNext[0]['sellers']['approver'];;
+
+
+                        $notify->save();
 
 
 
@@ -1796,9 +1867,12 @@ class RequestController extends Controller
 
             ]);
 
-            $notify = new Notification();
 
-            $notify->status = 'Approve';
+
+
+            $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+            $notify->status_buyer = 'Complete';
+            $notify->status_approver = 'Approve';
             $notify->details = $dataApproveNext[0]['sellers']['purchase_requisition_no'];
             $notify->date_request = date('Y-m-d H:i:s');
             $notify->project_no = $dataApproveNext[0]['project_no'];
@@ -1936,6 +2010,62 @@ class RequestController extends Controller
 
             }
 
+            $collection = Yii::$app->mongo->getCollection('project');
+            $dataChangeBuyer = $collection->aggregate([
+                [
+                    '$unwind' => '$sellers'
+                ],
+                [
+                    '$match' => [
+                        '$and' => [
+                            [
+                                '_id' => $newProject_id
+                            ],
+                            [
+                                'sellers.seller' => $seller,
+                            ],
+                        ],
+                        
+                    ]
+                ],
+  
+
+            ]); 
+
+            //print_r($dataChangeBuyer[0]['buyers']);
+
+
+            $dataChangeBuyerLog = serialize($dataChangeBuyer);
+
+
+            $collectionLog = Yii::$app->mongo->getCollection('log');
+            $collectionLog->insert([
+                'status' => 'Change Buyer',
+                'date_change' => date('Y-m-d h:i:s'),
+                'from_who' => $buyer,
+                'to_who' => $tempApp,
+                unserialize($dataChangeBuyerLog)
+
+            ]);
+
+
+                $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+                $notify->status_buyer = 'Change Buyer';
+                $notify->details = $dataChangeBuyer[0]['sellers']['purchase_requisition_no'];
+                $notify->date_request = date('Y-m-d H:i:s');
+                $notify->project_no = $dataChangeBuyer[0]['project_no'];
+                $notify->project_id = $newProject_id;
+                $notify->from_who = $buyer;
+                $notify->to_who = $dataChangeBuyer[0]['buyers'][0]['buyer'];
+                $notify->date_create = date('Y-m-d H:i:s');
+                $notify->read_unread = 0;
+                $notify->url = 'request/index';
+                $notify->seller = $dataChangeBuyer[0]['sellers']['seller'];
+                $notify->approver = $dataChangeBuyer[0]['sellers']['approver'];;
+
+
+                $notify->save();
             
 
              return $this->redirect(['request/index']);
@@ -1998,6 +2128,7 @@ class RequestController extends Controller
                     '$set' => [
                         'sellers.$.approver' => 'normal',
                         'sellers.$.approval' =>  $tempApp,
+                        'sellers.$.status' => 'Request Approval Next',
                         'buyers'=> [[
                             'buyer' => $buyer
                         ]],
