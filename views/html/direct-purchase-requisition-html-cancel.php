@@ -33,33 +33,14 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 ?>
 
-<style type="text/css">
 
-
-#bg-text
-{
-    position: absolute;
-    margin-top: 400px;
-    margin-left: 80px;
-    color:#f7a1a1;
-    font-size:150px;
-    -webkit-transform:rotate(320deg);
-}
-
-</style>
-
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
 
 <div class="row">
-    <div class="col-lg-12">
-      <div class="panel panel-default" >
-
-         <p id="bg-text" text-center>CANCELLED</p>
-
-
-        <div class="panel-body">
-
-            <div class="row">
 
                 <div class="col-lg-3">
                     <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
@@ -396,8 +377,11 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
         </div>
-      </div>
+
+
+
+
+            </div>
+        </div>
     </div>
 </div>
-
-

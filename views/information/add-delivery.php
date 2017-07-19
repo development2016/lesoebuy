@@ -8,7 +8,7 @@ use app\models\LookupState;
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
 $country = ArrayHelper::map(LookupCountry::find()->asArray()->all(), 'id', 'country');
-//$state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$model->country])->asArray()->all(), 'id', 'state');
+$state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$country])->asArray()->all(), 'id', 'state');
 
 //use app\models\LookupShipping;
 /* @var $this yii\web\View */
@@ -76,13 +76,20 @@ $this->registerJs($script);
             [
                 'prompt' => '-Select Country-',
                 'class' => 'form-control',
-                'id' => 'country'
-                //'onchange'=>'$.post("'.Yii::$app->urlManager->createUrl(['/company/state','id'=>'']).'"+$(this).val(), function(data){$("select#state-id").html(data);})',
+                'id' => 'country',
+                'onchange'=>'$.post("'.Yii::$app->urlManager->createUrl(['/company/state','id'=>'']).'"+$(this).val(), function(data){$("select#state").html(data);})',
 
             ])->label('Country') ?>
 
+            <?= $form->field($model, 'sellers[warehouses][state]')->dropDownList(
+                $state, 
+            [
+                'prompt' => '-Select State-',
+                'class' => 'form-control',
+                'id'=> 'state',
 
-            <?= $form->field($model, 'sellers[warehouses][state]')->textInput(['id'=>'state'])->label('State') ?>
+            ])->label('State') ?>
+
 
             <?= $form->field($model, 'sellers[warehouses][location]')->textInput(['id'=>'location'])->label('City') ?>
 

@@ -12,6 +12,8 @@ use app\models\UploadForm;
 use app\models\LogoUpload;
 use yii\web\UploadedFile;
 use app\models\UserCompany;
+use app\models\LookupCountry;
+use app\models\LookupState;
 /**
  * CompanyController implements the CRUD actions for Company model.
  */

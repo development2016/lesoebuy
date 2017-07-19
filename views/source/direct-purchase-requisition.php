@@ -194,7 +194,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     'approver'=>$approver,
                                     'buyer'=>$buyer,
                                     'path' => 'direct'
-                                    ]),'class' => 'add_company','id'=>'add_company','style'=>'cursor:pointer;']) ?>
+                                    ]),'class' => 'add_company text-primary','id'=>'add_company','style'=>'cursor:pointer;']) ?>
 
 
                                </h4>
@@ -211,7 +211,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     'approver'=>$approver,
                                     'buyer'=>$buyer,
                                     'path' => 'direct'
-                                    ]),'class' => 'add_company','id'=>'add_company','style'=>'cursor:pointer;']) ?>
+                                    ]),'class' => 'add_company text-primary','id'=>'add_company','style'=>'cursor:pointer;']) ?>
 
 
                                 </h4>
@@ -238,7 +238,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
                                         'path' => 'direct'
-                                        ]),'class' => 'add_delivery','id'=>'add_delivery','style'=>'cursor:pointer;']) ?>
+                                        ]),'class' => 'add_delivery text-primary','id'=>'add_delivery','style'=>'cursor:pointer;']) ?>
 
 
                                    </h4>
@@ -269,7 +269,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
                                         'path' => 'direct'
-                                        ]),'class' => 'add_delivery','id'=>'add_delivery']) ?>
+                                        ]),'class' => 'add_delivery text-primary','id'=>'add_delivery']) ?>
 
                                     </h4>
 
@@ -311,7 +311,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
                                         'path' => 'direct'
-                                        ]),'class' => 'deliveryBefore','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
+                                        ]),'class' => 'deliveryBefore text-primary','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
                             <?php } else { ?>
                                 <?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['delivery_before'])); ?>
                                 <br>
@@ -322,7 +322,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'approver'=>$approver,
                                         'buyer'=>$buyer,
                                         'path' => 'direct'
-                                        ]),'class' => 'deliveryBefore','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
+                                        ]),'class' => 'deliveryBefore text-primary','id'=>'deliveryBefore','style'=>'cursor:pointer;']) ?>
                     
                             <?php } ?>
 
@@ -370,7 +370,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'arrayItem' => $arrayItem,
                                         'path' => 'direct',
                                         'approver' => $approver
-                                        ]),'class'=>'edit_model']); ?>
+                                        ]),'class'=>'edit_model text-primary','style'=>'cursor:pointer;']); ?>
                                     </h4>
 
                         
@@ -389,7 +389,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         'arrayItem' => $arrayItem,
                                         'path' => 'direct',
                                         'approver' => $approver
-                                        ]),'class'=>'edit_sale']); ?>
+                                        ]),'class'=>'edit_sale text-primary','style'=>'cursor:pointer;']); ?>
 
 
 
@@ -410,7 +410,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'installation']); ?>
+                                            ]),'class'=>'installation text-primary','style'=>'cursor:pointer;']); ?>
 
                                         <?php } elseif ($value['install'] == 'No') { ?>
 
@@ -422,7 +422,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'installation']); ?>
+                                            ]),'class'=>'installation text-primary','style'=>'cursor:pointer;']); ?>
 
                                         <?php } else { ?>
 
@@ -434,7 +434,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'installation']); ?>
+                                            ]),'class'=>'installation text-primary','style'=>'cursor:pointer;']); ?>
 
                                             <?php 
                                                 $install = $value['installation_price']; 
@@ -459,7 +459,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'shipping']); ?>
+                                            ]),'class'=>'shipping text-primary','style'=>'cursor:pointer;']); ?>
 
                                         <?php } elseif ($value['shipping'] == 'No') { ?>
 
@@ -471,7 +471,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'shipping']); ?>
+                                            ]),'class'=>'shipping text-primary','style'=>'cursor:pointer;']); ?>
 
                                         <?php } else { ?>
 
@@ -483,7 +483,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                            ]),'class'=>'shipping']); ?>
+                                            ]),'class'=>'shipping text-primary','style'=>'cursor:pointer;']); ?>
 
                                             <?php 
                                             $shipping = $value['shipping_price']; 
@@ -510,7 +510,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                                 'arrayItem' => $arrayItem,
                                                 'path' => 'direct',
                                                  'approver' => $approver
-                                            ]),'class'=>'quantity']); ?>
+                                            ]),'class'=>'quantity text-primary','style'=>'cursor:pointer;']); ?>
 
 
                                     </span></h4>
@@ -527,7 +527,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             'arrayItem' => $arrayItem,
                                             'path' => 'direct',
                                              'approver' => $approver
-                                        ]),'class'=>'unit_price']); ?>
+                                        ]),'class'=>'unit_price text-primary','style'=>'cursor:pointer;']); ?>
 
                                             <?php 
                                             $price = $value['cost']; 
@@ -635,6 +635,16 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <br>
                 <div class="row">
                     <div class="col-lg-12">
+
+                        <?= Html::a('CANCEL PR',FALSE, ['value'=>Url::to([
+                        'information/cancel-pr',
+                        'seller'=>$seller,
+                        'project'=> (string)$project,
+                        'approver'=>$approver,
+                        'buyer'=> $buyer,
+                        'path' => 'source'
+                        ]),'class' => 'btn btn-warning','id'=>'cancelpr','style'=>'color:#fff;']) ?>
+
 
 
                        <?= Html::a('REQUEST APPROVAL',FALSE, ['value'=>Url::to([

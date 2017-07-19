@@ -131,13 +131,18 @@ class SourceController extends Controller
                 '$match' => [
                     '$and' => [
                         [
-                            'request_by' => $user->account_name
-                        ],
-                        [
-                            'status' => 'Request Approval'
+                            'by' => $user->account_name
                         ],
 
                             
+                    ],
+                    '$or' => [
+                        [
+                            'status' => 'Request Approval'
+                        ],
+                        [
+                            'status' => 'Cancel PR'
+                        ],
                     ],
 
                     

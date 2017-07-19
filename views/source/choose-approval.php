@@ -12,6 +12,21 @@ use yii\helpers\Url;
 
 //$this->title = 'Project No : '.$model[0]['project_no'];
 $this->title = 'Choose Approver';
+$script = <<< JS
+$(document).ready(function(){
+
+	$('.btn-app:checked').each(function() {
+        $("#btn-submit").attr('disabled',false);
+    });
+
+    //This will check the status of radio button onclick
+    $('.btn-app').click(function() {
+        $("#btn-submit").attr('disabled',false);
+    });
+
+}); 
+JS;
+$this->registerJs($script);
 
 ?>
 <div class="project-form">
@@ -27,7 +42,7 @@ $this->title = 'Choose Approver';
 		    	<li class="list-group-item justify-content-between">
 		    		<?php echo $value['account_name'] ?>
 
-		    		<input name="Project[sellers][approval][]" type="radio" id="<?php echo $value['account_name'] ?>" class="radio-col-light-green" value="<?php echo $value['account_name'] ?>" />
+		    		<input name="Project[sellers][approval][]" type="radio" id="<?php echo $value['account_name'] ?>" class="radio-col-light-green btn-app" value="<?php echo $value['account_name'] ?>" />
                     <label for="<?php echo $value['account_name'] ?>"></label>
 
 
@@ -41,7 +56,7 @@ $this->title = 'Choose Approver';
 
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info','id'=>'btn-submit', 'disabled' => 'disabled']) ?>
     </div>
 
 <?php ActiveForm::end(); ?>

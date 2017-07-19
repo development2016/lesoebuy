@@ -240,20 +240,39 @@ $this->registerJs($script);
                                             <?php echo $value_log[0][0]['sellers']['status']; ?>
                                         </td>
                                         <td>
+                                            <?php if ($value_log[0][0]['sellers']['status'] == 'PR Cancel') { ?>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     Purchase Requisition
                                                 </button>
                                                 <div class="dropdown-menu animated flipInX">
                                                     
-                                                      <?= Html::a('<b>'.$value_log[0][0]['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                      <?= Html::a('<b>'.$value_log[0][0]['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html-cancel',
                                                             'project'=>(string)$value_log[0][0]['_id'],
                                                             'seller'=>$value_log[0][0]['sellers']['seller'],
                                                            'buyer'=>$value_log[0][0]['buyers'][0]['buyer'],
                                                             ],['target'=>'_blank','class'=>'dropdown-item']) ?>
                                                     
                                                 </div>
-                                            </div>
+                                            </div>                                            <?php } else { ?>
+                                              <div class="btn-group">
+                                                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      Purchase Requisition
+                                                  </button>
+                                                  <div class="dropdown-menu animated flipInX">
+                                                      
+                                                        <?= Html::a('<b>'.$value_log[0][0]['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                              'project'=>(string)$value_log[0][0]['_id'],
+                                                              'seller'=>$value_log[0][0]['sellers']['seller'],
+                                                             'buyer'=>$value_log[0][0]['buyers'][0]['buyer'],
+                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                      
+                                                  </div>
+                                              </div>
+                                            <?php } ?>
+
+
+
                                             <div class="btn-group">
                                                 <?= Html::a('File', ['file/index'],['class'=>'btn btn-primary']) ?>
                                             </div>

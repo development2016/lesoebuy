@@ -29,7 +29,7 @@ $this->title = 'Revise PO';
 
 
     <div class="form-group">
-        <?= Html::submitButton($projectModel->isNewRecord ? 'Submit' : 'Submit', ['class' => $projectModel->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($projectModel->isNewRecord ? 'Submit' : 'Submit', ['class' => $projectModel->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
     </div>
 
 

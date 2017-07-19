@@ -127,7 +127,12 @@ class Notification extends \yii\mongodb\ActiveRecord
                         [
                             'status_buyer' => 'Change Buyer'
                         ],
-
+                        [
+                            'status_approver' => 'Reject PR'
+                        ],
+                        [
+                            'status_approver' => 'Resubmit Approval'
+                        ],
 
                     ]
 
@@ -181,6 +186,12 @@ class Notification extends \yii\mongodb\ActiveRecord
                         ],
                         [
                             'status_buyer' => 'Change Buyer'
+                        ],
+                        [
+                            'status_approver' => 'Reject PR'
+                        ],
+                        [
+                            'status_approver' => 'Resubmit Approval'
                         ],
                         
 

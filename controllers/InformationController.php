@@ -1212,6 +1212,21 @@ class InformationController extends Controller
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
 
+        if (empty($model['sellers'][0]['warehouses'][0]['country'])) {
+
+            $country = 0;
+            
+        } else {
+            $country = $model['sellers'][0]['warehouses'][0]['country'];
+        }
+
+        if (empty($model['sellers'][0]['warehouses'][0]['state'])) {
+            $state = 0;
+        } else {
+            $state = $model['sellers'][0]['warehouses'][0]['state'];
+        }
+ 
+
         $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
 
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
@@ -1275,7 +1290,9 @@ class InformationController extends Controller
                 'project' => $project,
                 'seller' => $seller,
                 'model' => $model,
-                'buyer' => $buyer
+                'buyer' => $buyer,
+                'country' => $country,
+                'state' => $state
             ]);
         }
 
@@ -1911,6 +1928,7 @@ class InformationController extends Controller
             $collectionLog->insert([
                 'status' => 'Cancel PR',
                 'date_cancel_pr' => date('Y-m-d h:i:s'),
+                'by'  => $buyer,
                 unserialize($dataCancelLog)
 
             ]);
@@ -2237,6 +2255,7 @@ class InformationController extends Controller
             $collectionLog->insert([
                 'status' => 'Revise PO',
                 'date_revise_po' => date('Y-m-d h:i:s'),
+                'by' => $buyer,
                 unserialize($dataReviseLog)
 
             ]);

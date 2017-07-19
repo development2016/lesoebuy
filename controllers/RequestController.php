@@ -75,6 +75,9 @@ class RequestController extends Controller
                             [
                                 'sellers.status' => 'Reject PR'
                             ],
+                            [
+                                'sellers.status' => 'PO Revise'
+                            ],
 
                     ],
                     '$and' => [
@@ -136,12 +139,37 @@ class RequestController extends Controller
 
         ]);
 
+        $collectionLog = Yii::$app->mongo->getCollection('log');
+        $log = $collectionLog->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            'by' => $user->account_name
+                        ],
 
+                            
+                    ],
+                    '$or' => [
+                        [
+                            'status' => 'Revise PO'
+                        ],
+
+                    ],
+
+                    
+                ]
+            ],
+
+
+
+        ]);
 
 
         return $this->render('index',[
             'model' => $model,
-            'user'=> $user
+            'user'=> $user,
+            'log'=> $log
 
 
         ]);
@@ -255,11 +283,41 @@ class RequestController extends Controller
 
 		]);
 
+        $collectionLog = Yii::$app->mongo->getCollection('log');
+        $log = $collectionLog->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            'by' => $user->account_name
+                        ],
+
+                            
+                    ],
+                    '$or' => [
+                        [
+                            'status' => 'Approve'
+                        ],
+
+                    ],
+
+                    
+                ]
+            ],
+
+
+
+        ]);
+
+
+
+
 
 
         return $this->render('request',[
         	'model' => $model,
             'user' => $user,
+            'log' => $log,
 
         ]);
 
@@ -1355,7 +1413,7 @@ class RequestController extends Controller
             $collectionLog->insert([
                 'status' => 'Approve',
                 'date_approve' => date('Y-m-d h:i:s'),
-                'approve_by' => $approval_info->account_name,
+                'by' => $approval_info->account_name,
                 unserialize($dataApproveLog)
 
             ]);
@@ -2450,11 +2508,29 @@ class RequestController extends Controller
             $collectionLog->insert([
                 'status' => 'Reject PR',
                 'date_reject' => date('Y-m-d h:i:s'),
-                'reject_by' => $user->account_name,
+                'by' => $user->account_name,
                 unserialize($dataRejectPrLog)
 
             ]);
 
+            $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+            $notify->status_buyer = 'Active';
+            $notify->status_approver = 'Reject PR';
+            $notify->details = $dataRejectPr[0]['sellers']['purchase_requisition_no'];
+            $notify->date_request = date('Y-m-d H:i:s');
+            $notify->project_no = $dataRejectPr[0]['project_no'];
+            $notify->project_id = $newProject_id;
+            $notify->from_who = $dataRejectPr[0]['sellers']['approval'][0]['approval'];
+            $notify->to_who = $dataRejectPr[0]['buyers'][0]['buyer'];
+            $notify->date_create = date('Y-m-d H:i:s');
+            $notify->read_unread = 0;
+            $notify->url = 'request/direct-purchase-requisition-resubmit';
+            $notify->seller = $dataRejectPr[0]['sellers']['seller'];
+            $notify->approver = $dataRejectPr[0]['sellers']['approver'];;
+
+
+            $notify->save();
 
 
 
@@ -2672,6 +2748,42 @@ class RequestController extends Controller
             
             ];
         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+        $dataRevisePo = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            '_id' => $newProject_id
+                        ],
+                        [
+                            'sellers.seller' => $seller,
+                        ],
+                    ],
+                    
+                ]
+            ],
+
+
+        ]); 
+
+        $dataRevisePoLog = serialize($dataRevisePo);
+
+
+        $collectionLog = Yii::$app->mongo->getCollection('log');
+        $collectionLog->insert([
+            'status' => 'PO Regenerate',
+            'date' => date('Y-m-d h:i:s'),
+            'by' => $buyer,
+            unserialize($dataRevisePoLog)
+
+        ]);
+
+
+
 
         return $this->redirect([
             'request/direct-purchase-order',
