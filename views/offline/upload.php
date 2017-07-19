@@ -28,7 +28,7 @@ $this->title = 'Upload File';
 
 	    <?= $form->field($model, 'file')->fileInput() ?>
 
-	    <button class="btn btn-primary" id="myButton" data-loading-text="Loading..." >Upload</button>
+	    <button class="btn btn-info" id="myButton" data-loading-text="Loading..." >Upload</button>
 
 
 	<?php ActiveForm::end() ?>

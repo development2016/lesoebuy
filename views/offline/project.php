@@ -88,6 +88,9 @@ $this->params['breadcrumbs'][] = $this->title;
             	<h6 class="card-subtitle">Description About Panel</h6> 
 
             		<?php $form = ActiveForm::begin(); ?>
+            		
+            		<?=$form->errorSummary($model);?>
+
                     <div id="accordion" class="nav-accordion" role="tablist" aria-multiselectable="true">
                         <div class="card">
                             <div class="card-header" role="tab" id="headingOne">

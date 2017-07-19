@@ -74,9 +74,16 @@ class CompanyOffline extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['company_name', 'company_registeration_no', 'address', 'zip_code', 'country', 'state', 'city', 'telephone_no', 'fax_no', 'email', 'website', 'tax','type_of_tax','date_create','date_update','enter_by','update_by','term'], 'safe']
+            [['company_name', 'company_registeration_no', 'address', 'zip_code', 'country', 'state', 'city', 'telephone_no', 'fax_no', 'email', 'website', 'tax','type_of_tax','date_create','date_update','enter_by','update_by','term'], 'safe'],
+
+            ['tax', 'required', 'message' => 'Tax Is Required'],
+            ['state', 'required', 'message' => 'Please Choose State'],
+            ['country', 'required', 'message' => 'Please Choose Country'],
+            ['type_of_tax', 'required', 'message' => 'Please Choose Type Of Tax'],
         ];
     }
+
+
 
     /**
      * @inheritdoc

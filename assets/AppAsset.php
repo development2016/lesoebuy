@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'materialpro/css/colors/blue.css',
         'materialpro/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
         'materialpro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css',
+        'css/site.css'
         
 
     ];
