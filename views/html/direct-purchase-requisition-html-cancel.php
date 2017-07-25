@@ -15,6 +15,9 @@ use app\models\LookupState;
 
 
 
+$country = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
+$state = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
+
 
 
 
@@ -32,15 +35,13 @@ $this->registerJs($script);
 $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $showShipping = $sumShipping = $price = $showPrice = $sumPrice = 0;
 
 ?>
-
-
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-block">
 
 
-<div class="row">
+            <div class="row">
 
                 <div class="col-lg-3">
                     <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
@@ -122,10 +123,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                                         <?php } ?>
 
-
-
-
-
                                     <?php } ?>
 
                         </div>
@@ -141,7 +138,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="col-md-3">
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">PR No : </h4></div>
-                        <div class="col-md-7"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></h4></div>
+                        <div class="col-md-7"> <h4 class="bold"><b><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></b></h4></div>
                     </div>
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">Date : </h4></div>
@@ -152,8 +149,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         <div class="col-md-7"> <h4><?= $list[0]['sellers'][0]['term'] ?></h4></div>
                     </div>
                     <div class="row static-info">
-                        <div class="col-md-6"> <h4 class="bold">Delivery Before : </h4></div>
-                        <div class="col-md-6"> <h4>
+                        <div class="col-md-5"> <h4 class="bold">Delivery Before : </h4></div>
+                        <div class="col-md-7"> <h4>
                             <?php if (empty($list[0]['sellers'][0]['delivery_before'])) { ?>
 
                             <?php } else { ?>
@@ -169,9 +166,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
                 </div>
+
+
+            </div>
             <br>
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="table-responsive m-t-40" style="clear: both;">
                     <table class="table">
                         <thead>
                             <tr>
@@ -304,84 +305,70 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
                     </table>
+                    </div>
 
                 </div>
             </div>
             <hr>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h4>
+                            <span>Sub-Total : </span> 
+                            <span class="pull-right">
+                                <?php echo  number_format((float)$sumAmount,2,'.',','); ?>
+                                    
+                            </span>
+                        </h4>
+                        <h4>
+                            <span>Freight Charge : </span>
+                            <span class="pull-right">
+                                <?php echo  number_format((float)$sumShipping,2,'.',','); ?>
+                            </span>
+                        </h4>
+                        <h4>
+                            <span>Commissioning,Installation, & Training Charge (C.I.T) : </span>
+                            <span class="pull-right">
+                                <?php echo  number_format((float)$sumInstall,2,'.',','); ?>
+                            </span>
+                        </h4>
 
-            <div class="col-lg-12">
-                <h4>
-                    <span>Sub-Total : </span> 
-                    <span class="pull-right">
-                        <?php echo  number_format((float)$sumAmount,2,'.',','); ?>
-                            
-                    </span>
-                </h4>
-                <h4>
-                    <span>Freight Charge : </span>
-                    <span class="pull-right">
-                        <?php echo  number_format((float)$sumShipping,2,'.',','); ?>
-                    </span>
-                </h4>
-                <h4>
-                    <span>Commissioning,Installation, & Training Charge (C.I.T) : </span>
-                    <span class="pull-right">
-                        <?php echo  number_format((float)$sumInstall,2,'.',','); ?>
-                    </span>
-                </h4>
+                        <?php 
+                               $total = $sumAmount + $sumShipping + $sumInstall;
 
-                <?php 
-                       $total = $sumAmount + $sumShipping + $sumInstall;
+                               $deductGst = $total * ($list[0]['sellers'][0]['tax'] / 100 );
 
-                       $deductGst = $total * ($list[0]['sellers'][0]['tax'] / 100 );
+                                
+                        ?>
+                        <h4>
+                            <span><?= $list[0]['sellers'][0]['tax']; ?>% 
+                            <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?> : </span> <span class="pull-right font-red-sunglo bold">
 
-                        
-                ?>
-                <h4>
-                    <span><?= $list[0]['sellers'][0]['tax']; ?>% 
-                    <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?> : </span> <span class="pull-right font-red-sunglo bold">
+                                <?php  echo number_format((float)$deductGst,2,'.',','); ?>
+                                
+                            </span>
+                        </h4>
+                        <br>
+                        <h3>
+                            <span><b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>) : </span> <span class="pull-right bold">
+                                <?php
 
-                        <?php  echo number_format((float)$deductGst,2,'.',','); ?>
-                        
-                    </span>
-                </h4>
-                <br>
-                <h3>
-                    <span><b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>) : </span> <span class="pull-right bold">
-                        <?php
+                                    $grandTotal = $total + $deductGst;
+                                    echo number_format((float)$grandTotal,2,'.',','); 
 
-                            $grandTotal = $total + $deductGst;
-                            echo number_format((float)$grandTotal,2,'.',','); 
-
-                         ?>
-                    </span>
-                </h3>
-
-
-
-            </div>
+                                 ?>
+                            </span>
+                        </h3>
 
 
-            <br>
-            <div class="row">
-                <div class="col-lg-12">
 
+                    </div>
 
-               
                 </div>
-            </div>
-
-
-
-
-
-
-        </div>
-
-
 
 
             </div>
         </div>
     </div>
 </div>
+
+

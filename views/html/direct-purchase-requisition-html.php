@@ -138,7 +138,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="col-md-3">
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">PR No : </h4></div>
-                        <div class="col-md-7"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></h4></div>
+                        <div class="col-md-7"> <h4 class="bold"><b><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></b></h4></div>
                     </div>
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">Date : </h4></div>
@@ -172,6 +172,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             <br>
             <div class="row">
                 <div class="col-lg-12">
+                    <div class="table-responsive m-t-40" style="clear: both;">
                     <table class="table">
                         <thead>
                             <tr>
@@ -304,6 +305,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
                     </table>
+                    </div>
 
                 </div>
             </div>

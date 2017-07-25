@@ -64,8 +64,21 @@ $(document).ready(function(){
         $('#term').val(term);
 
 
-    });
+        $.ajax({
+            type: 'POST',
+            url: 'get',
+            data: {state_id: state},
+            success: function(data) {
+                $(".state").html(data);
+   
 
+            }
+
+        })
+
+
+
+    });
 
 
 
@@ -227,10 +240,11 @@ $this->params['breadcrumbs'][] = $this->title;
 							        $state, 
 							    [
 							        'prompt' => '-Select State-',
-							        'class' => 'form-control',
+							        'class' => 'form-control state',
 							        'id'=> 'state',
 
 							    ]) ?>
+
 
 							    <?= $form->field($model, 'city')->textInput(['id'=>'city']) ?>
 
@@ -265,7 +279,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 							    <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Submit', [
-							    'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info',
+							    'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info'
 
 							    ]) ?>
 

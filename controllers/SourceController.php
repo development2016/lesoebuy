@@ -127,6 +127,7 @@ class SourceController extends Controller
 
         $collectionLog = Yii::$app->mongo->getCollection('log');
         $log = $collectionLog->aggregate([
+
             [
                 '$match' => [
                     '$and' => [
@@ -145,14 +146,33 @@ class SourceController extends Controller
                         ],
                     ],
 
+
+                    
+                ]
+            ],
+            [
+
+                '$group' => [
+                    '_id' => '$project_no',
+                    'info' => [
+                        '$push' => [
+                            'status' => '$status',
+                            //'date_reject' => '$date_reject',
+                            'seller' => '$seller',
+                            'purchase_requisition_no' => '$purchase_requisition_no',
+                            'log_id' => '$_id',
+                            'by' => '$by',
+
+
+                        ]
+                    ],
+
                     
                 ]
             ],
 
 
-
         ]);
-
 
 
 
@@ -570,7 +590,7 @@ class SourceController extends Controller
 
 
 
-        public function actionState($id)
+    public function actionState($id)
     {
         $countPosts = LookupState::find()
         ->where(['country_id' => $id])
@@ -591,9 +611,35 @@ class SourceController extends Controller
 
     }
 
+    public function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['index']);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Project::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 
 
+    public function actionGet()
+    {
 
+        $posts = LookupState::find()
+        ->where(['id' => $_POST['state_id']])
+        ->all();
+
+
+            foreach($posts as $post){
+                echo "<option value='".$post->id."'>".$post->state."</option>";
+            }
+    }
 
 
 }

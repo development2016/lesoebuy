@@ -363,7 +363,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="row">
                     <div class="col-lg-12">
 
-
+                    <?= Html::a('REJECT PR',FALSE, ['value'=>Url::to([
+                    'request/reject-pr-next',
+                    'seller'=>$seller,
+                    'project'=> (string)$project,
+                    'approver'=>$approver,
+                    'buyer'=> $buyer,
+                    ]),'class' => 'btn btn-warning','id'=>'reject','style'=>'color:#fff;']) ?>
 
 
                         <?= Html::a('APPROVE', [
@@ -372,7 +378,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         'project'=> (string)$project,
                         'approver' => $approver,
                         ], [
-                        'class' => 'btn btn-primary pull-right',
+                        'class' => 'btn btn-info pull-right',
 
                         ]) ?>
                     </div>

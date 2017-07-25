@@ -45,7 +45,17 @@ $(document).ready(function(){
         $('#longitude').val(longitude);
         $('#email').val(email);
 
+        $.ajax({
+            type: 'POST',
+            url: 'get',
+            data: {state_id: state},
+            success: function(data) {
+                $(".state").html(data);
+   
 
+            }
+
+        })
 
 
 
@@ -85,7 +95,7 @@ $this->registerJs($script);
                 $state, 
             [
                 'prompt' => '-Select State-',
-                'class' => 'form-control',
+                'class' => 'form-control state',
                 'id'=> 'state',
 
             ])->label('State') ?>

@@ -280,7 +280,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="col-md-3">
                     <div class="row static-info">
                         <div class="col-md-6"> <h4 class="bold">PR No : </h4></div>
-                        <div class="col-md-6"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></h4></div>
+                        <div class="col-md-6"> <h4 class="bold"><b><?= $list[0]['sellers'][0]['purchase_requisition_no'] ?></b></h4></div>
                     </div>
                     <div class="row static-info">
                         <div class="col-md-6"> <h4 class="bold">Date : </h4></div>
@@ -643,7 +643,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         'project'=> (string)$project,
                         'approver'=>$approver,
                         'buyer'=> $buyer,
-                        ]),'class' => 'btn btn-primary pull-right','id'=>'rqapp','style'=>'color:#fff;']) ?>
+                        ]),'class' => 'btn btn-info pull-right','id'=>'rqapp','style'=>'color:#fff;']) ?>
 
 
 

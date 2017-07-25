@@ -42,7 +42,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Html::a($value['details'], [$value['url'],
                             'project' => (string)$value['project_id'],
                             'seller' => $value['seller'],
-                            'buyer' => $value['from_who'],
+                            'buyer' => $value['to_who'],
                             'approver' => $value['approver'],
 
 

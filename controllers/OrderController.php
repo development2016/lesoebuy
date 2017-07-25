@@ -73,6 +73,7 @@ class OrderController extends Controller
                             'approval' => '$sellers.approval',
                             'seller' => '$sellers.seller',
                             'revise' => '$sellers.revise',
+                            'last_id_approve_in_log' => '$sellers.last_id_approve_in_log',
                             'items' => '$sellers.items',
                             
                         ],

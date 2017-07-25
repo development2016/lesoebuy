@@ -581,6 +581,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
             
 
@@ -671,6 +675,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
 
 
@@ -782,6 +790,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
             
 
@@ -892,6 +904,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
 
             
@@ -1003,6 +1019,9 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
 
 
@@ -1112,6 +1131,9 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
             
 
@@ -1198,6 +1220,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer']]);
+                
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $data[0]['buyers'][0]['buyer'],'approver'=>$approver]);
             }
 
 
@@ -1278,6 +1304,10 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer]);
+
+            } else if ($path == 'resubmitnext') {
+                
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
             }
 
 
@@ -1814,6 +1844,16 @@ class InformationController extends Controller
                     'seller'=>$seller,
                     'buyer' => $process[0]['buyers'][0]['buyer']
                 ]);
+
+            } elseif ($path == 'resubmitnext') {
+
+                return $this->redirect([
+                    'request/direct-purchase-requisition-resubmit-next', 
+                    'project' => (string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer'],
+                    'approver' => $approver
+                ]);
             }
 
 
@@ -1929,6 +1969,9 @@ class InformationController extends Controller
                 'status' => 'Cancel PR',
                 'date_cancel_pr' => date('Y-m-d h:i:s'),
                 'by'  => $buyer,
+                'project_no' => $dataCancel[0]['project_no'],
+                'seller' => $dataCancel[0]['sellers']['seller'],
+                'purchase_requisition_no' => $dataCancel[0]['sellers']['purchase_requisition_no'],
                 unserialize($dataCancelLog)
 
             ]);
@@ -2010,6 +2053,9 @@ class InformationController extends Controller
             } else if ($path == 'revise') {
 
                 return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer]);
+
+            } else if ($path == 'resubmitnext') {
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
             }
             
 
@@ -2096,6 +2142,11 @@ class InformationController extends Controller
                 return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
 
                
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
+
+               
             }
 
 
@@ -2157,7 +2208,7 @@ class InformationController extends Controller
             ]   
 
         ]); 
-
+        $data_revise = serialize($data[0]['sellers']);
 
         
 
@@ -2181,6 +2232,7 @@ class InformationController extends Controller
                                     'revise_po' => [
                                         'remark' => $_POST['Project']['sellers']['remark'],
                                         'po_no' => $data[0]['sellers'][0]['purchase_order_no'],
+                                        'data_revise' => unserialize($data_revise)
 
                                     ]
 
@@ -2209,6 +2261,7 @@ class InformationController extends Controller
                                 'revise_po' => [
                                     'remark' => $_POST['Project']['sellers']['remark'],
                                     'po_no' => $data[0]['sellers'][0]['purchase_order_no'],
+                                    'data_revise' => unserialize($data_revise)
 
                                 ]
 
@@ -2256,6 +2309,9 @@ class InformationController extends Controller
                 'status' => 'Revise PO',
                 'date_revise_po' => date('Y-m-d h:i:s'),
                 'by' => $buyer,
+                'project_no' => $dataRevise[0]['project_no'],
+                'seller' => $dataRevise[0]['sellers']['seller'],
+                'purchase_requisition_no' => $dataRevise[0]['sellers']['purchase_requisition_no'],
                 unserialize($dataReviseLog)
 
             ]);

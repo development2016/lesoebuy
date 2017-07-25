@@ -313,7 +313,12 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
                                 'visible' => User::checkMenu('3002'),
                             ],
-
+                            [
+                                'label' => 'History', 
+                                'url' => ['#'],
+                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'visible' => User::checkMenu('3012'),
+                            ],
 
 
                         ],

@@ -7,3 +7,10 @@ div.error-summary  {
 	color: red;
 	font-size: 14px;
 }
+
+div.help-block {
+	color: red;
+	font-size: 12px;
+	margin-top: 10px;
+
+}

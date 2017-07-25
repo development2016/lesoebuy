@@ -128,9 +128,8 @@ $this->registerJs($script);
                                                         </button>
                                                         <div class="dropdown-menu animated flipInX">
                                                             
-                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                                            'project'=>(string)$value['_id'],
-                                                                            'seller'=>$value2['seller'],
+                                                              <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html-inactive',
+                                                                            'log_id'=>(string)$value2['last_id_approve_in_log'],
                                                                            'buyer'=>$value['buyers'][0]['buyer'],
                                                                             ],['target'=>'_blank','class'=>'dropdown-item']) ?>
                                                             

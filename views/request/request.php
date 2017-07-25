@@ -280,17 +280,18 @@ $this->registerJs($script);
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value['buyers'][0]['buyer'],
                                                                       'approver'=>$value2['approver'],
-                                                                      ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
 
                                                                     </td>
@@ -513,17 +514,18 @@ $this->registerJs($script);
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value['buyers'][0]['buyer'],
                                                                       'approver'=>$value2['approver'],
-                                                                      ],['class'=>'btn btn-default','title'=>'Purchase Requisition']) ?>
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="javascript:;" aria-expanded="false"> Details File
-                                                                              <i class="fa fa-angle-down"></i>
-                                                                          </a>
-                                                                          <ul class="dropdown-menu">
-                                        
-                                    
-                                                                          </ul>
-                                                                      </div>
+                                                                    <div class="btn-group">
+                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                            File
+                                                                        </button>
+                                                                        <div class="dropdown-menu animated flipInX">
+                                                                            
+                                                                            
+                                                                            
+                                                                        </div>
+                                                                    </div>
 
 
                                                                     </td>
@@ -627,16 +629,41 @@ $this->registerJs($script);
 
                                                                       </td>
 
+                                                                <?php } elseif ($value2['status'] == 'Reject PR') { ?>
+
+                                                                  <td><?php echo $value2['status']; ?></td>
+                                                                  <td>
+                                                                        <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
+                                                                          'project'=>(string)$value['_id'],
+                                                                          'seller'=>$value2['seller'],
+                                                                          'buyer'=>$value['buyers'][0]['buyer'],
+                                                                          'approver' => $value2['approver'],
+                                                                          ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+
+                                                                        <div class="btn-group">
+                                                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                                File
+                                                                            </button>
+                                                                            <div class="dropdown-menu animated flipInX">
+                                                                                
+                                                                                
+                                                                                
+                                                                            </div>
+                                                                        </div>
+
+
+                                                                  </td>
+
 
                                                                 <?php } elseif ($value2['status'] == 'Request Approval Next') { ?>
 
-                                                                    <td>
-                                                                      <?php foreach ($value2['approval'] as $key => $app) { ?>
-                                                                        <?= $app['approval']; ?> : <?= $app['status']; ?>
-                                                                        <br>
-                                                                      <?php } ?>
+                                                                  <td>
+                                                                    <?php foreach ($value2['approval'] as $key => $app) { ?>
+                                                                      <?= $app['approval']; ?> : <?= $app['status']; ?>
+                                                                      <br>
+                                                                    <?php } ?>
 
-                                                                    </td>
+                                                                  </td>
                                                                   <td>
                                                                     <?php foreach ($value2['approval'] as $key => $app) { ?>
 
