@@ -147,6 +147,9 @@ $this->registerJs($script);
                        
                                                   </div>
 
+                                                  <?= Html::a('File', ['file/index',
+                                                    'project'=>(string)$value['_id'],
+                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
                                               
                                                 <?= Html::a('Delete', ['source/delete',
@@ -163,6 +166,10 @@ $this->registerJs($script);
                                                     'approver'=>$value2['approver'],
                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                     ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+
+                                                  <?= Html::a('File', ['file/index',
+                                                    'project'=>(string)$value['_id'],
+                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
                                      
 
                                                 <?php }  ?>
@@ -248,16 +255,9 @@ $this->registerJs($script);
                                                     </div>
                                                 </div>
 
-                                              <div class="btn-group">
-                                                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                      File
-                                                  </button>
-                                                  <div class="dropdown-menu animated flipInX">
-                                                      
-                                                      
-                                                      
-                                                  </div>
-                                              </div>
+                                                <?= Html::a('File', ['file/index',
+                                                'project'=>(string)$value_info['project'][0]['_id'],
+                                                ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
 
 

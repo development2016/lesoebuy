@@ -162,6 +162,7 @@ class SourceController extends Controller
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'log_id' => '$_id',
                             'by' => '$by',
+                            'project' => '$0'
 
 
                         ]
@@ -173,6 +174,7 @@ class SourceController extends Controller
 
 
         ]);
+
 
 
 

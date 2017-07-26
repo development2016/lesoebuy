@@ -143,6 +143,7 @@ class OfflineController extends Controller
 
         if ($model3->load(Yii::$app->request->post()) && $model->load(Yii::$app->request->post()) ) {
 
+
                 if (empty($_POST['Project']['document'])) {
 
                     $model3->sellers = [[
@@ -355,15 +356,32 @@ $model->file->saveAs(Yii::getAlias('@webroot/offline/'.$company->_id).'/'.'direc
     }
 
 
-    public function actionView($id,$filename,$project)
+    public function actionView($id,$filename,$project,$extension)
     {
         $model2 = Uploads::find()->where([
                 'id'=>$id,
-                'filename' => $filename
+                'filename' => $filename,
+                'project_no' => $project
             ]
         )
         ->one();
-        echo $model2->filename;
+
+
+        $file = Yii::$app->request->baseUrl.'/offline/'.$model2->company_id.'/'.$model2->path.'/'.$model2->filename;
+
+
+        if ($extension == 'pdf') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='pdf' >";
+        } elseif ($extension == 'xlsx') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='xlsx' >";
+        } elseif ($extension == 'docx') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='xlsx' >";
+
+        } else {
+            echo $model2->filename;
+        }
+
+
     }
 
 

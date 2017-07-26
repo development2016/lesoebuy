@@ -27,12 +27,55 @@ class FileController extends Controller
 {
 
 
-    public function actionIndex()
+    public function actionIndex($project)
     {
+    	$newProject_id = new \MongoDB\BSON\ObjectID($project);
+        $collection = Yii::$app->mongo->getCollection('project');
+        $file = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            '_id' => $newProject_id
+                        ],
 
-        return $this->render('index');
+                           
+                    ],
+
+                ]
+            ],
+
+        ]);
+
+
+
+        $model = $file[0]['sellers'][0]['direct_purchase'];
+
+
+
+
+        return $this->render('index',[
+        	'model' => $model,
+        ]);
     }
 
+
+    public function actionView($path,$extension)
+    {   
+        $file = Yii::$app->request->baseUrl.'/offline/'.$path;
+
+        if ($extension == 'pdf') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='pdf' >";
+        } elseif ($extension == 'xlsx') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='xlsx' >";
+        } elseif ($extension == 'docx') {
+            echo "<embed src='".$file."' style='width:100%;height:100%;' alt='xlsx' >";
+
+        } else {
+        
+        }
+    
+    }
 
 
 

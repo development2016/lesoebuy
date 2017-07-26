@@ -137,16 +137,9 @@ $this->registerJs($script);
                                                     </div>
 
 
-                                                    <div class="btn-group">
-                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                            File
-                                                        </button>
-                                                        <div class="dropdown-menu animated flipInX">
-                                                            
-                                                            
-                                                            
-                                                        </div>
-                                                    </div>
+                                                    <?= Html::a('File', ['file/index',
+                                                    'project'=>(string)$value['_id'],
+                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
                                              
 

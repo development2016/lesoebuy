@@ -184,6 +184,7 @@ class RequestController extends Controller
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'log_id' => '$_id',
                             'by' => '$by',
+                            'project' => '$0'
 
 
                         ]

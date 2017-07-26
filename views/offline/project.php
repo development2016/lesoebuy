@@ -145,7 +145,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						    <?php } ?>
 
 							<div class="pull-right">
-				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-info uploads','id'=>'','title'=>'Upload Image','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
+				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-sm btn-info uploads','id'=>'','title'=>'Upload Image','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
 
 				            </div>
 
@@ -154,24 +154,37 @@ $this->params['breadcrumbs'][] = $this->title;
 						    	<thead>
 							    	<tr>
 							        	<th>Filename</th>
-							        	<th>Path</th>
-							        	<th>Date Create</th>
+							        	<th>Date Upload</th>
 							        	<th>Action</th>
 							        </tr>
 						    	</thead>
 						    	<tbody>
 						       	<?php foreach ($model2 as $key => $value) { ?>
 						       	<tr>
-						       		<td><?= $value['filename']; ?></td>
-						       		<td><?= $value['path']; ?></td>
+						       		<td>
+						       		
+						       		<?php if ($value['extension'] == 'pdf') { ?>
+						       			<i class="mdi mdi-file-pdf-box" style="color: red;font-size:30px;"></i>
+						       		<?php } elseif ($value['extension'] == 'xlsx') { ?>
+						       			<i class="mdi mdi-file-excel-box" style="color: green;font-size:30px;"></i>
+						       		<?php } elseif ($value['extension'] == 'docx') { ?>
+						       			<i class="mdi mdi-file-word-box" style="color: blue;font-size:30px;"></i>
+						       		<?php } else { ?>
+						       			<i class="mdi mdi-file"></i>
+						       		<?php } ?>
+						    
+
+
+						       		<?= $value['filename']; ?></td>
 						       		<td><?= $value['date_create']; ?></td>
 						       		<td>
 						   
 						       			<?= Html::a('View', ['view', 
 						       				'id' => $value->id,
 						       				'filename' => $value->filename,
-						       				'project' => $project,
-						       				], ['class' => 'btn btn-warning btn-sm','title'=>'View Upload File']) ?>
+						       				'project' => $value->project_no,
+						       				'extension' => $value->extension,
+						       				], ['class' => 'btn btn-warning btn-sm','title'=>'View Upload File','target' => '_BLANK']) ?>
 
 						       		
 
@@ -193,11 +206,12 @@ $this->params['breadcrumbs'][] = $this->title;
 
 					       	<?php foreach ($model2 as $key => $value) { ?>
 
-					       	<?= $form->field($model3, 'document[filename][]')->hiddenInput(['value'=>$value['filename']])->label(false) ?>
-					       	<?= $form->field($model3, 'document[path][]')->hiddenInput(['value'=>$value['path']])->label(false) ?>
-					       	<?= $form->field($model3, 'document[company_id][]')->hiddenInput(['value'=>$value['company_id']])->label(false) ?>
-					       	<?= $form->field($model3, 'document[date_create][]')->hiddenInput(['value'=>$value['date_create']])->label(false) ?>
+					       	<?php $data = $value['company_id'].$value['path'].$value['filename']; ?>
 
+					       		<?= $form->field($model3, 'document[filename]['.$key.'][file]')->hiddenInput(['value'=>$value['filename']])->label(false) ?>
+					       		<?= $form->field($model3, 'document[filename]['.$key.'][path]')->hiddenInput(['value'=>$data])->label(false) ?>
+					       		<?= $form->field($model3, 'document[filename]['.$key.'][ext]')->hiddenInput(['value'=>$value['extension']])->label(false) ?>
+					       		<?= $form->field($model3, 'document[filename]['.$key.'][date_create]')->hiddenInput(['value'=>$value['date_create']])->label(false) ?>
 
 					        <?php } ?>
 

@@ -114,16 +114,9 @@ $this->registerJs($script);
                                                                           'approver' => $value2['approver'],
                                                                           ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                  <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                            File
-                                                                        </button>
-                                                                        <div class="dropdown-menu animated flipInX">
-                                                                            
-                                                                            
-                                                                            
-                                                                        </div>
-                                                                    </div>
+                                                                  <?= Html::a('File', ['file/index',
+                                                                  'project'=>(string)$value['_id'],
+                                                                  ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
 
                                                                     </td>
@@ -142,16 +135,9 @@ $this->registerJs($script);
                                                                       'approver'=>$value2['approver'],
                                                                       ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                      <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                              File
-                                                                          </button>
-                                                                          <div class="dropdown-menu animated flipInX">
-                                                                              
-                                                                              
-                                                                              
-                                                                          </div>
-                                                                      </div>
+                                                                      <?= Html::a('File', ['file/index',
+                                                                      'project'=>(string)$value['_id'],
+                                                                      ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
 
                                                                     </td>
@@ -187,16 +173,9 @@ $this->registerJs($script);
 
 
 
-                                                                          <div class="btn-group">
-                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                  File
-                                                                              </button>
-                                                                              <div class="dropdown-menu animated flipInX">
-                                                                                  
-                                                                                  
-                                                                                  
-                                                                              </div>
-                                                                          </div>
+                                                                          <?= Html::a('File', ['file/index',
+                                                                          'project'=>(string)$value['_id'],
+                                                                          ],['class'=>'btn btn-primary','title'=>'File']) ?>
                                                                             
                                                                           <?php } else { ?>
 
@@ -207,16 +186,9 @@ $this->registerJs($script);
                                                                                 'approver' => $value2['approver'],
                                                                                 ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
 
-                                                                            <div class="btn-group">
-                                                                              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                  File
-                                                                              </button>
-                                                                              <div class="dropdown-menu animated flipInX">
-                                                                                  
-                                                                                  
-                                                                                  
-                                                                              </div>
-                                                                          </div>
+                                                                            <?= Html::a('File', ['file/index',
+                                                                            'project'=>(string)$value['_id'],
+                                                                            ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
                                                                           <?php } ?>
                                                                           
@@ -226,7 +198,31 @@ $this->registerJs($script);
 
                                                                   </td>
 
+                                                                <?php } elseif ($value2['status'] == 'Reject PR') { ?>
 
+                                                                    <td>
+                                                                        <?php echo $value2['status']; ?>
+                                                                        <br>
+                                                                        <?php foreach ($value2['approval'] as $key => $app) { ?>
+                                                                        <?= $app['approval']; ?> : <?= $app['status']; ?>
+                                                                        <br>
+                                                                      <?php } ?>
+                                                                    </td>
+                                                                    <td>
+                                                                      
+                                                                      <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
+                                                                      'project'=>(string)$value['_id'],
+                                                                      'seller'=>$value2['seller'],
+                                                                      'buyer'=>$value['buyers'][0]['buyer'],
+                                                                      'approver'=>$value2['approver'],
+                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+
+                                                                      <?= Html::a('File', ['file/index',
+                                                                      'project'=>(string)$value['_id'],
+                                                                      ],['class'=>'btn btn-primary','title'=>'File']) ?>
+
+
+                                                                    </td>
 
                                                                 <?php } ?>
 
