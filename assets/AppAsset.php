@@ -23,7 +23,11 @@ class AppAsset extends AssetBundle
         'materialpro/css/colors/blue.css',
         'materialpro/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
         'materialpro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css',
-        'css/site.css'
+        'css/site.css',
+        'materialpro/assets/plugins/chartist-js/dist/chartist.min.css',
+        'materialpro/assets/plugins/chartist-js/dist/chartist-init.css',
+        'materialpro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.css',
+        'materialpro/assets/plugins/c3-master/c3.min.css',
         
 
     ];
@@ -36,11 +40,21 @@ class AppAsset extends AssetBundle
         'materialpro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js',
         'materialpro/assets/plugins/sparkline/jquery.sparkline.min.js',
         'materialpro/js/custom.min.js',
-        'materialpro/assets/plugins/styleswitcher/jQuery.style.switcher.js',
+        
         'materialpro/assets/plugins/datatables/jquery.dataTables.min.js',
         'materialpro/assets/plugins/moment/moment.js',
+
         'materialpro/assets/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js',
         'materialpro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js',
+        'materialpro/assets/plugins/chartist-js/dist/chartist.min.js',
+        'materialpro/assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js',
+        'materialpro/assets/plugins/d3/d3.min.js',
+        'materialpro/assets/plugins/c3-master/c3.min.js',
+        'js/dashboard1.js',
+        'materialpro/assets/plugins/styleswitcher/jQuery.style.switcher.js',
+
+
+
 
     ];
     public $depends = [

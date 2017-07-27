@@ -98,7 +98,13 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        return $this->render('index');
+
+        $user = User::find()->where('id != :id and username != :username', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin'])->all();
+        //$user = User::find()->where('id != :id', ['id'=>Yii::$app->user->identity->id])->all();
+
+        return $this->render('index',[
+            'user' => $user,
+        ]);
     }
 
     /**
@@ -114,6 +120,14 @@ class SiteController extends Controller
         $this->layout = 'login';
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
+
+            $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
+
+            $user->status_login = 1;
+
+            $user->save();
+
             return $this->goBack();
         }
         return $this->render('login', [
@@ -136,6 +150,14 @@ class SiteController extends Controller
      */
     public function actionLogout()
     {
+
+        $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
+
+        $user->status_login = 0;
+
+        $user->save();
+
+
         Yii::$app->user->logout();
 
         return $this->goHome();
@@ -213,6 +235,7 @@ class SiteController extends Controller
             $model->as_a = 300; // as buyer
             $model->password_hash = Yii::$app->security->generatePasswordHash($_POST['User']['password_hash']);
             $model->account_name = $_POST['User']['username'].'@'.$asiano;
+            $model->status_login = 0;
             
             if ($model->save()) {
 
@@ -226,6 +249,7 @@ class SiteController extends Controller
                 $model2->asia_ebuy_no = $asiano.'@'.$_POST['Company']['city'].','.$state->state.'.'.$country->code;
                 $model2->warehouses = [];
                 $model2->status = "In Progress";
+
 
                 $model2->save();
 
@@ -313,6 +337,7 @@ class SiteController extends Controller
             $model->as_a = 200; // as seller
             $model->password_hash = Yii::$app->security->generatePasswordHash($_POST['User']['password_hash']);
             $model->account_name = $_POST['User']['username'].'@'.$asiano;
+            $model->status_login = 0;
 
             if ($model->save()) {
 
