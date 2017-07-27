@@ -1100,7 +1100,7 @@ class GenerateController extends Controller
 
                         $collectionLog = Yii::$app->mongo->getCollection('log');
                         $collectionLog->insert([
-                            'status' => 'Resubmit Approval',
+                            'status' => 'Request Approval Next',
                             'date_request' => date('Y-m-d h:i:s'),
                             'by' => $buyer,
                             'project_no' => $dataRequest[0]['project_no'],
@@ -1475,7 +1475,7 @@ class GenerateController extends Controller
 
         $collectionLog = Yii::$app->mongo->getCollection('log');
         $collectionLog->insert([
-            'status' => 'Request Approval',
+            'status' => 'Request Approval Next',
             'date_request' => date('Y-m-d h:i:s'),
             'by' => $buyer,
             'project_no' => $dataRequestNext[0]['project_no'],

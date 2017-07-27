@@ -229,15 +229,36 @@ $this->registerJs($script);
                                 <table class="table table-bordered" >
                                     <thead class="thead-default">
                                       <tr>
-                                          <th>Status</th>
                                           <th>Seller Name</th>
+                                          <th>Status</th>
+                                          <th>Date</th>
                                           <th>Action</th>
                                       </tr>
                                     </thead>
                                     <tbody>
                                       <tr>
-                                          <td><?= $value_info['status'] ?></td>
                                           <td><?= $value_info['seller'] ?></td>
+                                          <td>
+                                          <?php if ($value_info['status'] == 'Request Approval') { ?>
+
+                                              <span class="label label-info"><?= $value_info['status'] ?></span>
+
+                                          <?php } elseif ($value_info['status'] == 'Cancel PR') { ?>
+
+                                              <span class="label" style="background-color: #e2422b;"><?= $value_info['status'] ?></span>
+
+                                          <?php } ?>
+
+                                          </td>
+                                          <td>
+                                          <?php if ($value_info['status'] == 'Request Approval') { ?>
+                                              <span class="label label-inverse"><?= $value_info['date_request'] ?></span>
+
+                                          <?php } elseif ($value_info['status'] == 'Cancel PR') { ?>
+                                              <span class="label label-inverse"><?= $value_info['date_cancel_pr'] ?></span>
+
+                                          <?php } ?>
+                                          </td>
                                           <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

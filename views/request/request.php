@@ -700,48 +700,50 @@ $this->registerJs($script);
                             <th>No</th>
                             <th>Project No</th>
                             <th>Details</th>
-                            <th>Information</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php $i=0; foreach ($log as $key_log => $value_log) { $i++;?>
                         <tr>
                           <td><?= $i; ?></td>
-                          <td><?= $value_log[0][0]['project_no']; ?></td>
+                          <td><?= $value_log['_id']; ?></td>
                           <td>
-                              <ul class="list-group">
-                                  <li class="list-group-item"><b>Title</b> : <?= $value_log[0][0]['title']; ?></li>
-                                  <li class="list-group-item"><b>Description</b> : <?= $value_log[0][0]['description']; ?></li>
-                                  <li class="list-group-item"><b>Due Date</b> : <?= $value_log[0][0]['due_date']; ?></li>
-                                  <li class="list-group-item"><b>Date Create</b> : <?= $value_log[0][0]['date_create']; ?></li>
-
-                              </ul>
-
-                          </td>
-                          <td>
+                              <?php foreach ($value_log['info'] as $key_info => $value_info) { ?>
                               <table class="table table-bordered" >
                                   <thead class="thead-default">
                                     <tr>
                                         <th>Seller Name</th>
                                         <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Request From</th>
                                         <th>Action</th>
                                     </tr>
                                   </thead>
                                   <tbody>
                                     <tr>
+                                      
+                                        <td><?= $value_info['seller'] ?></td>
                                         <td>
-                                          <?php if (empty($value_log[0][0]['sellers']['seller'])) {
-                                            
-                                          } else {
+                                          <?php if ($value_info['status'] == 'Reject PR') { ?>
 
-                                            echo $value_log[0][0]['sellers']['seller'];
+                                              <span class="label label-warning"><?= $value_info['status'] ?></span>
+  
+                                          <?php } elseif ($value_info['status'] == 'Approve') { ?>
 
-                                          }?>
-                                          
+                                              <span class="label" style="background-color: #2eb300;"><?= $value_info['status'] ?></span>
+                                              
+                                          <?php } ?>
                                         </td>
                                         <td>
-                                            <?php echo $value_log[0][0]['sellers']['status']; ?>
+                                          <?php if ($value_info['status'] == 'Reject PR') { ?>
+                                              <span class="label label-inverse"><?= $value_info['date_reject'] ?></span>
+
+                                          <?php } elseif ($value_info['status'] == 'Approve') { ?>
+                                              <span class="label label-inverse"><?= $value_info['date_approve'] ?></span>
+
+                                          <?php } ?>
                                         </td>
+                                        <td><?= $value_info['project']['0']['buyers'][0]['buyer']; ?></td>
                                         <td>
 
                                               <div class="btn-group">
@@ -749,12 +751,12 @@ $this->registerJs($script);
                                                       Purchase Requisition
                                                   </button>
                                                   <div class="dropdown-menu animated flipInX">
-                                                      
-                                                        <?= Html::a('<b>'.$value_log[0][0]['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                              'project'=>(string)$value_log[0][0]['_id'],
-                                                              'seller'=>$value_log[0][0]['sellers']['seller'],
-                                                             'buyer'=>$value_log[0][0]['buyers'][0]['buyer'],
+                                                        <?= Html::a('<b>'.$value_info['purchase_requisition_no'].'</b>', [
+                                                              'html/direct-purchase-requisition-html-inactive',
+                                                              'log_id' => (string)$value_info['log_id'],
+                                                              'buyer' => $value_info['by'],
                                                               ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+
                                                       
                                                   </div>
                                               </div>
@@ -762,9 +764,9 @@ $this->registerJs($script);
 
 
 
-                                            <div class="btn-group">
-                                                <?= Html::a('File', ['file/index'],['class'=>'btn btn-primary']) ?>
-                                            </div>
+                                            <?= Html::a('File', ['file/index',
+                                                'project'=>(string)$value_info['project'][0]['_id'],
+                                                ],['class'=>'btn btn-primary','title'=>'File']) ?>
 
 
                                         </td>
@@ -774,7 +776,7 @@ $this->registerJs($script);
 
                                   </tbody>
                               </table>
-
+                              <?php }?>
 
                           </td>
 

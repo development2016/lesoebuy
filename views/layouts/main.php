@@ -74,7 +74,7 @@ $this->registerJs($script);
                 <!-- Logo -->
                 <!-- ============================================================== -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="<?php echo Yii::$app->request->baseUrl; ?>">
                         <!-- Logo icon -->
                         <b>
                             logo

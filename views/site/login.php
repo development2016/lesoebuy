@@ -24,7 +24,10 @@ $this->params['breadcrumbs'][] = $this->title;
         ],*/
     ]); ?>
 
-        <a href="javascript:void(0)" class="text-center db"><img src="../materialpro/assets/images/logo-icon.png" alt="Home" /><br/><img src="../materialpro/assets/images/logo-text.png" alt="Home" /></a>  
+        <a href="javascript:void(0)" class="text-center db">
+        <h3>LESOEBUY</h3>
+        <br/>
+        </a>  
         
         <div class="form-group m-t-40">
           <div class="col-xs-12">

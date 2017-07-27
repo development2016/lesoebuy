@@ -225,6 +225,50 @@ class HtmlController extends Controller
     }
 
 
+    public function actionDirectPurchaseOrderHtmlInactive($log_id,$buyer)
+    {
+        $this->layout = 'html';
+        $newProject_id = new \MongoDB\BSON\ObjectID($log_id);
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        $collection = Yii::$app->mongo->getCollection('log');
+        $model = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            '_id' => $newProject_id
+                        ],
+
+                    ],
+
+                    
+                ]
+            ],
+
+
+        ]);
+
+        $list = $model[0][0];
+
+        //print_r($list[0]['sellers']);
+        //exit();
+
+        return $this->render('direct-purchase-order-html-inactive',[
+
+            'list' => $list,
+            'companyBuyer' => $companyBuyer,
+
+        ]);
+
+
+
+    }
 
 
 

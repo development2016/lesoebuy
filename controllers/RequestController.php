@@ -167,6 +167,10 @@ class RequestController extends Controller
                         [
                             'status' => 'Revise PO'
                         ],
+                        [
+                            'status' => 'Request Approval Next'
+                        ],
+
                     ],
 
                     
@@ -180,8 +184,10 @@ class RequestController extends Controller
                         '$push' => [
                             'status' => '$status',
                             'date_reject' => '$date_reject',
+                            'date_request' => '$date_request',
                             'seller' => '$seller',
                             'purchase_requisition_no' => '$purchase_requisition_no',
+                            'purchase_order_no' => '$purchase_order_no',
                             'log_id' => '$_id',
                             'by' => '$by',
                             'project' => '$0'
@@ -354,7 +360,7 @@ class RequestController extends Controller
 		]);
 
         $collectionLog = Yii::$app->mongo->getCollection('log');
-        $log = $collectionLog->aggregate([
+        /*$log = $collectionLog->aggregate([
             [
                 '$match' => [
                     '$and' => [
@@ -375,10 +381,65 @@ class RequestController extends Controller
                 ]
             ],
 
+        ]); */
 
+        $log = $collectionLog->aggregate([
+
+            [
+                '$match' => [
+
+                    '$or' => [
+                        [
+                            'status' => 'Approve'
+                        ],
+                        [
+                            'status' => 'Reject PR'
+                        ],
+                        [
+                            'by' => $user->account_name
+                        ],
+                        [
+                            'by_approval' => $user->account_name
+                        ],
+
+                    ],
+
+                    
+                ]
+            ],
+            [
+
+                '$group' => [
+                    '_id' => '$project_no',
+                    'info' => [
+                        '$push' => [
+                            'status' => '$status',
+                            'date_reject' => '$date_reject',
+                            'date_approve' => '$date_approve',
+                            'seller' => '$seller',
+                            'purchase_requisition_no' => '$purchase_requisition_no',
+                            'purchase_order_no' => '$purchase_order_no',
+                            'log_id' => '$_id',
+                            'by' => '$by',
+                            'project' => '$0'
+
+
+                        ]
+                    ],
+
+
+
+
+                    
+                ]
+            ],
+            [
+                '$sort' => [
+                    '_id' => -1
+                ]
+            ],
 
         ]);
-
 
 
 

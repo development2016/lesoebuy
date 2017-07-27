@@ -157,7 +157,8 @@ class SourceController extends Controller
                     'info' => [
                         '$push' => [
                             'status' => '$status',
-                            //'date_reject' => '$date_reject',
+                            'date_request' => '$date_request',
+                            'date_cancel_pr' => '$date_cancel_pr',
                             'seller' => '$seller',
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'log_id' => '$_id',

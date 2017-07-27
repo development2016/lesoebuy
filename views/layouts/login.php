@@ -37,7 +37,7 @@ AppAssetLogin::register($this);
             <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" /> </svg>
     </div>
 
-    <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(../materialpro/assets/images/background/login-register.jpg);">
+    <section id="wrapper" class="login-register login-sidebar"  style="background-image:url(../materialpro/assets/images/background/pr.jpg);">
       <div class="login-box card">
 
         <?= $content ?>

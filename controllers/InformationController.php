@@ -2312,6 +2312,7 @@ class InformationController extends Controller
                 'project_no' => $dataRevise[0]['project_no'],
                 'seller' => $dataRevise[0]['sellers']['seller'],
                 'purchase_requisition_no' => $dataRevise[0]['sellers']['purchase_requisition_no'],
+                'purchase_order_no' => $dataRevise[0]['sellers']['purchase_order_no'],
                 unserialize($dataReviseLog)
 
             ]);
