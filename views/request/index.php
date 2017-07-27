@@ -1621,6 +1621,58 @@ $this->registerJs($script);
                                                                   </td>
 
 
+                                                            <?php } elseif ($value2['status'] == 'Process') { ?>
+
+                                                                  <td>
+                                                                    <?php foreach ($value2['approval'] as $key => $app) { ?>
+                                                                      <?= $app['approval']; ?>
+                                                                    <?php } ?>
+                                                                  </td>
+                                                                  <td>
+                                                                    <?php echo $value2['status']; ?>
+                                                                  </td>
+                                                                  <td>
+                                                                    
+                                                                    <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-check',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    'seller'=>$value2['seller'],
+                                                                    'buyer'=>$value['buyers'][0]['buyer'],
+                                                                    'approver'=>$value2['approver'],
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+
+                                                                    <?= Html::a('File', ['file/index',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+
+
+                                                                  </td>
+
+                                                            <?php } elseif ($value2['status'] == 'Reject PR Next') { ?>
+
+                                                                  <td>
+                                                                    <?php foreach ($value2['approval'] as $key => $app) { ?>
+                                                                      <?= $app['approval']; ?>
+                                                                    <?php } ?>
+                                                                  </td>
+                                                              <td><?php echo $value2['status']; ?></td>
+                                                              <td>
+                                                                <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-resubmit-next',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    'seller'=>$value2['seller'],
+                                                                    'buyer'=>$value['buyers'][0]['buyer'],
+                                                                    'approver'=>$value2['approver'],
+                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+
+                                                                    <?= Html::a('File', ['file/index',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+
+                                                              </td>
+
+                                                                  
+
+
+
 
                                                             <?php } ?>
 
