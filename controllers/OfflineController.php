@@ -100,7 +100,17 @@ class OfflineController extends Controller
                 ];
 
                 $model3->save();
-                
+
+                Yii::$app->mailer->compose()
+                    ->setFrom('noreply@lesoebuy.com')
+                    ->setTo('leso.fuad@gmail.com')
+                    ->setSubject('Testing from lesoebuy')
+                    ->setTextBody('Plain text content')
+                    ->setHtmlBody('<b>WELCOME TO LESOEBUY</b>')
+                    ->send();
+
+
+
 
             Yii::$app->getSession()->setFlash('project', 'Project Has Been Submit');
             return $this->redirect(['offline/project','project' => $project_no]);
