@@ -101,13 +101,6 @@ class OfflineController extends Controller
 
                 $model3->save();
 
-                Yii::$app->mailer->compose()
-                    ->setFrom('noreply@lesoebuy.com')
-                    ->setTo('leso.fuad@gmail.com')
-                    ->setSubject('Testing from lesoebuy')
-                    ->setTextBody('Plain text content')
-                    ->setHtmlBody('<b>WELCOME TO LESOEBUY</b>')
-                    ->send();
 
 
 

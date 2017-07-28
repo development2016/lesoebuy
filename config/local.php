@@ -51,10 +51,24 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
-            // send all mails to a file by default. You have to set
-            // 'useFileTransport' to false and configure a transport
-            // for the mailer to send real emails.
-            'useFileTransport' => true,
+            'viewPath' => '@app/mail',
+            'useFileTransport' => false,
+            'transport' => [
+            'class' => 'Swift_SmtpTransport',
+            'host' => 'mail.lesoebuy.com',
+            'username' => 'noreply@lesoebuy.com',
+            'password' => 'Amtujpino.1',
+            'port' => '587',
+            'encryption' => 'tls',
+            'streamOptions' => [
+                    'ssl' => [
+                        'verify_peer' => false, // is used to for the verification of SSL certificate used.
+                        'allow_self_signed' => true, // http://php.net/manual/en/context.ssl.php
+                        'verify_peer_name' => false, // is used for verification of peer name.
+                    ],
+                ],
+                
+            ],
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
