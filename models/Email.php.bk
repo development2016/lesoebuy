@@ -1,0 +1,77 @@
+<?php
+
+namespace app\models;
+
+use Yii;
+
+/**
+ * This is the model class for collection "email".
+ *
+ * @property \MongoDB\BSON\ObjectID|string $_id
+ * @property mixed $from
+ * @property mixed $to
+ * @property mixed $subject
+ * @property mixed $text
+ * @property mixed $url
+ * @property mixed $date_create
+ */
+class Email extends \yii\mongodb\ActiveRecord
+{
+    /**
+     * @inheritdoc
+     */
+    public static function collectionName()
+    {
+        return ['procument', 'email'];
+    }
+
+    /**
+     * @return \yii\mongodb\Connection the MongoDB connection used by this AR class.
+     */
+    public static function getDb()
+    {
+        return Yii::$app->get('mongo');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributes()
+    {
+        return [
+            '_id',
+            'from',
+            'to',
+            'subject',
+            'text',
+            'url',
+            'date_create',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function rules()
+    {
+        return [
+            [['from', 'to', 'subject', 'text', 'url', 'date_create'], 'safe']
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            '_id' => 'ID',
+            'from' => 'From',
+            'to' => 'To',
+            'subject' => 'Subject',
+            'text' => 'Text',
+            'url' => 'Url',
+            'date_create' => 'Date Create',
+        ];
+    }
+}

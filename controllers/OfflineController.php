@@ -102,9 +102,6 @@ class OfflineController extends Controller
                 $model3->save();
 
 
-
-
-
             Yii::$app->getSession()->setFlash('project', 'Project Has Been Submit');
             return $this->redirect(['offline/project','project' => $project_no]);
 

@@ -20,6 +20,7 @@ use app\models\User;
 use app\models\UserCompany;
 use app\models\Log;
 use app\models\Notification;
+use app\models\Email;
 
 
 class GenerateController extends Controller
@@ -372,8 +373,6 @@ class GenerateController extends Controller
                         ]);
 
 
-
-
                             $notify = new Notification();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Waiting Approval';
@@ -388,11 +387,42 @@ class GenerateController extends Controller
                             $notify->url = 'request/direct-purchase-requisition-approve';
                             $notify->url_for_buyer = 'request/direct-purchase-requisition';
                             $notify->seller = $model[0]['sellers']['seller'];
-                            $notify->approver = $model[0]['sellers']['approver'];;
+                            $notify->approver = $model[0]['sellers']['approver'];
 
                             $notify->save();
 
-                    
+                            //email  start
+                            $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
+
+                            $to = $to_email->email;
+                            $subject = 'REQUEST APPROVAL';
+
+                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+
+                            $text = '
+                            You Have <b>1</b> Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
+                            Project No : '.$model[0]['project_no'].'
+                            <br>
+                            PR No : <b>'.$dataRequest[0]['sellers']['purchase_requisition_no'].'</b> <p></p> link : '.$url.'';
+
+                            $email = new Email();
+                            $email->from = 'noreply@lesoebuy.com';
+                            $email->to = $to;
+                            $email->from_who = $buyer;
+                            $email->to_who = $model[0]['sellers']['approval'][0]['approval'];
+                            $email->subject = $subject;
+                            $email->text = $text;
+                            $email->url = $url;
+                            $email->date_create = date('Y-m-d H:i:s');
+                            $email->project_no = $model[0]['project_no'];
+                            $email->save();
+
+                            Yii::$app->mailer->compose()
+                                ->setFrom('noreply@lesoebuy.com')
+                                ->setTo($to)
+                                ->setSubject($subject)
+                                ->setHtmlBody($text)
+                                ->send();
 
                         return $this->redirect(['request/index']);
 
@@ -761,7 +791,40 @@ class GenerateController extends Controller
 
                             $notify->save();
 
-                    
+
+                            //email  start
+                            $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
+
+                            $to = $to_email->email;
+                            $subject = 'RESUBMIT APPROVAL';
+
+                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+
+                            $text = '
+                            You Have <b>1</b> Re-Submit Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
+                            Project No : '.$model[0]['project_no'].'
+                            <br>
+                            PR No : <b>'.$dataRequest[0]['sellers']['purchase_requisition_no'].'</b> <p></p> link : '.$url.'';
+
+                            $email = new Email();
+                            $email->from = 'noreply@lesoebuy.com';
+                            $email->to = $to;
+                            $email->from_who = $buyer;
+                            $email->to_who = $model[0]['sellers']['approval'][0]['approval'];
+                            $email->subject = $subject;
+                            $email->text = $text;
+                            $email->url = $url;
+                            $email->date_create = date('Y-m-d H:i:s');
+                            $email->project_no = $model[0]['project_no'];
+                            $email->save();
+
+                            Yii::$app->mailer->compose()
+                                ->setFrom('noreply@lesoebuy.com')
+                                ->setTo($to)
+                                ->setSubject($subject)
+                                ->setHtmlBody($text)
+                                ->send();
+
 
                         return $this->redirect(['request/index']);
 
@@ -1130,6 +1193,43 @@ class GenerateController extends Controller
                             $notify->approver = $model[0]['sellers']['approver'];;
 
                             $notify->save();
+
+
+                            //email  start
+                            $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
+
+                            $to = $to_email->email;
+                            $subject = 'RESUBMIT APPROVAL';
+
+                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+
+                            $text = '
+                            You Have <b>1</b> Re-Submit Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
+                            Project No : '.$model[0]['project_no'].'
+                            <br>
+                            PR No : <b>'.$dataRequest[0]['sellers']['purchase_requisition_no'].'</b> <p></p> link : '.$url.'';
+
+                            $email = new Email();
+                            $email->from = 'noreply@lesoebuy.com';
+                            $email->to = $to;
+                            $email->from_who = $buyer_id->account_name;
+                            $email->to_who = $model[0]['sellers']['approval'][0]['approval'];
+                            $email->subject = $subject;
+                            $email->text = $text;
+                            $email->url = $url;
+                            $email->date_create = date('Y-m-d H:i:s');
+                            $email->project_no = $model[0]['project_no'];
+                            $email->save();
+
+                            Yii::$app->mailer->compose()
+                                ->setFrom('noreply@lesoebuy.com')
+                                ->setTo($to)
+                                ->setSubject($subject)
+                                ->setHtmlBody($text)
+                                ->send();
+
+
+
 
                     
 
@@ -1505,6 +1605,43 @@ class GenerateController extends Controller
             $notify->approver = $model[0]['sellers']['approver'];;
 
             $notify->save();
+
+
+            //email  start
+            $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
+
+            $to = $to_email->email;
+            $subject = 'REQUEST APPROVAL';
+
+            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+
+            $text = '
+            You Have <b>1</b> Purchase Requisition From <b>'.$buyer.'</b> To Approve <br>
+            Project No : '.$model[0]['project_no'].'
+            <br>
+            PR No : <b>'.$dataRequestNext[0]['sellers']['purchase_requisition_no'].'</b> <p></p> link : '.$url.'';
+
+            $email = new Email();
+            $email->from = 'noreply@lesoebuy.com';
+            $email->to = $to;
+            $email->from_who = $buyer;
+            $email->to_who = $model[0]['sellers']['approval'][0]['approval'];
+            $email->subject = $subject;
+            $email->text = $text;
+            $email->url = $url;
+            $email->date_create = date('Y-m-d H:i:s');
+            $email->project_no = $model[0]['project_no'];
+            $email->save();
+
+            Yii::$app->mailer->compose()
+                ->setFrom('noreply@lesoebuy.com')
+                ->setTo($to)
+                ->setSubject($subject)
+                ->setHtmlBody($text)
+                ->send();
+
+
+
 
 
             return $this->redirect(['request/index']);
