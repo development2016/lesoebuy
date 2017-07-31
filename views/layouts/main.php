@@ -265,7 +265,7 @@ $this->registerJs($script);
                     echo Menu::widget([
                         'items' => [
                             [
-                                'label' => 'BASIC',
+                                'label' => 'PROCUREMENT',
                                 'options'=>['class'=>'nav-small-cap'],
                             ],
                             [
