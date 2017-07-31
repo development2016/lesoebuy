@@ -9,28 +9,7 @@ $this->title = 'Dashboard';
 
 
 <div class="row">
-    <div class="col-lg-9 col-md-5">
-        <div class="card">
-            <div class="card-block">
-                <h3 class="card-title">Our Visitors </h3>
-                <h6 class="card-subtitle">Different Devices Used to Visit</h6>
-                <div id="visitor" style="height:290px; width:100%;"></div>
-            </div>
-            <div>
-                <hr class="m-t-0 m-b-0">
-            </div>
-            <div class="card-block text-center ">
-                <ul class="list-inline m-b-0">
-                    <li>
-                        <h6 class="text-muted text-info"><i class="fa fa-circle font-10 m-r-10 "></i>Mobile</h6> </li>
-                    <li>
-                        <h6 class="text-muted  text-primary"><i class="fa fa-circle font-10 m-r-10"></i>Desktop</h6> </li>
-                    <li>
-                        <h6 class="text-muted  text-success"><i class="fa fa-circle font-10 m-r-10"></i>Tablet</h6> </li>
-                </ul>
-            </div>
-        </div>
-    </div>
+
 
     <div class="col-lg-4 col-xlg-3">
         <!-- Column -->
