@@ -311,7 +311,7 @@ $this->registerJs($script);
                                 'label' => 'Supplier', 
                                 'url' => ['company-offline/index'],
                                 'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
-                                'visible' => User::checkMenu('3002'),
+                                'visible' => User::checkMenu('3013'),
                             ],
                             [
                                 'label' => 'History', 
