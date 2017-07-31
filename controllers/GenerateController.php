@@ -397,7 +397,10 @@ class GenerateController extends Controller
                             $to = $to_email->email;
                             $subject = 'REQUEST APPROVAL';
 
-                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+                            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'" >https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'</a>';
+
+
+             
 
                             $text = '
                             You Have <b>1</b> Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
@@ -798,7 +801,9 @@ class GenerateController extends Controller
                             $to = $to_email->email;
                             $subject = 'RESUBMIT APPROVAL';
 
-                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+                            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'</a>';
+
+
 
                             $text = '
                             You Have <b>1</b> Re-Submit Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
@@ -1201,7 +1206,9 @@ class GenerateController extends Controller
                             $to = $to_email->email;
                             $subject = 'RESUBMIT APPROVAL';
 
-                            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+                            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer_id->account_name.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'</a>';
+
+
 
                             $text = '
                             You Have <b>1</b> Re-Submit Purchase Requisition From <b>'.$buyer_id->account_name.'</b> To Approve <br>
@@ -1613,7 +1620,7 @@ class GenerateController extends Controller
             $to = $to_email->email;
             $subject = 'REQUEST APPROVAL';
 
-            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'';
+            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$model[0]['sellers']['seller'].'&approver='.$model[0]['sellers']['approver'].'</a>';
 
             $text = '
             You Have <b>1</b> Purchase Requisition From <b>'.$buyer.'</b> To Approve <br>

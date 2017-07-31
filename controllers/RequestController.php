@@ -1362,7 +1362,7 @@ class RequestController extends Controller
                         $to = $to_email->email;
                         $subject = 'PURCHASE REQUISITION APPROVE';
 
-                        $url = 'https://lesoebuy.com/request/index';
+                        $url = '<a href="https://lesoebuy.com/request/index">https://lesoebuy.com/request/index</a>';
 
                         $text = '
                         You Have <b>1</b> Approve Purchase Requisition From <b>'.$approval_info->account_name.'</b><br>
@@ -1609,7 +1609,7 @@ class RequestController extends Controller
                         $to = $to_email->email;
                         $subject = 'REQUEST APPROVAL';
 
-                        $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$dataApprove[0]['buyers'][0]['buyer'].'&seller='.$dataApprove[0]['sellers']['seller'].'&approver='.$dataApprove[0]['sellers']['approver'].'';
+                        $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$dataApprove[0]['buyers'][0]['buyer'].'&seller='.$dataApprove[0]['sellers']['seller'].'&approver='.$dataApprove[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-approve?project='.$newProject_id.'&buyer='.$dataApprove[0]['buyers'][0]['buyer'].'&seller='.$dataApprove[0]['sellers']['seller'].'&approver='.$dataApprove[0]['sellers']['approver'].'</a>';
 
                         $text = '
                         You Have <b>1</b> Purchase Requisition From <b>'.$dataApprove[0]['buyers'][0]['buyer'].'</b> To Approve <br>
@@ -1763,7 +1763,7 @@ class RequestController extends Controller
             $to = $to_email->email;
             $subject = 'PURCHASE REQUISITION APPROVE';
 
-            $url = 'https://lesoebuy.com/request/index';
+            $url = '<a href="https://lesoebuy.com/request/index">https://lesoebuy.com/request/index</a>';
 
             $text = '
             You Have <b>1</b> Approve Purchase Requisition From <b>'.$dataApprove[0]['sellers']['approval'][0]['approval'].'</b><br>
@@ -2013,7 +2013,8 @@ class RequestController extends Controller
                         $to = $to_email->email;
                         $subject = 'PURCHASE REQUISITION APPROVE';
 
-                        $url = 'https://lesoebuy.com/request/index';
+                        $url = '<a href="https://lesoebuy.com/request/index">https://lesoebuy.com/request/index</a>';
+              
 
                         $text = '
                         You Have <b>1</b> Approve Purchase Requisition From <b>'.$approval_info->account_name.'</b><br>
@@ -2256,7 +2257,7 @@ class RequestController extends Controller
                         $to = $to_email->email;
                         $subject = 'REQUEST APPROVAL';
 
-                        $url = 'https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$dataApproveNext[0]['buyers'][0]['buyer'].'&seller='.$dataApproveNext[0]['sellers']['seller'].'&approver='.$dataApproveNext[0]['sellers']['approver'].'';
+                        $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$dataApproveNext[0]['buyers'][0]['buyer'].'&seller='.$dataApproveNext[0]['sellers']['seller'].'&approver='.$dataApproveNext[0]['sellers']['approver'].'" >https://lesoebuy.com/request/direct-purchase-requisition-approve-next?project='.$newProject_id.'&buyer='.$dataApproveNext[0]['buyers'][0]['buyer'].'&seller='.$dataApproveNext[0]['sellers']['seller'].'&approver='.$dataApproveNext[0]['sellers']['approver'].'</a>';
 
                         $text = '
                         You Have <b>1</b> Purchase Requisition From <b>'.$dataApproveNext[0]['buyers'][0]['buyer'].'</b> To Approve <br>
@@ -2409,7 +2410,7 @@ class RequestController extends Controller
             $to = $to_email->email;
             $subject = 'PURCHASE REQUISITION APPROVE';
 
-            $url = 'https://lesoebuy.com/request/index';
+            $url = '<a href="https://lesoebuy.com/request/index">https://lesoebuy.com/request/index</a>';
 
             $text = '
             You Have <b>1</b> Approve Purchase Requisition From <b>'.$dataApproveNext[0]['sellers']['approval'][0]['approval'].'</b><br>
@@ -2621,7 +2622,7 @@ class RequestController extends Controller
                 $to = $to_email->email;
                 $subject = 'CHANGE BUYER';
 
-                $url = 'https://lesoebuy.com/request/index';
+                $url = '<a href="https://lesoebuy.com/request/index">https://lesoebuy.com/request/index</a>';
 
                 $text = '
                 You Have <b>1</b> Purchase Requisition From <b>'.$buyer.'</b> To Proceed <br>
@@ -3115,7 +3116,8 @@ class RequestController extends Controller
             $to = $to_email->email;
             $subject = 'PURCHASE REQUISITION REJECT';
 
-            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-resubmit?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'';
+
+            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-resubmit?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-resubmit?project='.$newProject_id.'&buyer='.$buyer.'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'</a>';
 
             $text = '
             You Have <b>1</b> Rejected Purchase Requisition From <b>'.$dataRejectPr[0]['sellers']['approval'][0]['approval'].'</b><br>
@@ -3354,7 +3356,8 @@ class RequestController extends Controller
             $to = $to_email->email;
             $subject = 'PURCHASE REQUISITION REJECT';
 
-            $url = 'https://lesoebuy.com/request/direct-purchase-requisition-resubmit-next?project='.$newProject_id.'&buyer='.$dataRejectPr[0]['buyers'][0]['buyer'].'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'';
+            $url = '<a href="https://lesoebuy.com/request/direct-purchase-requisition-resubmit-next?project='.$newProject_id.'&buyer='.$dataRejectPr[0]['buyers'][0]['buyer'].'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'">https://lesoebuy.com/request/direct-purchase-requisition-resubmit-next?project='.$newProject_id.'&buyer='.$dataRejectPr[0]['buyers'][0]['buyer'].'&seller='.$dataRejectPr[0]['sellers']['seller'].'&approver='.$dataRejectPr[0]['sellers']['approver'].'</a>';
+
 
             $text = '
             You Have <b>1</b> Rejected Purchase Requisition From <b>'.$dataRejectPr[0]['sellers']['approval'][0]['approval'].'</b><br>

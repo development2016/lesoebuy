@@ -335,7 +335,7 @@ $model->file->saveAs(Yii::getAlias('@webroot/offline/'.$company->_id).'/'.'direc
 
                 $model2->filename = $count.'-'.$date_today.'.'.$model->file->extension;
                 $model2->extension = $model->file->extension;
-                $model2->path = '/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project;
+                $model2->path = '/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project.'/';
                 $model2->company_id = (string)$company->_id;
                 $model2->enter_by = Yii::$app->user->identity->id;
                 $model2->date_create = date('Y-m-d H:i:s');
@@ -391,6 +391,7 @@ $model->file->saveAs(Yii::getAlias('@webroot/offline/'.$company->_id).'/'.'direc
     {
 
         $file = $company_id.$path.$filename;
+
         $data = Yii::getAlias('@webroot/offline/'.$file);
         unlink($data);
         $this->findModel($id)->delete();
