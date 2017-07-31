@@ -286,6 +286,8 @@ class OfflineController extends Controller
 
     public function actionUpload($project)
     {
+
+
         $model = new UploadForm();
         $model2 = new Uploads();
 
@@ -298,7 +300,7 @@ class OfflineController extends Controller
         $uploader = User::find()->where(['id'=>(int)Yii::$app->user->identity->id])->one();
 
 
-        $path_to_user_dir = Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name);
+        $path_to_user_dir = Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project);
 
         $count = count(glob("$path_to_user_dir/*"));
 
@@ -324,16 +326,16 @@ class OfflineController extends Controller
                 }
 
 
-                if (!file_exists(Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name))) {
-                    mkdir(Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name), 0777, true);
+                if (!file_exists(Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project))) {
+                    mkdir(Yii::getAlias('@webroot/offline/'.$company->_id.'/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project), 0777, true);
                 }
 
-$model->file->saveAs(Yii::getAlias('@webroot/offline/'.$company->_id).'/'.'direct-purchase/'.$date_today.'/'.$uploader->account_name.'/'.$count.'-'.$date_today.'.'.$model->file->extension);
+$model->file->saveAs(Yii::getAlias('@webroot/offline/'.$company->_id).'/'.'direct-purchase/'.$date_today.'/'.$uploader->account_name.'/'.$project.'/'.$count.'-'.$date_today.'.'.$model->file->extension);
 
 
                 $model2->filename = $count.'-'.$date_today.'.'.$model->file->extension;
                 $model2->extension = $model->file->extension;
-                $model2->path = '/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/';
+                $model2->path = '/direct-purchase'.'/'.$date_today.'/'.$uploader->account_name.'/'.$project;
                 $model2->company_id = (string)$company->_id;
                 $model2->enter_by = Yii::$app->user->identity->id;
                 $model2->date_create = date('Y-m-d H:i:s');
