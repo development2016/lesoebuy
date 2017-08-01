@@ -87,6 +87,7 @@ $this->registerJs($script);
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
                          <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/logo.png" alt="homepage" class="dark-logo" />
+                         <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/text.png" class="light-logo" alt="homepage" />
                          <!-- Light Logo text -->    
                         </span> </a>
                 </div>
