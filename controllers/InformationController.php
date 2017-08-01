@@ -1415,6 +1415,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
 
                                 ]
                             ],
@@ -1436,6 +1437,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1463,6 +1465,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
 
                                 ]
                             ],
@@ -1483,6 +1486,7 @@ class InformationController extends Controller
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->shipping =  0;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
@@ -1513,6 +1517,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
 
                                 ]
                             ],
@@ -1534,6 +1539,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1564,6 +1570,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
 
                                 ]
                             ],
@@ -1585,6 +1592,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  0;
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1621,6 +1629,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
                                 
                                 ]
                             ]
@@ -1640,6 +1649,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1670,6 +1680,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
                                 
                                 ]
                             ]
@@ -1689,6 +1700,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  0;
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1720,6 +1732,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
                                 
                                 ]
                             ]
@@ -1739,6 +1752,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1772,6 +1786,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
                                 
                                 ]
                             ]
@@ -1791,6 +1806,7 @@ class InformationController extends Controller
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  0;
+                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();

@@ -60,6 +60,7 @@ class ItemOffline extends \yii\mongodb\ActiveRecord
             'quantity',
             'cit',
             'shipping',
+            'remark',
             'date_create',
             'enter_by',
             'update_by',
@@ -73,7 +74,7 @@ class ItemOffline extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['item_code','item_name', 'brand', 'model', 'specification', 'lead_time', 'validity', 'cost', 'quantity', 'cit', 'shipping', 'date_create', 'enter_by', 'update_by', 'date_update'], 'safe']
+            [['item_code','item_name', 'brand', 'model', 'specification', 'lead_time', 'validity', 'cost', 'quantity', 'cit', 'shipping', 'date_create', 'enter_by', 'update_by', 'date_update','remark'], 'safe']
         ];
     }
 
@@ -98,6 +99,7 @@ class ItemOffline extends \yii\mongodb\ActiveRecord
             'enter_by' => 'Enter By',
             'update_by' => 'Update By',
             'date_update' => 'Date Update',
+            'remark' => 'Remark'
         ];
     }
 }

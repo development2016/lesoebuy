@@ -150,6 +150,8 @@ $this->registerJs($script);
 	     	
 	     </div>
 
+	     <?= $form->field($model, 'sellers[items][remark]')->textarea(['rows' => 6,'id'=>'remark'])->label('Remark') ?>
+
 		<div class="form-group">
 
 			<?= Html::submitButton($model->isNewRecord ? 'Save' : 'Save', [
