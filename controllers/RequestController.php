@@ -1335,7 +1335,7 @@ class RequestController extends Controller
                         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
 
-                        
+                        /*
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -1389,7 +1389,7 @@ class RequestController extends Controller
                             ->setHtmlBody($text)
                             ->send();
 
-
+ */
 
 
 
@@ -1583,6 +1583,7 @@ class RequestController extends Controller
 
                         ]);
 
+/*
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
                         $notify->status_buyer = 'Active';
@@ -1635,7 +1636,7 @@ class RequestController extends Controller
                             ->setSubject($subject)
                             ->setHtmlBody($text)
                             ->send();
-
+*/
 
 
 
@@ -1737,7 +1738,7 @@ class RequestController extends Controller
 
             $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
-            
+            /*
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Complete';
             $notify->status_approver = 'Approve';
@@ -1789,7 +1790,7 @@ class RequestController extends Controller
                 ->setSubject($subject)
                 ->setHtmlBody($text)
                 ->send();
-
+*/
 
 
 
@@ -1986,7 +1987,7 @@ class RequestController extends Controller
 
                         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
-
+/*
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2041,7 +2042,7 @@ class RequestController extends Controller
                             ->setHtmlBody($text)
                             ->send();
 
-
+*/
 
 
                         // update status to approve
@@ -2229,7 +2230,7 @@ class RequestController extends Controller
                             unserialize($dataApproveNextLog)
 
                         ]);
-
+/*
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2284,7 +2285,7 @@ class RequestController extends Controller
                             ->setHtmlBody($text)
                             ->send();
 
-
+*/
 
 
 
@@ -2384,7 +2385,7 @@ class RequestController extends Controller
                             
             ];
 
-
+/*
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Complete';
@@ -2437,7 +2438,7 @@ class RequestController extends Controller
                 ->setHtmlBody($text)
                 ->send();
 
-
+*/
 
 
 
@@ -2595,7 +2596,7 @@ class RequestController extends Controller
                 unserialize($dataChangeBuyerLog)
 
             ]);
-
+/*
 
                 $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2648,7 +2649,7 @@ class RequestController extends Controller
                     ->setSubject($subject)
                     ->setHtmlBody($text)
                     ->send();
-
+*/
 
             
 
@@ -3092,6 +3093,7 @@ class RequestController extends Controller
 
             ]);
 
+/*
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
             $notify->status_buyer = 'Active';
@@ -3144,7 +3146,7 @@ class RequestController extends Controller
                 ->setHtmlBody($text)
                 ->send();
 
-
+*/
 
 
 
@@ -3330,6 +3332,7 @@ class RequestController extends Controller
 
             ]);
 
+/*
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
             $notify->status_buyer = 'Active';
@@ -3384,7 +3387,7 @@ class RequestController extends Controller
                 ->setHtmlBody($text)
                 ->send();
 
-
+*/
 
             return $this->redirect(['request/request']);
 

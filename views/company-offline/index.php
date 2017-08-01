@@ -6,7 +6,7 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Company Offlines';
+$this->title = 'Supplier List';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            '_id',
             'company_name',
             'company_registeration_no',
             'address',
@@ -43,8 +42,49 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'date_update',
             // 'update_by',
             // 'term',
+            [
+                'header' => 'Tindakan',
+                'class' => 'yii\grid\ActionColumn',
+                'template'=>'{view}   {edit}   {delete}',
+                    'buttons' => [
+                        'view' => function ($url, $model) {
+                            return Html::a('View', 
+                                    $url,['title'=> 'Lihat','class'=>'btn btn-primary']);
 
-            ['class' => 'yii\grid\ActionColumn'],
+                        },
+                        'edit' => function ($url, $model) {
+                            return Html::a('Edit', $url, [
+                                        'title' => 'Kemaskini',
+                                        'class'=>'btn btn-warning'
+                            ]);
+                        },
+
+                        'delete' => function ($url, $model) {
+                            return Html::a('Delete', $url, [
+                                        'title' => 'Buang',
+                                        'class'=>'btn waves-effect waves-light btn-danger',
+                                        'data-method' => 'POST'
+                            ]);
+
+                        },
+
+                    ],
+                    'urlCreator' => function ($action, $model, $key, $index) {
+                        if ($action === 'view') {
+                            $url = ['company-offline/view','id'=>(string)$model->_id];
+                            return $url;
+                        }
+                        if ($action === 'edit') {
+                            $url = ['company-offline/update','id'=>(string)$model->_id];
+                            return $url;
+                        }
+                        if ($action === 'delete') {
+                            $url = ['company-offline/delete','id'=>(string)$model->_id];
+                            return $url;
+                        }
+                    }
+            ],
+     
         ],
     ]); ?>
 

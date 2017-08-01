@@ -373,7 +373,7 @@ class GenerateController extends Controller
                         ]);
 
 
-                            $notify = new Notification();
+                         /*   $notify = new Notification();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Waiting Approval';
                             $notify->details = $model[0]['sellers']['purchase_requisition_no'];
@@ -425,7 +425,7 @@ class GenerateController extends Controller
                                 ->setTo($to)
                                 ->setSubject($subject)
                                 ->setHtmlBody($text)
-                                ->send();
+                                ->send(); */
 
                         return $this->redirect(['request/index']);
 
@@ -775,7 +775,7 @@ class GenerateController extends Controller
 
 
 
-
+/*
                             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Resubmit Approval';
@@ -828,7 +828,7 @@ class GenerateController extends Controller
                                 ->setTo($to)
                                 ->setSubject($subject)
                                 ->setHtmlBody($text)
-                                ->send();
+                                ->send(); */
 
 
                         return $this->redirect(['request/index']);
@@ -1179,7 +1179,7 @@ class GenerateController extends Controller
                         ]);
 
 
-
+                        /*
 
                             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
                             $notify->status_buyer = 'Active';
@@ -1233,7 +1233,7 @@ class GenerateController extends Controller
                                 ->setTo($to)
                                 ->setSubject($subject)
                                 ->setHtmlBody($text)
-                                ->send();
+                                ->send(); */
 
 
 
@@ -1593,7 +1593,7 @@ class GenerateController extends Controller
         ]);
 
 
-
+/*
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Active';
@@ -1646,7 +1646,7 @@ class GenerateController extends Controller
                 ->setSubject($subject)
                 ->setHtmlBody($text)
                 ->send();
-
+ */
 
 
 
