@@ -1335,7 +1335,7 @@ class RequestController extends Controller
                         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
 
-                        /*
+                        
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -1355,7 +1355,7 @@ class RequestController extends Controller
 
 
                         $notify->save();
-
+/* 
                         //email  start
                         $to_email = User::find()->where(['account_name'=>$dataApprove[0]['buyers'][0]['buyer']])->one();
                        
@@ -1583,7 +1583,7 @@ class RequestController extends Controller
 
                         ]);
 
-/*
+
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
                         $notify->status_buyer = 'Active';
@@ -1602,7 +1602,7 @@ class RequestController extends Controller
 
 
                         $notify->save();
-
+/* 
 
                         //email  start
                         $to_email = User::find()->where(['account_name'=>$dataApprove[0]['sellers']['approver_level']])->one();
@@ -1738,7 +1738,7 @@ class RequestController extends Controller
 
             $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
-            /*
+            
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Complete';
             $notify->status_approver = 'Approve';
@@ -1757,7 +1757,7 @@ class RequestController extends Controller
 
 
             $notify->save();
-
+/* 
             //email  start
             $to_email = User::find()->where(['account_name'=>$dataApprove[0]['buyers'][0]['buyer']])->one();
            
@@ -1987,7 +1987,7 @@ class RequestController extends Controller
 
                         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
-/*
+
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2007,7 +2007,7 @@ class RequestController extends Controller
 
 
                         $notify->save();
-
+/* 
                         //email  start
                         $to_email = User::find()->where(['account_name'=>$dataApproveNext[0]['buyers'][0]['buyer']])->one();
                        
@@ -2230,7 +2230,7 @@ class RequestController extends Controller
                             unserialize($dataApproveNextLog)
 
                         ]);
-/*
+
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2250,7 +2250,7 @@ class RequestController extends Controller
 
 
                         $notify->save();
-
+/* 
 
                         //email  start
                         $to_email = User::find()->where(['account_name'=>$dataApproveNext[0]['sellers']['approver_level']])->one();
@@ -2385,7 +2385,7 @@ class RequestController extends Controller
                             
             ];
 
-/*
+
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Complete';
@@ -2404,7 +2404,7 @@ class RequestController extends Controller
 
 
             $notify->save();
-
+/* 
             //email  start
             $to_email = User::find()->where(['account_name'=>$dataApproveNext[0]['buyers'][0]['buyer']])->one();
            
@@ -2596,7 +2596,7 @@ class RequestController extends Controller
                 unserialize($dataChangeBuyerLog)
 
             ]);
-/*
+
 
                 $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2615,7 +2615,7 @@ class RequestController extends Controller
 
 
                 $notify->save();
-
+/* 
 
                 //email  start
                 $to_email = User::find()->where(['account_name'=>$dataChangeBuyer[0]['buyers'][0]['buyer']])->one();
@@ -3093,7 +3093,7 @@ class RequestController extends Controller
 
             ]);
 
-/*
+
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
             $notify->status_buyer = 'Active';
@@ -3111,7 +3111,7 @@ class RequestController extends Controller
             $notify->approver = $dataRejectPr[0]['sellers']['approver'];;
 
             $notify->save();
-
+/* 
             //email  start
             $to_email = User::find()->where(['account_name'=>$buyer])->one();
            
@@ -3332,7 +3332,7 @@ class RequestController extends Controller
 
             ]);
 
-/*
+
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
             $notify->status_buyer = 'Active';
@@ -3351,7 +3351,7 @@ class RequestController extends Controller
 
 
             $notify->save();
-    
+    /* 
 
             //email  start
             $to_email = User::find()->where(['account_name'=>$dataRejectPr[0]['buyers'][0]['buyer']])->one();

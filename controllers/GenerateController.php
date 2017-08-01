@@ -373,7 +373,7 @@ class GenerateController extends Controller
                         ]);
 
 
-                         /*   $notify = new Notification();
+                           $notify = new Notification();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Waiting Approval';
                             $notify->details = $model[0]['sellers']['purchase_requisition_no'];
@@ -391,6 +391,8 @@ class GenerateController extends Controller
 
                             $notify->save();
 
+
+                            /* 
                             //email  start
                             $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
 
@@ -775,7 +777,7 @@ class GenerateController extends Controller
 
 
 
-/*
+
                             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Resubmit Approval';
@@ -794,7 +796,7 @@ class GenerateController extends Controller
 
                             $notify->save();
 
-
+/* 
                             //email  start
                             $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
 
@@ -1179,7 +1181,7 @@ class GenerateController extends Controller
                         ]);
 
 
-                        /*
+                        
 
                             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
                             $notify->status_buyer = 'Active';
@@ -1198,7 +1200,7 @@ class GenerateController extends Controller
                             $notify->approver = $model[0]['sellers']['approver'];;
 
                             $notify->save();
-
+/* 
 
                             //email  start
                             $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
@@ -1593,7 +1595,7 @@ class GenerateController extends Controller
         ]);
 
 
-/*
+
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
             $notify->status_buyer = 'Active';
@@ -1613,7 +1615,7 @@ class GenerateController extends Controller
 
             $notify->save();
 
-
+/* 
             //email  start
             $to_email = User::find()->where(['account_name'=>$model[0]['sellers']['approval'][0]['approval']])->one();
 
