@@ -20,7 +20,7 @@ class AppAssetRegister extends AssetBundle
     public $css = [
         'materialpro/assets/plugins/bootstrap/css/bootstrap.min.css',
         'materialpro/css/style.css',
-        'materialpro/css/colors/blue.css',
+        'materialpro/css/colors/red.css',
         'materialpro/assets/plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css',
         'materialpro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css',
         
