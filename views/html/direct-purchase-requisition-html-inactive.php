@@ -194,6 +194,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
                                         <b>Specification : </b> <?= $value['specification'] ?>
+                                     <br>
+                                    <br>
+                                    <b>Remark : </b><?= $value['remark'] ?>
+                                        
                                             <br>
                                         </h4>
  

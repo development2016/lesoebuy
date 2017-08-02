@@ -254,10 +254,6 @@ class RequestController extends Controller
     }
 
 
-
-
-
-
     public function actionRequest()
     {
 
@@ -295,9 +291,7 @@ class RequestController extends Controller
                             [
                                 'sellers.approval.approval' => $user->account_name
                             ],
-           
-
-
+        
 
                     ],
 
@@ -361,28 +355,7 @@ class RequestController extends Controller
 		]);
 
         $collectionLog = Yii::$app->mongo->getCollection('log');
-        /*$log = $collectionLog->aggregate([
-            [
-                '$match' => [
-                    '$and' => [
-                        [
-                            'by' => $user->account_name
-                        ],
 
-                            
-                    ],
-                    '$or' => [
-                        [
-                            'status' => 'Approve'
-                        ],
-
-                    ],
-
-                    
-                ]
-            ],
-
-        ]); */
 
         $log = $collectionLog->aggregate([
 
@@ -546,6 +519,8 @@ class RequestController extends Controller
 
         $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
 
+        $notification = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
 
         $collection = Yii::$app->mongo->getCollection('project');
         $list = $collection->aggregate([
@@ -606,7 +581,8 @@ class RequestController extends Controller
             'seller' => $seller,
             'project' => $project,
             'buyer'=> $buyer,
-             'approver' => $approver
+            'approver' => $approver,
+            'notification' => $notification
         ]);
 
     }
@@ -614,6 +590,8 @@ class RequestController extends Controller
 
     public function actionDirectPurchaseRequisitionResubmitNext($project,$buyer,$seller,$approver)
     {
+
+
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
@@ -621,6 +599,8 @@ class RequestController extends Controller
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
 
         $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        $notification = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
 
         $collection = Yii::$app->mongo->getCollection('project');
@@ -682,7 +662,8 @@ class RequestController extends Controller
             'seller' => $seller,
             'project' => $project,
             'buyer'=> $buyer,
-             'approver' => $approver
+             'approver' => $approver,
+             'notification' => $notification
         ]);
 
     }
@@ -785,6 +766,7 @@ class RequestController extends Controller
 
         $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
 
+        $notification = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
         $collection = Yii::$app->mongo->getCollection('project');
         $list = $collection->aggregate([
@@ -845,7 +827,8 @@ class RequestController extends Controller
             'seller' => $seller,
             'project' => $project,
             'buyer'=> $buyer,
-             'approver' => $approver
+            'approver' => $approver,
+            'notification'=> $notification
         ]);
 
 
@@ -861,6 +844,8 @@ class RequestController extends Controller
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
 
         $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        $notification = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
 
         $collection = Yii::$app->mongo->getCollection('project');
@@ -922,7 +907,8 @@ class RequestController extends Controller
             'seller' => $seller,
             'project' => $project,
             'buyer'=> $buyer,
-             'approver' => $approver
+             'approver' => $approver,
+             'notification' => $notification
         ]);
 
 
@@ -2593,6 +2579,7 @@ class RequestController extends Controller
                 'date_change' => date('Y-m-d h:i:s'),
                 'from_who' => $buyer,
                 'to_who' => $tempApp,
+                'by' => $buyer,
                 unserialize($dataChangeBuyerLog)
 
             ]);
@@ -3096,7 +3083,7 @@ class RequestController extends Controller
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
-            $notify->status_buyer = 'Active';
+            $notify->status_buyer = 'Reject';
             $notify->status_approver = 'Reject PR';
             $notify->details = $dataRejectPr[0]['sellers']['purchase_requisition_no'];
             $notify->date_request = date('Y-m-d H:i:s');
@@ -3108,7 +3095,8 @@ class RequestController extends Controller
             $notify->read_unread = 0;
             $notify->url = 'request/direct-purchase-requisition-resubmit';
             $notify->seller = $dataRejectPr[0]['sellers']['seller'];
-            $notify->approver = $dataRejectPr[0]['sellers']['approver'];;
+            $notify->approver = $dataRejectPr[0]['sellers']['approver'];
+            $notify->remark = $_POST['Project']['sellers']['pr_reject']['remark'];
 
             $notify->save();
 /* 
@@ -3335,7 +3323,7 @@ class RequestController extends Controller
 
             $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
-            $notify->status_buyer = 'Active';
+            $notify->status_buyer = 'Reject';
             $notify->status_approver = 'Reject PR';
             $notify->details = $dataRejectPr[0]['sellers']['purchase_requisition_no'];
             $notify->date_request = date('Y-m-d H:i:s');
@@ -3347,7 +3335,8 @@ class RequestController extends Controller
             $notify->read_unread = 0;
             $notify->url = 'request/direct-purchase-requisition-resubmit-next';
             $notify->seller = $dataRejectPr[0]['sellers']['seller'];
-            $notify->approver = $dataRejectPr[0]['sellers']['approver'];;
+            $notify->approver = $dataRejectPr[0]['sellers']['approver'];
+            $notify->remark = $_POST['Project']['sellers']['pr_reject']['remark'];
 
 
             $notify->save();

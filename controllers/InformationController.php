@@ -654,6 +654,7 @@ class InformationController extends Controller
                             'sellers.$.items.'.$_POST['arrayItem'].'.brand' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['brand'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.model' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['model'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.specification' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['specification'],
+                            'sellers.$.items.'.$_POST['arrayItem'].'.remark' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['remark'],
                         ]
                         
                     ]
@@ -2108,8 +2109,6 @@ class InformationController extends Controller
 
         if ($modelCompany->load(Yii::$app->request->post())) {
 
-
-
             $modelCompany->date_create = date('Y-m-d H:i:s');
             $modelCompany->enter_by = Yii::$app->user->identity->id;
             $modelCompany->save();
@@ -2183,6 +2182,103 @@ class InformationController extends Controller
 
 
     }
+
+
+
+    public function actionEditCompany($project,$seller,$buyer,$path,$approver)
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $modelCompany = new CompanyOffline();
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+
+        $CompanyOffline = CompanyOffline::find()->all();
+
+
+
+        if ($modelCompany->load(Yii::$app->request->post())) {
+
+                $collection = Yii::$app->mongo->getCollection('project');
+                $arrUpdate = [
+                    '$set' => [
+                        'date_update' =>  date('Y-m-d h:i:s'),
+                        'update_by' =>  Yii::$app->user->identity->id,
+                        'sellers.$.seller' => $_POST['CompanyOffline']['company_name'],
+                        'sellers.$.company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                        'sellers.$.address' => $_POST['CompanyOffline']['address'],
+                        'sellers.$.zip_code' => $_POST['CompanyOffline']['zip_code'],
+                        'sellers.$.country' => $_POST['CompanyOffline']['country'],
+                        'sellers.$.state' => $_POST['CompanyOffline']['state'],
+                        'sellers.$.city' => $_POST['CompanyOffline']['city'],
+                        'sellers.$.telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                        'sellers.$.fax_no' => $_POST['CompanyOffline']['fax_no'],
+                        'sellers.$.email' => $_POST['CompanyOffline']['email'],
+                        'sellers.$.website' => $_POST['CompanyOffline']['website'],
+                        'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                        'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
+                        'sellers.$.term' => $_POST['CompanyOffline']['term'],
+
+
+
+                    ]
+                
+                ];
+                $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
+
+             
+            if ($path == 'direct') {
+
+                return $this->redirect(['source/direct-purchase-requisition','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
+
+               
+            } else if ($path == 'check') {
+
+                return $this->redirect(['request/direct-purchase-requisition-check','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
+
+               
+            } else if ($path == 'resubmit') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
+
+               
+            } else if ($path == 'resubmitnext') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$_POST['CompanyOffline']['company_name'],'approver'=>$approver,'buyer'=>$buyer]);
+
+               
+            }
+
+
+
+            
+
+        } else {
+
+            return $this->renderAjax('edit-company',[
+                'companyBuyer' => $companyBuyer,
+                'project' => $project,
+                'seller' => $seller,
+                'model' => $model,
+                'buyer' => $buyer,
+                'modelCompany' => $modelCompany,
+                'CompanyOffline' => $CompanyOffline
+            ]);
+        }
+
+
+    }
+
+
 
     public function actionRevisePo($seller,$project,$buyer)
     {

@@ -111,6 +111,14 @@ $this->registerJs($script);
 $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $showShipping = $sumShipping = $price = $showPrice = $sumPrice = 0;
 
 ?>
+<?php if (empty($notification->remark)) { ?>
+ 
+<?php } else { ?>
+
+<div class="alert alert-danger" ><strong>Request : </strong> <?= $notification->remark; ?></div>
+    
+<?php } ?>
+
 
 
 <div class="row">
@@ -197,7 +205,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 <h4><?= $list[0]['sellers'][0]['seller'] ?>
                                 <br>
                                   <?= Html::a('Edit',FALSE, ['value'=>Url::to([
-                                    'information/add-company',
+                                    'information/edit-company',
                                     'seller'=>$seller,
                                     'project'=>(string)$project,
                                     'approver'=>$approver,
@@ -370,6 +378,9 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     <b>Model : </b> <?= $value['model'] ?>
                                     <br>
                                     <b>Specification : </b> <?= $value['specification'] ?>
+                                     <br>
+                                    <br>
+                                    <b>Remark : </b><?= $value['remark'] ?>
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                         'information/sale-detail-update',

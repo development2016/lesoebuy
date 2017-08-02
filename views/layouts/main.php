@@ -37,8 +37,6 @@ $listnotify = Notification::listnotify();
 
 
 
-
-
 $script = <<< JS
 $(document).ready(function(){
 
@@ -79,15 +77,15 @@ $this->registerJs($script);
                         <!-- Logo icon --><b>
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/logo.png" alt="homepage" class="dark-logo" />
+                            <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/icon.png" alt="homepage" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/logo.png" alt="homepage" class="light-logo" />
+                            <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text --><span>
                          <!-- dark Logo text -->
-                         <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/logo.png" alt="homepage" class="dark-logo" />
-                         <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/text.png" class="light-logo" alt="homepage" />
+                         <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/icon.png" alt="homepage" class="dark-logo" />
+                         <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/text2.png" class="light-logo" alt="homepage" />
                          <!-- Light Logo text -->    
                         </span> </a>
                 </div>
@@ -150,9 +148,24 @@ $this->registerJs($script);
                                             <div class="message-center">
                                             <?php foreach ($listnotify as $key => $value) { ?>
 
+                                            <?php $imgProfile = User::find()->where(['account_name'=>$value['from_who']])->one(); 
+
+                                                if (empty($imgProfile->img)) {
+                                                    
+                                                    $img = 'leso/leso.png';
+                                                } else {
+                                                    $img = $imgProfile->img;
+                                                }
+
+
+                                            ?>
+
+
+
+
                                             <?= Html::a(
                                             '
-                                            <div class="btn btn-danger btn-circle"><i class="fa fa-link"></i></div>
+                                            <div class="user-img"> <img src="'.Yii::$app->request->baseUrl.'/image/'.$img.'" alt="user" class="img-circle"></div>
                                             <div class="mail-contnet">
                                             <h5>'.$value['details'].'</h5>
                                             <span class="mail-desc">'.$value['from_who'].'</span>

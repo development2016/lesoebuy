@@ -57,6 +57,8 @@ class Notification extends \yii\mongodb\ActiveRecord
             'seller',
             'approver',
             'url_for_buyer',
+            'remark',
+            'by'
             
         ];
     }
@@ -67,7 +69,7 @@ class Notification extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['status_buyer', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver','url_for_buyer','status_approver'], 'safe']
+            [['status_buyer', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver','url_for_buyer','status_approver','remark','by'], 'safe']
         ];
     }
 
@@ -87,7 +89,8 @@ class Notification extends \yii\mongodb\ActiveRecord
             'to_who' => 'To Who',
             'read_unread' => 'Read Unread',
             'date_create' => 'Date Create',
-            'status_approver' => ''
+            'status_approver' => '',
+            'remark' => 'Remark'
 
         ];
     }
@@ -199,8 +202,8 @@ class Notification extends \yii\mongodb\ActiveRecord
                     
                 ]
             ],
-   
 
+  
         ]);
 
         return $model;

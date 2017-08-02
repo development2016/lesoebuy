@@ -43,6 +43,18 @@ class NotificationController extends Controller
 
             ]);
 
+        } elseif ($model->status_buyer == 'Reject') {
+
+            $model->read_unread = 1;
+            $model->save();
+            return $this->redirect([$model->url, 
+                'project' => (string)$model->project_id,
+                'seller'=>$model->seller,
+                'buyer'=>$model->to_who,
+                'approver'=>$model->approver,
+
+            ]);
+
 
         } elseif ($model->status_buyer == 'Complete') {
 

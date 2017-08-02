@@ -373,7 +373,7 @@ class GenerateController extends Controller
                         ]);
 
 
-                           $notify = new Notification();
+                            $notify = new Notification();
                             $notify->status_buyer = 'Active';
                             $notify->status_approver = 'Waiting Approval';
                             $notify->details = $model[0]['sellers']['purchase_requisition_no'];
@@ -388,6 +388,8 @@ class GenerateController extends Controller
                             $notify->url_for_buyer = 'request/direct-purchase-requisition';
                             $notify->seller = $model[0]['sellers']['seller'];
                             $notify->approver = $model[0]['sellers']['approver'];
+                            $notify->remark = $_POST['Project']['sellers']['remark'];
+
 
                             $notify->save();
 
@@ -792,7 +794,8 @@ class GenerateController extends Controller
                             $notify->url = 'request/direct-purchase-requisition-approve';
                             $notify->url_for_buyer = 'request/direct-purchase-requisition';
                             $notify->seller = $model[0]['sellers']['seller'];
-                            $notify->approver = $model[0]['sellers']['approver'];;
+                            $notify->approver = $model[0]['sellers']['approver'];
+                            $notify->remark = $_POST['Project']['sellers']['remark'];
 
                             $notify->save();
 
@@ -1197,7 +1200,8 @@ class GenerateController extends Controller
                             $notify->url = 'request/direct-purchase-requisition-approve-next';
                             $notify->url_for_buyer = 'request/direct-purchase-requisition';
                             $notify->seller = $model[0]['sellers']['seller'];
-                            $notify->approver = $model[0]['sellers']['approver'];;
+                            $notify->approver = $model[0]['sellers']['approver'];
+                            $notify->remark = $_POST['Project']['sellers']['remark'];
 
                             $notify->save();
 /* 
@@ -1611,7 +1615,8 @@ class GenerateController extends Controller
             $notify->url = 'request/direct-purchase-requisition-approve-next';
             $notify->url_for_buyer = 'request/direct-purchase-requisition';
             $notify->seller = $model[0]['sellers']['seller'];
-            $notify->approver = $model[0]['sellers']['approver'];;
+            $notify->approver = $model[0]['sellers']['approver'];
+            $notify->remark = $_POST['Project']['sellers']['remark'];
 
             $notify->save();
 

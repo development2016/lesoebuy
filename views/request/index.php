@@ -148,11 +148,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -174,11 +174,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -198,10 +198,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -218,7 +218,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 
@@ -242,11 +242,11 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -264,7 +264,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 
@@ -288,10 +288,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -309,7 +309,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -339,11 +339,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -363,11 +363,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
                                                                   </td>
 
 
@@ -388,10 +388,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                   <div class="btn-group">
-                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                           Purchase Requisition
                                                                       </button>
                                                                       <div class="dropdown-menu animated flipInX">
@@ -408,7 +408,7 @@ $this->registerJs($script);
         
                                                                   <?= Html::a('File', ['file/index',
                                                                   'project'=>(string)$value['_id'],
-                                                                  ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                  ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -429,10 +429,10 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                   <div class="btn-group">
-                                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                           Purchase Requisition
                                                                       </button>
                                                                       <div class="dropdown-menu animated flipInX">
@@ -448,7 +448,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -469,10 +469,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -490,7 +490,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -528,11 +528,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -554,11 +554,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -582,10 +582,10 @@ $this->registerJs($script);
                                                                     'role'=>'user'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
+                                                                    ]),'class' => 'btn btn-secondary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color : #292b2c']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -602,7 +602,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -624,7 +624,7 @@ $this->registerJs($script);
                                                                   <td>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Submit To Approver
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -651,7 +651,7 @@ $this->registerJs($script);
                                                                     </div>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -667,7 +667,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 
@@ -691,11 +691,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -720,11 +720,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -745,11 +745,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -773,10 +773,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -792,7 +792,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -813,10 +813,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -834,7 +834,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -858,10 +858,10 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Purchase Requisition
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -877,7 +877,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 
@@ -911,11 +911,11 @@ $this->registerJs($script);
                                                                   'seller'=>$value2['seller'],
                                                                   'buyer'=>$value['buyers'][0]['buyer'],
                                                                   'approver'=>$value2['approver'],
-                                                                  ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                  ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                 </td>
@@ -938,11 +938,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -970,12 +970,12 @@ $this->registerJs($script);
                                                                     'role'=>'user'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
+                                                                    ]),'class' => 'btn btn-secondary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color : #292b2c']) ?>
 
                                                                     
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -991,7 +991,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1012,7 +1012,7 @@ $this->registerJs($script);
                                                                   <td>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Submit To Approver
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1039,7 +1039,7 @@ $this->registerJs($script);
 
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1057,7 +1057,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1081,11 +1081,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1110,11 +1110,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1136,11 +1136,11 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Purchase Requisition
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1156,7 +1156,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1180,11 +1180,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1205,10 +1205,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1226,7 +1226,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1250,10 +1250,10 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1268,7 +1268,7 @@ $this->registerJs($script);
                                                                     </div>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             File
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1309,11 +1309,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
                                                                   </td>
 
 
@@ -1334,11 +1334,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1361,7 +1361,7 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
 
 
@@ -1373,11 +1373,11 @@ $this->registerJs($script);
                                                                     'role'=>'buyer'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
+                                                                    ]),'class' => 'btn btn-secondary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color : #292b2c']) ?>
 
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1393,7 +1393,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1414,10 +1414,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1435,7 +1435,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1459,7 +1459,7 @@ $this->registerJs($script);
                                                                   </td>
                                                                   <td>
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Submit To Approver
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1489,7 +1489,7 @@ $this->registerJs($script);
                                                                       </div>
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Purchase Requisition
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1505,7 +1505,7 @@ $this->registerJs($script);
                                                                     
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1525,10 +1525,10 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Purchase Requisition
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1545,7 +1545,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1568,11 +1568,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1593,12 +1593,12 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
 
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1615,7 +1615,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1638,11 +1638,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1661,11 +1661,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                               </td>
 
@@ -1697,11 +1697,11 @@ $this->registerJs($script);
                                                                   'seller'=>$value2['seller'],
                                                                   'buyer'=>$value['buyers'][0]['buyer'],
                                                                   'approver'=>$value2['approver'],
-                                                                  ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                  ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                 </td>
@@ -1723,7 +1723,7 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     
                                                                     <?= Html::a('Choose Buyer',FALSE, ['value'=>Url::to([
@@ -1734,11 +1734,11 @@ $this->registerJs($script);
                                                                     'role'=>'buyer'
                                                    
                              
-                                                                    ]),'class' => 'btn btn-primary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color:#fff;']) ?>
+                                                                    ]),'class' => 'btn btn-secondary choose-buyer','id'=>'choose-buyer','title'=>'Purchase Requisition','style'=>'color : #292b2c']) ?>
 
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1755,7 +1755,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1774,11 +1774,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                               </td>
 
@@ -1797,11 +1797,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                               </td>
 
@@ -1822,10 +1822,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
                                                                     
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -1843,7 +1843,7 @@ $this->registerJs($script);
 
                                                                   <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1871,7 +1871,7 @@ $this->registerJs($script);
                                                                   <td>
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Submit To Approver
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1899,7 +1899,7 @@ $this->registerJs($script);
                                                                       </div>
 
                                                                       <div class="btn-group">
-                                                                          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                          <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                               Purchase Requisition
                                                                           </button>
                                                                           <div class="dropdown-menu animated flipInX">
@@ -1915,7 +1915,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -1940,11 +1940,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1969,11 +1969,11 @@ $this->registerJs($script);
                                                                     'seller'=>$value2['seller'],
                                                                     'buyer'=>$value['buyers'][0]['buyer'],
                                                                     'approver'=>$value2['approver'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -1996,10 +1996,10 @@ $this->registerJs($script);
                                                                         'project'=>(string)$value['_id'],
                                                                         'seller'=>$value2['seller'],
                                                                         'buyer'=>$user->account_name,
-                                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -2015,7 +2015,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                   </td>
@@ -2037,10 +2037,10 @@ $this->registerJs($script);
                                                                       'project'=>(string)$value['_id'],
                                                                       'seller'=>$value2['seller'],
                                                                       'buyer'=>$value2['PO_process_by'],
-                                                                      ],['class'=>'btn btn-primary','title'=>'Purchase Order']) ?>
+                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Order']) ?>
 
                                                                     <div class="btn-group">
-                                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                                             Purchase Requisition
                                                                         </button>
                                                                         <div class="dropdown-menu animated flipInX">
@@ -2056,7 +2056,7 @@ $this->registerJs($script);
 
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                   </td>
 
@@ -2161,7 +2161,7 @@ $this->registerJs($script);
                                               <?php if ($value_info['status'] == 'Reject PR') { ?>
 
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Purchase Requisition
                                                     </button>
                                                     <div class="dropdown-menu animated flipInX">
@@ -2179,7 +2179,7 @@ $this->registerJs($script);
                                               <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
 
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Purchase Requisition
                                                     </button>
                                                     <div class="dropdown-menu animated flipInX">
@@ -2200,7 +2200,7 @@ $this->registerJs($script);
                                               <?php } elseif ($value_info['status'] == 'Revise PO') { ?>
 
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Purchase Order
                                                     </button>
                                                     <div class="dropdown-menu animated flipInX">
@@ -2216,7 +2216,7 @@ $this->registerJs($script);
                                                 </div>
 
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Purchase Requisition
                                                     </button>
                                                     <div class="dropdown-menu animated flipInX">
@@ -2237,7 +2237,7 @@ $this->registerJs($script);
 
                                                 <?= Html::a('File', ['file/index',
                                                 'project'=>(string)$value_info['project'][0]['_id'],
-                                                ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 

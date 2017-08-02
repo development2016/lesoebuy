@@ -48,12 +48,19 @@ class OfflineController extends Controller
             }
 
 
+
+
+
         $info_role = in_array_r('Buyer', $getRole) ? 'Buyer' : '';
 
         $info_role_2 = in_array_r('User', $getRole) ? 'User' : '';
 
+        $info_role_2 = in_array_r('Approval', $getRole) ? '' : ''; // incase buyer as approval
+
 
         $combine = $info_role.$info_role_2;
+
+
 
         if ($model3->load(Yii::$app->request->post()) ) {
 
@@ -146,36 +153,75 @@ class OfflineController extends Controller
 
                 if (empty($_POST['Project']['document'])) {
 
-                    $model3->sellers = [[
-                        'seller' => $_POST['CompanyOffline']['company_name'],
-                        'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
-                        'address' => $_POST['CompanyOffline']['address'],
-                        'zip_code' => $_POST['CompanyOffline']['zip_code'],
-                        'country' => $_POST['CompanyOffline']['country'],
-                        'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
-                        'city' => $_POST['CompanyOffline']['city'],
-                        'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
-                        'fax_no' => $_POST['CompanyOffline']['fax_no'],
-                        'email' => $_POST['CompanyOffline']['email'],
-                        'website' => $_POST['CompanyOffline']['website'],
-                        'tax' => $_POST['CompanyOffline']['tax'],
-                        'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
-                        'term' => $_POST['CompanyOffline']['term'],
-                        'status' => 'Project Created',
-                        'direct_purchase' => [
+                    if (empty($_POST['CompanyOffline']['company_name']) || empty($_POST['CompanyOffline']['company_registeration_no'])) {
+
+                        $model3->sellers = [[
+                            'seller' => $_POST['CompanyOffline']['company_name'],
+                            'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                            'address' => $_POST['CompanyOffline']['address'],
+                            'zip_code' => $_POST['CompanyOffline']['zip_code'],
+                            'country' => empty($_POST['CompanyOffline']['country']) ? '' : $_POST['CompanyOffline']['country'],
+                            'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
+                            'city' => $_POST['CompanyOffline']['city'],
+                            'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                            'fax_no' => $_POST['CompanyOffline']['fax_no'],
+                            'email' => $_POST['CompanyOffline']['email'],
+                            'website' => $_POST['CompanyOffline']['website'],
+                            'tax' => $_POST['CompanyOffline']['tax'],
+                            'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                            'term' => $_POST['CompanyOffline']['term'],
+                            'status' => 'Project Created',
+                            'direct_purchase' => [
 
 
-                        ],
-                        'warehouses' => [],
-                        'purchase_requisition_no' => '',
-                        'purchase_order_no' => '',
-                        'items'=> [],
+                            ],
+                            'warehouses' => [],
+                            'purchase_requisition_no' => '',
+                            'purchase_order_no' => '',
+                            'items'=> [],
 
 
-                    ]];
+                        ]];
 
-                    $model->date_create = date('Y-m-d H:i:s');
-                    $model->enter_by = Yii::$app->user->identity->id;
+
+                    } else {
+
+                        $model3->sellers = [[
+                            'seller' => $_POST['CompanyOffline']['company_name'],
+                            'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                            'address' => $_POST['CompanyOffline']['address'],
+                            'zip_code' => $_POST['CompanyOffline']['zip_code'],
+                            'country' => empty($_POST['CompanyOffline']['country']) ? '' : $_POST['CompanyOffline']['country'],
+                            'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
+                            'city' => $_POST['CompanyOffline']['city'],
+                            'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                            'fax_no' => $_POST['CompanyOffline']['fax_no'],
+                            'email' => $_POST['CompanyOffline']['email'],
+                            'website' => $_POST['CompanyOffline']['website'],
+                            'tax' => $_POST['CompanyOffline']['tax'],
+                            'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                            'term' => $_POST['CompanyOffline']['term'],
+                            'status' => 'Project Created',
+                            'direct_purchase' => [
+
+
+                            ],
+                            'warehouses' => [],
+                            'purchase_requisition_no' => '',
+                            'purchase_order_no' => '',
+                            'items'=> [],
+
+
+                        ]];
+
+                        $model->date_create = date('Y-m-d H:i:s');
+                        $model->enter_by = Yii::$app->user->identity->id;
+
+                        $model->save();
+
+
+                    }
+
 
 
                     
@@ -183,44 +229,88 @@ class OfflineController extends Controller
 
                     $document = serialize($_POST['Project']['document']);
 
-                    $model3->sellers = [[
-                        'seller' => $_POST['CompanyOffline']['company_name'],
-                        'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
-                        'address' => $_POST['CompanyOffline']['address'],
-                        'zip_code' => $_POST['CompanyOffline']['zip_code'],
-                        'country' => $_POST['CompanyOffline']['country'],
-                        'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
-                        'city' => $_POST['CompanyOffline']['city'],
-                        'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
-                        'fax_no' => $_POST['CompanyOffline']['fax_no'],
-                        'email' => $_POST['CompanyOffline']['email'],
-                        'website' => $_POST['CompanyOffline']['website'],
-                        'tax' => $_POST['CompanyOffline']['tax'],
-                        'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
-                        'term' => $_POST['CompanyOffline']['term'],
-                        'status' => 'Project Created',
-                        'direct_purchase' => [
 
-                            unserialize($document)
+                    if (empty($_POST['CompanyOffline']['company_name']) || empty($_POST['CompanyOffline']['company_registeration_no'])) {
 
 
-                        ],
-                        'warehouses' => [],
-                        'purchase_requisition_no' => '',
-                        'purchase_order_no' => '',
-                        'items'=> [],
+                        $model3->sellers = [[
+                            'seller' => $_POST['CompanyOffline']['company_name'],
+                            'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                            'address' => $_POST['CompanyOffline']['address'],
+                            'zip_code' => $_POST['CompanyOffline']['zip_code'],
+                            'country' => empty($_POST['CompanyOffline']['country']) ? '' : $_POST['CompanyOffline']['country'],
+                            'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
+                            'city' => $_POST['CompanyOffline']['city'],
+                            'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                            'fax_no' => $_POST['CompanyOffline']['fax_no'],
+                            'email' => $_POST['CompanyOffline']['email'],
+                            'website' => $_POST['CompanyOffline']['website'],
+                            'tax' => $_POST['CompanyOffline']['tax'],
+                            'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                            'term' => $_POST['CompanyOffline']['term'],
+                            'status' => 'Project Created',
+                            'direct_purchase' => [
+
+                                unserialize($document)
 
 
-                    ]];
+                            ],
+                            'warehouses' => [],
+                            'purchase_requisition_no' => '',
+                            'purchase_order_no' => '',
+                            'items'=> [],
 
-                    $model->date_create = date('Y-m-d H:i:s');
-                    $model->enter_by = Yii::$app->user->identity->id;
+
+                        ]];
+
+
+                    } else {
+
+                        $model3->sellers = [[
+                            'seller' => $_POST['CompanyOffline']['company_name'],
+                            'company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                            'address' => $_POST['CompanyOffline']['address'],
+                            'zip_code' => $_POST['CompanyOffline']['zip_code'],
+                            'country' => empty($_POST['CompanyOffline']['country']) ? '' : $_POST['CompanyOffline']['country'],
+                            'state' => empty($_POST['CompanyOffline']['state']) ? '' : $_POST['CompanyOffline']['state'],
+                            'city' => $_POST['CompanyOffline']['city'],
+                            'telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                            'fax_no' => $_POST['CompanyOffline']['fax_no'],
+                            'email' => $_POST['CompanyOffline']['email'],
+                            'website' => $_POST['CompanyOffline']['website'],
+                            'tax' => $_POST['CompanyOffline']['tax'],
+                            'type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                            'term' => $_POST['CompanyOffline']['term'],
+                            'status' => 'Project Created',
+                            'direct_purchase' => [
+
+                                unserialize($document)
+
+
+                            ],
+                            'warehouses' => [],
+                            'purchase_requisition_no' => '',
+                            'purchase_order_no' => '',
+                            'items'=> [],
+
+
+                        ]];
+
+                        $model->date_create = date('Y-m-d H:i:s');
+                        $model->enter_by = Yii::$app->user->identity->id;
+
+                        $model->save();
+
+
+                    }
+
+
 
                 }
 
 
 
-                $model3->save() && $model->save();
+                $model3->save();
                 Uploads::deleteAll(['enter_by'=> Yii::$app->user->identity->id,'date_create'=>$today]);
 
             Yii::$app->getSession()->setFlash('direct', 'Your Direct Purchase Has Been Submit');

@@ -37,6 +37,15 @@ $this->title = 'Edit Info';
 		<label class="control-label" for="project-sellers-0-items-0-specification">Specification</label>
 		<textarea id="project-sellers-0-items-0-specification" class="form-control" name="Project[sellers][0][items][<?php echo $arrayItem ?>][specification]" rows="6"><?php echo $value['sellers'][0]['items'][$arrayItem]['specification']; ?></textarea>
 
+		<div class="help-block"></div>
+		</div>
+		<div class="form-group field-project-sellers-0-items-0-remark">
+		<label class="control-label" for="project-sellers-0-items-0-remark">Remark</label>
+		<textarea id="project-sellers-0-items-0-remark" class="form-control" placeholder="Stock - Selling Price - Profit %" name="Project[sellers][0][items][<?php echo $arrayItem ?>][remark]" rows="6"><?php echo $value['sellers'][0]['items'][$arrayItem]['remark']; ?></textarea>
+
+
+
+
 
 		<div class="help-block"></div>
 		</div>

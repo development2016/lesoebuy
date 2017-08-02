@@ -120,7 +120,7 @@ $this->registerJs($script);
                                                 <?php if (empty($value2['approval'])) { ?>
 
                                                   <div class="btn-group">
-                                                      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                      <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                           Choose Approver
                                                       </button>
                                                       <div class="dropdown-menu animated flipInX">
@@ -149,7 +149,7 @@ $this->registerJs($script);
 
                                                   <?= Html::a('File', ['file/index',
                                                     'project'=>(string)$value['_id'],
-                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                               
                                                 <?= Html::a('Delete', ['source/delete',
@@ -165,11 +165,11 @@ $this->registerJs($script);
                                                     'seller'=>(string)$value2['seller'],
                                                     'approver'=>$value2['approver'],
                                                     'buyer'=>$value['buyers'][0]['buyer'],
-                                                    ],['class'=>'btn btn-primary','title'=>'Purchase Requisition']) ?>
+                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
                                                   <?= Html::a('File', ['file/index',
                                                     'project'=>(string)$value['_id'],
-                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
                                      
 
                                                 <?php }  ?>
@@ -179,7 +179,7 @@ $this->registerJs($script);
 
                                             <?= Html::a('Continue', ['offline/project',
                                                     'project'=>(string)$value['project_no'],
-                                                    ],['class'=>'btn btn-primary','title'=>'In Process']) ?>
+                                                    ],['class'=>'btn btn-secondary','title'=>'In Process']) ?>
 
                                             <?= Html::a('Delete', ['source/delete',
                                                     'id'=>(string)$value['_id'],
@@ -261,7 +261,7 @@ $this->registerJs($script);
                                           </td>
                                           <td>
                                                 <div class="btn-group">
-                                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                         Purchase Requisition
                                                     </button>
                                                     <div class="dropdown-menu animated flipInX">
@@ -278,7 +278,7 @@ $this->registerJs($script);
 
                                                 <?= Html::a('File', ['file/index',
                                                 'project'=>(string)$value_info['project'][0]['_id'],
-                                                ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
 

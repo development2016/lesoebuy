@@ -140,7 +140,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 						    <?php } else { ?>
 
-						    	<div class="alert alert-success" role="alert">You Have Upload <strong><?= count($model2) ?></strong> File For This Project</div>
+						    	<div class="alert alert-success" role="alert">You Have Upload <b><?= count($model2) ?></b> File For This Project</div>
 
 						    <?php } ?>
 

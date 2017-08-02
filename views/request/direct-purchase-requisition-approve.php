@@ -35,6 +35,17 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 ?>
 
 
+<?php if (empty($notification->remark)) { ?>
+ 
+<?php } else { ?>
+
+<div class="alert alert-info" ><strong>Request : </strong> <?= $notification->remark; ?></div>
+    
+<?php } ?>
+
+
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -204,6 +215,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
                                         <b>Specification : </b> <?= $value['specification'] ?>
+                                         <br>
+                                        <br>
+                                        <b>Remark : </b><?= $value['remark'] ?>
+
                                         </h4>
  
                                     </td>

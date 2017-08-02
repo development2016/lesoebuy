@@ -27,6 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <th>No</th>
                             <th>Project No</th>
                             <th>PR</th>
+                            <th>Remark</th>
 
                         </tr>
                     </thead>
@@ -35,6 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <tr>
                     	<td><?= $i ?></td>
                     	<td><?= $value['project_no'] ?></td>
+
                     	<td>
 
                     	<?php if ($value['status_approver'] == 'Pending') { ?>
@@ -64,6 +66,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     	
                     		
                     	</td>
+                        <td><?= $value['remark'] ?></td>
                     </tr>
 
 

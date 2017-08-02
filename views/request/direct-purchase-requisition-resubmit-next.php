@@ -112,6 +112,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 ?>
 
+<?php if (empty($notification->remark)) { ?>
+ 
+<?php } else { ?>
+
+<div class="alert alert-danger" ><strong>Request : </strong> <?= $notification->remark; ?></div>
+    
+<?php } ?>
 
 <div class="row">
     <div class="col-md-12">
@@ -370,6 +377,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     <b>Model : </b> <?= $value['model'] ?>
                                     <br>
                                     <b>Specification : </b> <?= $value['specification'] ?>
+                                     <br>
+                                    <br>
+                                    <b>Remark : </b><?= $value['remark'] ?>
+                                    
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                         'information/sale-detail-update',
