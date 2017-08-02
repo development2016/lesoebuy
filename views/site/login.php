@@ -24,10 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
         ],*/
     ]); ?>
 
+
+
         <a href="javascript:void(0)" class="text-center db">
-        <h3>LESOEBUY</h3>
-        <br/>
+        <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/iconlogin.png" alt="Home" /><br/>
+        <img src="<?php echo Yii::$app->request->baseUrl; ?>/materialpro/assets/images/text2login.png" alt="Home" />
         </a>  
+
+
         
         <div class="form-group m-t-40">
           <div class="col-xs-12">
