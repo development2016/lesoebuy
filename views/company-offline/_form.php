@@ -43,18 +43,11 @@ use yii\widgets\ActiveForm;
 
             <?= $form->field($model, 'type_of_tax') ?>
 
-            <?= $form->field($model, 'date_create') ?>
-
-            <?= $form->field($model, 'enter_by') ?>
-
-            <?= $form->field($model, 'date_update') ?>
-
-            <?= $form->field($model, 'update_by') ?>
 
             <?= $form->field($model, 'term') ?>
 
             <div class="form-group">
-                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
             </div>
 
 

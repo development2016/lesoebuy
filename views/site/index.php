@@ -31,19 +31,19 @@ $this->title = 'Dashboard';
                             <td><?= $value['account_name'] ?></td>
 
                             <?php if ($value['status_login'] == 1) { ?>
-                                <td align="right"><span class="label label-light-success">Online</span></td>
+                                <td align="right"><span class="label label-light-success">Online</span></td> <!-- login -->
                                 
                             <?php } elseif ($value['status_login'] == 2) { ?>
-                                <td align="right"><span class="label label-light-warning">Away</span></td>
+                                <td align="right"><span class="label label-light-warning">Away</span></td> <!-- afk -->
 
                             <?php } elseif ($value['status_login'] == 3) { ?>
-                                <td align="right"><span class="label label-light-primary">Idle</span></td>
+                                <td align="right"><span class="label label-light-primary">Idle</span></td> <!-- not active in chat -->
 
                             <?php } elseif ($value['status_login'] == 4) { ?>
-                                <td align="right"><span class="label label-light-info">Busy</span></td>
+                                <td align="right"><span class="label label-light-info">Busy</span></td> <!-- change status manual in chat -->
 
                             <?php } elseif ($value['status_login'] == 0) { ?>
-                                <td align="right"><span class="label label-light-danger">Offline</span></td>
+                                <td align="right"><span class="label label-light-danger">Offline</span></td> <!-- logout -->
                      
                             <?php } ?>
                             

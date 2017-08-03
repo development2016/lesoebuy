@@ -25,8 +25,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'company_name',
             'company_registeration_no',
-            'address',
-            'zip_code',
             // 'country',
             // 'state',
             // 'city',
@@ -45,11 +43,11 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'header' => 'Tindakan',
                 'class' => 'yii\grid\ActionColumn',
-                'template'=>'{view}   {edit}   {delete}',
+                'template'=>'{view}  {edit}  {delete}',
                     'buttons' => [
                         'view' => function ($url, $model) {
                             return Html::a('View', 
-                                    $url,['title'=> 'Lihat','class'=>'btn btn-primary']);
+                                    $url,['title'=> 'Lihat','class'=>'btn btn-secondary']);
 
                         },
                         'edit' => function ($url, $model) {

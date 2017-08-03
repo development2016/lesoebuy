@@ -38,12 +38,13 @@ $listnotify = Notification::listnotify();
 
 
 $script = <<< JS
+var timeout = null;
 $(document).ready(function(){
 
 
 
-
 }); 
+
 JS;
 $this->registerJs($script);
 ?>
@@ -343,11 +344,17 @@ $this->registerJs($script);
                                 'visible' => User::checkMenu('3013'),
                             ],
                             [
+                                'label' => 'Item', 
+                                'url' => ['item-offline/index'],
+                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'visible' => User::checkMenu('3012'),
+                            ],
+                            /*[
                                 'label' => 'History', 
                                 'url' => ['#'],
                                 'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
                                 'visible' => User::checkMenu('3012'),
-                            ],
+                            ],*/
 
 
                         ],

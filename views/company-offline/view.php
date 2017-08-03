@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\CompanyOffline */
 
-$this->title = $model->_id;
+$this->title = $model->company_name;
 $this->params['breadcrumbs'][] = ['label' => 'Company Offlines', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -28,7 +28,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            '_id',
             'company_name',
             'company_registeration_no',
             'address',
@@ -43,10 +42,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'tax',
             'type_of_tax',
             'warehouses',
-            'date_create',
-            'enter_by',
-            'date_update',
-            'update_by',
             'term',
         ],
     ]) ?>
