@@ -41,7 +41,7 @@ $this->params['breadcrumbs'][] = $this->title;
             // 'update_by',
             // 'term',
             [
-                'header' => 'Tindakan',
+                'header' => 'Action',
                 'class' => 'yii\grid\ActionColumn',
                 'template'=>'{view}  {edit}  {delete}',
                     'buttons' => [

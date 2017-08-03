@@ -377,9 +377,9 @@ $this->registerJs($script);
             <!-- Bottom points-->
             <div class="sidebar-footer">
                 <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+                <?= Html::a('<i class="ti-settings"></i>', ['setting/index'], ['class' => 'link','data-toggle'=>'tooltip','title'=>'Settings']) ?>
                 <!-- item-->
-                <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
+                <a href="" class="link" data-toggle="tooltip" title="Inbox"><i class="mdi mdi-email"></i></a>
                 <!-- item-->
 
                 <?= Html::a('<i class="mdi mdi-power"></i>', ['site/logout'],['class'=>'link','title'=>'Logout','data-method'=>'POST']) ?>
