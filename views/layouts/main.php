@@ -301,25 +301,25 @@ $this->registerJs($script);
                             [
                                 'label' => 'Dashboard', 
                                 'url' => ['site/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
                             [
                                 'label' => 'Create', 
                                 'url' => ['source/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3001'),
                             ],
                             [
                                 'label' => 'Requisition', 
                                 'url' => ['request/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-folder"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3002'),
                             ],
                             [
                                 'label' => 'Order', 
                                 'url' => ['order/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-arrange-bring-forward"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3003'),
                             ],
                             [
@@ -340,14 +340,14 @@ $this->registerJs($script);
                             [
                                 'label' => 'Supplier', 
                                 'url' => ['company-offline/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-factory"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3013'),
                             ],
                             [
                                 'label' => 'Item', 
                                 'url' => ['item-offline/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
-                                'visible' => User::checkMenu('3012'),
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">{label}</a>',
+                                'visible' => User::checkMenu('3014'),
                             ],
                             /*[
                                 'label' => 'History', 
