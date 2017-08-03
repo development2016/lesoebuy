@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\CompanyOffline */
 
 $this->title = $model->company_name;
-$this->params['breadcrumbs'][] = ['label' => 'Company Offlines', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Supplier List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="company-offline-view">

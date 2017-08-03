@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\ItemOffline */
 
-$this->title = 'Update Item : ' . $model->_id;
-$this->params['breadcrumbs'][] = ['label' => 'Item Offlines', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->_id, 'url' => ['view', 'id' => (string)$model->_id]];
+$this->title = 'Update Item : ' . $model->item_code;
+$this->params['breadcrumbs'][] = ['label' => 'Item List', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->item_code, 'url' => ['view', 'id' => (string)$model->_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="item-offline-update">

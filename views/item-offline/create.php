@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\ItemOffline */
 
 $this->title = 'Create Item';
-$this->params['breadcrumbs'][] = ['label' => 'Item Offlines', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Item List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">

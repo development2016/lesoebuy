@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\ItemOffline */
 
 $this->title = $model->item_name;
-$this->params['breadcrumbs'][] = ['label' => 'Item Offlines', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Item List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="item-offline-view">

@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\CompanyOffline */
 
-$this->title = 'Update Supplier: ' . $model->_id;
-$this->params['breadcrumbs'][] = ['label' => 'Company Offlines', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->_id, 'url' => ['view', 'id' => (string)$model->_id]];
+$this->title = 'Update Supplier: ' . $model->company_name;
+$this->params['breadcrumbs'][] = ['label' => 'Supplier List', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => $model->company_name, 'url' => ['view', 'id' => (string)$model->_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="company-offline-update">

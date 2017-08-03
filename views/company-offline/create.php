@@ -7,7 +7,7 @@ use yii\helpers\Html;
 /* @var $model app\models\CompanyOffline */
 
 $this->title = 'Add Supplier';
-$this->params['breadcrumbs'][] = ['label' => 'Company Offlines', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Supplier List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="row">
