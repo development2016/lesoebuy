@@ -202,7 +202,7 @@ $this->registerJs($script);
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->username; ?></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->account_name; ?></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                     <?php
                     echo Menu::widget([
@@ -325,7 +325,7 @@ $this->registerJs($script);
                             [
                                 'label' => 'Approval', 
                                 'url' => ['request/request'],
-                                'template'=> '<a href="{url}" class="text-uppercase">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file-check"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3008'),
                             ],
                             [
