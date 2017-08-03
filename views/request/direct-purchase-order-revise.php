@@ -31,6 +31,16 @@ $(document).ready(function(){
 
     });
 
+
+    $('#temp').click(function(){
+        $('#modal').modal('show')
+        .find('#modalContent')
+        .load($(this).attr('value'));
+
+    });
+
+
+
     $('#create').click(function(){
         $('#modal').modal('show')
         .find('#modalContent')
@@ -127,13 +137,34 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
         <div class="card">
             <div class="card-block">
 
-                <?= Html::a('ADD ITEM',FALSE, ['value'=>Url::to([
-                    'information/item',
-                    'seller'=>$seller,
-                    'project'=>(string)$project,
-                    'path' => 'revise',
-                    'approver'=>$list[0]['sellers'][0]['approver'],
-                    ]),'class' => 'btn btn-info pull-right','id'=>'create','style'=>'color:#fff;text-decoration:none;cursor:pointer;']) ?>
+
+                <div class="btn-group pull-right">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ADD ITEM
+                    </button>
+                    <div class="dropdown-menu animated flipInX">
+                        <?= Html::a('Save to Item',FALSE, ['value'=>Url::to([
+                            'information/item',
+                            'seller'=>$seller,
+                            'project'=>(string)$project,
+                            'path' => 'revise',
+                            'approver'=>$list[0]['sellers'][0]['approver'],
+                            ]),'class' => 'dropdown-item','id'=>'create','title' => 'This Feature Will Save To Item']) ?>
+
+                        <?= Html::a('Add To PR',FALSE, ['value'=>Url::to([
+                            'information/item-temp',
+                            'seller'=>$seller,
+                            'project'=>(string)$project,
+                            'path' => 'revise',
+                            'approver'=>$list[0]['sellers'][0]['approver'],
+                            ]),'class' => 'dropdown-item','id'=>'temp','title' => 'This Feature Will Only Save To PR']) ?>
+
+
+
+                    </div>
+                </div>
+
+
 
 
                 <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
@@ -142,7 +173,11 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             <div class="row">
 
                 <div class="col-lg-3">
-                    <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
+                    <?php if (empty($companyBuyer->logo)) { ?>
+                        <img src="<?php echo Yii::$app->request->baseUrl;?>/image/logo.png" class="img-responsive" alt="" />
+                    <?php } else { ?>
+                        <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
+                    <?php } ?>
                 </div>
                 
                 <div class="col-lg-6">
@@ -244,7 +279,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             <b>Email : </b><?= $list[0]['sellers'][0]['warehouses'][0]['email'] ?>
                                             <br>
                                             <?= Html::a('Edit',FALSE, ['value'=>Url::to([
-                                            'information/add-delivery',
+                                            'information/edit-delivery',
                                             'seller'=>$seller,
                                             'project'=>(string)$project,
                                             'approver'=>$list[0]['sellers'][0]['approver'],
@@ -300,7 +335,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 <?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['delivery_before'])); ?>
                                 <br>
                                 <?= Html::a('Edit',FALSE, ['value'=>Url::to([
-                                        'information/add-before',
+                                        'information/edit-before',
                                         'seller'=>$seller,
                                         'project'=>(string)$project,
                                         'approver'=>$list[0]['sellers'][0]['approver'],

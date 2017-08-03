@@ -28,8 +28,6 @@ use app\models\Email;
 class RequestController extends Controller
 {
 
-
-
     public function actionIndex()
     {
 
@@ -171,6 +169,11 @@ class RequestController extends Controller
                         [
                             'status' => 'Request Approval Next'
                         ],
+                        [
+                            'status' => 'Change Buyer'
+                        ],
+
+
 
                     ],
 
@@ -186,6 +189,7 @@ class RequestController extends Controller
                             'status' => '$status',
                             'date_reject' => '$date_reject',
                             'date_request' => '$date_request',
+                            'date_change' => '$date_change',
                             'seller' => '$seller',
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'purchase_order_no' => '$purchase_order_no',
@@ -355,8 +359,6 @@ class RequestController extends Controller
 		]);
 
         $collectionLog = Yii::$app->mongo->getCollection('log');
-
-
         $log = $collectionLog->aggregate([
 
             [
@@ -369,9 +371,11 @@ class RequestController extends Controller
                         [
                             'status' => 'Reject PR'
                         ],
-                        [
-                            'by' => $user->account_name
-                        ],
+
+
+                    ],
+                    '$and' => [
+
                         [
                             'by_approval' => $user->account_name
                         ],
@@ -394,6 +398,7 @@ class RequestController extends Controller
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'purchase_order_no' => '$purchase_order_no',
                             'log_id' => '$_id',
+                            'by_approval' => '$by_approval',
                             'by' => '$by',
                             'project' => '$0'
 
@@ -414,7 +419,6 @@ class RequestController extends Controller
             ],
 
         ]);
-
 
 
 
@@ -2580,6 +2584,9 @@ class RequestController extends Controller
                 'from_who' => $buyer,
                 'to_who' => $tempApp,
                 'by' => $buyer,
+                'purchase_requisition_no' => $dataChangeBuyer[0]['sellers']['purchase_requisition_no'],
+                'seller' => $dataChangeBuyer[0]['sellers']['seller'],
+                'project_no' => $dataChangeBuyer[0]['project_no'],
                 unserialize($dataChangeBuyerLog)
 
             ]);

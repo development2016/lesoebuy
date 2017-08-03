@@ -150,7 +150,8 @@ $this->registerJs($script);
 	     	
 	     </div>
 
-	     <?= $form->field($model, 'sellers[items][remark]')->textarea(['rows' => 6,'id'=>'remark'])->label('Remark') ?>
+	     <?= $form->field($model, 'sellers[items][remark]')->textarea(['rows' => 6,'id'=>'remark','placeholder' => 'Stock - Selling Price - Profit %'])->label('Remark') ?>
+
 
 		<div class="form-group">
 

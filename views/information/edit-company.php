@@ -177,8 +177,6 @@ $this->registerJs($script);
             <?php } ?>
            </ul>
 
-
-        
     </div>
     
 </div>

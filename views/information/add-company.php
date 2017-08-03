@@ -24,7 +24,42 @@ $this->title = 'Supplier Info';
 $script = <<< JS
 $(document).ready(function(){
 
+    $('.companyoff').on('click', function () {
 
+        var company_name = $(this).data('company_name');
+        var company_registeration_no = $(this).data('company_registeration_no');
+        var address = $(this).data('address');
+        var zip_code = $(this).data('zip_code');
+        var country = $(this).data('country');
+        var city = $(this).data('city');
+        var telephone_no = $(this).data('telephone_no');
+        var fax_no = $(this).data('fax_no');
+        var email = $(this).data('email');
+        var website = $(this).data('website');
+        var type_of_tax = $(this).data('type_of_tax');
+        var tax = $(this).data('tax');
+        var term = $(this).data('term');
+
+
+
+        $('#companyname').val(company_name);
+        $('#registrationno').val(company_registeration_no);
+        $('#address').val(address);
+        $('#zipcode').val(zip_code);
+        $('#country').val(country);
+        $('#city').val(city);
+        $('#telephoneno').val(telephone_no);
+        $('#faxno').val(fax_no);
+        $('#email').val(email);
+        $('#website').val(website);
+        $('#typeoftax').val(type_of_tax);
+        $('#tax').val(tax);
+        $('#term').val(term);
+
+
+
+
+    });
 
 }); 
 JS;
@@ -108,6 +143,40 @@ $this->registerJs($script);
         ]) ?>
 
     </div>
+
+    <div class="col-lg-4" style="height: 560px; overflow-y: auto; overflow-x: auto;   border-left: solid #b7b7b7 1px;">
+
+            <ul style="list-style-type: none; ">
+            <?php foreach ($CompanyOffline as $key => $value) { ?>
+                <li style="cursor: pointer;color: #2d85d2;" class="companyoff" 
+                data-company_name="<?= $value['company_name']; ?>"  
+                data-company_registeration_no="<?= $value['company_registeration_no']; ?>"  
+                data-address="<?= $value['address']; ?>"  
+                data-zip_code="<?= $value['zip_code']; ?>"  
+                data-country="<?= $value['country']; ?>"  
+                data-state="<?= $value['state']; ?>"  
+                data-city="<?= $value['city']; ?>"  
+                data-telephone_no="<?= $value['telephone_no']; ?>"  
+                data-fax_no="<?= $value['fax_no']; ?>" 
+                data-email="<?= $value['email']; ?>" 
+                data-website="<?= $value['website']; ?>"
+                data-type_of_tax="<?= $value['type_of_tax']; ?>" 
+                data-tax="<?= $value['tax']; ?>"
+                data-term="<?= $value['term']; ?>"  
+
+                >
+                <?= $value['company_name']; ?>
+                <hr>
+
+                    
+                </li>
+
+            <?php } ?>
+           </ul>
+
+    </div>
+
+    
     
 </div>
 <?php ActiveForm::end(); ?>

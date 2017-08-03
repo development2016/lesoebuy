@@ -49,18 +49,21 @@ class OfflineController extends Controller
 
 
 
-
-
         $info_role = in_array_r('Buyer', $getRole) ? 'Buyer' : '';
 
         $info_role_2 = in_array_r('User', $getRole) ? 'User' : '';
 
-        $info_role_2 = in_array_r('Approval', $getRole) ? '' : ''; // incase buyer as approval
+        $info_role_3 = in_array_r('Approval', $getRole) ? 'Approval' : ''; // incase buyer as approval
 
 
-        $combine = $info_role.$info_role_2;
+        if ($info_role_3 == 'Approval') {
 
-
+            $combine = 'Buyer';
+           
+        } else {
+            
+            $combine = $info_role.$info_role_2;
+        }
 
         if ($model3->load(Yii::$app->request->post()) ) {
 

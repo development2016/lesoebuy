@@ -558,6 +558,7 @@ class InformationController extends Controller
                     [
                         
                         '$set' => [
+                            'sellers.$.items.'.$_POST['arrayItem'].'.item_code' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['item_code'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.item_name' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['item_name'],
                         ]
                         
@@ -1334,6 +1335,101 @@ class InformationController extends Controller
     public function actionEditDelivery($project,$seller,$buyer,$path,$approver)
     {
 
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+
+
+        if (empty($model['sellers'][0]['warehouses'][0]['country'])) {
+
+            $country = 0;
+            
+        } else {
+            $country = $model['sellers'][0]['warehouses'][0]['country'];
+        }
+
+        if (empty($model['sellers'][0]['warehouses'][0]['state'])) {
+            $state = 0;
+        } else {
+            $state = $model['sellers'][0]['warehouses'][0]['state'];
+        }
+ 
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+                $collection = Yii::$app->mongo->getCollection('project');
+                $arrUpdate = [
+                    '$set' => [
+                        'date_update' =>  date('Y-m-d h:i:s'),
+                        'update_by' =>  Yii::$app->user->identity->id,
+                        'sellers.$.warehouses' => [[
+                            'person_in_charge' => $_POST['Project']['sellers']['warehouses']['person_in_charge'],
+                            'contact' => $_POST['Project']['sellers']['warehouses']['contact'],
+                            'email' => $_POST['Project']['sellers']['warehouses']['email'],
+                            'country' => $_POST['Project']['sellers']['warehouses']['country'],
+                            'state' => $_POST['Project']['sellers']['warehouses']['state'],
+                            'location' => $_POST['Project']['sellers']['warehouses']['location'],
+                            'warehouse_name' => $_POST['Project']['sellers']['warehouses']['warehouse_name'],
+                            'address' => $_POST['Project']['sellers']['warehouses']['address'],
+                            'latitude' => $_POST['Project']['sellers']['warehouses']['latitude'],
+                            'longitude' => $_POST['Project']['sellers']['warehouses']['longitude'],
+
+
+                        ]]
+
+                    ]
+                
+                ];
+                $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
+
+             
+            if ($path == 'request') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+           
+               
+            } elseif ($path == 'direct') {
+
+                 return $this->redirect(['source/direct-purchase-requisition','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+               
+            } else if ($path == 'check') {
+
+                return $this->redirect(['request/direct-purchase-requisition-check', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer,'approver'=>$approver]);
+
+            } else if ($path == 'revise') {
+
+                return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer]);
+
+            } else if ($path == 'resubmitnext') {
+                
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+            }
+
+
+            
+
+        } else {
+
+            return $this->renderAjax('edit-delivery',[
+                'companyBuyer' => $companyBuyer,
+                'project' => $project,
+                'seller' => $seller,
+                'model' => $model,
+                'buyer' => $buyer,
+                'country' => $country,
+                'state' => $state
+            ]);
+        }
+
+
     }
 
 
@@ -1874,11 +1970,6 @@ class InformationController extends Controller
             }
 
 
-
-            
-
-
-           
   
         } else {
             return $this->renderAjax('item', [
@@ -1887,6 +1978,418 @@ class InformationController extends Controller
             ]);
         }
     }
+
+
+
+    public function actionItemTemp($seller,$project,$path,$approver)
+    {
+        //$offline = new ItemOffline();
+
+        $data = ItemOffline::find()->all();
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $process = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            '_id' => $newProject_id
+                        ],
+                        [
+                            'sellers.seller' => $seller,
+                        ],
+                    ],
+                    
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$_id',
+                    'title' => ['$first' => '$title' ],
+                    'due_date' => ['$first' => '$due_date' ],
+                    'project_no' => ['$first' => '$project_no' ],
+                    'type_of_project' => ['$first' => '$type_of_project' ],
+                    'buyers' => ['$first' => '$buyers' ],
+                    'description' => ['$first' => '$description' ],
+                    'sellers' => [
+                        '$push' => '$sellers'
+                    ],
+                ]
+            ]   
+
+        ]); 
+
+
+
+        $items = $process[0]['sellers'][0]['items'];
+
+        $countitem = count($items); // this to count how many items for specific sellers */
+
+
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($countitem == 0) {
+
+
+                if ($_POST['Project']['sellers']['items']['install'] == 'Yes' && $_POST['Project']['sellers']['items']['shipping'] == 'Yes') {
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $arrUpdate = [
+                        '$set' => [
+                            'sellers.$.items' => [
+                                [
+                                    'item_id' => 0,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+
+                                ]
+                            ],
+
+                        ]
+                    
+                        ];
+                    $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+
+
+                } elseif ($_POST['Project']['sellers']['items']['install'] == 'Yes' && $_POST['Project']['sellers']['items']['shipping'] == 'No') {
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $arrUpdate = [
+                        '$set' => [
+                            'sellers.$.items' => [
+                                [
+                                    'item_id' => 0,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+
+                                ]
+                            ],
+
+                        ]
+                    
+                        ];
+                    $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+
+                } elseif ($_POST['Project']['sellers']['items']['install'] == 'No' && $_POST['Project']['sellers']['items']['shipping'] == 'Yes') {
+
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $arrUpdate = [
+                        '$set' => [
+                            'sellers.$.items' => [
+                                [
+                                    'item_id' => 0,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => 0,
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+
+                                ]
+                            ],
+
+                        ]
+                    
+                        ];
+                    $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+                } else {
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $arrUpdate = [
+                        '$set' => [
+                            'sellers.$.items' => [
+                                [
+                                    'item_id' => 0,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => 0,
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+
+                                ]
+                            ],
+
+                        ]
+                    
+                        ];
+                    $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+
+                }
+
+            } else {
+
+                $up = $countitem++;
+            
+
+                if ($_POST['Project']['sellers']['items']['install'] == 'Yes' && $_POST['Project']['sellers']['items']['shipping'] == 'Yes') {
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $collection->update(
+                        ['_id' => $newProject_id,'sellers.seller' => $seller],
+                        [
+                            '$push' => [ // $push to add items in array 
+                                'sellers.$.items' => [
+
+                                    'item_id' => $up,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                
+                                ]
+                            ]
+                        ]
+
+                    );
+
+
+
+                } elseif ($_POST['Project']['sellers']['items']['install'] == 'Yes' && $_POST['Project']['sellers']['items']['shipping'] == 'No') {
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $collection->update(
+                        ['_id' => $newProject_id,'sellers.seller' => $seller],
+                        [
+                            '$push' => [ // $push to add items in array 
+                                'sellers.$.items' => [
+                                    'item_id' => $up,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                
+                                ]
+                            ]
+                        ]
+
+                    );
+
+
+
+
+                } elseif ($_POST['Project']['sellers']['items']['install'] == 'No' && $_POST['Project']['sellers']['items']['shipping'] == 'Yes') {
+
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $collection->update(
+                        ['_id' => $newProject_id,'sellers.seller' => $seller],
+                        [
+                            '$push' => [ // $push to add items in array 
+                                'sellers.$.items' => [
+                                    'item_id' => $up,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => 0,
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                
+                                ]
+                            ]
+                        ]
+
+                    );
+
+
+
+
+                } else {
+
+
+
+                    $collection = Yii::$app->mongo->getCollection('project');
+                    $collection->update(
+                        ['_id' => $newProject_id,'sellers.seller' => $seller],
+                        [
+                            '$push' => [ // $push to add items in array 
+                                'sellers.$.items' => [
+                                    'item_id' => $up,
+                                    'item_code' => $_POST['Project']['sellers']['items']['item_code'],
+                                    'item_name' => $_POST['Project']['sellers']['items']['item_name'],
+                                    'brand' => $_POST['Project']['sellers']['items']['brand'],
+                                    'model' => $_POST['Project']['sellers']['items']['model'],
+                                    //'description' => $_POST['Project']['sellers']['items']['description'],
+                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
+                                    //'validity' => $_POST['Project']['sellers']['items']['validity'],
+                                    'cost' => $_POST['Project']['sellers']['items']['cost'],
+                                    'quantity' => $_POST['Project']['sellers']['items']['quantity'],
+                                    'install' => $_POST['Project']['sellers']['items']['install'],
+                                    'installation_price' => 0,
+                                    'shipping' => $_POST['Project']['sellers']['items']['shipping'],
+                                    'shipping_price' => 0,
+                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                
+                                ]
+                            ]
+                        ]
+
+                    );
+
+
+
+
+
+                }
+
+
+
+
+            }
+
+            if ($path == 'source') {
+
+                return $this->redirect([
+                    'source/direct-purchase-requisition', 
+                    'project' => (string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer'],
+                    'approver' => $approver
+                ]);
+
+       
+            } elseif ($path == 'request') {
+
+                return $this->redirect([
+                    'request/direct-purchase-requisition-resubmit', 
+                    'project' => (string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer'],
+                    'approver' => $approver
+                ]);
+
+            } elseif ($path == 'check') {
+
+                return $this->redirect([
+                    'request/direct-purchase-requisition-check', 
+                    'project' => (string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer'],
+                    'approver' => $approver
+                ]);
+                
+            } else if ($path == 'revise') {
+
+                return $this->redirect([
+                    'request/direct-purchase-order-revise', 
+                    'project' =>(string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer']
+                ]);
+
+            } elseif ($path == 'resubmitnext') {
+
+                return $this->redirect([
+                    'request/direct-purchase-requisition-resubmit-next', 
+                    'project' => (string)$newProject_id,
+                    'seller'=>$seller,
+                    'buyer' => $process[0]['buyers'][0]['buyer'],
+                    'approver' => $approver
+                ]);
+            }
+
+
+  
+        } else {
+            return $this->renderAjax('item-temp', [
+                'model' => $model,
+                'data' => $data,
+            ]);
+        }
+    }
+
 
 
 
@@ -2091,6 +2594,76 @@ class InformationController extends Controller
     }
 
 
+    public function actionEditBefore($project,$seller,$buyer,$path,$approver)
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+                $collection = Yii::$app->mongo->getCollection('project');
+                $arrUpdate = [
+                    '$set' => [
+                        'date_update' =>  date('Y-m-d h:i:s'),
+                        'update_by' =>  Yii::$app->user->identity->id,
+                        'sellers.$.delivery_before' => $_POST['Project']['sellers']['delivery_before'],
+
+                    ]
+                
+                ];
+                $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
+
+             
+            if ($path == 'request') {
+
+                return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+           
+               
+            } elseif ($path == 'direct') {
+
+                 return $this->redirect(['source/direct-purchase-requisition','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+               
+            } else if ($path == 'check') {
+
+                return $this->redirect(['request/direct-purchase-requisition-check', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer,'approver'=>$approver]);
+
+            } else if ($path == 'revise') {
+
+                return $this->redirect(['request/direct-purchase-order-revise', 'project' =>(string)$newProject_id,'seller'=>$seller,'buyer' => $buyer]);
+
+            } else if ($path == 'resubmitnext') {
+                return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>(string)$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>$approver]);
+            }
+            
+
+        } else {
+
+            return $this->renderAjax('edit-before',[
+                'companyBuyer' => $companyBuyer,
+                'project' => $project,
+                'seller' => $seller,
+                'model' => $model,
+                'buyer' => $buyer
+            ]);
+        }
+
+
+    }
+
+
+
+
+
+
     public function actionAddCompany($project,$seller,$buyer,$path,$approver)
     {
 
@@ -2106,6 +2679,8 @@ class InformationController extends Controller
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
 
         $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+
+        $CompanyOffline = CompanyOffline::find()->all();
 
         if ($modelCompany->load(Yii::$app->request->post())) {
 
@@ -2176,7 +2751,8 @@ class InformationController extends Controller
                 'seller' => $seller,
                 'model' => $model,
                 'buyer' => $buyer,
-                'modelCompany' => $modelCompany
+                'modelCompany' => $modelCompany,
+                'CompanyOffline' => $CompanyOffline
             ]);
         }
 

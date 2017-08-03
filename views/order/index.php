@@ -107,7 +107,7 @@ $this->registerJs($script);
                                                     <td>
                                                     
                                                     <div class="btn-group">
-                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             Purchase Order
                                                         </button>
                                                         <div class="dropdown-menu animated flipInX">
@@ -123,7 +123,7 @@ $this->registerJs($script);
 
 
                                                     <div class="btn-group">
-                                                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             Purchase Requisition
                                                         </button>
                                                         <div class="dropdown-menu animated flipInX">
@@ -139,7 +139,7 @@ $this->registerJs($script);
 
                                                     <?= Html::a('File', ['file/index',
                                                     'project'=>(string)$value['_id'],
-                                                    ],['class'=>'btn btn-primary','title'=>'File']) ?>
+                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                              
 

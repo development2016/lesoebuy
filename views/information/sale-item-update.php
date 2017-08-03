@@ -20,6 +20,13 @@ $this->title = 'Edit Info';
 
     <?php foreach ($data as $key => $value) { ?>
 
+        <div class="form-group field-project-sellers-0-items-0-item_code">
+        <label class="control-label" for="project-sellers-0-items-0-item_code">Item Code</label>
+        <input type="text" id="project-sellers-0-items-0-item_code" class="form-control" name="Project[sellers][0][items][<?php echo $arrayItem ?>][item_code]" value="<?php echo $value['sellers'][0]['items'][$arrayItem]['item_code']; ?>">
+
+        <div class="help-block"></div>
+        </div>
+
 		<div class="form-group field-project-sellers-0-items-0-item_name">
 		<label class="control-label" for="project-sellers-0-items-0-item_name">Item Name</label>
 		<input type="text" id="project-sellers-0-items-0-item_name" class="form-control" name="Project[sellers][0][items][<?php echo $arrayItem ?>][item_name]" value="<?php echo $value['sellers'][0]['items'][$arrayItem]['item_name']; ?>">

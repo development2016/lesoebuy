@@ -37,7 +37,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             <div class="row">
 
                 <div class="col-lg-3">
-                    <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
+
+                    <?php if (empty($companyBuyer->logo)) { ?>
+                        <img src="<?php echo Yii::$app->request->baseUrl;?>/image/logo.png" class="img-responsive" alt="" />
+                    <?php } else { ?>
+                        <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
+                    <?php } ?>
+
                 </div>
                 
                 <div class="col-lg-6">

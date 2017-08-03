@@ -2144,18 +2144,28 @@ $this->registerJs($script);
                                           <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
 
                                               <span class="label label-info"><?= $value_info['status'] ?></span>
+
+
+                                          <?php } elseif ($value_info['status'] == 'Change Buyer') { ?>
+
+                                              <span class="label label-info"><?= $value_info['status'] ?></span>
                                               
                                           <?php } ?>
                                           </td>
-                                        <td>
-                                          <?php if ($value_info['status'] == 'Reject PR') { ?>
-                                              <span class="label label-inverse"><?= $value_info['date_reject'] ?></span>
+                                          <td>
+                                            <?php if ($value_info['status'] == 'Reject PR') { ?>
+                                                <span class="label label-inverse"><?= $value_info['date_reject'] ?></span>
 
-                                          <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
-                                              <span class="label label-inverse"><?= $value_info['date_request'] ?></span>
+                                            <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
+                                                <span class="label label-inverse"><?= $value_info['date_request'] ?></span>
 
-                                          <?php } ?>
-                                        </td>
+
+                                            <?php } elseif ($value_info['status'] == 'Change Buyer') { ?>
+
+                                                <span class="label label-inverse"><?= $value_info['date_change'] ?></span>
+
+                                            <?php } ?>
+                                          </td>
                                           
                                           <td>
                                               <?php if ($value_info['status'] == 'Reject PR') { ?>
@@ -2177,6 +2187,24 @@ $this->registerJs($script);
                                                 </div>
 
                                               <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
+
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        Purchase Requisition
+                                                    </button>
+                                                    <div class="dropdown-menu animated flipInX">
+                                                              <?= Html::a('<b>'.$value_info['purchase_requisition_no'].'</b>', [
+                                                              'html/direct-purchase-requisition-html-inactive',
+                                                              'log_id' => (string)$value_info['log_id'],
+                                                              'buyer' => $value_info['by'],
+                                                              ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                                                        
+                                                        
+                                                        
+                                                    </div>
+                                                </div>
+
+                                              <?php } elseif ($value_info['status'] == 'Change Buyer') { ?>
 
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

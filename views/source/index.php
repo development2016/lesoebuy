@@ -246,6 +246,9 @@ $this->registerJs($script);
                                           <?php } elseif ($value_info['status'] == 'Cancel PR') { ?>
 
                                               <span class="label" style="background-color: #e2422b;"><?= $value_info['status'] ?></span>
+                                              <br>
+                                              <b>Remark : </b><?= $value_info['project'][0]['pr_cancel'][0]['remark']; ?>
+                                              
 
                                           <?php } ?>
 
