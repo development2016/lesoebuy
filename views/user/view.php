@@ -6,43 +6,41 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
 
-$this->title = $model->id;
+$this->title = $model->account_name;
 $this->params['breadcrumbs'][] = ['label' => 'Users', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="user-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+         
+            <?= Html::a('Update Info', ['update', 'id' => $model->id], ['class' => 'btn btn-info pull-right']) ?>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6> 
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'username',
-            'auth_key',
-            'password_hash',
-            'password_reset_token',
-            'email:email',
-            'status',
-            'created_at',
-            'updated_at',
-            'as_a',
-            'last_login',
-            'active',
-            'login_attempts',
-            'account_name',
-        ],
-    ]) ?>
+                <div class="row">
 
+                    <div class="col-lg-12">
+            
+
+
+                        <?= DetailView::widget([
+                            'model' => $model,
+                            'attributes' => [
+                                'username',
+                                'email:email',
+                                'account_name',
+                            ],
+                        ]) ?>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 </div>

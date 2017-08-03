@@ -5,7 +5,12 @@ use yii\helpers\Html;
 $this->title = 'Dashboard';
 ?>
 
-
+    <?php if(Yii::$app->session->hasFlash('success')) { ?>
+        <div class="alert alert-info">
+            <button type="button" class="close" data-dismiss="alert"></button>
+             <?php echo  Yii::$app->session->getFlash('success'); ?>
+        </div>
+    <?php } ?>
 
 
 <div class="row">

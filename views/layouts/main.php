@@ -207,10 +207,18 @@ $this->registerJs($script);
                     echo Menu::widget([
                         'items' => [
                             [
-                                'label' => 'My Profile', 
-                                'url' => ['site/index'],
+                                'label' => 'Profile', 
+                                'url' => ['user/view','id'=>Yii::$app->user->identity->id],
   
                             ],
+                            [
+                                'label' => 'Change Password', 
+                                'url' => ['/site/request-password-reset','id'=>Yii::$app->user->identity->id],
+  
+                            ],
+
+
+
                             [
                                 'label' => 'List User', 
                                 'url' => ['user/list-user','company_id'=>(string)$company->company],

@@ -78,6 +78,7 @@ class UserController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('update', 'Your Info Has Been Update');
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
