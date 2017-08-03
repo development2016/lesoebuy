@@ -2,7 +2,12 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use app\models\Notification;
 $this->title = 'Dashboard';
+
+$notify = Notification::notify();
+
+
 ?>
 
     <?php if(Yii::$app->session->hasFlash('success')) { ?>
@@ -11,6 +16,53 @@ $this->title = 'Dashboard';
              <?php echo  Yii::$app->session->getFlash('success'); ?>
         </div>
     <?php } ?>
+
+
+
+<div class="row m-t-40">
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-info">
+            <div class="box text-center">
+                <h1 class="font-light text-white"><?=  $notify; ?></h1>
+                <h6 class="text-white">Pending Notification</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-dark card-inverse">
+            <div class="box text-center">
+                <h1 class="font-light text-white">-</h1>
+                <h6 class="text-white">Not Defined</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-dark">
+            <div class="box text-center">
+                <h1 class="font-light text-white">-</h1>
+                <h6 class="text-white">Not Defined</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+    <div class="col-md-6 col-lg-3 col-xlg-3">
+        <div class="card card-inverse card-dark">
+            <div class="box text-center">
+                <h1 class="font-light text-white">-</h1>
+                <h6 class="text-white">Not Defined</h6>
+            </div>
+        </div>
+    </div>
+    <!-- Column -->
+</div>
+      
+
+
+
+
 
 
 <div class="row">
