@@ -10,6 +10,7 @@ use app\models\LookupTerm;
 /* @var $model app\models\User */
 $country = ArrayHelper::map(LookupCountry::find()->asArray()->all(), 'id', 'country');
 $state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$modelCompany->country])->asArray()->all(), 'id', 'state');
+
 $term = ArrayHelper::map(LookupTerm::find()->asArray()->all(), 'term', 'term');
 
 //$state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$model->country])->asArray()->all(), 'id', 'state');
