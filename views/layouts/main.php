@@ -434,7 +434,7 @@ $this->registerJs($script);
             </div>
 
             <footer class="footer">
-                © 2017 Material Pro Admin by wrappixel.com
+                © 2017 Lesoebuy
             </footer>
 
         </div>
