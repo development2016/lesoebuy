@@ -9,7 +9,14 @@ use app\models\LookupTerm;
 /* @var $this yii\web\View */
 /* @var $model app\models\User */
 $country = ArrayHelper::map(LookupCountry::find()->asArray()->all(), 'id', 'country');
-$state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$modelCompany->country])->asArray()->all(), 'id', 'state');
+//
+
+
+if (empty($model['sellers'][0]['state'])) {
+    $state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$modelCompany->country])->asArray()->all(), 'id', 'state');
+} else {
+    $state = ArrayHelper::map(LookupState::find()->where(['id'=>$model['sellers'][0]['state']])->asArray()->all(), 'id', 'state');
+}
 
 $term = ArrayHelper::map(LookupTerm::find()->asArray()->all(), 'term', 'term');
 
