@@ -1302,6 +1302,7 @@ class RequestController extends Controller
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
                             'by_approval' => $approval_info->account_name,
+                            'by' => $dataApprove[0]['buyers'][0]['buyer'],
                             'project_no' => $dataApprove[0]['project_no'],
                             'seller' => $dataApprove[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1323,8 +1324,6 @@ class RequestController extends Controller
                         ];
 
                         $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
-
-
                         
 
                         $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
@@ -1566,6 +1565,7 @@ class RequestController extends Controller
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
                             'by_approval' => $approval_info->account_name,
+                            'by' => $dataApprove[0]['buyers'][0]['buyer'],
                             'project_no' => $dataApprove[0]['project_no'],
                             'seller' => $dataApprove[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1706,6 +1706,7 @@ class RequestController extends Controller
                 'status' => 'Approve',
                 'date_approve' => date('Y-m-d h:i:s'),
                 'by_approval' => $approval_info->account_name,
+                'by' => $dataApprove[0]['buyers'][0]['buyer'],
                 'project_no' => $dataApprove[0]['project_no'],
                 'seller' => $dataApprove[0]['sellers']['seller'],
                 'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1955,6 +1956,7 @@ class RequestController extends Controller
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
                             'by_approval' => $approval_info->account_name,
+                            'by' => $dataApproveNext[0]['buyers'][0]['buyer'],
                             'project_no' => $dataApproveNext[0]['project_no'],
                             'seller' => $dataApproveNext[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
@@ -2214,6 +2216,7 @@ class RequestController extends Controller
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
                             'by_approval' => $approval_info->account_name,
+                            'by' => $dataApproveNext[0]['buyers'][0]['buyer'],
                             'project_no' => $dataApproveNext[0]['project_no'],
                             'seller' => $dataApproveNext[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
@@ -2355,6 +2358,7 @@ class RequestController extends Controller
                 'status' => 'Approve',
                 'date_approve' => date('Y-m-d h:i:s'),
                 'by_approval' => $approval_info->account_name,
+                'by' => $dataApproveNext[0]['buyers'][0]['buyer'],
                 'project_no' => $dataApproveNext[0]['project_no'],
                 'seller' => $dataApproveNext[0]['sellers']['seller'],
                 'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
