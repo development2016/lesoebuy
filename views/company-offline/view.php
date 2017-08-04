@@ -10,40 +10,39 @@ $this->title = $model->company_name;
 $this->params['breadcrumbs'][] = ['label' => 'Supplier List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="company-offline-view">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-info pull-right']) ?>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => (string)$model->_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'company_name',
-            'company_registeration_no',
-            'address',
-            'zip_code',
-            'country',
-            'state',
-            'city',
-            'telephone_no',
-            'fax_no',
-            'email',
-            'website',
-            'tax',
-            'type_of_tax',
-            'warehouses',
-            'term',
-        ],
-    ]) ?>
-
+                <?= DetailView::widget([
+                    'model' => $model,
+                    'attributes' => [
+                        'company_name',
+                        'company_registeration_no',
+                        'address',
+                        'zip_code',
+                        'countrys.country',
+                        'states.state',
+                        'city',
+                        'telephone_no',
+                        'fax_no',
+                        'email',
+                        'website',
+                        'tax',
+                        'type_of_tax',
+                        'warehouses',
+                        'term',
+                    ],
+                ]) ?>
+            </div>
+        </div>
+    </div>
 </div>
+
+

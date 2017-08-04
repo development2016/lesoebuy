@@ -107,4 +107,19 @@ class CompanyOffline extends \yii\mongodb\ActiveRecord
             'type_of_tax' => 'Type Of Tax',
         ];
     }
+
+
+    public function getCountrys()
+    {
+        return $this->hasOne(LookupCountry::className(), ['id' => 'country']);
+    }
+
+
+    public function getStates()
+    {
+        return $this->hasOne(LookupState::className(), ['id' => 'state']);
+    }
+
+
+
 }

@@ -8,7 +8,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use app\models\LookupState;
 /**
  * CompanyOfflineController implements the CRUD actions for CompanyOffline model.
  */
@@ -121,4 +121,27 @@ class CompanyOfflineController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+
+    public function actionState($id)
+    {
+        $countPosts = LookupState::find()
+        ->where(['country_id' => $id])
+        ->count();
+
+        $posts = LookupState::find()
+        ->where(['country_id' => $id])
+        ->all();
+
+        if($countPosts>0){
+            echo "<option value=''>-Please Choose-</option>";
+            foreach($posts as $post){
+                echo "<option value='".$post->id."'>".$post->state."</option>";
+            }
+        } else {
+                echo "<option value=''>-Select State-</option>";
+        }
+
+    }
+    
 }

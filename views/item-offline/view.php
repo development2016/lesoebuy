@@ -10,20 +10,14 @@ $this->title = $model->item_name;
 $this->params['breadcrumbs'][] = ['label' => 'Item List', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="item-offline-view">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => (string)$model->_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-info pull-right']) ?>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6>
 
     <?= DetailView::widget([
         'model' => $model,
@@ -33,8 +27,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'brand',
             'model',
             'specification',
-            'lead_time',
-            'validity',
+            'leads.lead_time',
+            //'validity',
             'cost',
             'quantity',
             'cit',
@@ -42,5 +36,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'remark',
         ],
     ]) ?>
-
+            </div>
+        </div>
+    </div>
 </div>
+
+

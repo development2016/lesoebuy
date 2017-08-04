@@ -102,4 +102,13 @@ class ItemOffline extends \yii\mongodb\ActiveRecord
             'remark' => 'Remark'
         ];
     }
+
+
+    public function getLeads()
+    {
+        return $this->hasOne(LookupLeadTime::className(), ['id' => 'lead_time']);
+    }
+
+
+
 }

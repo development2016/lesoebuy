@@ -10,12 +10,18 @@ $this->params['breadcrumbs'][] = ['label' => 'Supplier List', 'url' => ['index']
 $this->params['breadcrumbs'][] = ['label' => $model->company_name, 'url' => ['view', 'id' => (string)$model->_id]];
 $this->params['breadcrumbs'][] = 'Update';
 ?>
-<div class="company-offline-update">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
-
+					    <?= $this->render('_form', [
+					        'model' => $model,
+					    ]) ?>
+			</div>
+		</div>
+	</div>
 </div>
