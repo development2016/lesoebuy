@@ -34,6 +34,7 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'username' => 'Username',
+            'name' => 'Name',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
@@ -84,7 +85,7 @@ class User extends ActiveRecord implements IdentityInterface
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
             //[['username', 'auth_key', 'password_hash', 'email', 'created_at', 'updated_at'], 'required'],
             [['status', 'created_at', 'updated_at', 'active', 'login_attempts','status_login'], 'integer'],
-            [['username', 'password_hash', 'password_reset_token', 'email','account_name'], 'string', 'max' => 255],
+            [['username', 'password_hash', 'password_reset_token', 'email','account_name','name'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['last_login'], 'string', 'max' => 15],
             [['username'], 'unique'],

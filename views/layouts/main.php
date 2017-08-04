@@ -202,7 +202,7 @@ $this->registerJs($script);
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->account_name; ?></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><?php echo Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->name; ?></a>
                             <div class="dropdown-menu dropdown-menu-right scale-up">
                     <?php
                     echo Menu::widget([
