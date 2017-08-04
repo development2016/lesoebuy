@@ -103,11 +103,16 @@ class SiteController extends Controller
     {
 
 
-        $user = User::find()->where('id != :id and username != :username', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin'])->all();
+        $online = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>1])->all();
+
+        $offline = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>0])->all();
+
+
         //$user = User::find()->where('id != :id', ['id'=>Yii::$app->user->identity->id])->all();
 
         return $this->render('index',[
-            'user' => $user,
+            'online' => $online,
+            'offline' => $offline,
         ]);
     }
 
