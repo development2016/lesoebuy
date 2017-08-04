@@ -124,7 +124,33 @@ $notify = Notification::notify();
         </div>
     </div>
 
+    <div class="col-lg-4 col-xlg-3">
+        <!-- Column -->
+        <div class="card earning-widget">
+            <div class="card-header">
 
+                <h4 class="card-title m-b-0">List Staff (<b>Idle</b>)</h4>
+            </div>
+            <div class="card-block b-t collapse show">
+                <table class="table v-middle no-border">
+                    <tbody>
+                    <?php foreach ($idle as $key => $value_idle) { ?>
+                        <tr>
+                            <td><?= $value_idle['account_name'] ?></td>
+
+                                <td align="right"><span class="label label-light-primary">Idle</span></td>
+                                 <!-- Idle -->
+                            
+                        </tr>
+                    <?php } ?>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
 
 
 

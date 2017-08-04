@@ -38,10 +38,45 @@ $listnotify = Notification::listnotify();
 
 
 $script = <<< JS
-var timeout = null;
+
 $(document).ready(function(){
 
+var idleState = false;
 
+    var idleTimer = null;
+    $('*').bind('mousemove click mouseup mousedown keydown keypress keyup submit change mouseenter scroll resize dblclick', function () {
+        clearTimeout(idleTimer);
+        if (idleState == true) { 
+
+            var online = 1;
+            $.ajax({
+                type: 'POST',
+                url: 'site/online',
+                data: {online: online},
+    
+
+            })
+
+
+           
+        }
+        idleState = false;
+        idleTimer = setTimeout(function () { 
+
+            var idle = 3;
+            $.ajax({
+                type: 'POST',
+                url: 'site/idle',
+                data: {idle: idle},
+    
+
+            })
+
+
+            idleState = true; 
+        }, 300000);
+    });
+    $("body").trigger("mousemove");
 
 }); 
 

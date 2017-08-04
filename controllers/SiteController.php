@@ -57,7 +57,7 @@ class SiteController extends Controller
                 //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username'],
+                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online'],
                         'allow' => true,
                     ],
                     [
@@ -94,6 +94,27 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionIdle()
+    {
+
+        $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
+
+        $user->status_login = $_POST['idle'];
+        $user->save();
+
+    }
+
+    public function actionOnline()
+    {
+
+        $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
+
+        $user->status_login = $_POST['online'];
+        $user->save();
+
+    }
+
+
     /**
      * Displays homepage.
      *
@@ -108,11 +129,15 @@ class SiteController extends Controller
         $offline = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>0])->all();
 
 
+        $idle = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>3])->all();
+
+
         //$user = User::find()->where('id != :id', ['id'=>Yii::$app->user->identity->id])->all();
 
         return $this->render('index',[
             'online' => $online,
             'offline' => $offline,
+            'idle' => $idle,
         ]);
     }
 
