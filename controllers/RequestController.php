@@ -1301,7 +1301,7 @@ class RequestController extends Controller
                         $collectionLog->insert([
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
-                            'by' => $approval_info->account_name,
+                            'by_approval' => $approval_info->account_name,
                             'project_no' => $dataApprove[0]['project_no'],
                             'seller' => $dataApprove[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1565,7 +1565,7 @@ class RequestController extends Controller
                         $collectionLog->insert([
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
-                            'by' => $approval_info->account_name,
+                            'by_approval' => $approval_info->account_name,
                             'project_no' => $dataApprove[0]['project_no'],
                             'seller' => $dataApprove[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1705,7 +1705,7 @@ class RequestController extends Controller
             $collectionLog->insert([
                 'status' => 'Approve',
                 'date_approve' => date('Y-m-d h:i:s'),
-                'by' => $approval_info->account_name,
+                'by_approval' => $approval_info->account_name,
                 'project_no' => $dataApprove[0]['project_no'],
                 'seller' => $dataApprove[0]['sellers']['seller'],
                 'purchase_requisition_no' => $dataApprove[0]['sellers']['purchase_requisition_no'],
@@ -1954,7 +1954,7 @@ class RequestController extends Controller
                         $collectionLog->insert([
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
-                            'by' => $approval_info->account_name,
+                            'by_approval' => $approval_info->account_name,
                             'project_no' => $dataApproveNext[0]['project_no'],
                             'seller' => $dataApproveNext[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
@@ -2213,7 +2213,7 @@ class RequestController extends Controller
                         $collectionLog->insert([
                             'status' => 'Approve',
                             'date_approve' => date('Y-m-d h:i:s'),
-                            'by' => $approval_info->account_name,
+                            'by_approval' => $approval_info->account_name,
                             'project_no' => $dataApproveNext[0]['project_no'],
                             'seller' => $dataApproveNext[0]['sellers']['seller'],
                             'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
@@ -2354,7 +2354,7 @@ class RequestController extends Controller
             $collectionLog->insert([
                 'status' => 'Approve',
                 'date_approve' => date('Y-m-d h:i:s'),
-                'by' => $approval_info->account_name,
+                'by_approval' => $approval_info->account_name,
                 'project_no' => $dataApproveNext[0]['project_no'],
                 'seller' => $dataApproveNext[0]['sellers']['seller'],
                 'purchase_requisition_no' => $dataApproveNext[0]['sellers']['purchase_requisition_no'],
