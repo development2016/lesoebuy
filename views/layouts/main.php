@@ -169,7 +169,7 @@ $this->registerJs($script);
                                             <div class="user-img"> <img src="'.Yii::$app->request->baseUrl.'/image/'.$img.'" alt="user" class="img-circle"></div>
                                             <div class="mail-contnet">
                                             <h5>'.$value['details'].'</h5>
-                                            <span class="mail-desc">'.$value['from_who'].'</span>
+                                            <span class="mail-desc">'.$imgProfile->name.'</span>
                                             </div>
                                             ', 
                                             [
