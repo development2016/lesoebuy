@@ -19,6 +19,23 @@ use app\models\Log;
 class InformationController extends Controller
 {
 
+
+    public function actionGet()
+    {
+
+        $posts = LookupState::find()
+        ->where(['id' => $_POST['state_id']])
+        ->all();
+
+
+            foreach($posts as $post){
+                echo "<option value='".$post->id."'>".$post->state."</option>";
+            }
+    }
+
+
+
+
 	// guide buying
     public function actionGuideShippingCreate($project,$seller,$path)
     {
@@ -2780,7 +2797,7 @@ class InformationController extends Controller
         $CompanyOffline = CompanyOffline::find()->all();
 
 
-
+  
         if ($modelCompany->load(Yii::$app->request->post())) {
 
                 $collection = Yii::$app->mongo->getCollection('project');

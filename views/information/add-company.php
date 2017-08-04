@@ -31,6 +31,7 @@ $(document).ready(function(){
         var address = $(this).data('address');
         var zip_code = $(this).data('zip_code');
         var country = $(this).data('country');
+        var state = $(this).data('state');
         var city = $(this).data('city');
         var telephone_no = $(this).data('telephone_no');
         var fax_no = $(this).data('fax_no');
@@ -40,13 +41,12 @@ $(document).ready(function(){
         var tax = $(this).data('tax');
         var term = $(this).data('term');
 
-
-
         $('#companyname').val(company_name);
         $('#registrationno').val(company_registeration_no);
         $('#address').val(address);
         $('#zipcode').val(zip_code);
         $('#country').val(country);
+        $('#state').val(state);
         $('#city').val(city);
         $('#telephoneno').val(telephone_no);
         $('#faxno').val(fax_no);
@@ -55,6 +55,20 @@ $(document).ready(function(){
         $('#typeoftax').val(type_of_tax);
         $('#tax').val(tax);
         $('#term').val(term);
+
+        $.ajax({
+            type: 'POST',
+            url: 'get',
+            data: {state_id: state},
+            success: function(data) {
+                $(".state").html(data);
+   
+
+            }
+
+        })
+
+
 
 
 
@@ -97,7 +111,7 @@ $this->registerJs($script);
             $state, 
         [
             'prompt' => '-Select State-',
-            'class' => 'form-control',
+            'class' => 'form-control state',
             'id'=> 'state',
 
         ]) ?>
