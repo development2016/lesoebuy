@@ -55,37 +55,32 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
-            'model' => $this->findModel($id),
-        ]);
-    }
-
-    /**
-     * Creates a new User model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-
-
-    /**
-     * Updates an existing User model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
         $model = $this->findModel($id);
+
+
+        $connection = \Yii::$app->db;
+        $sql = $connection->createCommand("SELECT lookup_role.role FROM user 
+        RIGHT JOIN acl ON acl.user_id = `user`.id
+        RIGHT JOIN acl_menu ON acl.acl_menu_id = acl_menu.id
+        RIGHT JOIN lookup_role ON acl_menu.role_id = lookup_role.role_id
+        WHERE `user`.id = '".$id."' GROUP BY lookup_role.role");
+        $role = $sql->queryAll();
+
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('update', 'Your Info Has Been Update');
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
-            return $this->render('update', [
+            return $this->render('view', [
                 'model' => $model,
+                'role' => $role
             ]);
         }
+
+
     }
+
 
     /**
      * Deletes an existing User model.
