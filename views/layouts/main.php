@@ -384,6 +384,14 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">{label}</a>',
                                 'visible' => User::checkMenu('3014'),
                             ],
+                            [
+                                'label' => 'Tutorial', 
+                                'url' => ['site/tutorial'],
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-video"></i><span class="hide-menu">{label}</a>',
+                                //'options'=>['class'=>'active open selected'],
+                            ],
+
+
                             /*[
                                 'label' => 'History', 
                                 'url' => ['#'],
