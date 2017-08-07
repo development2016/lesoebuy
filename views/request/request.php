@@ -504,16 +504,9 @@ $this->registerJs($script);
                                                                           'approver' => $value2['approver'],
                                                                           ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
-                                                                        <div class="btn-group">
-                                                                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                File
-                                                                            </button>
-                                                                            <div class="dropdown-menu animated flipInX">
-                                                                                
-                                                                                
-                                                                                
-                                                                            </div>
-                                                                        </div>
+                                                                       <?= Html::a('File', ['file/index',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
 
                                                                     </td>
@@ -549,17 +542,9 @@ $this->registerJs($script);
                                                                               ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
 
-
-                                                                                <div class="btn-group">
-                                                                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                                                        File
-                                                                                    </button>
-                                                                                    <div class="dropdown-menu animated flipInX">
-                                                                                        
-                                                                                        
-                                                                                        
-                                                                                    </div>
-                                                                                </div>
+                                                              <?= Html::a('File', ['file/index',
+                                                                    'project'=>(string)$value['_id'],
+                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
                                                                                 
                                                                               <?php } else { ?>
 
