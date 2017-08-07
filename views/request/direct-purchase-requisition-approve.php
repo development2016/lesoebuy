@@ -59,7 +59,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     </div>
 
                     <div class="col-lg-4">
-                        <b>Due Date : </b> <?php echo $new = date('d F Y', strtotime($list[0]['due_date'])); ?>
+                        <b>Due Date : </b> <?= $list[0]['due_date']; ?>
                         
                     </div>
 
