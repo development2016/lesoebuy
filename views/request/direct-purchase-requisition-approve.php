@@ -55,7 +55,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         <b>Title : </b> <?= $list[0]['title']; ?>
                     </div>
                     <div class="col-lg-4">
-                        <b>Description : </b> <?= $list[0]['description']; ?> sv dsv vsdssv ssd ss s fs fsf sfs dfsd fs fds fds
+                        <b>Description : </b> <?= $list[0]['description']; ?>
                     </div>
 
                     <div class="col-lg-4">
