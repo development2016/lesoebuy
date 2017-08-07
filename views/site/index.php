@@ -32,7 +32,7 @@ $this->registerJs($script);
             </div>
             <div class="modal-body">
       
-                <p>User Now Can Assign More Than 1 Buyer.</p>
+                <p>User Now Can Assign More Than <b style="color: #ff0000;">1</b> Buyer.</p>
                 <p>
                     <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature.png" class="card-img-top img-responsive" />
                 </p>
