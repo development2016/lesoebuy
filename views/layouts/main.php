@@ -36,7 +36,6 @@ $listnotify = Notification::listnotify();
 
 
 
-
 $script = <<< JS
 
 $(document).ready(function(){

@@ -29,7 +29,8 @@ $this->title = 'Choose Buyer To Assign';
 		    		<?php echo $value['account_name'] ?>
 
 
-		    		<input name="Project[sellers][buyer][]" type="radio" id="<?php echo $value['account_name'] ?>" class="radio-col-light-green" value="<?php echo $value['account_name'] ?>" />
+
+                    <input type="checkbox" name="Project[sellers][buyer][]" id="<?php echo $value['account_name'] ?>" class="chk-col-light-green" value="<?php echo $value['account_name'] ?>" />
                     <label for="<?php echo $value['account_name'] ?>"></label>
 
 

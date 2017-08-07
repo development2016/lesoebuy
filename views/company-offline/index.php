@@ -84,6 +84,9 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
      
         ],
+        'tableOptions' => [
+            'class' => 'table table-hover',
+        ],
     ]); ?>
 
 

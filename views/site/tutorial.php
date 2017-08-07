@@ -14,7 +14,7 @@ $this->title = 'Tutorial';
 <div class="row">
 
 
-    <div class="col-lg-12 col-md-12 col-xlg-12">
+    <div class="col-lg-6 col-md-6 col-xlg-6">
         <!-- Column -->
         <div class="card earning-widget">
             <div class="card-header">
@@ -24,9 +24,11 @@ $this->title = 'Tutorial';
             <div class="card-block b-t collapse show">
 
 
+                <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/juOkF0x6OX0"></iframe>
+                </div>
 
-            <iframe width="900" height="700" src="http://www.youtube.com/embed/juOkF0x6OX0">
-            </iframe>
+
 
             <br>
             <a href="http://www.youtube.com/watch?v=juOkF0x6OX0" target="_blank">View On YouTube</a>

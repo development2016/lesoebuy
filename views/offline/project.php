@@ -292,10 +292,7 @@ $this->params['breadcrumbs'][] = $this->title;
 				                ]) ?>
 
 
-							    <?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Submit', [
-							    'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info'
-
-							    ]) ?>
+	
 
 
                                 	
@@ -303,6 +300,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         </div>
                     </div>
+
+        			<?= Html::submitButton($model->isNewRecord ? 'Submit' : 'Submit', [
+				    'class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info'
+
+				    ]) ?>
                     <?php ActiveForm::end(); ?>
 
 

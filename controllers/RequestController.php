@@ -2490,6 +2490,7 @@ class RequestController extends Controller
 
         if ($model->load(Yii::$app->request->post()) ) {
 
+
             if ($role == 'user') {
 
                 foreach ($_POST['Project']['sellers']['buyer'] as $key => $value) {
@@ -2553,6 +2554,8 @@ class RequestController extends Controller
 
             }
 
+
+
             $collection = Yii::$app->mongo->getCollection('project');
             $dataChangeBuyer = $collection->aggregate([
                 [
@@ -2575,7 +2578,6 @@ class RequestController extends Controller
 
             ]); 
 
-            //print_r($dataChangeBuyer[0]['buyers']);
 
 
             $dataChangeBuyerLog = serialize($dataChangeBuyer);
@@ -2595,6 +2597,9 @@ class RequestController extends Controller
 
             ]);
 
+            $totalChangeBuyer = count($tempApp);
+
+            if ($totalChangeBuyer == 1) {
 
                 $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
 
@@ -2609,10 +2614,45 @@ class RequestController extends Controller
                 $notify->read_unread = 0;
                 $notify->url = 'request/index';
                 $notify->seller = $dataChangeBuyer[0]['sellers']['seller'];
-                $notify->approver = $dataChangeBuyer[0]['sellers']['approver'];;
-
+                $notify->approver = $dataChangeBuyer[0]['sellers']['approver'];
 
                 $notify->save();
+
+            } else {
+
+                for ($i=0; $i < $totalChangeBuyer ; $i++) { 
+
+                    $notify = new Notification();
+
+                    $notify->status_buyer = 'Change Buyer';
+                    $notify->status_approver = 'Noted';
+                    $notify->details = $dataChangeBuyer[0]['sellers']['purchase_requisition_no'];
+                    $notify->date_request = date('Y-m-d H:i:s');
+                    $notify->project_no = $dataChangeBuyer[0]['project_no'];
+                    $notify->project_id = $newProject_id;
+                    $notify->from_who = $buyer;
+                    $notify->to_who = $dataChangeBuyer[0]['buyers'][$i]['buyer'];
+                    $notify->date_create = date('Y-m-d H:i:s');
+                    $notify->read_unread = 0;
+                    $notify->url = 'request/index';
+                    $notify->seller = $dataChangeBuyer[0]['sellers']['seller'];
+                    $notify->approver = $dataChangeBuyer[0]['sellers']['approver'];
+                    $notify->remark = '';
+
+                    $notify->save();
+
+
+
+                    
+                }
+
+            }
+
+
+
+
+
+
 /* 
 
                 //email  start
@@ -2671,8 +2711,18 @@ class RequestController extends Controller
 
     public function actionChooseApproval($project,$seller,$buyer,$type)
     {
+
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
+        $details = Notification::find()->
+        where(['project_id'=>$newProject_id])->
+        andWhere(['!=', 'to_who', $buyer])->
+        andWhere(['or',
+           ['status_buyer'=>'Changed'],
+           ['status_buyer'=>'Change Buyer']
+        ])->
+        one();
+    
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
 
         $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
@@ -2731,6 +2781,19 @@ class RequestController extends Controller
 
             $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
 
+
+            if (empty($details)) {
+       
+            } else {
+
+                $details->remark = 'Proccess By : '.$buyer;
+                $details->save();
+
+
+            }
+ 
+
+
             return $this->redirect(['request/direct-purchase-requisition-check','project'=>$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>'normal']);
 
             
@@ -2788,7 +2851,10 @@ class RequestController extends Controller
 
     public function actionLevel()
     {
+
         $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
+
+
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
 
@@ -2827,6 +2893,10 @@ class RequestController extends Controller
         echo "<br>";
 
 
+
+
+
+
         echo "<div class='form-group'>";
         echo Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']);
         echo "</div>";
@@ -2843,6 +2913,16 @@ class RequestController extends Controller
         $buyer_info = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
         $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
+
+        $details = Notification::find()->
+        where(['project_id'=>$newProject_id])->
+        andWhere(['!=', 'to_who', $_POST['buyer']])->
+        andWhere(['or',
+           ['status_buyer'=>'Changed'],
+           ['status_buyer'=>'Change Buyer']
+        ])->
+        one();
+
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
 
@@ -2919,6 +2999,18 @@ class RequestController extends Controller
 
 
         $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdateNext);
+
+
+        if (empty($details)) {
+   
+        } else {
+
+            $details->remark = 'Proccess By : '.$buyer_info->account_name;
+            $details->save();
+
+
+        }
+
 
 
         return $this->redirect(['request/direct-purchase-requisition-check','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$buyer_info->account_name,'approver'=>'level']);

@@ -65,7 +65,9 @@ class NotificationController extends Controller
 
         }  elseif ($model->status_buyer == 'Change Buyer') {
 
+
             $model->status_buyer = 'Changed';
+            $model->read_unread = 1;
             $model->save();
             return $this->redirect([$model->url]);
 
@@ -113,7 +115,6 @@ class NotificationController extends Controller
    
 
         ]);
-
 
 
         return $this->render('index',[

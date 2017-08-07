@@ -7,8 +7,48 @@ $this->title = 'Dashboard';
 
 $notify = Notification::notify();
 
+$script = <<< JS
 
+$(document).ready(function(){
+
+        $('#myModal').modal('show');
+
+}); 
+
+JS;
+$this->registerJs($script);
 ?>
+
+
+
+
+
+<div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">New Features </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+      
+                <p>User Now Can Assign More Than 1 Buyer.</p>
+                <p>
+                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature.png" class="card-img-top img-responsive" />
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
 
     <?php if(Yii::$app->session->hasFlash('success')) { ?>
         <div class="alert alert-info">
