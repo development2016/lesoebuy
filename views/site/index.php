@@ -20,8 +20,7 @@ $this->registerJs($script);
 ?>
 
 
-
-
+    
 
 <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">

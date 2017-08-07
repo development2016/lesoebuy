@@ -146,7 +146,7 @@ $this->registerJs($script);
                         <?php if ($notify == 0) { ?>
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="mdi mdi-bell"></i>
+                            <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > <i class="mdi mdi-bell"></i>
                                 <div class="notify">  </div>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right mailbox scale-up">
@@ -335,31 +335,32 @@ $this->registerJs($script);
                             [
                                 'label' => 'Dashboard', 
                                 'url' => ['site/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-home"></i><span class="hide-menu" data-toggle="tooltip" title="Dashboard">{label}</a>',
+                        
                                 //'options'=>['class'=>'active open selected'],
                             ],
                             [
                                 'label' => 'Create', 
                                 'url' => ['source/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file"></i><span class="hide-menu" data-toggle="tooltip" title="Create">{label}</a>',
                                 'visible' => User::checkMenu('3001'),
                             ],
                             [
                                 'label' => 'Requisition', 
                                 'url' => ['request/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-folder"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-folder"></i><span class="hide-menu" data-toggle="tooltip" title="Requisition">{label}</a>',
                                 'visible' => User::checkMenu('3002'),
                             ],
                             [
                                 'label' => 'Order', 
                                 'url' => ['order/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-arrange-bring-forward"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-arrange-bring-forward"></i><span class="hide-menu" data-toggle="tooltip" title="Order">{label}</a>',
                                 'visible' => User::checkMenu('3003'),
                             ],
                             [
                                 'label' => 'Approval', 
                                 'url' => ['request/request'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file-check"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-file-check"></i><span class="hide-menu" data-toggle="tooltip" title="Approval">{label}</a>',
                                 'visible' => User::checkMenu('3008'),
                             ],
                             [
@@ -374,19 +375,19 @@ $this->registerJs($script);
                             [
                                 'label' => 'Supplier', 
                                 'url' => ['company-offline/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-factory"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-factory"></i><span class="hide-menu" data-toggle="tooltip" title="Supplier">{label}</a>',
                                 'visible' => User::checkMenu('3013'),
                             ],
                             [
                                 'label' => 'Item', 
                                 'url' => ['item-offline/index'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu" data-toggle="tooltip" title="Item">{label}</a>',
                                 'visible' => User::checkMenu('3014'),
                             ],
                             [
                                 'label' => 'Tutorial', 
                                 'url' => ['site/tutorial'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-video"></i><span class="hide-menu">{label}</a>',
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-video"></i><span class="hide-menu" data-toggle="tooltip" title="Tutorial">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
 
@@ -424,7 +425,7 @@ $this->registerJs($script);
                 <a href="" class="link" data-toggle="tooltip" title="Inbox"><i class="mdi mdi-email"></i></a>
                 <!-- item-->
 
-                <?= Html::a('<i class="mdi mdi-power"></i>', ['site/logout'],['class'=>'link','title'=>'Logout','data-method'=>'POST']) ?>
+                <?= Html::a('<i class="mdi mdi-power"></i>', ['site/logout'],['class'=>'link','data-toggle'=>'tooltip','title'=>'Logout','data-method'=>'POST']) ?>
 
 
             </div>
