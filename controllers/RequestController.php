@@ -471,6 +471,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],
@@ -495,6 +496,7 @@ class RequestController extends Controller
             ]   
 
         ]);
+
 
 
 
@@ -549,6 +551,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],
@@ -630,6 +633,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],
@@ -709,6 +713,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],
@@ -795,6 +800,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],
@@ -875,6 +881,7 @@ class RequestController extends Controller
                 '$group' => [
                     '_id' => '$_id',
                     'title' => ['$first' => '$title' ],
+                    'description' => ['$first' => '$description' ],
                     'due_date' => ['$first' => '$due_date' ],
                     'project_no' => ['$first' => '$project_no' ],
                     'buyer' => ['$first' => '$buyer' ],

@@ -44,6 +44,36 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
         <div class="card">
             <div class="card-block">
 
+                <div class="row">
+
+                    <div class="col-lg-4">
+                        <b>Title : </b> <?= $list[0]['title']; ?>
+                    </div>
+                    <div class="col-lg-4">
+                        <b>Description : </b> <?= $list[0]['description']; ?> sv dsv vsdssv ssd ss s fs fsf sfs dfsd fs fds fds
+                    </div>
+
+                    <div class="col-lg-4">
+                        <b>Due Date : </b> <?php echo $new = date('d F Y', strtotime($list[0]['due_date'])); ?>
+                        
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+
                 <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
                 <h6 class="card-subtitle">Description About Panel</h6>
 
