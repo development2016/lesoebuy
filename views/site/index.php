@@ -26,15 +26,16 @@ $this->registerJs($script);
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">New Features </h4>
+                <h4 class="modal-title" id="myModalLabel"><span style="color: #ff0000;">NEW FEATURES</span> </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             </div>
             <div class="modal-body">
-      
-                <p>User Now Can Assign More Than <b style="color: #ff0000;">1</b> Buyer.</p>
+
+                <p>User Now Can <a class="mytooltip" href="#">CHANGE APPROVER</a> On <b style="color: #ff0000;">(Create PR / Reject PR)</b></p>
                 <p>
-                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature.png" class="card-img-top img-responsive" />
+                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature-2.png" class="card-img-top img-responsive" />
                 </p>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-info waves-effect" data-dismiss="modal">Close</button>

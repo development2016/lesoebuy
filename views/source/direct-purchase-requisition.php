@@ -115,6 +115,23 @@ $(document).ready(function(){
 
     });
 
+
+    $('.change-approval').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
+
+    });
+
+    $('.change-approval-level').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
+
+    });
+
+
+
     
 }); 
 JS;
@@ -123,6 +140,15 @@ $this->registerJs($script);
 $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $showShipping = $sumShipping = $price = $showPrice = $sumPrice = 0;
 
 ?>
+<?php if(Yii::$app->session->hasFlash('change')) { ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert"></button>
+         <?php echo  Yii::$app->session->getFlash('change'); ?>
+    </div>
+<?php } ?>
+
+
+
 
 
 <div class="row">
@@ -673,6 +699,38 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         'buyer'=> $buyer,
                         'path' => 'source'
                         ]),'class' => 'btn btn-warning','id'=>'cancelpr','style'=>'color:#fff;']) ?>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            CHANGE APPROVER
+                        </button>
+                        <div class="dropdown-menu animated flipInX">
+                            <?= Html::a('Approver',FALSE, ['value'=>Url::to([
+                                'source/change-approval',
+                                'seller'=>$seller,
+                                'project'=>(string)$project,
+                                'buyer'=>$buyer,
+                                'type' => 'change',
+
+                                ]),'class' => 'dropdown-item change-approval','id'=>'change-approval','title'=>'Choose Approver']) ?>
+
+                            <?= Html::a('Approver By Level',FALSE, ['value'=>Url::to([
+                                'source/change-approval-level',
+                                'seller'=>$seller,
+                                'project'=>(string)$project,
+                                'buyer'=>$buyer,
+                                'type' => 'change',
+
+                                ]),'class' => 'dropdown-item change-approval-level','id'=>'change-approval-level','title'=>'Approver By Level']) ?>
+
+
+
+                        </div>
+                    </div>
+
+
+
+
 
 
 

@@ -646,4 +646,199 @@ class SourceController extends Controller
     }
 
 
+    public function actionChangeApproval($project,$seller,$buyer,$type)
+    {
+
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $connection = \Yii::$app->db;
+        $sql = $connection->createCommand("SELECT * FROM acl 
+                RIGHT JOIN user ON acl.user_id = user.id
+                WHERE acl.company_id = '".$returnCompanyBuyer->company."' AND acl.acl_menu_id = 26
+        ");
+        $approval = $sql->queryAll();
+
+        if ($model->load(Yii::$app->request->post()) ) {
+
+                foreach ($_POST['Project']['sellers']['approval'] as $key => $value) {
+                    
+                    $tempApp[] = [
+                        'approval' => $value,
+
+            
+                    ];
+
+                   
+
+                }
+
+
+                $collection = Yii::$app->mongo->getCollection('project');
+
+                $arrUpdate = [
+                    '$set' => [
+                        'sellers.$.approver' => 'normal',
+                        'sellers.$.approval' =>  $tempApp
+
+                    ]
+                
+                ];
+
+
+            $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+            Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
+
+
+            return $this->redirect(['source/direct-purchase-requisition','project'=>$project,'seller'=>$seller,'buyer'=>$buyer,'approver'=>'normal']);
+
+      
+
+        } else {
+
+           return $this->renderAjax('change-approval',[
+                'approval' => $approval,
+                'model' => $model,
+
+            ]);
+
+        }
+
+
+    }
+
+
+    public function actionChangeApprovalLevel($project,$seller,$buyer,$type)
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $buyer_info = User::find()->where(['account_name'=>$buyer])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $connection = \Yii::$app->db;
+        $sql = $connection->createCommand("SELECT * FROM acl 
+                RIGHT JOIN user ON acl.user_id = user.id
+                WHERE acl.company_id = '".$returnCompanyBuyer->company."' AND acl.acl_menu_id = 26
+        ");
+        $approval = $sql->queryAll();
+
+
+       return $this->renderAjax('change-approval-level',[
+            'approval' => $approval,
+            'model' => $model,
+            'buyer' => $buyer,
+            'project' => $project,
+            'seller' => $seller,
+            'type' => $type
+
+        ]);
+
+    }
+
+
+    public function actionLevelChange()
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $buyer_info = User::find()->where(['account_name'=>$_POST['buyer']])->one();
+
+        $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
+
+        $connection = \Yii::$app->db;
+        $sql = $connection->createCommand("SELECT * FROM acl 
+                RIGHT JOIN user ON acl.user_id = user.id
+                WHERE acl.company_id = '".$returnCompanyBuyer->company."' AND acl.acl_menu_id = 26
+        ");
+        $approval = $sql->queryAll();
+
+
+        $form = ActiveForm::begin(['action' =>['source/approver-change'], 'id' => 'forum_post', 'method' => 'post',]);
+
+        echo "<input type='hidden' name='project' value='".$_POST['project']."' />";
+        echo "<input type='hidden' name='seller' value='".$_POST['seller']."' />";
+        echo "<input type='hidden' name='type' value='".$_POST['type']."' />";
+        echo "<input type='hidden' name='buyer' value='".$_POST['buyer']."' />";
+
+        $a=0;
+        for ($i=0; $i < $_POST['level']; $i++) { $a++;
+
+            echo "<label>Approver Level ".$a."</label>";
+            echo "<select class='form-control' name='approval[approver_no_".$a."]'>";
+            foreach ($approval as $key => $value) {
+                echo "<option>".$value['account_name']."</option>";
+            }
+        
+            echo "</select>";
+            echo "<br>";
+
+        }
+        echo "<br>";
+        echo "<div class='form-group'>";
+        echo Html::submitButton($model->isNewRecord ? 'Choose' : 'Choose', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']);
+        echo "</div>";
+
+        ActiveForm::end();
+
+
+
+    }
+
+    public function actionApproverChange()
+    {
+
+
+        foreach ($_POST['approval'] as $key => $value) {
+            
+            $tempApp[] = [
+                'approval' => $value,
+                'status' => ''
+    
+            ];
+
+           
+
+        }
+
+        $collection = Yii::$app->mongo->getCollection('project');
+
+        $arrUpdate = [
+            '$set' => [
+                'sellers.$.approver' => 'level',
+                'sellers.$.approval' =>  $tempApp,
+
+            ]
+        
+        ];
+
+
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+
+        Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
+
+
+        return $this->redirect(['source/direct-purchase-requisition','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$_POST['buyer'],'approver'=>'level']);
+   
+
+    }
+
+
+
+
+
+
 }
