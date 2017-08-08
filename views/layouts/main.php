@@ -390,7 +390,12 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-video"></i><span class="hide-menu" data-toggle="tooltip" title="Tutorial">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
-
+                            [
+                                'label' => 'List Project', 
+                                'url' => ['project/index'],
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu" data-toggle="tooltip" title="Project">{label}</a>',
+                                //'options'=>['class'=>'active open selected'],
+                            ],
 
                             /*[
                                 'label' => 'History', 
