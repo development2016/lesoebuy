@@ -35,13 +35,37 @@ class ProjectController extends Controller
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+        /*$dataProvider = new ActiveDataProvider([
             'query' => Project::find(),
         ]);
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
+        ]); */
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $model = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ], 
+
+
+            [
+                '$sort' => [
+                    '_id' => -1
+                ]
+            ],
+
+
         ]);
+
+        return $this->render('index', [
+            'model' => $model,
+        ]);
+
+
+
+
     }
 
     /**
