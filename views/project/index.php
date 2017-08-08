@@ -39,6 +39,7 @@ $this->registerJs($script);
                             <th>Project No</th>
                             <th>Details</th>
                             <th>Information</th>
+                            <th>Approver Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -65,6 +66,38 @@ $this->registerJs($script);
                                     <li><?= $value_buyer['buyer']; ?></li>
                                     <?php } ?>
                                 </ul>
+
+
+                                </span>
+                            </td>
+                            <td>
+                                <span><b>Approver </b>
+
+                                <?php if (empty($value['sellers']['approval'])) { ?>
+                                    <ul>
+                                        <li>
+                                            <span>Not Set Yet</span>
+                                        </li>
+                                    </ul>
+                                <?php } else { ?>
+
+                                <ul>
+                                    <?php foreach ($value['sellers']['approval'] as $key_approval => $value_approval) { ?>
+                                    <li><?= $value_approval['approval']; ?> : 
+                                    <?php if (empty($value_approval['status'])) { ?>
+                                        
+                                    <?php } else { ?>
+                                        <?= $value_approval['status']; ?>
+                                    <?php } ?>
+
+                                    </li>
+                                    <?php } ?>
+                                </ul>
+
+                                <?php } ?>
+
+
+
 
 
                                 </span>
