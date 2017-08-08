@@ -68,7 +68,10 @@ class Project extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'sellers', 'due_date', 'title', 'project_no', 'type_of_project', 'date_create', 'buyer', 'enter_by', 'date_update','url_myspot','tax_value','requester','request_role'], 'safe']
+            [['description', 'sellers', 'due_date', 'title', 'project_no', 'type_of_project', 'date_create', 'buyer', 'enter_by', 'date_update','url_myspot','tax_value','requester','request_role'], 'safe'],
+
+            ['title', 'required', 'message' => 'Title Can`t Be Blank'],
+            ['due_date', 'required', 'message' => 'Due Date Can`t Be Blank'],
         ];
     }
 
