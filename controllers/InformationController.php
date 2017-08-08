@@ -15,9 +15,70 @@ use app\models\Company;
 use app\models\ItemOffline;
 use app\models\CompanyOffline;
 use app\models\Log;
+use app\models\GeneratePurchaseOrderNo;
 
 class InformationController extends Controller
 {
+
+    public function actionUndoPo($seller,$project,$buyer)
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $collection = Yii::$app->mongo->getCollection('project');
+
+        $model = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ],
+            [
+                '$match' => [
+                    '_id' => $newProject_id,
+                    'sellers.seller' => $seller,
+                ]
+            ],
+
+        ]); 
+
+        $po_no = substr($model[0]['sellers']['purchase_order_no'], 6);
+
+
+        $po = GeneratePurchaseOrderNo::find()->where(['purchase_order_no'=>$po_no])->one();
+
+        $po->status = 'Cancel';
+        $po->save();
+
+        $arrUpdate = [
+            '$set' => [
+                'date_update' => date('Y-m-d h:i:s'),
+                'sellers.$.status' => 'Approve',
+                'sellers.$.purchase_order_no' => '',
+                'sellers.$.date_purchase_order' => '',
+                'sellers.$.PO_process_by' => '',
+
+
+            ],
+
+        
+        ];
+        $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+
+
+
+        return $this->redirect([
+            'request/index', 
+
+        ]);
+
+
+
+    }
+
+
+
+
+
 
 
     public function actionGet()

@@ -52,7 +52,7 @@ class ProjectController extends Controller
 
             [
                 '$sort' => [
-                    'project_no' => -1
+                    '_id' => -1
                 ]
             ],
 

@@ -33,7 +33,7 @@ class GeneratePurchaseOrderNo extends \yii\db\ActiveRecord
         return [
             [['date_create', 'date_update'], 'safe'],
             [['enter_by', 'update_by'], 'integer'],
-            [['purchase_order_no', 'company_id'], 'string', 'max' => 255],
+            [['purchase_order_no', 'company_id','status'], 'string', 'max' => 255],
         ];
     }
 
@@ -50,6 +50,7 @@ class GeneratePurchaseOrderNo extends \yii\db\ActiveRecord
             'date_update' => 'Date Update',
             'enter_by' => 'Enter By',
             'update_by' => 'Update By',
+            'status' => 'status'
         ];
     }
 }

@@ -384,6 +384,19 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     'buyer'=> $buyer,
                     ]),'class' => 'btn btn-warning','id'=>'revisepo','style'=>'color:#fff;']) ?>
 
+                    <?= Html::a('UNDO', [
+                    'information/undo-po',
+                    'seller'=>$seller,
+                    'project'=> (string)$project,
+                    'buyer' => $buyer
+                    ], [
+                    'class' => 'btn btn-secondary',
+
+                    ]) ?>
+
+
+
+
 
 
                     <?php if ($getUser->account_name == $list[0]['sellers'][0]['PO_process_by']) { ?>
