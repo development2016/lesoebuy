@@ -16,6 +16,8 @@ use app\models\ItemOffline;
 use app\models\CompanyOffline;
 use app\models\Log;
 use app\models\GeneratePurchaseOrderNo;
+use app\models\Notification;
+use app\models\Email;
 
 class InformationController extends Controller
 {
@@ -70,6 +72,138 @@ class InformationController extends Controller
             'request/index', 
 
         ]);
+
+
+
+    }
+
+
+    public function actionRejectByBuyer($seller,$project,$buyer)
+    {
+
+        $newProject_id = new \MongoDB\BSON\ObjectID($project);
+
+        $model = Project::find()->where(['_id'=>$newProject_id])->one();
+
+        $user_id = Yii::$app->user->identity->id;
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $list = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ],
+            [
+                '$match' => [
+                    '_id' => $newProject_id,
+                    'sellers.seller' => $seller,
+                ]
+            ],
+
+        ]); 
+
+
+
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $arrUpdate = [
+                '$set' => [
+                    'date_update' => date('Y-m-d h:i:s'),
+                    'sellers.$.status' => 'Approve',
+                    'buyers' => [[
+                       'buyer' =>  $list[0]['requester'],
+                    ]],
+                ],
+                '$addToSet' => [
+                    'pr_reject_by_buyer' => [
+                        'remark' => $_POST['Project']['sellers']['reject_by_buyer']['remark'],
+
+                    ],
+
+                ],
+
+            
+            ];
+            $collection->update(['_id' => $newProject_id,'sellers.seller' => $seller],$arrUpdate);
+
+            $dataRejectPr = $collection->aggregate([
+                [
+                    '$unwind' => '$sellers'
+                ],
+                [
+                    '$match' => [
+                        '$and' => [
+                            [
+                                '_id' => $newProject_id
+                            ],
+                            [
+                                'sellers.seller' => $seller,
+                            ],
+                        ],
+                        
+                    ]
+                ],
+  
+
+            ]); 
+
+            $dataRejectPrLog = serialize($dataRejectPr);
+
+            $collectionLog = Yii::$app->mongo->getCollection('log');
+            $collectionLog->insert([
+                'status' => 'Reject PR',
+                'date_reject' => date('Y-m-d h:i:s'),
+                'by_buyer' => $user->account_name,
+                'by' => $list[0]['requester'],
+                'project_no' => $dataRejectPr[0]['project_no'],
+                'seller' => $dataRejectPr[0]['sellers']['seller'],
+                'purchase_requisition_no' => $dataRejectPr[0]['sellers']['purchase_requisition_no'],
+                unserialize($dataRejectPrLog)
+
+            ]);
+
+            $notify = Notification::find()->where(['project_id'=>$newProject_id])->one();
+
+            $notify->status_buyer = 'Reject';
+            $notify->status_from_buyer = 'Reject PR';
+            $notify->details = $dataRejectPr[0]['sellers']['purchase_requisition_no'];
+            $notify->date_request = date('Y-m-d H:i:s');
+            $notify->project_no = $dataRejectPr[0]['project_no'];
+            $notify->project_id = $newProject_id;
+            $notify->from_who = $user->account_name;
+            $notify->to_who = $list[0]['requester'];
+            $notify->date_create = date('Y-m-d H:i:s');
+            $notify->read_unread = 0;
+            $notify->url = 'request/index';
+            $notify->seller = $dataRejectPr[0]['sellers']['seller'];
+            $notify->approver = $dataRejectPr[0]['sellers']['approver'];
+            $notify->remark = $_POST['Project']['sellers']['reject_by_buyer']['remark'];
+
+            $notify->save();
+
+            $notify_update = Notification::find()->where(
+                [
+                    'project_id'=>$newProject_id,
+                    'status_buyer' => 'Change Buyer'
+                ])->one();
+            $notify_update->read_unread = 1;
+            $notify_update->save();
+
+            return $this->redirect(['request/index']);
+
+
+        } else {
+
+               return $this->renderAjax('reject-by-buyer',[
+                    'model' => $model,
+
+                ]);
+
+
+
+        }
+
+
 
 
 

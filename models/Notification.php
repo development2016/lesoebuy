@@ -58,7 +58,8 @@ class Notification extends \yii\mongodb\ActiveRecord
             'approver',
             'url_for_buyer',
             'remark',
-            'by'
+            'by',
+            'status_from_buyer'
             
         ];
     }
@@ -69,7 +70,7 @@ class Notification extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['status_buyer', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver','url_for_buyer','status_approver','remark','by'], 'safe']
+            [['status_buyer', 'details', 'date_request', 'project_no', 'project_id', 'from_who', 'to_who', 'read_unread', 'date_create','url','seller','approver','url_for_buyer','status_approver','remark','by','status_from_buyer'], 'safe']
         ];
     }
 
@@ -90,6 +91,7 @@ class Notification extends \yii\mongodb\ActiveRecord
             'read_unread' => 'Read Unread',
             'date_create' => 'Date Create',
             'status_approver' => '',
+            'status_from_buyer' => '',
             'remark' => 'Remark'
 
         ];
@@ -136,6 +138,9 @@ class Notification extends \yii\mongodb\ActiveRecord
                         [
                             'status_approver' => 'Resubmit Approval'
                         ],
+                        [
+                            'status_from_buyer' => 'Reject PR'
+                        ]
 
                     ]
 
@@ -196,7 +201,9 @@ class Notification extends \yii\mongodb\ActiveRecord
                         [
                             'status_approver' => 'Resubmit Approval'
                         ],
-                        
+                        [
+                            'status_from_buyer' => 'Reject PR'
+                        ]
 
                     ]
                     

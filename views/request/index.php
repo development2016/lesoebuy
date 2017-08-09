@@ -50,6 +50,14 @@ $(document).ready(function(){
 
     });
 
+    $('#cancelprbybuyer').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
+
+    });
+
+
 
 
 }); 
@@ -59,6 +67,12 @@ $this->registerJs($script);
 
 ?>
 
+<?php if(Yii::$app->session->hasFlash('reject')) { ?>
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert"></button>
+         <?php echo  Yii::$app->session->getFlash('reject'); ?>
+    </div>
+<?php } ?>
 
 <div class="row">
   <div class="col-md-12">
@@ -106,6 +120,11 @@ $this->registerJs($script);
                                                   <li class="list-group-item"><b>Description</b> : <?= $value['description']; ?></li>
                                                   <li class="list-group-item"><b>Due Date</b> : <?= $value['due_date']; ?></li>
                                                   <li class="list-group-item"><b>Date Create</b> : <?= $value['date_create']; ?></li>
+                                                  <li class="list-group-item"><b>PR No</b> : 
+
+                                                    <a href="#" class="mytooltip" ><?= $value['sellers'][0]['purchase_requisition_no']; ?></a>
+
+                                                  </li>
                                               </ul>
 
                                         </td>
@@ -658,7 +677,7 @@ $this->registerJs($script);
                                                                             <?= Html::a('<b>'.$value2['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
                                                                                             'project'=>(string)$value['_id'],
                                                                                             'seller'=>$value2['seller'],
-                                                                                           'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                            'buyer'=>$value['buyers'][0]['buyer'],
                                                                                             ],['target'=>'_blank','class'=>'dropdown-item']) ?>
                                                                             
                                                                             
@@ -668,6 +687,15 @@ $this->registerJs($script);
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
                                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+
+                                                                    <?= Html::a('REJECT',FALSE, ['value'=>Url::to([
+                                                                          'information/reject-by-buyer',
+                                                                          'seller'=>$value2['seller'],
+                                                                          'project'=>(string)$value['_id'],
+                                                                          'buyer'=>$user->account_name,
+                                                      
+                                                                          ]),'class' => 'btn btn-warning','id'=>'cancelprbybuyer','style'=>'color:#fff;']) ?>
 
 
 
@@ -1058,6 +1086,17 @@ $this->registerJs($script);
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
                                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+                                                                    <?= Html::a('REJECT',FALSE, ['value'=>Url::to([
+                                                                          'information/reject-by-buyer',
+                                                                          'seller'=>$value2['seller'],
+                                                                          'project'=>(string)$value['_id'],
+                                                                          'buyer'=>$user->account_name,
+                                                      
+                                                                          ]),'class' => 'btn btn-warning','id'=>'cancelprbybuyer','style'=>'color:#fff;']) ?>
+
+
+
 
                                                                   </td>
 
@@ -1507,6 +1546,17 @@ $this->registerJs($script);
                                                                     'project'=>(string)$value['_id'],
                                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
+                                                                    <?= Html::a('REJECT',FALSE, ['value'=>Url::to([
+                                                                          'information/reject-by-buyer',
+                                                                          'seller'=>$value2['seller'],
+                                                                          'project'=>(string)$value['_id'],
+                                                                          'buyer'=>$user->account_name,
+                                                      
+                                                                          ]),'class' => 'btn btn-warning','id'=>'cancelprbybuyer','style'=>'color:#fff;']) ?>
+
+
+
+
                                                                   </td>
 
                                                           <?php } elseif ($value2['status'] == 'PO In Progress') { ?>
@@ -1916,6 +1966,16 @@ $this->registerJs($script);
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
                                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+                                                                    <?= Html::a('REJECT',FALSE, ['value'=>Url::to([
+                                                                          'information/reject-by-buyer',
+                                                                          'seller'=>$value2['seller'],
+                                                                          'project'=>(string)$value['_id'],
+                                                                          'buyer'=>$user->account_name,
+                                                      
+                                                                          ]),'class' => 'btn btn-warning','id'=>'cancelprbybuyer','style'=>'color:#fff;']) ?>
+
+
 
                                                                   </td>
 

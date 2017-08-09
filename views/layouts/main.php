@@ -36,6 +36,7 @@ $listnotify = Notification::listnotify();
 
 
 
+
 $script = <<< JS
 
 $(document).ready(function(){
@@ -198,19 +199,51 @@ $this->registerJs($script);
 
 
 
-                                            <?= Html::a(
-                                            '
-                                            <div class="user-img"> <img src="'.Yii::$app->request->baseUrl.'/image/'.$img.'" alt="user" class="img-circle"></div>
-                                            <div class="mail-contnet">
-                                            <h5>'.$value['details'].'</h5>
-                                            <span class="mail-desc">'.$imgProfile->name.'</span>
-                                            </div>
-                                            ', 
-                                            [
-                                                'notification/get',
-                                                'id'=> (string)$value['_id'],
+                                            <?php if (empty($value['remark'])) { ?>
 
-                                            ]) ?>
+                                                <?= Html::a(
+                                                '
+                                                <div class="user-img"> <img src="'.Yii::$app->request->baseUrl.'/image/'.$img.'" alt="user" class="img-circle"></div>
+                                                <div class="mail-contnet">
+                                                <h5 style="color:#009efb;">'.$value['details'].'</h5>
+                                                <h6>Project No : '.$value['project_no'].'</h6>
+                                                <span class="mail-desc">From : '.$imgProfile->name.'</span>
+
+                                                </div>
+                                                ', 
+                                                [
+                                                    'notification/get',
+                                                    'id'=> (string)$value['_id'],
+
+                                                ]) ?>
+
+                                            <?php } else { ?>
+
+                                                <?= Html::a(
+                                                '
+                                                <div class="user-img"> <img src="'.Yii::$app->request->baseUrl.'/image/'.$img.'" alt="user" class="img-circle"></div>
+                                                <div class="mail-contnet">
+                                                <h5 style="color:#009efb;">'.$value['details'].'</h5>
+                                                <h6>Project No : '.$value['project_no'].'</h6>
+                                                <span class="mail-desc">From : '.$imgProfile->name.'</span>
+
+                                                <span class="time">Remark : <b style="color:#dc3030;">'.$value['remark'].'</b></span>
+                                                </div>
+                                                ', 
+                                                [
+                                                    'notification/get',
+                                                    'id'=> (string)$value['_id'],
+
+                                                ]) ?>
+
+
+
+                                            <?php } ?>
+
+
+
+
+
 
 
                                             <?php } ?>

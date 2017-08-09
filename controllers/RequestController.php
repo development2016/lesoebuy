@@ -147,6 +147,8 @@ class RequestController extends Controller
 
 
 
+
+
         $collectionLog = Yii::$app->mongo->getCollection('log');
         $log = $collectionLog->aggregate([
 
@@ -2622,6 +2624,7 @@ class RequestController extends Controller
                 $notify->url = 'request/index';
                 $notify->seller = $dataChangeBuyer[0]['sellers']['seller'];
                 $notify->approver = $dataChangeBuyer[0]['sellers']['approver'];
+                $notify->remark = '';
 
                 $notify->save();
 
