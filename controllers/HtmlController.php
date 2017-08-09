@@ -281,7 +281,7 @@ class HtmlController extends Controller
 
     public function actionDirectPurchaseOrderHtml($project,$buyer,$seller)
     {
-        $this->layout = 'html';
+        $this->layout = 'print';
 
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 

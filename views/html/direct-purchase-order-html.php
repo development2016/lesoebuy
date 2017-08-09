@@ -35,61 +35,41 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 ?>
 
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-block">
+<div>
+    <span style="font-size: 30px;font-weight: bold;"><?= $companyBuyer->company_name ?></span>
+    <span style="font-size: 11px;">Co.No. <?= $companyBuyer->company_registeration_no ?> , GST Registeration No. : <?= $companyBuyer->tax_no ?></span>
+    <br>
+    <span style="font-size: 15px;">
+      <?= $companyBuyer->address ?> , <?= $companyBuyer->zip_code ?> , <?= $companyBuyer->city ?> , <?= $companyBuyer->states->state ?> , <?= $companyBuyer->countrys->country ?>
+    </span>
+    <br>
+    <span style="font-size: 15px;">
+      <span style="font-size: 15px;font-weight: bold;">TEL : </span> <?= $companyBuyer->telephone_no ?>
+      &nbsp;
+      <span style="font-size: 15px;font-weight: bold;">FAX : </span> <?= $companyBuyer->fax_no ?>
+      &nbsp;
+      <span style="font-size: 15px;font-weight: bold;">EMAIL : </span> <?= $companyBuyer->email ?>
 
-            <div class="row">
+    </span>
 
-                <div class="col-lg-3">
-                    <?php if (empty($companyBuyer->logo)) { ?>
-                        <img src="<?php echo Yii::$app->request->baseUrl;?>/image/logo.png" class="img-responsive" alt="" />
-                    <?php } else { ?>
-                        <img src="<?php echo Yii::$app->request->baseUrl;?>/<?php echo $companyBuyer->logo; ?>" class="img-responsive" alt="" />
-                    <?php } ?>
-                </div>
-                
-                <div class="col-lg-6">
-
-                    <h3>
-                    <?= $companyBuyer->company_name ?>
-                    </h3>
-                    <h6>Co.No. <?= $companyBuyer->company_registeration_no ?> , GST Registeration No. : <?= $companyBuyer->tax_no ?></h6>
-                    <h4>
-                    <?= $companyBuyer->address ?> , <?= $companyBuyer->zip_code ?> , <?= $companyBuyer->city ?> , <?= $companyBuyer->states->state ?> , <?= $companyBuyer->countrys->country ?>
-                    </h4>
-                    <h5>
-                        <span class="bold">TEL : </span> <?= $companyBuyer->telephone_no ?>
-                        &nbsp;
-                        <span class="bold">FAX : </span> <?= $companyBuyer->fax_no ?>
-                    </h5>
-                    <h5>
-                        <span class="bold">EMAIL : </span> <?= $companyBuyer->email ?>
-                    </h5>
-                </div>
-
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-md-4 col-xs-4">
-                </div>
-                <div class="col-md-5 col-xs-5">
-                    <h1 class="bold">
-                        PURCHASE ORDER
-                    </h1>
-                </div>
-                 <div class="col-md-3 col-xs-3">
-                 </div>
-            </div>
-            <hr>
-            <div class="row">
-
-                <div class="col-md-7">
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">To : </h4></div>
-                        <div class="col-md-7"> <h4>
-                                <?= $list[0]['sellers'][0]['seller'] ?>
+</div>
+<p></p>
+<br>
+<div>
+    <h2 style="font-size: 22px;font-weight: bold;text-align: center;">PURCHASE ORDER</h2>
+</div>
+<hr style="border: 0;
+    height: 1px;
+    background: #333;
+    ">
+<p></p>
+<br>
+<div>
+  <table border="0" width="100%">
+      <tr>
+          <td style="width: 130px;vertical-align: top;"><span style="font-size: 15px;">To :</span></td>
+          <td style="width: 430px;">
+                                            <?= $list[0]['sellers'][0]['seller'] ?>
                                 <br>
                                 <?php if (!isset($list[0]['sellers'][0]['att']) || empty($list[0]['sellers'][0]['att'])) { ?>
                               
@@ -111,300 +91,259 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     <b>Email : </b><?= $list[0]['sellers'][0]['att_email'] ?>
                                 <?php } ?>
                                 <br>
-                            
-                            
-                        </h4></div>
-                    </div>
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">Delivery Address : </h4></div>
-                        <div class="col-md-7"> 
-                                    <?php if (empty($list[0]['sellers'][0]['warehouses'])) { ?>
-
-                                       
-                                    <?php } else { ?>
-
-                                        <?php if (empty($list[0]['sellers'][0]['warehouses'])) { ?>
-                                       
-                                        <?php } else { ?>
-
-
-                                        <h4>
-                                            <?= $list[0]['sellers'][0]['warehouses'][0]['warehouse_name'] ?>
-                                            <br>
-                                            <?= $list[0]['sellers'][0]['warehouses'][0]['address'] ?>,
-                                        <?php 
-                                        $country_da = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
-                                        $state_da = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
-                                        ?>
-                                        <?= $state_da->state; ?>,
-                                        <?= $country_da->country; ?>
-
-                                            <br>
-                                            <b>P.I.C : </b> <?= $list[0]['sellers'][0]['warehouses'][0]['person_in_charge'] ?>
-                                            <br>
-                                            <b>Contact : </b> : <?= $list[0]['sellers'][0]['warehouses'][0]['contact'] ?>
-                                            <br>
-                                            <b>Email : </b><?= $list[0]['sellers'][0]['warehouses'][0]['email'] ?>
-                                        </h4>
-
-
-                                        <?php } ?>
-
-                                    <?php } ?>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-                <div class="col-md-2">
-
-                </div>
-
-                <div class="col-md-3">
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">PO No : </h4></div>
-                        <div class="col-md-7"> <h4 class="bold"><?= $list[0]['sellers'][0]['purchase_order_no'] ?><?php if (empty($list[0]['sellers'][0]['purchase_order_no_revise'])) {
+          </td>
+          <td style="width: 80px;vertical-align: top;"><span style="font-size: 15px;">PR No :</span></td>
+          <td style="width: 130px;vertical-align: top;">
+              
+            <span style="font-weight: bold;"><?= $list[0]['sellers'][0]['purchase_order_no'] ?><?php if (empty($list[0]['sellers'][0]['purchase_order_no_revise'])) {
                            
                         } else {
                             echo $list[0]['sellers'][0]['purchase_order_no_revise'];
-                        }  ?></h4></div>
-                    </div>
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">Date : </h4></div>
-                        <div class="col-md-7"> <h4><?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['date_purchase_order'])); ?></h4></div>
-                    </div>
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">Term : </h4></div>
-                        <div class="col-md-7"> <h4><?= $list[0]['sellers'][0]['term'] ?></h4></div>
-                    </div>
-                    <div class="row static-info">
-                        <div class="col-md-5"> <h4 class="bold">Delivery Before : </h4></div>
-                        <div class="col-md-7"> <h4>
-                            <?php if (empty($list[0]['sellers'][0]['delivery_before'])) { ?>
+                        }  ?></span>
+
+          </td>
+      </tr>
+      <tr>
+          <td style="width: 130px;"></td>
+          <td style="width: 430px;"></td>
+          <td style="width: 80px;"><span style="font-size: 15px;">Date :</span></td>
+          <td style="width: 130px;">
+            <span style="font-size: 15px;"><?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['date_purchase_order'])); ?></span>
+
+          </td>
+      </tr>
+
+
+
+      <tr >
+          <td style="width: 130px;vertical-align: top;" rowspan="2"><span style="font-size: 15px;" >Delivery Address :</span></td>
+          <td style="width: 430px;" rowspan="2">
+            <span style="font-size: 15px;">                                    
+
+            <?php if (empty($list[0]['sellers'][0]['warehouses'])) { ?>
+
+                                       
+                <?php } else { ?>
+
+                    <?php if (empty($list[0]['sellers'][0]['warehouses'])) { ?>
+                   
+                    <?php } else { ?>
+
+                    <?= $list[0]['sellers'][0]['warehouses'][0]['warehouse_name'] ?>
+                    <br>
+                    <?= $list[0]['sellers'][0]['warehouses'][0]['address'] ?>,
+                    <?php 
+                    $country_da = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
+                    $state_da = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
+                    ?>
+                    <?= $state_da->state; ?>,
+                    <?= $country_da->country; ?>
+
+                        <br>
+                        <b>P.I.C : </b> <?= $list[0]['sellers'][0]['warehouses'][0]['person_in_charge'] ?>
+                        <br>
+                        <b>Contact : </b> : <?= $list[0]['sellers'][0]['warehouses'][0]['contact'] ?>
+                        <br>
+                        <b>Email : </b><?= $list[0]['sellers'][0]['warehouses'][0]['email'] ?>
+
+
+
+                    <?php } ?>
+
+                <?php } ?>
+                                    </span>
+
+
+          </td>
+          <td style="vertical-align: top;width: 80px;"><span style="font-size: 15px;">Term :</span></td>
+          <td style="vertical-align: top;width: 130px;"><span style="font-size: 15px;"><?= $list[0]['sellers'][0]['term'] ?></span></td>
+      </tr>
+      <tr>
+          <td style="vertical-align: top;width: 80px;"><span style="font-size: 15px;">Delivery Before :</span></td>
+          <td style="vertical-align: top;width: 130px;"><span style="font-size: 15px;">
+          <?php if (empty($list[0]['sellers'][0]['delivery_before'])) { ?>
 
                             <?php } else { ?>
                                 <?php echo $new = date('d F Y', strtotime($list[0]['sellers'][0]['delivery_before'])); ?>
 
                     
                             <?php } ?>
+                              
+                            </span></td>
+      </tr>
 
 
-                        </h4>
-                        </div>
-                    </div>
+
+  </table>
+</div>
+
+<p></p>
+<br>
+<div>
+  <table width="100%" border="0" >
+      <tr>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">NO</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">ITEM</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">C.I.T</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">FREIGHT</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">QTY</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">U / PRICE</span></td>
+          <td style="padding: 10px;"><span style="font-size: 15px;font-weight: bold;">AMOUNT</span></td>
+
+      </tr>
+      <?php $arrayItem = -1; $i=0; foreach ($list[0]['sellers'][0]['items'] as $key => $value) { $i++; $arrayItem++; ?>
+      <tr >
+          <td style="padding: 10px;"><span style="font-size: 15px;"><?= $i; ?></span></td>
+          <td style="padding: 10px;">
+              <b>Item Code : </b><?= $value['item_code'] ?>
+              <br>
+              <b>Item Name : </b><?= $value['item_name']; ?>
+              <br>
+              <b>Specification : </b> <?= $value['specification'] ?>
+              <br>
+              <b>Brand : </b> <?= $value['brand'] ?>
+              <br>
+              <b>Model : </b> <?= $value['model'] ?>
+          </td>
+          <td style="padding: 10px;">
+              <?php if (empty($value['install'])) { ?>
+
+                    <?= '0.00'; ?>
+
+                <?php } elseif ($value['install'] == 'No') { ?>
+
+                    <?= $value['install']; ?>
+
+                <?php } else { ?>
+
+                    <?= $showInstall = number_format((float)$value['installation_price'],2,'.',','); ?>
+
+                    <?php 
+                        $install = $value['installation_price']; 
+
+                        $sumInstall += $install;
+                      ?>
+
+                <?php } ?>
+          </td>
+          <td style="padding: 10px;">
+                <?php if (empty($value['shipping'])) { ?>
+
+                    <?= '0.00'; ?>
+
+                <?php } elseif ($value['shipping'] == 'No') { ?>
+
+                    <?= $value['shipping']; ?>
+
+                <?php } else { ?>
+
+                    <?= $showShipping = number_format((float)$value['shipping_price'],2,'.',','); ?>
+
+                    <?php 
+                    $shipping = $value['shipping_price']; 
+
+                    $sumShipping += $shipping;  ?>
                     
-                </div>
 
+                <?php } ?>
+          </td>
+          <td style="padding: 10px;">
+                <?= $value['quantity']; ?>
+          </td>
+          <td style="padding: 10px;">
+                <?= $showPrice = number_format((float)$value['cost'],2,'.',','); ?>
 
-            </div>
-            <br>
-            <div class="row">
-                <div class="col-lg-12">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th><h4><span class="bold">NO</span></h4></th>
-                                <th><h4><span class="bold">ITEM</span></h4></th>
-                                <th><h4><span class="bold">C.I.T</span></h4></th>
-                                <th><h4><span class="bold">FREIGHT</span></h4></th>
-                                <th><h4><span class="bold">QTY</span></h4></th>
-                                <th><h4><span class="bold">U / PRICE</span></h4></th>
-                                <th><h4><span class="bold">AMOUNT</span></h4></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $arrayItem = -1; $i=0; foreach ($list[0]['sellers'][0]['items'] as $key => $value) { $i++; $arrayItem++; ?>
-                                <tr>
-                                    <td>
-                                        <h4><span><?= $i; ?></span></h4>
-                                    </td>
-                                    <td>
-                                        <h4><b>Item Code : </b><?= $value['item_code'] ?></h4>
-                                        <h4>
-                                            <b>Item Name : </b><span class="text-center"><?= $value['item_name']; ?></span>
-                                            <br>
-                                        </h4>
-                                        <h4>
+                    <?php 
+                    $price = $value['cost']; 
 
-                                        <b>Specification : </b> <?= $value['specification'] ?>
-                                        <br>
-                                        <b>Brand : </b> <?= $value['brand'] ?>
-                                        <br>
-                                        <b>Model : </b> <?= $value['model'] ?>
-                                        <br>
-                                        </h4>
- 
-                                    </td>
-
-                                    <td>
-                                        <h4><span>
-
-                                            <?php if (empty($value['install'])) { ?>
-
-                                                <?= '0.00'; ?>
-
-                                            <?php } elseif ($value['install'] == 'No') { ?>
-
-                                                <?= $value['install']; ?>
-
-                                            <?php } else { ?>
-
-                                                <?= $showInstall = number_format((float)$value['installation_price'],2,'.',','); ?>
-
-                                                <?php 
-                                                    $install = $value['installation_price']; 
-
-                                                    $sumInstall += $install;
-                                                  ?>
-
-                                            <?php } ?>
-
-                                        </span></h4>
-                                    </td>
-                                    <td>
-                                        <h4><span>
-
-                                            <?php if (empty($value['shipping'])) { ?>
-
-                                                <?= '0.00'; ?>
-
-                                            <?php } elseif ($value['shipping'] == 'No') { ?>
-
-                                                <?= $value['shipping']; ?>
-
-                                            <?php } else { ?>
-
-                                                <?= $showShipping = number_format((float)$value['shipping_price'],2,'.',','); ?>
-
-                                                <?php 
-                                                $shipping = $value['shipping_price']; 
-
-                                                $sumShipping += $shipping;  ?>
-                                                
-
-                                            <?php } ?>
-                                            
-
-
-
-
-                                        </span></h4>
-                                    </td>
-                                    <td>
-                                        <h4><span>
-                 
-                                            
-                                        <?= $value['quantity']; ?>
-
-
-
-                                        </span></h4>
-                                    </td>
-                                    <td>
-                                        <h4><span>
-                                    
-                                            
-                                            <?= $showPrice = number_format((float)$value['cost'],2,'.',','); ?>
-
-                                                <?php 
-                                                $price = $value['cost']; 
-
-                                                $sumPrice += $price;  ?>
-                                                
-
-
-
-                                        </span></h4>
-                                    </td>
-                                    <td>
-                                        <h4><span class="bold">
-                                        <?php $amount =  $value['quantity'] * $value['cost']; 
+                    $sumPrice += $price;  ?>
+          </td>
+          <td style="padding: 10px;">
+              <b><?php $amount =  $value['quantity'] * $value['cost']; 
 
                                         echo number_format((float)$amount,2,'.',','); 
                                         $sumAmount += $amount;
 
 
-                                        ?></span></h4>
-                                    </td>
+                                        ?></b>
+          </td>
+
+      </tr>
 
 
-                                </tr>
-                            <?php } ?> 
-                        </tbody>
+      <?php } ?>
+  </table>
+</div>
+<br>
+<hr style="border: 0;
+    height: 1px;
+    background: #333;
+    ">
+<p></p>
+<br>
+
+<div>
+  <table width="100%" border="0">
+      <tr>
+          <td style="padding: 10px;width: 600px;"><span style="font-size: 15px;">Sub-Total :</span></td>
+          <td style="padding: 10px;text-align: right;"><span style="font-size: 15px;"><?php echo  number_format((float)$sumAmount,2,'.',','); ?></span></td>
+        
+      </tr>
+      <tr>
+          <td style="padding: 10px;width: 600px;"><span style="font-size: 15px;">Freight Charge :</span></td>
+          <td style="padding: 10px;text-align: right;"><span style="font-size: 15px;"><?php echo  number_format((float)$sumShipping,2,'.',','); ?></span></td>
+        
+      </tr>
+      <tr>
+          <td style="padding: 10px;width: 600px;"><span style="font-size: 15px;">Commissioning,Installation, & Training Charge (C.I.T) :</span></td>
+          <td style="padding: 10px;text-align: right;"><span style="font-size: 15px;"><?php echo  number_format((float)$sumInstall,2,'.',','); ?></span></td>
+        
+      </tr>
+      <?php 
+             $total = $sumAmount + $sumShipping + $sumInstall;
+
+             $deductGst = $total * ($list[0]['sellers'][0]['tax'] / 100 );
+
+              
+      ?>
+      <tr>
+          <td style="padding: 10px;width: 600px;">
+            <span style="font-size: 15px;">
+
+              <?= $list[0]['sellers'][0]['tax']; ?>% 
+              <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>
 
 
-                    </table>
+            </span>
+          </td>
+          <td style="padding: 10px;text-align: right;"><span style="font-size: 15px;"><?php  echo number_format((float)$deductGst,2,'.',','); ?></span></td>
+        
+      </tr>
+  </table>
+  <br>
+  <table width="100%" border="0">
+      <tr>
+          <td style="padding: 10px;width: 600px;">
+            <span style="font-size: 25px;">
 
-                </div>
-            </div>
-            <hr>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h4>
-                            <span>Sub-Total : </span> 
-                            <span class="pull-right">
-                                <?php echo  number_format((float)$sumAmount,2,'.',','); ?>
-                                    
-                            </span>
-                        </h4>
-                        <h4>
-                            <span>Freight Charge : </span>
-                            <span class="pull-right">
-                                <?php echo  number_format((float)$sumShipping,2,'.',','); ?>
-                            </span>
-                        </h4>
-                        <h4>
-                            <span>Commissioning,Installation, & Training Charge : </span>
-                            <span class="pull-right">
-                                <?php echo  number_format((float)$sumInstall,2,'.',','); ?>
-                            </span>
-                        </h4>
+              <b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>) : 
 
-                        <?php 
-                               $total = $sumAmount + $sumShipping + $sumInstall;
 
-                               $deductGst = $total * ($list[0]['sellers'][0]['tax'] / 100 );
-
-                                
-                        ?>
-                        <h4>
-                            <span><?= $list[0]['sellers'][0]['tax']; ?>% 
-                            <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?> : </span> <span class="pull-right font-red-sunglo bold">
-
-                                <?php  echo number_format((float)$deductGst,2,'.',','); ?>
-                                
-                            </span>
-                        </h4>
-                        <br>
-                        <h3>
-                            <span><b>Total</b> (<?= $list[0]['sellers'][0]['tax']; ?>% <?= empty($list[0]['sellers'][0]['type_of_tax']) ? '(Empty Type Of Tax)' : $list[0]['sellers'][0]['type_of_tax'] ; ?>) : </span> <span class="pull-right bold">
-                                <?php
+            </span>
+          </td>
+          <td style="padding: 10px;text-align: right;"><span style="font-size: 25px;font-weight: bold;">
+<?php
 
                                     $grandTotal = $total + $deductGst;
                                     echo number_format((float)$grandTotal,2,'.',','); 
 
                                  ?>
-                            </span>
-                        </h3>
+            
 
 
+          </span></td>
+      </tr>
+  </table>
 
-                    </div>
 
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col-lg-12">
-
-                   
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 </div>
-
-

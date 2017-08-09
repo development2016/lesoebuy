@@ -57,7 +57,7 @@ class SiteController extends Controller
                 //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial'],
+                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial','print'],
                         'allow' => true,
                     ],
                     [
@@ -93,6 +93,18 @@ class SiteController extends Controller
             ],
         ];
     }
+
+
+    public function actionPrint()
+    {
+
+        $this->layout = 'print';
+
+        return $this->render('print');
+    }
+
+
+
 
     public function actionTutorial()
     {
