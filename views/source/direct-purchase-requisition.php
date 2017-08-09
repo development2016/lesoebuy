@@ -256,8 +256,32 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                             <?php } else { ?>
 
-                                <h4><?= $list[0]['sellers'][0]['seller'] ?>
+                                <h4>
+                                <?= $list[0]['sellers'][0]['seller'] ?>
                                 <br>
+                                <?php if (!isset($list[0]['sellers'][0]['att']) || empty($list[0]['sellers'][0]['att'])) { ?>
+                              
+                                <?php } else { ?>
+ 
+                                    <b>Attention To : </b><?= $list[0]['sellers'][0]['att'] ?>
+                                <?php } ?>
+                                    <br>
+                                <?php if (!isset($list[0]['sellers'][0]['att_tel']) || empty($list[0]['sellers'][0]['att_tel'])) { ?>
+                               
+                                <?php } else { ?>
+ 
+                                    <b>Contact : </b><?= $list[0]['sellers'][0]['att_tel'] ?>
+                                <?php } ?>
+                                <br>
+                                <?php if (!isset($list[0]['sellers'][0]['att_email']) || empty($list[0]['sellers'][0]['att_email'])) { ?>
+                                    
+                                <?php } else { ?>
+                                    <b>Email : </b><?= $list[0]['sellers'][0]['att_email'] ?>
+                                <?php } ?>
+                                <br>
+
+
+
                                   <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                     'information/edit-company',
                                     'seller'=>$seller,
@@ -429,11 +453,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                         
                                     <h4>
+
+                                    <b>Specification : </b> <?= $value['specification'] ?>
+                                    <br>
                                     <b>Brand : </b> <?= $value['brand'] ?>
                                     <br>
                                     <b>Model : </b> <?= $value['model'] ?>
-                                    <br>
-                                    <b>Specification : </b> <?= $value['specification'] ?>
                                     <br>
                                     <br>
                                     <b>Remark : </b><?= $value['remark'] ?>

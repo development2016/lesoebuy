@@ -152,6 +152,9 @@ class OrderController extends Controller
                             'seller' => '$sellers.seller',
                             'revise' => '$sellers.revise',
                             'items' => '$sellers.items',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                             
                         ],
                         

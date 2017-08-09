@@ -185,7 +185,7 @@ class InformationController extends Controller
                 [
                     'project_id'=>$newProject_id,
                     'status_buyer' => 'Change Buyer'
-                ])->one();
+                ])->all();
             $notify_update->read_unread = 1;
             $notify_update->save();
 
@@ -2919,6 +2919,9 @@ class InformationController extends Controller
                         'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
                         'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
                         'sellers.$.term' => $_POST['CompanyOffline']['term'],
+                        'sellers.$.att' => $_POST['CompanyOffline']['att'],
+                        'sellers.$.att_email' => $_POST['CompanyOffline']['att_email'],
+                        'sellers.$.att_tel' => $_POST['CompanyOffline']['att_tel'],
 
 
 
@@ -3014,7 +3017,9 @@ class InformationController extends Controller
                         'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
                         'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
                         'sellers.$.term' => $_POST['CompanyOffline']['term'],
-
+                        'sellers.$.att' => $_POST['CompanyOffline']['att'],
+                        'sellers.$.att_email' => $_POST['CompanyOffline']['att_email'],
+                        'sellers.$.att_tel' => $_POST['CompanyOffline']['att_tel'],
 
 
                     ]

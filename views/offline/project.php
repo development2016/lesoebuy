@@ -46,6 +46,9 @@ $(document).ready(function(){
         var typeoftax = $(this).data('typeoftax');
         var tax = $(this).data('tax');
         var term = $(this).data('term');
+        var att = $(this).data('att');
+        var att_email = $(this).data('att_email');
+        var att_tel = $(this).data('att_tel');
 
         $('#companyname').val(companyname);
         $('#registrationno').val(registrationno);
@@ -62,6 +65,9 @@ $(document).ready(function(){
         $('#typeoftax').val(typeoftax);
         $('#tax').val(tax);
         $('#term').val(term);
+        $('#att').val(att);
+        $('#att_email').val(att_email);
+        $('#att_tel').val(att_tel);
 
 
         $.ajax({
@@ -291,8 +297,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
 				                ]) ?>
 
+				                <hr>
+				                <h2>Attention</h2>
 
-	
+				                <?= $form->field($model, 'att')->textInput(['id'=>'att'])->label('Attention To') ?>
+
+				                <?= $form->field($model, 'att_email')->textInput(['id'=>'att_email'])->label('Email') ?>
+
+				                <?= $form->field($model, 'att_tel')->textInput(['id'=>'att_tel'])->label('Contact No') ?>
 
 
                                 	
@@ -340,6 +352,9 @@ $this->params['breadcrumbs'][] = $this->title;
 						data-typeoftax = "<?= $value['type_of_tax']; ?>"
 						data-tax = "<?= $value['tax']; ?>"
 						data-term = "<?= $value['term']; ?>"
+						data-att = "<?= $value['att']; ?>"
+						data-att_email = "<?= $value['att_email']; ?>"
+						data-att_tel = "<?= $value['att_tel']; ?>"
 
 
 						>

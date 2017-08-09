@@ -487,7 +487,10 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                            'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -567,7 +570,11 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                             'warehouses' => '$sellers.warehouses'
+                             'warehouses' => '$sellers.warehouses',
+                            'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
+
                         ],
                         
                     ],
@@ -649,7 +656,10 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                             'warehouses' => '$sellers.warehouses'
+                             'warehouses' => '$sellers.warehouses',
+                                                         'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -729,7 +739,10 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                             'warehouses' => '$sellers.warehouses'
+                             'warehouses' => '$sellers.warehouses',
+                                                         'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -816,7 +829,10 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                             'warehouses' => '$sellers.warehouses'
+                             'warehouses' => '$sellers.warehouses',
+                                                         'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -897,7 +913,10 @@ class RequestController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                             'warehouses' => '$sellers.warehouses'
+                             'warehouses' => '$sellers.warehouses',
+                                                         'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -984,6 +1003,9 @@ class RequestController extends Controller
                             'type_of_tax' => '$sellers.type_of_tax',
                             'warehouses' => '$sellers.warehouses',
                             'purchase_order_no_revise' => '$sellers.purchase_order_no_revise',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -1121,6 +1143,9 @@ class RequestController extends Controller
                             'type_of_tax' => '$sellers.type_of_tax',
                             'PO_process_by' => '$sellers.PO_process_by',
                             'purchase_order_no_revise' => '$sellers.purchase_order_no_revise',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -3569,7 +3594,10 @@ class RequestController extends Controller
                             'count_revise' => '$sellers.count_revise',
                             'revise_status' => '$sellers.revise_status',
                             'purchase_order_no_revise' => '$sellers.purchase_order_no_revise',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -3664,6 +3692,9 @@ class RequestController extends Controller
                             'type_of_tax' => '$sellers.type_of_tax',
                             'PO_process_by' => '$sellers.PO_process_by',
                             'purchase_order_no_revise' => '$sellers.purchase_order_no_revise',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],

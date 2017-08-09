@@ -40,6 +40,11 @@ $(document).ready(function(){
         var type_of_tax = $(this).data('type_of_tax');
         var tax = $(this).data('tax');
         var term = $(this).data('term');
+        var att = $(this).data('att');
+        var att_email = $(this).data('att_email');
+        var att_tel = $(this).data('att_tel');
+
+
 
         $('#companyname').val(company_name);
         $('#registrationno').val(company_registeration_no);
@@ -55,6 +60,11 @@ $(document).ready(function(){
         $('#typeoftax').val(type_of_tax);
         $('#tax').val(tax);
         $('#term').val(term);
+        $('#att').val(att);
+        $('#att_email').val(att_email);
+        $('#att_tel').val(att_tel);
+
+
 
         $.ajax({
             type: 'POST',
@@ -116,10 +126,12 @@ $this->registerJs($script);
 
         ]) ?>
 
+        <?= $form->field($modelCompany, 'city')->textInput(['id'=>'city']) ?>
+
     </div>
     <div class="col-lg-4">
 
-        <?= $form->field($modelCompany, 'city')->textInput(['id'=>'city']) ?>
+        
 
         <?= $form->field($modelCompany, 'telephone_no')->textInput(['id'=>'telephoneno']) ?>
 
@@ -149,6 +161,17 @@ $this->registerJs($script);
             'id' => 'term'
 
         ]) ?>
+
+        <hr>
+        <h2>Attention</h2>
+
+        <?= $form->field($modelCompany, 'att')->textInput(['id'=>'att'])->label('Attention To') ?>
+
+        <?= $form->field($modelCompany, 'att_email')->textInput(['id'=>'att_email'])->label('Email') ?>
+
+        <?= $form->field($modelCompany, 'att_tel')->textInput(['id'=>'att_tel'])->label('Contact No') ?>
+
+        
 
 
         <?= Html::submitButton($modelCompany->isNewRecord ? 'Submit' : 'Submit', [

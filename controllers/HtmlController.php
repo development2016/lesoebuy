@@ -71,7 +71,10 @@ class HtmlController extends Controller
                             'tax' => '$sellers.tax',
                             'delivery_before' => '$sellers.delivery_before',
                             'type_of_tax' => '$sellers.type_of_tax',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -148,7 +151,10 @@ class HtmlController extends Controller
                             'tax' => '$sellers.tax',
                             'delivery_before' => '$sellers.delivery_before',
                             'type_of_tax' => '$sellers.type_of_tax',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -324,6 +330,9 @@ class HtmlController extends Controller
                             'delivery_before' => '$sellers.delivery_before',
                             'warehouses' => '$sellers.warehouses',
                             'purchase_order_no_revise' => '$sellers.purchase_order_no_revise',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],

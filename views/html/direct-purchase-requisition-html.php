@@ -89,7 +89,31 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                 <div class="col-md-7">
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">To : </h4></div>
-                        <div class="col-md-7"> <h4><?= $list[0]['sellers'][0]['seller'] ?></h4></div>
+                        <div class="col-md-7"> <h4>
+                                <?= $list[0]['sellers']['seller'] ?>
+                                <br>
+                                <?php if (!isset($list[0]['sellers']['att']) || empty($list[0]['sellers']['att'])) { ?>
+                              
+                                <?php } else { ?>
+ 
+                                    <b>Attention To : </b><?= $list[0]['sellers']['att'] ?>
+                                <?php } ?>
+                                    <br>
+                                <?php if (!isset($list[0]['sellers']['att_tel']) || empty($list[0]['sellers']['att_tel'])) { ?>
+                               
+                                <?php } else { ?>
+ 
+                                    <b>Contact : </b><?= $list[0]['sellers']['att_tel'] ?>
+                                <?php } ?>
+                                <br>
+                                <?php if (!isset($list[0]['sellers']['att_email']) || empty($list[0]['sellers']['att_email'])) { ?>
+                                    
+                                <?php } else { ?>
+                                    <b>Email : </b><?= $list[0]['sellers']['att_email'] ?>
+                                <?php } ?>
+                                <br>
+                            
+                        </h4></div>
                     </div>
 
                     <div class="row static-info">

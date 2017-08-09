@@ -183,6 +183,9 @@ class OfflineController extends Controller
                             'purchase_requisition_no' => '',
                             'purchase_order_no' => '',
                             'items'=> [],
+                            'att' => $_POST['CompanyOffline']['att'],
+                            'att_email' => $_POST['CompanyOffline']['att_email'],
+                            'att_tel' => $_POST['CompanyOffline']['att_tel'],
 
 
                         ]];
@@ -214,6 +217,9 @@ class OfflineController extends Controller
                             'purchase_requisition_no' => '',
                             'purchase_order_no' => '',
                             'items'=> [],
+                            'att' => $_POST['CompanyOffline']['att'],
+                            'att_email' => $_POST['CompanyOffline']['att_email'],
+                            'att_tel' => $_POST['CompanyOffline']['att_tel'],
 
 
                         ]];
@@ -263,7 +269,9 @@ class OfflineController extends Controller
                             'purchase_requisition_no' => '',
                             'purchase_order_no' => '',
                             'items'=> [],
-
+                            'att' => $_POST['CompanyOffline']['att'],
+                            'att_email' => $_POST['CompanyOffline']['att_email'],
+                            'att_tel' => $_POST['CompanyOffline']['att_tel'],
 
                         ]];
 
@@ -296,7 +304,9 @@ class OfflineController extends Controller
                             'purchase_requisition_no' => '',
                             'purchase_order_no' => '',
                             'items'=> [],
-
+                            'att' => $_POST['CompanyOffline']['att'],
+                            'att_email' => $_POST['CompanyOffline']['att_email'],
+                            'att_tel' => $_POST['CompanyOffline']['att_tel'],
 
                         ]];
 

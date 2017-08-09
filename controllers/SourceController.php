@@ -234,7 +234,10 @@ class SourceController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                            'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],
@@ -367,7 +370,10 @@ class SourceController extends Controller
                             'tax' => '$sellers.tax',
                             'type_of_tax' => '$sellers.type_of_tax',
                             'delivery_before' => '$sellers.delivery_before',
-                            'warehouses' => '$sellers.warehouses'
+                            'warehouses' => '$sellers.warehouses',
+                                                        'att' => '$sellers.att',
+                            'att_email' => '$sellers.att_email',
+                            'att_tel' => '$sellers.att_tel',
                         ],
                         
                     ],

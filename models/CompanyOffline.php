@@ -64,7 +64,10 @@ class CompanyOffline extends \yii\mongodb\ActiveRecord
             'enter_by',
             'date_update',
             'update_by',
-            'term'
+            'term',
+            'att',
+            'att_email',
+            'att_tel'
         ];
     }
 
@@ -74,7 +77,7 @@ class CompanyOffline extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['company_name', 'company_registeration_no', 'address', 'zip_code', 'country', 'state', 'city', 'telephone_no', 'fax_no', 'email', 'website', 'tax','type_of_tax','date_create','date_update','enter_by','update_by','term'], 'safe'],
+            [['company_name', 'company_registeration_no', 'address', 'zip_code', 'country', 'state', 'city', 'telephone_no', 'fax_no', 'email', 'website', 'tax','type_of_tax','date_create','date_update','enter_by','update_by','term','att','att_email','att_tel'], 'safe'],
 
             ['tax', 'required', 'message' => 'Tax Is Required'],
             //['state', 'required', 'message' => 'Please Choose State'],
@@ -105,6 +108,11 @@ class CompanyOffline extends \yii\mongodb\ActiveRecord
             'website' => 'Website',
             'tax' => 'Tax',
             'type_of_tax' => 'Type Of Tax',
+            'att' => 'Attention',
+            'att_email' => 'Email',
+            'att_tel' => 'Telephone',
+
+
         ];
     }
 
