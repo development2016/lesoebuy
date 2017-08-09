@@ -235,7 +235,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <h4>
 
                                         <b>Specification : </b> <?= $value['specification'] ?>
-                                                                                <b>Brand : </b> <?= $value['brand'] ?>
+                                        <br>
+                                        <b>Brand : </b> <?= $value['brand'] ?>
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
