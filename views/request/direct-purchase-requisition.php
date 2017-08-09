@@ -219,12 +219,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <h4><b>Item Code : </b><?= $value['item_code'] ?></h4>
                                         <h4><b>Item Name : </b><span class="text-center"><?= $value['item_name']; ?></span></h4>
                                         <h4>
+
+                                        <b>Specification : </b> <?= $value['specification'] ?>
                                         <b>Brand : </b> <?= $value['brand'] ?>
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
-                                        <b>Specification : </b> <?= $value['specification'] ?>
-                                         <br>
                                         <br>
                                         <b>Remark : </b><?= $value['remark'] ?>
                                         

@@ -392,11 +392,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                             ]),'class'=>'edit_model text-primary']); ?>
                                         </h4>
                                         <h4>
+
+                                        <b>Specification : </b> <?= $value['specification'] ?>
                                         <b>Brand : </b> <?= $value['brand'] ?>
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
-                                        <b>Specification : </b> <?= $value['specification'] ?>
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                         'information/sale-detail-update',
