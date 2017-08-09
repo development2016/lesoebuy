@@ -54,6 +54,14 @@ $this->registerJs($script);
                                 <span><b>Description : </b><?= $value['description'] ?></span>
                                 <br>
                                 <span><b>Due Date : </b><?= $value['due_date'] ?></span>
+                                <br>
+                                <hr>
+                                <?php if (empty($value['requester'])) { ?>
+                                    
+                                <?php } else { ?>
+                                    <b>Request From : </b><span><?= $value['requester'] ?></span>
+                                <?php } ?>
+                                
                             </td>
                             <td>
                                 <span><b>PR No : </b><a class="mytooltip" href="#"><?= $value['sellers']['purchase_requisition_no'] ?></a></span><br>
