@@ -12,7 +12,7 @@ use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
 
-
+use app\models\LookupLeadTime;
 
 
 $country = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
@@ -96,22 +96,22 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                               
                                 <?php } else { ?>
  
-                                    <b>Attention To : </b><?= $list[0]['sellers']['att'] ?>
+                                    <b>Attention To : </b><?= $list[0]['sellers']['att'] ?><br>
                                 <?php } ?>
-                                    <br>
+                                    
                                 <?php if (!isset($list[0]['sellers']['att_tel']) || empty($list[0]['sellers']['att_tel'])) { ?>
                                
                                 <?php } else { ?>
  
-                                    <b>Contact : </b><?= $list[0]['sellers']['att_tel'] ?>
+                                    <b>Contact : </b><?= $list[0]['sellers']['att_tel'] ?><br>
                                 <?php } ?>
-                                <br>
+                            
                                 <?php if (!isset($list[0]['sellers']['att_email']) || empty($list[0]['sellers']['att_email'])) { ?>
                                     
                                 <?php } else { ?>
-                                    <b>Email : </b><?= $list[0]['sellers']['att_email'] ?>
+                                    <b>Email : </b><?= $list[0]['sellers']['att_email'] ?><br>
                                 <?php } ?>
-                                <br>
+                      
                             
                         </h4></div>
                     </div>
@@ -233,10 +233,18 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
-                                    <br>
-                                    <b>Remark : </b><?= $value['remark'] ?>
-                                        
+                                        <br>
+                                        <b>Remark : </b><?= $value['remark'] ?>
                                             <br>
+                                    <?php if (empty($value['lead_time'])) { ?>
+                                        <b>Lead Time : </b> 
+                                    <?php } else { ?>
+                                        <?php $lead = LookupLeadTime::find()->where(['id'=>$value['lead_time']])->one(); ?>
+                                        <b>Lead Time : </b> <?= $lead->lead_time ?>
+                                    <?php } ?>
+
+
+                                            
                                         </h4>
  
                                     </td>

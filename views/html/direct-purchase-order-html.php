@@ -11,7 +11,7 @@ use app\models\LookupModel;
 use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
-
+use app\models\LookupLeadTime;
 
 
 
@@ -217,6 +217,16 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
               <b>Brand : </b> <?= $value['brand'] ?>
               <br>
               <b>Model : </b> <?= $value['model'] ?>
+              <br>
+              <?php if (empty($value['lead_time'])) { ?>
+                  <b>Lead Time : </b> 
+              <?php } else { ?>
+                  <?php $lead = LookupLeadTime::find()->where(['id'=>$value['lead_time']])->one(); ?>
+                  <b>Lead Time : </b> <?= $lead->lead_time ?>
+              <?php } ?>
+
+
+
           </td>
           <td style="padding: 10px;">
               <?php if (empty($value['install'])) { ?>

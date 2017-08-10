@@ -11,6 +11,7 @@ use app\models\LookupModel;
 use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
+use app\models\LookupLeadTime;
 
 $country = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
 $state = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
@@ -399,6 +400,14 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <br>
                                         <b>Model : </b> <?= $value['model'] ?>
                                         <br>
+                                    <?php if (empty($value['lead_time'])) { ?>
+                                        <b>Lead Time : </b> 
+                                    <?php } else { ?>
+                                        <?php $lead = LookupLeadTime::find()->where(['id'=>$value['lead_time']])->one(); ?>
+                                        <b>Lead Time : </b> <?= $lead->lead_time ?>
+                                    <?php } ?>
+
+                                        
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                         'information/sale-detail-update',

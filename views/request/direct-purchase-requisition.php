@@ -11,6 +11,7 @@ use app\models\LookupModel;
 use app\models\LookupBrand;
 use app\models\LookupCountry;
 use app\models\LookupState;
+use app\models\LookupLeadTime;
 $this->title = 'Purchase Requisition';
 
 $script = <<< JS
@@ -90,21 +91,24 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 <?php } else { ?>
  
                                     <b>Attention To : </b><?= $list[0]['sellers'][0]['att'] ?>
-                                <?php } ?>
                                     <br>
+                                <?php } ?>
+                                    
                                 <?php if (!isset($list[0]['sellers'][0]['att_tel']) || empty($list[0]['sellers'][0]['att_tel'])) { ?>
                                
                                 <?php } else { ?>
  
                                     <b>Contact : </b><?= $list[0]['sellers'][0]['att_tel'] ?>
+                                    <br>
                                 <?php } ?>
-                                <br>
+                                
                                 <?php if (!isset($list[0]['sellers'][0]['att_email']) || empty($list[0]['sellers'][0]['att_email'])) { ?>
                                     
                                 <?php } else { ?>
                                     <b>Email : </b><?= $list[0]['sellers'][0]['att_email'] ?>
+                                    <br>
                                 <?php } ?>
-                                <br>
+                                
                             
 
 
@@ -228,6 +232,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <br>
                                         <br>
                                         <b>Remark : </b><?= $value['remark'] ?>
+                                        <br>
+                                        <?php if (empty($value['lead_time'])) { ?>
+                                        <b>Lead Time : </b> 
+                                    <?php } else { ?>
+                                        <?php $lead = LookupLeadTime::find()->where(['id'=>$value['lead_time']])->one(); ?>
+                                        <b>Lead Time : </b> <?= $lead->lead_time ?>
+                                    <?php } ?>
                                         
                                         </h4>
  
