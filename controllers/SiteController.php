@@ -175,11 +175,19 @@ class SiteController extends Controller
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 
-
             $user = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
-            $user->status_login = 1;
+            if ($user->status_login > 0) {
 
+                $user->status_login = $user->status_login + 1;
+                Yii::$app->getSession()->setFlash('another', 'Another User Using Your Account');
+   
+            } else {
+
+                $user->status_login = 1;
+            }
+
+        
             $user->save();
 
             return $this->goBack();

@@ -19,7 +19,12 @@ JS;
 $this->registerJs($script);
 ?>
 
-
+<?php if(Yii::$app->session->hasFlash('another')) { ?>
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert"></button>
+         <?php echo  Yii::$app->session->getFlash('another'); ?>
+    </div>
+<?php } ?>
     
 
 <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -47,15 +52,30 @@ $this->registerJs($script);
 </div>
 
 
+    <?php if (Yii::$app->user->identity->status_login > 1) { ?>
 
 
+        <?php if(Yii::$app->session->hasFlash('success')) { ?>
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                 <?php echo  Yii::$app->session->getFlash('success'); ?>
+            </div>
+        <?php } else { ?>
+        
+            <div class="alert alert-warning">
+                <button type="button" class="close" data-dismiss="alert"></button>
+                 Another User Using Your Account
+            </div>
+        <?php } ?>
 
-    <?php if(Yii::$app->session->hasFlash('success')) { ?>
-        <div class="alert alert-info">
-            <button type="button" class="close" data-dismiss="alert"></button>
-             <?php echo  Yii::$app->session->getFlash('success'); ?>
-        </div>
+
+    <?php } else { ?>
+
     <?php } ?>
+
+
+    
+
 
 
 
