@@ -57,3 +57,24 @@ tr.border_bottom td {
 
 
 }
+
+@media print {
+  #printPageButton {
+    display: none;
+  }
+}
+
+.print {
+  margin-top: 20px;
+  text-align: right;
+  
+
+}
+
+.btn-print {
+    padding: 10;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #1e88e5;
+}

@@ -350,4 +350,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
   </table>
 
 
+
+
+
+</div>
+
+<div class="print">
+
+  <a class="btn-print" id="printPageButton" onclick="javascript:window.print();" title="Print">PRINT</a>
+
 </div>
