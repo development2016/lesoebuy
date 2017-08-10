@@ -296,13 +296,13 @@ $this->registerJs($script);
                              
                             ],
 
-                            [
+                            /*[
                                 'label' => 'Manage Branch', 
                                 'url' => ['/company/manage-warehouse','company_id'=>(string)$company->company],
                                 'visible' => User::checkMenu('3010'),
-                                //'options'=>['id'=>'warehouse-pulsate'],
+                                ,
                           
-                            ],
+                            ],*/
                             [
                                 'label' => ' Manage Company', 
                                 'url' => ['/company/manage-company','company_id'=>(string)$company->company],
@@ -430,7 +430,12 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu" data-toggle="tooltip" title="Project">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
-       
+                            [
+                                'label' => 'Delivery Address', 
+                                'url' => ['delivery-address/index'],
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-arrange-bring-to-front"></i><span class="hide-menu" data-toggle="tooltip" title="Delivery Address">{label}</a>',
+                                //'options'=>['class'=>'active open selected'],
+                            ],
                             /*[
                                 'label' => 'History', 
                                 'url' => ['#'],

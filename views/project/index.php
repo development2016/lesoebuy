@@ -64,7 +64,15 @@ $this->registerJs($script);
                                 
                             </td>
                             <td>
-                                <span><b>PR No : </b><a class="mytooltip" href="#"><?= $value['sellers']['purchase_requisition_no'] ?></a></span><br>
+                                <span><b>PR No : </b><a class="mytooltip" href="#">
+                                <?php if (empty($value['sellers']['purchase_requisition_no'])) { ?>
+                                 
+                                <?php } else { ?>
+                                    <?= $value['sellers']['purchase_requisition_no']; ?>
+                                <?php } ?>
+                                    
+
+                                </a></span><br>
                                 <span><b>Status : </b><?= $value['sellers']['status'] ?></span>
                                 <br>
                                 <br>
@@ -112,20 +120,32 @@ $this->registerJs($script);
                             </td>
                             <td>
 
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        Purchase Requisition
-                                    </button>
-                                    <div class="dropdown-menu animated flipInX">
-                                        
-                                          <?= Html::a('<b>'.$value['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
-                                                        'project'=>(string)$value['_id'],
-                                                        'seller'=>$value['sellers']['seller'],
-                                                        'buyer'=>$value['buyers'][0]['buyer'],
-                                                        ],['target'=>'_blank','class'=>'dropdown-item']) ?>
-                                        
+                                <?php if (empty($value['sellers']['purchase_requisition_no'])) { ?>
+                                 
+                                <?php } else { ?>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Purchase Requisition
+                                        </button>
+                                        <div class="dropdown-menu animated flipInX">
+
+         
+                                              <?= Html::a('<b>'.$value['sellers']['purchase_requisition_no'].'</b>', ['html/direct-purchase-requisition-html',
+                                                            'project'=>(string)$value['_id'],
+                                                            'seller'=>$value['sellers']['seller'],
+                                                            'buyer'=>$value['buyers'][0]['buyer'],
+                                                            ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                       
+
+
+                                
+                                            
+                                        </div>
                                     </div>
-                                </div>
+                                <?php } ?>
+
+
+
 
 
                                 <?= Html::a('File', ['file/index',

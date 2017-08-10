@@ -21,7 +21,7 @@ $script = <<< JS
 $(document).ready(function(){
 
     $('.warehouse').on('click', function () {
-        var person_in_charge = $(this).data('person_in_charge');
+
         var contact = $(this).data('contact');
         var country = $(this).data('country');
         var state = $(this).data('state');
@@ -31,10 +31,13 @@ $(document).ready(function(){
         var latitude = $(this).data('latitude');
         var longitude = $(this).data('longitude');
         var email = $(this).data('email');
+        var fax = $(this).data('fax');
+        var postcode = $(this).data('postcode');
+        var ids = $(this).data('ids');
 
 
 
-        $('#person_in_charge').val(person_in_charge);
+ 
         $('#contact').val(contact);
         $('#country').val(country);
         $('#state').val(state);
@@ -44,6 +47,10 @@ $(document).ready(function(){
         $('#latitude').val(latitude);
         $('#longitude').val(longitude);
         $('#email').val(email);
+        $('#fax').val(fax);
+        $('#postcode').val(postcode);
+        $('#ids').val(ids);
+
 
         $.ajax({
             type: 'POST',
@@ -73,11 +80,15 @@ $this->registerJs($script);
 <div class="row">
          
         <div class="col-lg-4">
+
+            
            
 
-            <?= $form->field($model, 'sellers[warehouses][person_in_charge]')->textInput(['id'=>'person_in_charge'])->label('Person In Charge') ?>
+            <?= $form->field($model, 'sellers[warehouses][person_in_charge]')->textInput(['id'=>'person_in_charge','value'=>Yii::$app->user->identity->name])->label('Person In Charge') ?>
 
             <?= $form->field($model, 'sellers[warehouses][contact]')->textInput(['id'=>'contact'])->label('Contact') ?>
+
+            <?= $form->field($model, 'sellers[warehouses][fax]')->textInput(['id'=>'fax'])->label('Fax') ?>
 
             <?= $form->field($model, 'sellers[warehouses][email]')->textInput(['id'=>'email'])->label('Email') ?>
 
@@ -112,11 +123,13 @@ $this->registerJs($script);
 
             <?= $form->field($model, 'sellers[warehouses][address]')->textarea(['id'=>'address','rows' => 6])->label('Address') ?>
 
+            <?= $form->field($model, 'sellers[warehouses][postcode]')->textInput(['id'=>'postcode'])->label('Postcode') ?>
+
             <?= $form->field($model, 'sellers[warehouses][latitude]')->textInput(['id'=>'latitude'])->label('Latitude') ?>
 
             <?= $form->field($model, 'sellers[warehouses][longitude]')->textInput(['id'=>'longitude'])->label('Longitude') ?>
 
-
+            
 
             <div class="form-group">
 
@@ -125,7 +138,7 @@ $this->registerJs($script);
                 ]) ?>
 
             </div>
-
+            <?= $form->field($model, 'sellers[warehouses][_id]')->hiddenInput(['id'=>'ids'])->label(false) ?>
             
         </div>
         <?php ActiveForm::end(); ?>
@@ -135,9 +148,10 @@ $this->registerJs($script);
         <div class="col-lg-4" style="height: 560px; overflow-y: auto; overflow-x: auto;   border-left: solid #b7b7b7 1px;">
 
             <ul style="list-style-type: none; ">
-            <?php foreach ($companyBuyer->warehouses as $key => $value) { ?>
-                <li style="cursor: pointer;color: #2d85d2;" class="warehouse" 
-                data-person_in_charge="<?= $value['person_in_charge']; ?>"  
+            <?php foreach ($companyBuyer as $key => $value) { ?>
+                <li style="cursor: pointer;color: #2d85d2;" class="warehouse"   
+
+                data-ids="<?= $value['_id']; ?>"
                 data-contact="<?= $value['contact']; ?>"  
                 data-country="<?= $value['country']; ?>"  
                 data-state="<?= $value['state']; ?>"  
@@ -146,14 +160,19 @@ $this->registerJs($script);
                 data-address="<?= $value['address']; ?>"  
                 data-latitude="<?= $value['latitude']; ?>"  
                 data-longitude="<?= $value['longitude']; ?>" 
-                data-email="<?= $value['email']; ?>"  
+                data-email="<?= $value['email']; ?>" 
+                data-fax="<?= $value['contact']; ?>"   
+                data-postcode="<?= $value['postcode']; ?>"   
+
 
                 >
-                <?= $value['person_in_charge']; ?>
+
+                <b><?= $value['warehouse_name']; ?></b>
+                <br>
+                <?= $value['address']; ?>,<?= $value['postcode']; ?>,<?= $value['location']; ?>,<?= $value['state']; ?>,<?= $value['country']; ?>
                 <br>
                 <?= $value['contact']; ?>
-                <br>
-                <?= $value['warehouse_name']; ?>
+                
                 <hr>
 
                     

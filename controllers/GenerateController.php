@@ -21,7 +21,7 @@ use app\models\UserCompany;
 use app\models\Log;
 use app\models\Notification;
 use app\models\Email;
-
+use app\models\DeliveryAddress;
 
 class GenerateController extends Controller
 {
@@ -82,6 +82,9 @@ class GenerateController extends Controller
         ]); 
 
 
+        $deliveryAddress = DeliveryAddress::find()->where(['_id'=>(string)$buyer_id->branch])->one();
+
+
 
 
         if ($projectModel->load(Yii::$app->request->post()) ) {
@@ -103,15 +106,17 @@ class GenerateController extends Controller
                                             'sellers.$.temp_status' => '',
                                             'sellers.$.warehouses' => [[
                                                 'person_in_charge' => $buyer_id->username,
-                                                'contact' => $company[0]['telephone_no'],
-                                                'country' => $company[0]['country'],
-                                                'state' => $company[0]['state'],
-                                                'location' => $company[0]['city'],
-                                                'warehouse_name' => $company[0]['company_name'],
-                                                'address' => $company[0]['address'],
+                                                'contact' => $deliveryAddress->contact,
+                                                'country' => $deliveryAddress->country,
+                                                'state' => $deliveryAddress->state,
+                                                'location' => $deliveryAddress->location,
+                                                'warehouse_name' => $deliveryAddress->warehouse_name,
+                                                'address' => $deliveryAddress->address,
                                                 'latitude' => 0,
                                                 'longitude' => 0,
-                                                'email' => $company[0]['email'],
+                                                'email' => $deliveryAddress->email,
+                                                'fax' => $deliveryAddress->fax,
+                                                'postcode' => $deliveryAddress->postcode,
                                             ]],
 
                                         ],
@@ -154,15 +159,17 @@ class GenerateController extends Controller
                                             'sellers.$.temp_status' => '',
                                             'sellers.$.warehouses' => [[
                                                 'person_in_charge' => $buyer_id->username,
-                                                'contact' => $company[0]['telephone_no'],
-                                                'country' => $company[0]['country'],
-                                                'state' => $company[0]['state'],
-                                                'location' => $company[0]['city'],
-                                                'warehouse_name' => $company[0]['company_name'],
-                                                'address' => $company[0]['address'],
+                                                'contact' => $deliveryAddress->contact,
+                                                'country' => $deliveryAddress->country,
+                                                'state' => $deliveryAddress->state,
+                                                'location' => $deliveryAddress->location,
+                                                'warehouse_name' => $deliveryAddress->warehouse_name,
+                                                'address' => $deliveryAddress->address,
                                                 'latitude' => 0,
                                                 'longitude' => 0,
-                                                'email' => $company[0]['email'],
+                                                'email' => $deliveryAddress->email,
+                                                'fax' => $deliveryAddress->fax,
+                                                'postcode' => $deliveryAddress->postcode,
                                             ]],
 
 
@@ -195,15 +202,17 @@ class GenerateController extends Controller
                                             'sellers.$.temp_status' => '',
                                             'sellers.$.warehouses' => [[
                                                 'person_in_charge' => $buyer_id->username,
-                                                'contact' => $company[0]['telephone_no'],
-                                                'country' => $company[0]['country'],
-                                                'state' => $company[0]['state'],
-                                                'location' => $company[0]['city'],
-                                                'warehouse_name' => $company[0]['company_name'],
-                                                'address' => $company[0]['address'],
+                                                'contact' => $deliveryAddress->contact,
+                                                'country' => $deliveryAddress->country,
+                                                'state' => $deliveryAddress->state,
+                                                'location' => $deliveryAddress->location,
+                                                'warehouse_name' => $deliveryAddress->warehouse_name,
+                                                'address' => $deliveryAddress->address,
                                                 'latitude' => 0,
                                                 'longitude' => 0,
-                                                'email' => $company[0]['email'],
+                                                'email' => $deliveryAddress->email,
+                                                'fax' => $deliveryAddress->fax,
+                                                'postcode' => $deliveryAddress->postcode,
                                             ]],
 
 

@@ -18,6 +18,7 @@ use app\models\Log;
 use app\models\GeneratePurchaseOrderNo;
 use app\models\Notification;
 use app\models\Email;
+use app\models\DeliveryAddress;
 
 class InformationController extends Controller
 {
@@ -1471,34 +1472,73 @@ class InformationController extends Controller
 
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
 
-        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+        $companyBuyer = DeliveryAddress::find()->all();
+
+        $deliveryAdd = new DeliveryAddress();
+
 
         if ($model->load(Yii::$app->request->post())) {
 
-                $collection = Yii::$app->mongo->getCollection('project');
-                $arrUpdate = [
-                    '$set' => [
-                        'date_update' =>  date('Y-m-d h:i:s'),
-                        'update_by' =>  Yii::$app->user->identity->id,
-                        'sellers.$.warehouses' => [[
-                            'person_in_charge' => $_POST['Project']['sellers']['warehouses']['person_in_charge'],
-                            'contact' => $_POST['Project']['sellers']['warehouses']['contact'],
-                            'email' => $_POST['Project']['sellers']['warehouses']['email'],
-                            'country' => $_POST['Project']['sellers']['warehouses']['country'],
-                            'state' => $_POST['Project']['sellers']['warehouses']['state'],
-                            'location' => $_POST['Project']['sellers']['warehouses']['location'],
-                            'warehouse_name' => $_POST['Project']['sellers']['warehouses']['warehouse_name'],
-                            'address' => $_POST['Project']['sellers']['warehouses']['address'],
-                            'latitude' => $_POST['Project']['sellers']['warehouses']['latitude'],
-                            'longitude' => $_POST['Project']['sellers']['warehouses']['longitude'],
 
 
-                        ]]
+            if (empty($_POST['Project']['sellers']['warehouses']['_id'])) {
 
-                    ]
-                
-                ];
-                $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+                $deliveryAdd->warehouse_name = $_POST['Project']['sellers']['warehouses']['warehouse_name'];
+                $deliveryAdd->address = $_POST['Project']['sellers']['warehouses']['address'];
+                $deliveryAdd->postcode = $_POST['Project']['sellers']['warehouses']['postcode'];
+                $deliveryAdd->location = $_POST['Project']['sellers']['warehouses']['location'];
+                $deliveryAdd->country = $_POST['Project']['sellers']['warehouses']['country'];
+                $deliveryAdd->state = $_POST['Project']['sellers']['warehouses']['state'];
+                $deliveryAdd->latitude = $_POST['Project']['sellers']['warehouses']['latitude'];
+                $deliveryAdd->longitude = $_POST['Project']['sellers']['warehouses']['longitude'];
+                $deliveryAdd->contact = $_POST['Project']['sellers']['warehouses']['contact'];
+                $deliveryAdd->email = $_POST['Project']['sellers']['warehouses']['email'];
+                $deliveryAdd->fax = $_POST['Project']['sellers']['warehouses']['fax'];
+
+                $deliveryAdd->save();
+
+                $getDA = DeliveryAddress::find()->orderBy(['_id' => SORT_DESC])->limit(1)->one();
+
+                $buyer_info->branch = $getDA->_id;
+                $buyer_info->save();
+
+
+            } else {
+
+                $buyer_info->branch = $_POST['Project']['sellers']['warehouses']['_id'];
+                $buyer_info->save();
+
+
+            }
+
+
+
+            $collection = Yii::$app->mongo->getCollection('project');
+            $arrUpdate = [
+                '$set' => [
+                    'date_update' =>  date('Y-m-d h:i:s'),
+                    'update_by' =>  Yii::$app->user->identity->id,
+                    'sellers.$.warehouses' => [[
+                        'person_in_charge' => $_POST['Project']['sellers']['warehouses']['person_in_charge'],
+                        'contact' => $_POST['Project']['sellers']['warehouses']['contact'],
+                        'fax' => $_POST['Project']['sellers']['warehouses']['fax'],
+                        'email' => $_POST['Project']['sellers']['warehouses']['email'],
+                        'country' => $_POST['Project']['sellers']['warehouses']['country'],
+                        'state' => $_POST['Project']['sellers']['warehouses']['state'],
+                        'location' => $_POST['Project']['sellers']['warehouses']['location'],
+                        'warehouse_name' => $_POST['Project']['sellers']['warehouses']['warehouse_name'],
+                        'address' => $_POST['Project']['sellers']['warehouses']['address'],
+                        'latitude' => $_POST['Project']['sellers']['warehouses']['latitude'],
+                        'longitude' => $_POST['Project']['sellers']['warehouses']['longitude'],
+                        'postcode' => $_POST['Project']['sellers']['warehouses']['postcode'],
+
+
+                    ]]
+
+                ]
+            
+            ];
+            $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
 
 
              
@@ -1572,9 +1612,51 @@ class InformationController extends Controller
 
         $returnCompanyBuyer = UserCompany::find()->where(['user_id'=>$buyer_info->id])->one();
 
-        $companyBuyer = Company::find()->where(['_id'=>$returnCompanyBuyer->company])->one();
+        $companyBuyer = DeliveryAddress::find()->all();
+
+        $deliveryAdd = new DeliveryAddress();
+
 
         if ($model->load(Yii::$app->request->post())) {
+
+
+            if (empty($_POST['Project']['sellers']['warehouses']['_id'])) {
+
+                $deliveryAdd->warehouse_name = $_POST['Project']['sellers']['warehouses']['warehouse_name'];
+                $deliveryAdd->address = $_POST['Project']['sellers']['warehouses']['address'];
+                $deliveryAdd->postcode = $_POST['Project']['sellers']['warehouses']['postcode'];
+                $deliveryAdd->location = $_POST['Project']['sellers']['warehouses']['location'];
+                $deliveryAdd->country = $_POST['Project']['sellers']['warehouses']['country'];
+                $deliveryAdd->state = $_POST['Project']['sellers']['warehouses']['state'];
+                $deliveryAdd->latitude = $_POST['Project']['sellers']['warehouses']['latitude'];
+                $deliveryAdd->longitude = $_POST['Project']['sellers']['warehouses']['longitude'];
+                $deliveryAdd->contact = $_POST['Project']['sellers']['warehouses']['contact'];
+                $deliveryAdd->email = $_POST['Project']['sellers']['warehouses']['email'];
+                $deliveryAdd->fax = $_POST['Project']['sellers']['warehouses']['fax'];
+
+                $deliveryAdd->save();
+
+                $getDA = DeliveryAddress::find()->orderBy(['_id' => SORT_DESC])->limit(1)->one();
+
+                $buyer_info->branch = $getDA->_id;
+                $buyer_info->save();
+
+            } elseif ($_POST['Project']['sellers']['warehouses']['_id'] == 'exits') {
+                
+
+            } else {
+
+                $buyer_info->branch = $_POST['Project']['sellers']['warehouses']['_id'];
+                $buyer_info->save();
+
+
+            }
+
+
+
+
+
+
 
                 $collection = Yii::$app->mongo->getCollection('project');
                 $arrUpdate = [
@@ -1584,6 +1666,7 @@ class InformationController extends Controller
                         'sellers.$.warehouses' => [[
                             'person_in_charge' => $_POST['Project']['sellers']['warehouses']['person_in_charge'],
                             'contact' => $_POST['Project']['sellers']['warehouses']['contact'],
+                            'fax' => $_POST['Project']['sellers']['warehouses']['fax'],
                             'email' => $_POST['Project']['sellers']['warehouses']['email'],
                             'country' => $_POST['Project']['sellers']['warehouses']['country'],
                             'state' => $_POST['Project']['sellers']['warehouses']['state'],
@@ -1592,6 +1675,7 @@ class InformationController extends Controller
                             'address' => $_POST['Project']['sellers']['warehouses']['address'],
                             'latitude' => $_POST['Project']['sellers']['warehouses']['latitude'],
                             'longitude' => $_POST['Project']['sellers']['warehouses']['longitude'],
+                            'postcode' => $_POST['Project']['sellers']['warehouses']['postcode'],
 
 
                         ]]

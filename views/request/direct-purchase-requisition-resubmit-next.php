@@ -327,6 +327,17 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <?= $list[0]['sellers'][0]['warehouses'][0]['warehouse_name'] ?>
                                         <br>
                                         <?= $list[0]['sellers'][0]['warehouses'][0]['address'] ?>,
+                                        <?php if (empty($list[0]['sellers'][0]['warehouses'][0]['postcode']) || !isset($list[0]['sellers'][0]['warehouses'][0]['postcode'])) {
+                                            
+                                            
+                                        } else {
+
+                                            echo $list[0]['sellers'][0]['warehouses'][0]['postcode'];
+                                        }
+
+                                         ?>,
+
+
                                         <?php 
                                         $country_da = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
                                         $state_da = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
@@ -338,6 +349,17 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         <br>
                                         <b>Contact : </b><?= $list[0]['sellers'][0]['warehouses'][0]['contact'] ?>
                                         <br>
+                                        <?php if (empty($list[0]['sellers'][0]['warehouses'][0]['fax']) || !isset($list[0]['sellers'][0]['warehouses'][0]['fax'])) { ?>
+                                            
+                                            <b>Fax : </b>
+                                            <br>
+                                        <?php } else { ?>
+
+                                            <b>Fax : </b><?= $list[0]['sellers'][0]['warehouses'][0]['fax'] ?>
+                                            <br>
+                                        <?php } ?>
+
+                                        
                                         <b>Email : </b><?= $list[0]['sellers'][0]['warehouses'][0]['email'] ?>
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
