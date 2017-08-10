@@ -23,6 +23,7 @@ AppAsset::register($this);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="<?php echo Yii::$app->request->baseUrl; ?>/image/favicon.ico"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -429,12 +430,7 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu" data-toggle="tooltip" title="Project">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
-                            [
-                                'label' => 'List Project', 
-                                'url' => ['site/print'],
-                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-pen"></i><span class="hide-menu" data-toggle="tooltip" title="Project">{label}</a>',
-                                //'options'=>['class'=>'active open selected'],
-                            ],
+       
                             /*[
                                 'label' => 'History', 
                                 'url' => ['#'],

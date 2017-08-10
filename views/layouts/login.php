@@ -21,6 +21,7 @@ AppAssetLogin::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <link rel="shortcut icon" type="image/png" href="<?php echo Yii::$app->request->baseUrl; ?>/image/favicon.ico"/>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
 
