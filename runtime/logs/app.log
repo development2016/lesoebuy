@@ -156,3 +156,129 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1502441467.817
     'REQUEST_TIME' => 1502441467
 ]
+2017-08-11 17:09:25 [::1][-][k6sfpgvkm5tu02pm7vp967lf30][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'proc'@'localhost' (using password: YES)' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php:646
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(646): PDO->__construct('mysql:host=loca...', 'proc', 'secret', NULL)
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(579): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#3 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(910): yii\db\Command->prepare('<span class="ke...')
+#6 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#7 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#8 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#9 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#10 C:\xampp\htdocs\lesoebuy\models\User.php(129): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#11 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(657): app\models\User::findIdentity('<span class="nu...')
+#12 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(188): yii\web\User->renewAuthStatus()
+#13 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(333): yii\web\User->getIdentity()
+#14 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessRule.php(210): yii\web\User->getIsGuest()
+#15 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessRule.php(150): yii\filters\AccessRule->matchRole(Object(yii\web\User))
+#16 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessControl.php(121): yii\filters\AccessRule->allows(Object(yii\base\InlineAction), Object(yii\web\User), Object(yii\web\Request))
+#17 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\ActionFilter.php(75): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#18 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#19 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Component.php(545): call_user_func('[<span class="t...', Object(yii\base\ActionEvent))
+#20 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(272): yii\base\Component->trigger('<span class="st...', Object(yii\base\ActionEvent))
+#21 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#22 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(154): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#23 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#24 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#25 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#27 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'proc'@'localhost' (using password: YES)' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php:584
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(219): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(910): yii\db\Command->prepare('<span class="ke...')
+#4 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#5 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#6 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#7 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#8 C:\xampp\htdocs\lesoebuy\models\User.php(129): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#9 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(657): app\models\User::findIdentity('<span class="nu...')
+#10 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(188): yii\web\User->renewAuthStatus()
+#11 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\User.php(333): yii\web\User->getIdentity()
+#12 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessRule.php(210): yii\web\User->getIsGuest()
+#13 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessRule.php(150): yii\filters\AccessRule->matchRole(Object(yii\web\User))
+#14 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\filters\AccessControl.php(121): yii\filters\AccessRule->allows(Object(yii\base\InlineAction), Object(yii\web\User), Object(yii\web\Request))
+#15 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\ActionFilter.php(75): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#16 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#17 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Component.php(545): call_user_func('[<span class="t...', Object(yii\base\ActionEvent))
+#18 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(272): yii\base\Component->trigger('<span class="st...', Object(yii\base\ActionEvent))
+#19 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#20 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(154): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#21 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#22 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#23 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#25 {main}
+Additional Information:
+
+2017-08-11 17:09:25 [::1][-][k6sfpgvkm5tu02pm7vp967lf30][info][application] $_COOKIE = [
+    '_csrf' => '7371c74bb840e31939d2e7d7a64f621b558c66dc5f39bd3ad1601b4fb3b2453ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"\'ö&@¿†]—T†*ú¿^þrYày˜.Czü(táùmV\";}'
+    'PHPSESSID' => 'k6sfpgvkm5tu02pm7vp967lf30'
+    '_identity' => '70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[206,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lesoebuy/web/'
+    '__id' => 206
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/lesoebuy/web/request/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => '_csrf=7371c74bb840e31939d2e7d7a64f621b558c66dc5f39bd3ad1601b4fb3b2453ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%1A%27%F6%26%40%BF%86%5D%97T%86%2A%03%FA%BF%5E%FErY%E0y%98.Cz%FC%28t%E1%F9mV%22%3B%7D; PHPSESSID=k6sfpgvkm5tu02pm7vp967lf30; _identity=70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B206%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\Program Files\\Git\\cmd;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Go\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\Scripts\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\;C:\\Users\\fuad\\bin\\Sencha\\Cmd;C:\\Users\\fuad\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\fuad\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\MongoDB\\Server\\3.4\\bin;C:\\Users\\fuad\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '55819'
+    'REDIRECT_URL' => 'http://localhost/lesoebuy/web/site/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/lesoebuy/web/site/index'
+    'SCRIPT_NAME' => '/lesoebuy/web/index.php'
+    'PHP_SELF' => '/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1502442565.668
+    'REQUEST_TIME' => 1502442565
+]

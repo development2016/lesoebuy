@@ -91,6 +91,11 @@ $this->registerJs($script);
                                                     <a href="#" class="mytooltip" ><?= $value['sellers'][0]['purchase_order_no']; ?></a>
 
                                                   </li>
+                                                  <li class="list-group-item"><b>PR No</b> : 
+
+                                                    <a href="#" class="mytooltip" ><?= $value['sellers'][0]['purchase_requisition_no']; ?></a>
+
+                                                  </li>
 
                                               </ul>
  
