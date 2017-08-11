@@ -3,6 +3,8 @@
 /* @var $this yii\web\View */
 use yii\helpers\Html;
 use app\models\Notification;
+use miloschuman\highcharts\Highcharts;
+
 $this->title = 'Dashboard';
 
 $notify = Notification::notify();
@@ -12,6 +14,7 @@ $script = <<< JS
 $(document).ready(function(){
 
         $('#myModal').modal('show');
+
 
 }); 
 
@@ -109,7 +112,89 @@ $this->registerJs($script);
       
 
 
+<div class="row">
+    <!-- Column -->
+    <div class="col-lg-8 col-md-7">
+        <div class="card">
+            <div class="card-block">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex flex-wrap">
+                            <div>
+                                <h3 class="card-title">Total Project</h3>
+                                <h6 class="card-subtitle"></h6> </div>
+    
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div  >
+                            
+                                    <?php 
 
+
+                                   if (empty($totalProject)) {
+
+                                        $user_sales = $total_sales =0 ;
+                                        $xAxis = $user_sales; 
+                                        $yAxis = $total_sales;
+
+                              
+                                   } else {
+
+                                      foreach ($totalProject as $key_project => $value_project) {
+                                            $user_sales[] = $value_project['_id'];
+                                            $total_sales[] = (int)$value_project['count'];
+
+                                        }
+                                   }
+
+                                        $xAxis = $user_sales; 
+                                        $yAxis = $total_sales;
+
+                                    echo Highcharts::widget([
+                                       'options' => [
+                                          'title' => ['text' => 'Total Project By User'],
+                                          'chart' => [
+                                                'type' => 'column',
+                                            ],
+                                          'xAxis' => [
+                                             'categories' => $xAxis
+                                          ],
+                                          'yAxis' => [
+                                             'title' => ['text' => 'Total']
+                                          ],
+                                          'plotOptions' => [
+                                            'column' => [
+                                                'stacking' => 'normal',
+                                                'dataLabels' => [
+                                                    'enabled' => true,
+
+                                                ],
+                                            ],
+                                          ],
+
+                                          'series' => [
+                                             [
+                                              'name' => 'List User', 
+                                              'colorByPoint' => true,
+                                              'data' => $yAxis
+                                             
+                                             ],
+
+                                          ]
+                                       ]
+                                    ]) ?>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

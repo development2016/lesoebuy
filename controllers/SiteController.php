@@ -19,6 +19,7 @@ use app\models\PasswordResetRequestForm;
 use app\models\ResetPasswordForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use app\models\Project;
 
 class SiteController extends Controller
 {
@@ -152,12 +153,29 @@ class SiteController extends Controller
         $idle = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>3])->all();
 
 
-        //$user = User::find()->where('id != :id', ['id'=>Yii::$app->user->identity->id])->all();
+        $collection = Yii::$app->mongo->getCollection('project');
+        $totalProject = $collection->aggregate([
+            [
+                '$group' => [
+                    '_id' => '$requester',
+                    'count' => [
+                        '$sum' => 1
+                    ],
+
+            
+                ]
+            ],
+   
+
+        ]);
+
+
 
         return $this->render('index',[
             'online' => $online,
             'offline' => $offline,
             'idle' => $idle,
+            'totalProject' => $totalProject
         ]);
     }
 
