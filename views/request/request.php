@@ -182,10 +182,26 @@ $this->registerJs($script);
                                                                           <?= Html::a('File', ['file/index',
                                                                           'project'=>(string)$value['_id'],
                                                                           ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+                                                                              <?php } elseif ($app['status'] == 'Waiting Approval') { ?>
+
+                                                                                  <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
+                                                                                      'project'=>(string)$value['_id'],
+                                                                                      'seller'=>$value2['seller'],
+                                                                                      'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                      'approver' => $value2['approver'],
+                                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
+
+                                                                                <?= Html::a('File', ['file/index',
+                                                                                'project'=>(string)$value['_id'],
+                                                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+
+
                                                                             
                                                                           <?php } else { ?>
 
-                                                                            <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
+                                                                            <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
                                                                                 'project'=>(string)$value['_id'],
                                                                                 'seller'=>$value2['seller'],
                                                                                 'buyer'=>$value['buyers'][0]['buyer'],
@@ -341,10 +357,26 @@ $this->registerJs($script);
                                                                     <?= Html::a('File', ['file/index',
                                                                     'project'=>(string)$value['_id'],
                                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+                                                                              <?php } elseif ($app['status'] == 'Waiting Approval') { ?>
+
+                                                                                  <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
+                                                                                      'project'=>(string)$value['_id'],
+                                                                                      'seller'=>$value2['seller'],
+                                                                                      'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                      'approver' => $value2['approver'],
+                                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
+
+                                                                                <?= Html::a('File', ['file/index',
+                                                                                'project'=>(string)$value['_id'],
+                                                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+
+
                                                                             
                                                                           <?php } else { ?>
 
-                                                                            <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
+                                                                            <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
                                                                                 'project'=>(string)$value['_id'],
                                                                                 'seller'=>$value2['seller'],
                                                                                 'buyer'=>$value['buyers'][0]['buyer'],
@@ -548,22 +580,37 @@ $this->registerJs($script);
                                                                               ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
 
-                                                              <?= Html::a('File', ['file/index',
-                                                                    'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+                                                                              <?= Html::a('File', ['file/index',
+                                                                              'project'=>(string)$value['_id'],
+                                                                              ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+
+
+                                                                              <?php } elseif ($app['status'] == 'Waiting Approval') { ?>
+
+                                                                                  <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
+                                                                                      'project'=>(string)$value['_id'],
+                                                                                      'seller'=>$value2['seller'],
+                                                                                      'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                      'approver' => $value2['approver'],
+                                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
+
+                                                                                <?= Html::a('File', ['file/index',
+                                                                                'project'=>(string)$value['_id'],
+                                                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+                                                                            
                                                                                 
                                                                               <?php } else { ?>
 
-                                                                                <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition-approve',
-                                                                                    'project'=>(string)$value['_id'],
-                                                                                    'seller'=>$value2['seller'],
-                                                                                    'buyer'=>$value['buyers'][0]['buyer'],
-                                                                                    'approver' => $value2['approver'],
-                                                                                    ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
+                                                                                  <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
+                                                                                      'project'=>(string)$value['_id'],
+                                                                                      'seller'=>$value2['seller'],
+                                                                                      'buyer'=>$value['buyers'][0]['buyer'],
+                                                                                      'approver' => $value2['approver'],
+                                                                                      ],['class'=>'btn btn-secondary','title'=>'Purchase Requisition']) ?>
 
-                                                                    <?= Html::a('File', ['file/index',
-                                                                    'project'=>(string)$value['_id'],
-                                                                    ],['class'=>'btn btn-secondary','title'=>'File']) ?>
+                                                                                <?= Html::a('File', ['file/index',
+                                                                                'project'=>(string)$value['_id'],
+                                                                                ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
                                                                               <?php } ?>
                                                                               
