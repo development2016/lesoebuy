@@ -170,12 +170,40 @@ class SiteController extends Controller
         ]);
 
 
+        $totalPO = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'PO Completed'
+                            ],
+                    ],
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$requester',
+                    'count' => [
+                        '$sum' => 1
+                    ],
+
+            
+                ]
+            ],
+
+        ]);
+
+
+
+
+
 
         return $this->render('index',[
             'online' => $online,
             'offline' => $offline,
             'idle' => $idle,
-            'totalProject' => $totalProject
+            'totalProject' => $totalProject,
+            'totalPO' => $totalPO
         ]);
     }
 

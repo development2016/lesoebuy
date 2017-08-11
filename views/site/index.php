@@ -194,6 +194,79 @@ $this->registerJs($script);
             </div>
         </div>
     </div>
+
+    <div class="col-lg-4 col-md-5">
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">Total PO By User </h3>
+                <h6 class="card-subtitle"></h6>
+                <div >
+                          <?php 
+
+
+                                foreach ($totalPO as $key_po => $value_po) {
+
+                                         $data[] = [$value_po['_id'],(int)$value_po['count']];
+                                    
+
+                                }
+                                
+                             
+ 
+
+                                    echo Highcharts::widget([
+                                       'options' => [
+                           
+                                            'chart' => [
+                                                'plotBackgroundColor'=> null,
+                                                'plotBorderWidth'=> 0,
+                                                'plotShadow'=> false
+
+                                            ],
+                                            'tooltip' => [
+                                                'pointFormat' => '{series.name} : <b>{point.y}</b>'
+                                            ],
+
+                                            'plotOptions' => [
+                                                'pie' => [
+                                                    'dataLabels' => [
+                                                        'enabled' => true,
+                                                    
+                                                        'style' => [
+                                                            'fontWeight' => 'bold',
+                                                            'color' => 'black'
+                                                        ]
+                                                    ],
+                                   
+                                                ],
+                                            ],
+                                          'series' => [
+                                             [
+                                                'type' => 'pie',
+                                                'name' => 'PO',
+                                                'innerSize' => '50%',
+                                                'data' => $data
+                                                    
+                                                
+ 
+                                             
+                                             ],
+
+                                          ]
+
+                                       ]
+                                    ]) ?>
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
 </div>
 
 
