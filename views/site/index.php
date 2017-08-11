@@ -51,8 +51,9 @@ $this->registerJs($script);
             <div class="modal-body">
 
                 <p>User Now Can <a class="mytooltip" href="#">CHANGE APPROVER</a> On <b style="color: #ff0000;">(Create PR / Reject PR)</b></p>
+                <p style="font-size: 13px;color: #ff0000;">* Once User Submit For Approval, Approver Can`t Be Change Unless Approval Reject The PR</p>
                 <p>
-                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature-2.png" class="card-img-top img-responsive" />
+                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature-2.gif" class="card-img-top img-responsive" />
                 </p>
 
             </div>
