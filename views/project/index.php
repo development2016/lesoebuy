@@ -120,6 +120,36 @@ $this->registerJs($script);
                             </td>
                             <td>
 
+
+
+                                <?php if ($value['sellers']['status'] == 'PO Completed') { ?>
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Purchase Order
+                                        </button>
+                                        <div class="dropdown-menu animated flipInX">
+                                            <?= Html::a('<b>'.$value['sellers']['purchase_order_no'].'</b>', ['html/direct-purchase-order-html',
+                                                                'project'=>(string)$value['_id'],
+                                                                'seller'=>$value['sellers']['seller'],
+                                                                'buyer'=>$value['buyers'][0]['buyer'],
+                                                                ],['target'=>'_blank','class'=>'dropdown-item']) ?>
+                 
+                                            
+                                        </div>
+                                    </div>
+
+
+
+                         
+                                <?php } else { ?>
+
+                                <?php } ?>
+
+
+
+
+
                                 <?php if (empty($value['sellers']['purchase_requisition_no'])) { ?>
                                  
                                 <?php } else { ?>

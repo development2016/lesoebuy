@@ -90,7 +90,12 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     <div class="row static-info">
                         <div class="col-md-5"> <h4 class="bold">To : </h4></div>
                         <div class="col-md-7"> <h4>
-                                <?= $list[0]['sellers']['seller'] ?>
+                                <?php if (empty($list[0]['sellers']['seller'])) {
+                                   
+                                } else {
+                                    echo $list[0]['sellers']['seller'];
+                                } ?>
+
                                 <br>
                                 <?php if (!isset($list[0]['sellers']['att']) || empty($list[0]['sellers']['att'])) { ?>
                               
@@ -149,8 +154,9 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                         $country_da = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
                                         $state_da = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
                                         ?>
-                                        <?= $state_da->state; ?>,
-                                        <?= $country_da->country; ?>
+                                        <?php echo empty($list[0]['sellers'][0]['warehouses'][0]['state']) ? '' : $state_da->state; ?>,
+                                        <?php echo empty($list[0]['sellers'][0]['warehouses'][0]['country']) ? '' : $country_da->country; ?>
+           
 
                                             <br>
                                             <b>P.I.C : </b> <?= $list[0]['sellers'][0]['warehouses'][0]['person_in_charge'] ?>

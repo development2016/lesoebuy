@@ -71,7 +71,13 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
           <td style="width: 130px;vertical-align: top;"><span style="font-size: 15px;">To</span></td>
           <td style="width: 5px;vertical-align: top;"><span style="font-size: 15px;">:</span></td>
           <td style="width: 430px;">
-                                <?= $list[0]['sellers'][0]['seller'] ?>
+         
+                                <?php if (empty($list[0]['sellers'][0]['seller'])) {
+                                   
+                                } else {
+                                    echo $list[0]['sellers'][0]['seller'];
+                                } ?>
+
                                 <br>
                                 <?php if (!isset($list[0]['sellers'][0]['att']) || empty($list[0]['sellers'][0]['att'])) { ?>
                               
@@ -157,8 +163,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     $country_da = LookupCountry::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['country']])->one();
                     $state_da = LookupState::find()->where(['id'=>$list[0]['sellers'][0]['warehouses'][0]['state']])->one();
                     ?>
-                    <?= $state_da->state; ?>,
-                    <?= $country_da->country; ?>
+                    <?php echo empty($list[0]['sellers'][0]['warehouses'][0]['state']) ? '' : $state_da->state; ?>,
+                                        <?php echo empty($list[0]['sellers'][0]['warehouses'][0]['country']) ? '' : $country_da->country; ?>
 
                         <br>
                         <b>P.I.C : </b> <?= $list[0]['sellers'][0]['warehouses'][0]['person_in_charge'] ?>
@@ -227,8 +233,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
       </tr>
       <?php $arrayItem = -1; $i=0; foreach ($list[0]['sellers'][0]['items'] as $key => $value) { $i++; $arrayItem++; ?>
       <tr class="border_bottom">
-          <td style="padding: 10px;"><span style="font-size: 15px;"><?= $i; ?></span></td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 10px;"><span style="font-size: 15px;"><?= $i; ?></span></td>
+          <td style="padding: 10px;width: 300px;">
               <b>Item Code : </b><?= $value['item_code'] ?>
               <br>
               <b>Item Name : </b><?= $value['item_name']; ?>
@@ -249,7 +255,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
           </td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 20px;">
               <?php if (empty($value['install'])) { ?>
 
                     <?= '0.00'; ?>
@@ -270,7 +276,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                 <?php } ?>
           </td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 20px;">
                 <?php if (empty($value['shipping'])) { ?>
 
                     <?= '0.00'; ?>
@@ -291,10 +297,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                 <?php } ?>
           </td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 20px;">
                 <?= $value['quantity']; ?>
           </td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 20px;">
                 <?= $showPrice = number_format((float)$value['cost'],2,'.',','); ?>
 
                     <?php 
@@ -302,7 +308,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                     $sumPrice += $price;  ?>
           </td>
-          <td style="padding: 10px;">
+          <td style="padding: 10px;width: 20px;">
               <b><?php $amount =  $value['quantity'] * $value['cost']; 
 
                                         echo number_format((float)$amount,2,'.',','); 
