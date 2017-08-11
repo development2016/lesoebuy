@@ -505,6 +505,9 @@ class RequestController extends Controller
 
 
 
+
+
+
         $return_asiaebuy = AsiaebuyCompany::find()->one();
 
         return $this->render('direct-purchase-requisition',[
@@ -514,7 +517,8 @@ class RequestController extends Controller
             'seller' => $seller,
             'project' => $project,
             'buyer'=> $buyer,
-             'approver' => $approver
+             'approver' => $approver,
+             
         ]);
 
     }
@@ -845,6 +849,28 @@ class RequestController extends Controller
         ]);
 
 
+        $file = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            '_id' => $newProject_id
+                        ],
+
+                           
+                    ],
+
+                ]
+            ],
+
+        ]);
+
+
+        $fileUpload = $file[0]['sellers'][0]['direct_purchase'];
+
+
+
+
 
         $return_asiaebuy = AsiaebuyCompany::find()->one();
 
@@ -856,7 +882,8 @@ class RequestController extends Controller
             'project' => $project,
             'buyer'=> $buyer,
             'approver' => $approver,
-            'notification'=> $notification
+            'notification'=> $notification,
+            'fileUpload' => $fileUpload
         ]);
 
 

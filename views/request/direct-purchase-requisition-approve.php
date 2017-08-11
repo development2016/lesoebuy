@@ -73,6 +73,81 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 </div>
 
 
+<div class="row">
+    <div class="col-md-12">
+        <div class="card  earning-widget">
+                            <div class="card-header">
+                                <div class="card-actions">
+                                    <a class="" data-action="collapse"><i class="ti-minus"></i></a>
+
+                                </div>
+                                <h4 class="card-title m-b-0">Uploaded File</h4>
+                            </div>
+            <div class="card-block collapse show">
+
+       
+
+
+                <?php if (empty($fileUpload)) { ?>
+
+                    <?php echo 'No File Uploaded'; ?>
+
+                <?php } else { ?>
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>Filename</th>
+                                    <th>Date Upload</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $i=0; foreach ($fileUpload[0]['filename'] as $key_file => $value_file) { $i++;?>
+                                    <tr>
+                                        <td>
+                                            <?php if ($value_file['ext'] == 'pdf') { ?>
+                                                <i class="mdi mdi-file-pdf-box" style="color: red;font-size:30px;"></i>
+                                            <?php } elseif ($value_file['ext'] == 'xlsx') { ?>
+                                                <i class="mdi mdi-file-excel-box" style="color: green;font-size:30px;"></i>
+                                            <?php } elseif ($value_file['ext'] == 'docx') { ?>
+                                                <i class="mdi mdi-file-word-box" style="color: blue;font-size:30px;"></i>
+                                            <?php } else { ?>
+                                                <i class="mdi mdi-file"></i>
+                                            <?php } ?>
+
+                                        <?php echo $value_file['file']; ?></td>
+                                        <td><?php echo $value_file['date_create']; ?></td>
+                                        <td>
+                                            <?= Html::a('View', ['file/view', 
+                                            'path' => $value_file['path'],
+                                            'extension' => $value_file['ext'],
+                                            ], ['class' => 'btn btn-warning btn-sm','title'=>'View Upload File','target' => '_BLANK']) ?>
+                                        </td>
+                                    </tr>
+                                <?php } ?>
+
+                            </tbody>
+                        </table>
+
+
+
+                <?php } ?>
+
+
+
+
+
+
+
+            </div>
+        </div> 
+    </div>
+</div>
+
+
+
 
 
 <div class="row">
