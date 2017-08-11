@@ -198,7 +198,7 @@ $this->registerJs($script);
     <div class="col-lg-4 col-md-5">
         <div class="card">
             <div class="card-block">
-                <h3 class="card-title">Total PO By User </h3>
+                <h3 class="card-title">Total PO </h3>
                 <h6 class="card-subtitle"></h6>
                 <div >
                           <?php 
@@ -216,7 +216,7 @@ $this->registerJs($script);
 
                                     echo Highcharts::widget([
                                        'options' => [
-                           
+                                            'title' => ['text' => 'Total PO By User'],
                                             'chart' => [
                                                 'plotBackgroundColor'=> null,
                                                 'plotBorderWidth'=> 0,
