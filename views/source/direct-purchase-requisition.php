@@ -494,8 +494,6 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                     <?php } ?>
 
 
-
-
                                         <br>
                                         <?= Html::a('Edit',FALSE, ['value'=>Url::to([
                                         'information/sale-detail-update',

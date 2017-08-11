@@ -858,7 +858,6 @@ class InformationController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-
                 $collection = Yii::$app->mongo->getCollection('project');
                 $collection->update(
                     ['_id' => $newProject_id,'sellers.seller' => $seller],
@@ -868,6 +867,7 @@ class InformationController extends Controller
                             'sellers.$.items.'.$_POST['arrayItem'].'.brand' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['brand'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.model' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['model'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.specification' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['specification'],
+                            'sellers.$.items.'.$_POST['arrayItem'].'.lead_time' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['lead_time'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.remark' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['remark'],
                         ]
                         
