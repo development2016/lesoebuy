@@ -88,4 +88,16 @@ class DeliveryAddress extends \yii\mongodb\ActiveRecord
 
         ];
     }
+
+    public function getCountrys()
+    {
+        return $this->hasOne(LookupCountry::className(), ['id' => 'country']);
+    }
+
+
+    public function getStates()
+    {
+        return $this->hasOne(LookupState::className(), ['id' => 'state']);
+    }
+    
 }

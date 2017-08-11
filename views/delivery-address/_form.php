@@ -18,13 +18,6 @@ $state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$model->coun
 
     <?php $form = ActiveForm::begin(); ?>
 
-
-    <?= $form->field($model, 'contact') ?>
-
-    <?= $form->field($model, 'fax') ?>
-
-    <?= $form->field($model, 'email') ?>
-
     <?= $form->field($model, 'warehouse_name') ?>
 
     <?= $form->field($model, 'address')->textarea(['rows' => 6,'id' => 'address']) ?>
@@ -54,12 +47,22 @@ $state = ArrayHelper::map(LookupState::find()->where(['country_id'=>$model->coun
     ]) ?>
 
 
+
+    <?= $form->field($model, 'contact') ?>
+
+    <?= $form->field($model, 'fax') ?>
+
+    <?= $form->field($model, 'email') ?>
+
+
+
+
     <?= $form->field($model, 'latitude') ?>
 
     <?= $form->field($model, 'longitude') ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-info' : 'btn btn-info']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

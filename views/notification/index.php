@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <th>No</th>
                             <th>Project No</th>
                             <th>PR</th>
-                            <th>Remark</th>
+                            <th>Info</th>
 
                         </tr>
                     </thead>
@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                             ],
-                            ['class'=>'','title'=>'PR']) ?>
+                            ['class'=>'mytooltip','title'=>'PR']) ?>
 
                             
                     	<?php } elseif ($value['status_approver'] == 'Noted') { ?>
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= Html::a($value['details'], [$value['url'],
 
                             ],
-                            ['class'=>'','title'=>'PR']) ?>
+                            ['class'=>'mytooltip','title'=>'PR']) ?>
 
 
 
@@ -66,7 +66,14 @@ $this->params['breadcrumbs'][] = $this->title;
                     	
                     		
                     	</td>
-                        <td><?= $value['remark'] ?></td>
+                        <td>
+                            <b>From Who : </b> <span class="text-primary"><?= $value['from_who'] ?></span>
+                            <br>
+                            <b>Remark : </b> <?= $value['remark'] ?>
+   
+                            
+                            
+                        </td>
                     </tr>
 
 

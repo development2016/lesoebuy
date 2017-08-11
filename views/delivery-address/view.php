@@ -6,37 +6,34 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\DeliveryAddress */
 
-$this->title = $model->_id;
+$this->title = $model->warehouse_name;
 $this->params['breadcrumbs'][] = ['label' => 'Delivery Addresses', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="delivery-address-view">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+                <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-info pull-right']) ?>
 
-    <p>
-        <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => (string)$model->_id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+                <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
+                <h6 class="card-subtitle">Description About Panel</h6>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            '_id',
-            'country',
-            'state',
-            'location',
-            'warehouse_name',
-            'address',
-            'latitude',
-            'longitude',
-        ],
-    ]) ?>
+                <?= DetailView::widget([
+                    'model' => $model,
+                    'attributes' => [
+                        'warehouse_name',
+                        'address',
+                        'countrys.country',
+                        'states.state',
+                        'location',
+                        'latitude',
+                        'longitude',
+                    ],
+                ]) ?>
 
+            </div>
+        </div>
+    </div>
 </div>
