@@ -147,6 +147,14 @@ $this->registerJs($script);
                                                     'project'=>(string)$value['_id'],
                                                     ],['class'=>'btn btn-secondary','title'=>'File']) ?>
 
+                                                    <?= Html::a('Cancel PO', [
+                                                    'information/undo-po',
+                                                    'seller'=>$value2['seller'],
+                                                    'project'=> (string)$value['_id'],
+                                                    'buyer' => $value['buyers'][0]['buyer']
+                          
+                                                    ],['class'=>'btn btn-warning','title'=>'File']) ?>
+
                                              
 
 
