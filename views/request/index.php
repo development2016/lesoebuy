@@ -2199,7 +2199,7 @@ $this->registerJs($script);
                                           <td>
                                           <?php if ($value_info['status'] == 'Reject PR') { ?>
 
-                                              <span class="label label-warning"><?= $value_info['status'] ?></span>
+                                              <span class="label label-warning"><?= $value_info['status'] ?></span> By : <?= $value_info['by_approval'] ?>
   
                                           <?php } elseif ($value_info['status'] == 'Request Approval Next') { ?>
 

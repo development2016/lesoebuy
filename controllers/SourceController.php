@@ -250,6 +250,7 @@ class SourceController extends Controller
         ]);
 
 
+
         foreach ($list as $key => $value) {
            
             $purchase_requisition_no = $value['sellers'][0]['purchase_requisition_no'];
@@ -384,6 +385,7 @@ class SourceController extends Controller
             ]   
 
         ]);
+
 
 
         $return_asiaebuy = AsiaebuyCompany::find()->one();

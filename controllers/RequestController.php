@@ -146,9 +146,6 @@ class RequestController extends Controller
         ]);
 
 
-
-
-
         $collectionLog = Yii::$app->mongo->getCollection('log');
         $log = $collectionLog->aggregate([
 
@@ -192,6 +189,7 @@ class RequestController extends Controller
                             'date_reject' => '$date_reject',
                             'date_request' => '$date_request',
                             'date_change' => '$date_change',
+                            'by_approval' => '$by_approval',
                             'seller' => '$seller',
                             'purchase_requisition_no' => '$purchase_requisition_no',
                             'purchase_order_no' => '$purchase_order_no',
