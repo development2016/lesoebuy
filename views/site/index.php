@@ -203,6 +203,7 @@ $this->registerJs($script);
                 <div >
                           <?php 
 
+                                $data = 0;
 
                                 foreach ($totalPO as $key_po => $value_po) {
 

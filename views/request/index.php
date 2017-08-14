@@ -650,7 +650,7 @@ $this->registerJs($script);
                                                                             <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
-                                                                              'seller'=>$value2['seller'],
+                                                                              'seller'=> base64_encode($value2['seller']),
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
@@ -659,7 +659,7 @@ $this->registerJs($script);
                                                                               <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
                                                                                   'request/choose-approval-level',
                                                                                   'project'=>(string)$value['_id'],
-                                                                                  'seller'=>$value2['seller'],
+                                                                                  'seller'=> base64_encode($value2['seller']),
                                                                                   'buyer'=>$user->account_name,
                                                                                   'type' => 'direct',
                                            
@@ -1047,7 +1047,7 @@ $this->registerJs($script);
                                                                             <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
-                                                                              'seller'=>$value2['seller'],
+                                                                              'seller'=> base64_encode($value2['seller']),
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
@@ -1056,7 +1056,7 @@ $this->registerJs($script);
                                                                             <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
                                                                                           'request/choose-approval-level',
                                                                                           'project'=>(string)$value['_id'],
-                                                                                          'seller'=>$value2['seller'],
+                                                                                          'seller'=> base64_encode($value2['seller']),
                                                                                           'buyer'=>$user->account_name,
                                                                                           'type' => 'direct',
                                                    
@@ -1505,7 +1505,7 @@ $this->registerJs($script);
                                                                               <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
-                                                                              'seller'=>$value2['seller'],
+                                                                              'seller'=> base64_encode($value2['seller']),
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
@@ -1515,7 +1515,7 @@ $this->registerJs($script);
                                                                               <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
                                                                                   'request/choose-approval-level',
                                                                                   'project'=>(string)$value['_id'],
-                                                                                  'seller'=>$value2['seller'],
+                                                                                  'seller'=>base64_encode($value2['seller']),
                                                                                   'buyer'=>$user->account_name,
                                                                                   'type' => 'direct',
                                            
@@ -1929,7 +1929,7 @@ $this->registerJs($script);
                                                                               <?= Html::a('Choose Approver',FALSE, ['value'=>Url::to([
                                                                               'request/choose-approval',
                                                                               'project'=>(string)$value['_id'],
-                                                                              'seller'=>$value2['seller'],
+                                                                              'seller'=>base64_encode($value2['seller']),
                                                                               'buyer'=>$user->account_name,
                                                                               'type' => 'direct',
                                        
@@ -1939,7 +1939,7 @@ $this->registerJs($script);
                                                                                 <?= Html::a('Choose Approver By Level',FALSE, ['value'=>Url::to([
                                                                                 'request/choose-approval-level',
                                                                                 'project'=>(string)$value['_id'],
-                                                                                'seller'=>$value2['seller'],
+                                                                                'seller'=>base64_encode($value2['seller']),
                                                                                 'buyer'=>$user->account_name,
                                                                                 'type' => 'direct',
                                          

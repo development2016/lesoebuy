@@ -747,7 +747,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         <div class="dropdown-menu animated flipInX">
                             <?= Html::a('Approver',FALSE, ['value'=>Url::to([
                                 'request/change-approval-next',
-                                'seller'=>$seller,
+                                'seller'=>base64_encode($seller),
                                 'project'=>(string)$project,
                                 'buyer'=>$buyer,
                                 'type' => 'change',
@@ -756,7 +756,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                             <?= Html::a('Approver By Level',FALSE, ['value'=>Url::to([
                                 'request/change-approval-level-next',
-                                'seller'=>$seller,
+                                'seller'=>base64_encode($seller),
                                 'project'=>(string)$project,
                                 'buyer'=>$buyer,
                                 'type' => 'change',

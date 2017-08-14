@@ -183,7 +183,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                     </div>
                 </div>
 
-                <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
+                <h4 class="card-title"><?= Html::encode($this->title) ?> - </h4>
                 <h6 class="card-subtitle">Description About Panel</h6> 
 
 
@@ -764,7 +764,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                         <div class="dropdown-menu animated flipInX">
                             <?= Html::a('Approver',FALSE, ['value'=>Url::to([
                                 'source/change-approval',
-                                'seller'=>$seller,
+                                'seller'=> base64_encode($seller),
                                 'project'=>(string)$project,
                                 'buyer'=>$buyer,
                                 'type' => 'change',
@@ -773,7 +773,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                             <?= Html::a('Approver By Level',FALSE, ['value'=>Url::to([
                                 'source/change-approval-level',
-                                'seller'=>$seller,
+                                'seller'=> base64_encode($seller),
                                 'project'=>(string)$project,
                                 'buyer'=>$buyer,
                                 'type' => 'change',

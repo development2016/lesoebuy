@@ -408,6 +408,8 @@ class SourceController extends Controller
 
     public function actionChooseApproval($project,$seller,$buyer,$type)
     {
+        $seller = base64_decode($seller);
+
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
@@ -477,6 +479,8 @@ class SourceController extends Controller
 
     public function actionChooseApprovalLevel($project,$seller,$buyer,$type)
     {
+
+
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
@@ -563,6 +567,9 @@ class SourceController extends Controller
     public function actionApprover()
     {
 
+        $seller = base64_decode($_POST['seller']);
+
+
         foreach ($_POST['approval'] as $key => $value) {
             
             $tempApp[] = [
@@ -589,12 +596,12 @@ class SourceController extends Controller
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
 
 
 
-        return $this->redirect(['source/direct-purchase-requisition','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$_POST['buyer'],'approver'=>'level']);
+        return $this->redirect(['source/direct-purchase-requisition','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$_POST['buyer'],'approver'=>'level']);
     
 
 
@@ -657,7 +664,7 @@ class SourceController extends Controller
     public function actionChangeApproval($project,$seller,$buyer,$type)
     {
 
-
+        $seller = base64_decode($seller);
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $model = Project::find()->where(['_id'=>$newProject_id])->one();
@@ -809,6 +816,7 @@ class SourceController extends Controller
     public function actionApproverChange()
     {
 
+        $seller = base64_decode($_POST['seller']);
 
         foreach ($_POST['approval'] as $key => $value) {
             
@@ -834,12 +842,12 @@ class SourceController extends Controller
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
         Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
 
 
-        return $this->redirect(['source/direct-purchase-requisition','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$_POST['buyer'],'approver'=>'level']);
+        return $this->redirect(['source/direct-purchase-requisition','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$_POST['buyer'],'approver'=>'level']);
    
 
     }

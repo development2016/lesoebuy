@@ -91,7 +91,12 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+
             'rules' => [
+
+                //'logout' => 'site/logout',
+               // ['class' => 'common\helpers\UrlRule', 'connectionID' => 'db'],
+
             ],
         ],
         

@@ -2772,6 +2772,7 @@ class RequestController extends Controller
     public function actionChooseApproval($project,$seller,$buyer,$type)
     {
 
+        $seller = base64_decode($seller);
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $details = Notification::find()->
@@ -2970,6 +2971,8 @@ class RequestController extends Controller
     public function actionApprover()
     {
 
+        $seller = base64_decode($_POST['seller']);
+
         $buyer_info = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
         $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
@@ -3031,7 +3034,7 @@ class RequestController extends Controller
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
 
         $model = $collection->aggregate([
@@ -3041,7 +3044,7 @@ class RequestController extends Controller
             [
                 '$match' => [
                     '_id' => $_POST['project'],
-                    'sellers.seller' => $_POST['seller'],
+                    'sellers.seller' => $seller,
                 ]
             ],
 
@@ -3058,7 +3061,7 @@ class RequestController extends Controller
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdateNext);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdateNext);
 
 
         if (empty($details)) {
@@ -3073,7 +3076,7 @@ class RequestController extends Controller
 
 
 
-        return $this->redirect(['request/direct-purchase-requisition-check','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$buyer_info->account_name,'approver'=>'level']);
+        return $this->redirect(['request/direct-purchase-requisition-check','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$buyer_info->account_name,'approver'=>'level']);
 
 
 
@@ -3818,7 +3821,7 @@ class RequestController extends Controller
 
 public function actionChangeApproval($project,$seller,$buyer,$type)
     {
-
+        $seller = base64_decode($seller);
 
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
@@ -3970,7 +3973,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
     public function actionApproverChange()
     {
-
+        $seller = base64_decode($_POST['seller']);
 
         foreach ($_POST['approval'] as $key => $value) {
             
@@ -3996,12 +3999,12 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
         Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
 
 
-        return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$_POST['buyer'],'approver'=>'level']);
+        return $this->redirect(['request/direct-purchase-requisition-resubmit','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$_POST['buyer'],'approver'=>'level']);
    
 
     }
@@ -4010,7 +4013,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
     public function actionChangeApprovalNext($project,$seller,$buyer,$type)
     {
-
+        $seller = base64_decode($seller);
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $details = Notification::find()->
@@ -4209,7 +4212,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
     public function actionApproverLevelNext()
     {
-
+        $seller = base64_decode($_POST['seller']);
         $buyer_info = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
         $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
@@ -4271,7 +4274,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
 
         $model = $collection->aggregate([
@@ -4281,7 +4284,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
             [
                 '$match' => [
                     '_id' => $_POST['project'],
-                    'sellers.seller' => $_POST['seller'],
+                    'sellers.seller' => $seller,
                 ]
             ],
 
@@ -4298,7 +4301,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdateNext);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdateNext);
 
 
         if (empty($details)) {
@@ -4313,7 +4316,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
         Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
 
-        return $this->redirect(['request/direct-purchase-requisition-check','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$buyer_info->account_name,'approver'=>'level']);
+        return $this->redirect(['request/direct-purchase-requisition-check','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$buyer_info->account_name,'approver'=>'level']);
 
 
 
@@ -4326,7 +4329,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
     public function actionChangeApprovalRenext($project,$seller,$buyer,$type)
     {
-
+         $seller = base64_decode($seller);
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $details = Notification::find()->
@@ -4525,7 +4528,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
     public function actionApproverLevelRenext()
     {
-
+        $seller = base64_decode($_POST['seller']);
         $buyer_info = User::find()->where(['id'=>Yii::$app->user->identity->id])->one();
 
         $newProject_id = new \MongoDB\BSON\ObjectID($_POST['project']);
@@ -4587,7 +4590,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdate);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdate);
 
 
         $model = $collection->aggregate([
@@ -4597,7 +4600,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
             [
                 '$match' => [
                     '_id' => $_POST['project'],
-                    'sellers.seller' => $_POST['seller'],
+                    'sellers.seller' => $seller,
                 ]
             ],
 
@@ -4614,7 +4617,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
         ];
 
 
-        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $_POST['seller']],$arrUpdateNext);
+        $collection->update(['_id' => $_POST['project'],'sellers.seller' => $seller],$arrUpdateNext);
 
 
         if (empty($details)) {
@@ -4629,7 +4632,7 @@ public function actionChangeApproval($project,$seller,$buyer,$type)
 
         Yii::$app->getSession()->setFlash('change', 'Approver Has Been Change');
 
-        return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>$_POST['project'],'seller'=>$_POST['seller'],'buyer'=>$buyer_info->account_name,'approver'=>'level']);
+        return $this->redirect(['request/direct-purchase-requisition-resubmit-next','project'=>$_POST['project'],'seller'=>$seller,'buyer'=>$buyer_info->account_name,'approver'=>'level']);
 
 
 
