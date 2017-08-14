@@ -858,6 +858,12 @@ class InformationController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
+
+                $spec = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['specification']);
+
+                $remark = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['remark']);
+
+
                 $collection = Yii::$app->mongo->getCollection('project');
                 $collection->update(
                     ['_id' => $newProject_id,'sellers.seller' => $seller],
@@ -866,9 +872,9 @@ class InformationController extends Controller
                         '$set' => [
                             'sellers.$.items.'.$_POST['arrayItem'].'.brand' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['brand'],
                             'sellers.$.items.'.$_POST['arrayItem'].'.model' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['model'],
-                            'sellers.$.items.'.$_POST['arrayItem'].'.specification' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['specification'],
+                            'sellers.$.items.'.$_POST['arrayItem'].'.specification' => $spec,
                             'sellers.$.items.'.$_POST['arrayItem'].'.lead_time' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['lead_time'],
-                            'sellers.$.items.'.$_POST['arrayItem'].'.remark' => $_POST['Project']['sellers'][0]['items'][$_POST['arrayItem']]['remark'],
+                            'sellers.$.items.'.$_POST['arrayItem'].'.remark' => $remark,
                         ]
                         
                     ]
@@ -1783,6 +1789,12 @@ class InformationController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
+            $spec = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers']['items']['specification']);
+
+            $remark = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers']['items']['remark']);
+
+
+
             if ($countitem == 0) {
 
 
@@ -1799,7 +1811,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -1808,7 +1820,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -1823,14 +1835,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1849,7 +1861,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -1858,7 +1870,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -1873,13 +1885,13 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->shipping =  0;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
@@ -1901,7 +1913,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -1910,7 +1922,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -1925,14 +1937,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -1954,7 +1966,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -1963,7 +1975,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -1978,14 +1990,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  0;
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -2013,7 +2025,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2022,7 +2034,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2035,14 +2047,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -2064,7 +2076,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2073,7 +2085,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2086,14 +2098,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  $_POST['Project']['sellers']['items']['installation_price'];
                     $offline->shipping =  0;
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -2116,7 +2128,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2125,7 +2137,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2138,14 +2150,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  $_POST['Project']['sellers']['items']['shipping_price'];
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -2170,7 +2182,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2179,7 +2191,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2192,14 +2204,14 @@ class InformationController extends Controller
                     $offline->brand =  $_POST['Project']['sellers']['items']['brand'];
                     $offline->model =  $_POST['Project']['sellers']['items']['model'];
                     //$offline->description =  $_POST['Project']['sellers']['items']['description'];
-                    $offline->specification =  $_POST['Project']['sellers']['items']['specification'];
+                    $offline->specification =  $spec;
                     $offline->lead_time =  $_POST['Project']['sellers']['items']['lead_time'];
                     //$offline->validity =  $_POST['Project']['sellers']['items']['validity'];
                     $offline->cost =  $_POST['Project']['sellers']['items']['cost'];
                     $offline->quantity =  $_POST['Project']['sellers']['items']['quantity'];
                     $offline->cit =  0;
                     $offline->shipping =  0;
-                    $offline->remark =  $_POST['Project']['sellers']['items']['remark'];
+                    $offline->remark =  $remark;
                     $offline->date_create = date('Y-m-d H:i:s');
                     $offline->enter_by = Yii::$app->user->identity->id;
                     $offline->save();
@@ -2331,6 +2343,12 @@ class InformationController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
+            $spec = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers']['items']['specification']);
+
+            $remark = str_replace(["\r\n","\r","\n","\\r","\\n","\\r\\n"], "<br/>", $_POST['Project']['sellers']['items']['remark']);
+
+
+
             if ($countitem == 0) {
 
 
@@ -2347,7 +2365,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2356,7 +2374,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -2382,7 +2400,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2391,7 +2409,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -2417,7 +2435,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2426,7 +2444,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -2450,7 +2468,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2459,7 +2477,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
 
                                 ]
                             ],
@@ -2493,7 +2511,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2502,7 +2520,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2526,7 +2544,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2535,7 +2553,7 @@ class InformationController extends Controller
                                     'installation_price' => $_POST['Project']['sellers']['items']['installation_price'],
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2561,7 +2579,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2570,7 +2588,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => $_POST['Project']['sellers']['items']['shipping_price'],
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
@@ -2597,7 +2615,7 @@ class InformationController extends Controller
                                     'brand' => $_POST['Project']['sellers']['items']['brand'],
                                     'model' => $_POST['Project']['sellers']['items']['model'],
                                     //'description' => $_POST['Project']['sellers']['items']['description'],
-                                    'specification' => $_POST['Project']['sellers']['items']['specification'],
+                                    'specification' => $spec,
                                     'lead_time' => $_POST['Project']['sellers']['items']['lead_time'],
                                     //'validity' => $_POST['Project']['sellers']['items']['validity'],
                                     'cost' => $_POST['Project']['sellers']['items']['cost'],
@@ -2606,7 +2624,7 @@ class InformationController extends Controller
                                     'installation_price' => 0,
                                     'shipping' => $_POST['Project']['sellers']['items']['shipping'],
                                     'shipping_price' => 0,
-                                    'remark' => $_POST['Project']['sellers']['items']['remark'],
+                                    'remark' => $remark,
                                 
                                 ]
                             ]
