@@ -13,7 +13,7 @@ $script = <<< JS
 
 $(document).ready(function(){
 
-        $('#myModal').modal('show');
+        $('#myModal').modal('hide');
 
 
 }); 
