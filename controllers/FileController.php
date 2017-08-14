@@ -64,6 +64,7 @@ class FileController extends Controller
     {   
         $file = Yii::$app->request->baseUrl.'/offline/'.$path;
 
+
         if ($extension == 'pdf') {
             echo "<embed src='".$file."' style='width:100%;height:100%;' alt='pdf' >";
         } elseif ($extension == 'xlsx') {
