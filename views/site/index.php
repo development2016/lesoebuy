@@ -201,20 +201,18 @@ $this->registerJs($script);
                 <h3 class="card-title">Total PO </h3>
                 <h6 class="card-subtitle"></h6>
                 <div >
-                          <?php 
+                          <?php if (empty($totalPO)) {
+                                      
+                                } else {
 
-                                $data = 0;
 
-                                foreach ($totalPO as $key_po => $value_po) {
+                                    foreach ($totalPO as $key_po => $value_po) {
 
-                                         $data[] = [$value_po['_id'],(int)$value_po['count']];
-                                    
+                                             $data[] = [$value_po['_id'],(int)$value_po['count']];
+                                        
 
-                                }
+                                    }
                                 
-                             
- 
-
                                     echo Highcharts::widget([
                                        'options' => [
                                             'title' => ['text' => 'Total PO By User'],
@@ -256,7 +254,15 @@ $this->registerJs($script);
                                           ]
 
                                        ]
-                                    ]) ?>
+                                    ]);
+
+
+
+
+
+                                  }
+ 
+                                  ?>
 
 
                 </div>
