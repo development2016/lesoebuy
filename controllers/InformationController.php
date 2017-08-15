@@ -2998,39 +2998,83 @@ class InformationController extends Controller
 
         if ($modelCompany->load(Yii::$app->request->post())) {
 
-            $modelCompany->date_create = date('Y-m-d H:i:s');
-            $modelCompany->enter_by = Yii::$app->user->identity->id;
-            $modelCompany->save();
-
-                $collection = Yii::$app->mongo->getCollection('project');
-                $arrUpdate = [
-                    '$set' => [
-                        'date_update' =>  date('Y-m-d h:i:s'),
-                        'update_by' =>  Yii::$app->user->identity->id,
-                        'sellers.$.seller' => $_POST['CompanyOffline']['company_name'],
-                        'sellers.$.company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
-                        'sellers.$.address' => $_POST['CompanyOffline']['address'],
-                        'sellers.$.zip_code' => $_POST['CompanyOffline']['zip_code'],
-                        'sellers.$.country' => $_POST['CompanyOffline']['country'],
-                        'sellers.$.state' => $_POST['CompanyOffline']['state'],
-                        'sellers.$.city' => $_POST['CompanyOffline']['city'],
-                        'sellers.$.telephone_no' => $_POST['CompanyOffline']['telephone_no'],
-                        'sellers.$.fax_no' => $_POST['CompanyOffline']['fax_no'],
-                        'sellers.$.email' => $_POST['CompanyOffline']['email'],
-                        'sellers.$.website' => $_POST['CompanyOffline']['website'],
-                        'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
-                        'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
-                        'sellers.$.term' => $_POST['CompanyOffline']['term'],
-                        'sellers.$.att' => $_POST['CompanyOffline']['att'],
-                        'sellers.$.att_email' => $_POST['CompanyOffline']['att_email'],
-                        'sellers.$.att_tel' => $_POST['CompanyOffline']['att_tel'],
+            $check = CompanyOffline::find()->where(['company_name'=>$_POST['CompanyOffline']['company_name']])->one();
 
 
+            if (empty($check)) {
 
-                    ]
+                    $modelCompany->date_create = date('Y-m-d H:i:s');
+                    $modelCompany->enter_by = Yii::$app->user->identity->id;
+                    $modelCompany->save();
+
+                        $collection = Yii::$app->mongo->getCollection('project');
+                        $arrUpdate = [
+                            '$set' => [
+                                'date_update' =>  date('Y-m-d h:i:s'),
+                                'update_by' =>  Yii::$app->user->identity->id,
+                                'sellers.$.seller' => $_POST['CompanyOffline']['company_name'],
+                                'sellers.$.company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                                'sellers.$.address' => $_POST['CompanyOffline']['address'],
+                                'sellers.$.zip_code' => $_POST['CompanyOffline']['zip_code'],
+                                'sellers.$.country' => $_POST['CompanyOffline']['country'],
+                                'sellers.$.state' => $_POST['CompanyOffline']['state'],
+                                'sellers.$.city' => $_POST['CompanyOffline']['city'],
+                                'sellers.$.telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                                'sellers.$.fax_no' => $_POST['CompanyOffline']['fax_no'],
+                                'sellers.$.email' => $_POST['CompanyOffline']['email'],
+                                'sellers.$.website' => $_POST['CompanyOffline']['website'],
+                                'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                                'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
+                                'sellers.$.term' => $_POST['CompanyOffline']['term'],
+                                'sellers.$.att' => $_POST['CompanyOffline']['att'],
+                                'sellers.$.att_email' => $_POST['CompanyOffline']['att_email'],
+                                'sellers.$.att_tel' => $_POST['CompanyOffline']['att_tel'],
+
+
+
+                            ]
+                        
+                        ];
+                        $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
+            } else {
+
+
+                        $collection = Yii::$app->mongo->getCollection('project');
+                        $arrUpdate = [
+                            '$set' => [
+                                'date_update' =>  date('Y-m-d h:i:s'),
+                                'update_by' =>  Yii::$app->user->identity->id,
+                                'sellers.$.seller' => $_POST['CompanyOffline']['company_name'],
+                                'sellers.$.company_registeration_no' => $_POST['CompanyOffline']['company_registeration_no'],
+                                'sellers.$.address' => $_POST['CompanyOffline']['address'],
+                                'sellers.$.zip_code' => $_POST['CompanyOffline']['zip_code'],
+                                'sellers.$.country' => $_POST['CompanyOffline']['country'],
+                                'sellers.$.state' => $_POST['CompanyOffline']['state'],
+                                'sellers.$.city' => $_POST['CompanyOffline']['city'],
+                                'sellers.$.telephone_no' => $_POST['CompanyOffline']['telephone_no'],
+                                'sellers.$.fax_no' => $_POST['CompanyOffline']['fax_no'],
+                                'sellers.$.email' => $_POST['CompanyOffline']['email'],
+                                'sellers.$.website' => $_POST['CompanyOffline']['website'],
+                                'sellers.$.type_of_tax' => $_POST['CompanyOffline']['type_of_tax'],
+                                'sellers.$.tax' => $_POST['CompanyOffline']['tax'],
+                                'sellers.$.term' => $_POST['CompanyOffline']['term'],
+                                'sellers.$.att' => $_POST['CompanyOffline']['att'],
+                                'sellers.$.att_email' => $_POST['CompanyOffline']['att_email'],
+                                'sellers.$.att_tel' => $_POST['CompanyOffline']['att_tel'],
+
+
+
+                            ]
+                        
+                        ];
+                        $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
                 
-                ];
-                $collection->update(['_id' => (string)$project,'sellers.seller' => $seller],$arrUpdate);
+
+            }
+
+
 
 
              
