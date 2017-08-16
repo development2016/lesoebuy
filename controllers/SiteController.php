@@ -144,6 +144,9 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
+        $user_id = Yii::$app->user->identity->id;
+        $user = User::find()->where(['id'=>$user_id])->one();
+
 
         $online = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>1])->all();
 
@@ -153,23 +156,9 @@ class SiteController extends Controller
         $idle = User::find()->where('id != :id and username != :username and status_login = :status_login', ['id'=>Yii::$app->user->identity->id, 'username'=>'admin','status_login'=>3])->all();
 
 
+
+
         $collection = Yii::$app->mongo->getCollection('project');
-        $totalProject = $collection->aggregate([
-            [
-                '$group' => [
-                    '_id' => '$requester',
-                    'count' => [
-                        '$sum' => 1
-                    ],
-
-            
-                ]
-            ],
-   
-
-        ]);
-
-
         $totalPO = $collection->aggregate([
             [
                 '$match' => [
@@ -193,7 +182,38 @@ class SiteController extends Controller
 
         ]);
 
+        $current = date('Y-m-d');
 
+        $overdue = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'Request Approval'
+                            ],
+                            [
+                                'due_date' => [
+                                    '$lt' => $current
+                                ]
+                            ],
+                            [
+                                 'buyers.buyer' => $user->account_name
+                            ]
+                    ],
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$requester',
+                    'count' => [
+                        '$sum' => 1
+                    ],
+
+            
+                ]
+            ],
+
+        ]);
 
 
 
@@ -202,8 +222,8 @@ class SiteController extends Controller
             'online' => $online,
             'offline' => $offline,
             'idle' => $idle,
-            'totalProject' => $totalProject,
-            'totalPO' => $totalPO
+            'totalPO' => $totalPO,
+            'overdue' => $overdue
         ]);
     }
 

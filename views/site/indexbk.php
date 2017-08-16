@@ -220,6 +220,92 @@ $this->registerJs($script);
 <div class="row">
 
 
+    <div class="col-lg-4 col-xlg-3">
+        <!-- Column -->
+        <div class="card earning-widget">
+            <div class="card-header">
+
+                <h4 class="card-title m-b-0">List Staff (<b>Online</b>)</h4>
+            </div>
+            <div class="card-block b-t collapse show">
+                <table class="table v-middle no-border">
+                    <tbody>
+                    <?php foreach ($online as $key => $value_online) { ?>
+                        <tr>
+                            <td><?= $value_online['account_name'] ?></td>
+
+            
+                                <td align="right"><span class="label label-light-success">Online</span></td> <!-- login -->
+                            
+                        </tr>
+                    <?php } ?>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="col-lg-4 col-xlg-3">
+        <!-- Column -->
+        <div class="card earning-widget">
+            <div class="card-header">
+
+                <h4 class="card-title m-b-0">List Staff (<b>Offline</b>)</h4>
+            </div>
+            <div class="card-block b-t collapse show">
+                <table class="table v-middle no-border">
+                    <tbody>
+                    <?php foreach ($offline as $key => $value_offline) { ?>
+                        <tr>
+                            <td><?= $value_offline['account_name'] ?></td>
+
+                                <td align="right"><span class="label label-light-danger">Offline</span></td> <!-- logout -->
+                            
+                        </tr>
+                    <?php } ?>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4 col-xlg-3">
+        <!-- Column -->
+        <div class="card earning-widget">
+            <div class="card-header">
+
+                <h4 class="card-title m-b-0">List Staff (<b>Idle</b>)</h4>
+            </div>
+            <div class="card-block b-t collapse show">
+                <table class="table v-middle no-border">
+                    <tbody>
+                    <?php foreach ($idle as $key => $value_idle) { ?>
+                        <tr>
+                            <td><?= $value_idle['account_name'] ?></td>
+
+                                <td align="right"><span class="label label-light-primary">Idle</span></td>
+                                 <!-- Idle -->
+                            
+                        </tr>
+                    <?php } ?>
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
 
 </div>
 
