@@ -84,7 +84,7 @@ $this->registerJs($script);
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-warning card-inverse">
             <div class="box text-center">
-                <h1 class="font-light text-white"><?= $overdue[0]['count']; ?></h1>
+                <h1 class="font-light text-white"><?= empty($overdue[0]['count']) ? '0' : $overdue[0]['count']; ?></h1>
                 <h6 class="text-white">Overdue</h6>
             </div>
         </div>
