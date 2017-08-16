@@ -157,6 +157,53 @@ class SiteController extends Controller
 
 
 
+         $connection = \Yii::$app->db;
+         $sql = $connection->createCommand('SELECT lookup_role.role AS role FROM acl 
+          RIGHT JOIN acl_menu ON acl.acl_menu_id = acl_menu.id
+          RIGHT JOIN lookup_menu ON acl_menu.menu_id = lookup_menu.menu_id
+          RIGHT JOIN lookup_role ON acl_menu.role_id = lookup_role.role_id
+          WHERE acl.user_id = "'.(int)Yii::$app->user->identity->id.'" GROUP BY lookup_role.role');
+        $getRole = $sql->queryAll(); 
+
+            function in_array_r($needle, $haystack, $strict = false) {
+                foreach ($haystack as $item) {
+                    if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+        $info_role = in_array_r('Buyer', $getRole) ? 'Buyer' : '';
+
+        $info_role_2 = in_array_r('User', $getRole) ? 'User' : '';
+
+        $info_role_3 = in_array_r('Approval', $getRole) ? 'Approval' : ''; // incase buyer as approval
+
+        // checking role
+        if ($info_role_3 == 'Approval' && $info_role == 'Buyer') {
+
+            $role = 'ApprovalBuyer';
+           
+        } elseif ($info_role_2 == 'User' && $info_role == 'Buyer') {
+            
+            $role ='UserBuyer'; // done
+
+        } elseif ($info_role == 'Buyer') {
+            
+            $role ='Buyer';
+
+        } elseif ($info_role_3 == 'Approval') {
+
+           $role ='Approval'; // done
+
+        } elseif ($info_role_2 == 'User') {
+
+           $role ='User'; // done
+        }
+ 
+
 
         $collection = Yii::$app->mongo->getCollection('project');
         $totalPO = $collection->aggregate([
@@ -171,7 +218,7 @@ class SiteController extends Controller
             ],
             [
                 '$group' => [
-                    '_id' => '$requester',
+                    '_id' => '$project_no',
                     'count' => [
                         '$sum' => 1
                     ],
@@ -184,38 +231,397 @@ class SiteController extends Controller
 
         $current = date('Y-m-d');
 
-        $overdue = $collection->aggregate([
-            [
-                '$match' => [
-                    '$and' => [
-                            [
-                                'sellers.status' => 'Request Approval'
-                            ],
-                            [
-                                'due_date' => [
-                                    '$lt' => $current
+        if ($role == 'UserBuyer' || $role == 'User') {
+
+            $overdue = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => 'Request Approval'
+                                ],
+                                [
+                                    'due_date' => [
+                                        '$lt' => $current
+                                    ]
+                                ],
+                                [
+                                     'buyers.buyer' => $user->account_name
                                 ]
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+
+            $sum_overdue =0;
+            foreach ($overdue as $key_overdue => $value_overdue) {
+                $sum_overdue += $value_overdue['count'];
+            }
+      
+        
+
+            $approve = $collection->aggregate([
+                    [
+                        '$match' => [
+                            '$and' => [
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ]
+          
+                            ],
+                        ]
+                    ],
+                    [
+                        '$group' => [
+                            '_id' => '$project_no',
+                            'count' => [
+                                '$sum' => 1
+                            ],
+
+                    
+                        ]
+                    ],
+
+            ]);
+            $sum_approve =0;
+            foreach ($approve as $key_approve => $value_approve) {
+                $sum_approve += $value_approve['count'];
+            }
+
+            $collection_notification = Yii::$app->mongo->getCollection('notification');
+            $notification = $collection_notification->aggregate([
+                [
+                    '$unwind' => '$to_who'
+                ],
+                [
+                    '$match' => [
+                        '$and' => [
+
+                            [
+                                'to_who' => $user->account_name
                             ],
                             [
-                                 'buyers.buyer' => $user->account_name
+                                'read_unread' => 0
                             ]
-                    ],
-                ]
-            ],
-            [
-                '$group' => [
-                    '_id' => '$requester',
-                    'count' => [
-                        '$sum' => 1
-                    ],
+                            
+
+                        ],
+                        '$or' => [
+                            [
+                                'status_approver' => 'Waiting Approval'
+                            ],
+                            [
+                                'status_approver' => 'Approve'
+                            ],
+                            [
+                                'status_approver' => 'Next Approver'
+                            ],
+                            [
+                                'status_buyer' => 'Change Buyer'
+                            ],
+                            [
+                                'status_approver' => 'Reject PR'
+                            ],
+                            [
+                                'status_approver' => 'Resubmit Approval'
+                            ],
+                            [
+                                'status_from_buyer' => 'Reject PR'
+                            ]
+
+                        ]
+                        
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+
+      
+            ]);
+
+
+            $sum_pending =0;
+            foreach ($notification as $key_notification => $value_notification) {
+                $sum_pending += $value_notification['count'];
+            }
+
+
 
             
-                ]
-            ],
-
-        ]);
 
 
+
+        } elseif ($role == 'Approval') {
+            
+            $overdue = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+
+                                [
+                                    'due_date' => [
+                                        '$lt' => $current
+                                    ]
+                                ],
+                                [
+                                    'sellers.approval.approval' => $user->account_name
+                                ]
+      
+                        ],
+                        '$or' => [
+                                [
+                                    'sellers.status' => 'Request Approval'
+                                ],
+                                [
+                                    'sellers.status' => 'Request Approval Next'
+                                ],
+
+
+                        ]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+            $sum_overdue =0;
+            foreach ($overdue as $key_overdue => $value_overdue) {
+                $sum_overdue += $value_overdue['count'];
+            }
+      
+
+            $approve = $collection->aggregate([
+                    [
+                        '$match' => [
+                            '$and' => [
+
+                                    [
+                                        'sellers.approval.approval' => $user->account_name
+                                    ]
+          
+                            ],
+                            '$or' => [
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Approve Next'
+                                    ],
+                            ]
+                        ]
+                    ],
+                    [
+                        '$group' => [
+                            '_id' => '$project_no',
+                            'count' => [
+                                '$sum' => 1
+                            ],
+
+                    
+                        ]
+                    ],
+
+            ]);
+
+            $sum_approve =0;
+            foreach ($approve as $key_approve => $value_approve) {
+                $sum_approve += $value_approve['count'];
+            }
+
+            $collection_notification = Yii::$app->mongo->getCollection('notification');
+            $notification = $collection_notification->aggregate([
+                [
+                    '$unwind' => '$to_who'
+                ],
+                [
+                    '$match' => [
+                        '$and' => [
+
+                            [
+                                'to_who' => $user->account_name
+                            ],
+                            [
+                                'read_unread' => 0
+                            ]
+                            
+
+                        ],
+                        '$or' => [
+                            [
+                                'status_approver' => 'Waiting Approval'
+                            ],
+                            [
+                                'status_approver' => 'Approve'
+                            ],
+                            [
+                                'status_approver' => 'Next Approver'
+                            ],
+                            [
+                                'status_buyer' => 'Change Buyer'
+                            ],
+                            [
+                                'status_approver' => 'Reject PR'
+                            ],
+                            [
+                                'status_approver' => 'Resubmit Approval'
+                            ],
+                            [
+                                'status_from_buyer' => 'Reject PR'
+                            ]
+
+                        ]
+                        
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+
+      
+            ]);
+
+
+            $sum_pending =0;
+            foreach ($notification as $key_notification => $value_notification) {
+                $sum_pending += $value_notification['count'];
+            }
+
+
+
+
+        } elseif ($role == 'ApprovalBuyer' || $role == 'Buyer') {
+
+            $overdue = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+
+                                [
+                                    'due_date' => [
+                                        '$lt' => $current
+                                    ]
+                                ],
+                                [
+                                    'buyers.buyer' => $user->account_name
+                                ]
+      
+                        ],
+                        '$or' => [
+                                [
+                                    'sellers.status' => 'Pass PR to Buyer To Proceed PO'
+                                ],
+                                [
+                                    'sellers.status' => 'Request Approval Next'
+                                ]
+
+
+                        ]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+
+            $sum_overdue =0;
+            foreach ($overdue as $key_overdue => $value_overdue) {
+                $sum_overdue += $value_overdue['count'];
+            }
+
+
+            $approve = $collection->aggregate([
+                    [
+                        '$match' => [
+                            '$and' => [
+
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ]
+          
+                            ],
+                            '$or' => [
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Approve Next'
+                                    ],
+                            ]
+
+
+
+                        ]
+                    ],
+                    [
+                        '$group' => [
+                            '_id' => '$project_no',
+                            'count' => [
+                                '$sum' => 1
+                            ],
+
+                    
+                        ]
+                    ],
+
+            ]);
+
+            $sum_approve =0;
+            foreach ($approve as $key_approve => $value_approve) {
+                $sum_approve += $value_approve['count'];
+            }
+
+
+
+
+
+        }
 
 
         return $this->render('index',[
@@ -223,7 +629,9 @@ class SiteController extends Controller
             'offline' => $offline,
             'idle' => $idle,
             'totalPO' => $totalPO,
-            'overdue' => $overdue
+            'sum_overdue' => $sum_overdue,
+            'sum_approve' => $sum_approve,
+            'sum_pending' => $sum_pending
         ]);
     }
 

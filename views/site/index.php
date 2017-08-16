@@ -73,9 +73,9 @@ $this->registerJs($script);
 <div class="row m-t-40">
     <!-- Column -->
     <div class="col-md-6 col-lg-3 col-xlg-3">
-        <div class="card card-inverse card-info">
+        <div class="card card-inverse card-danger">
             <div class="box text-center">
-                <h1 class="font-light text-white"><?=  $notify; ?></h1>
+                <h1 class="font-light text-white"><?= empty($sum_pending) ? '0' : $sum_pending; ?></h1>
                 <h6 class="text-white">Pending</h6>
             </div>
         </div>
@@ -84,17 +84,17 @@ $this->registerJs($script);
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-warning card-inverse">
             <div class="box text-center">
-                <h1 class="font-light text-white"><?= empty($overdue[0]['count']) ? '0' : $overdue[0]['count']; ?></h1>
+                <h1 class="font-light text-white"><?= empty($sum_overdue) ? '0' : $sum_overdue; ?></h1>
                 <h6 class="text-white">Overdue</h6>
             </div>
         </div>
     </div>
     <!-- Column -->
     <div class="col-md-6 col-lg-3 col-xlg-3">
-        <div class="card card-inverse card-dark">
+        <div class="card card-inverse card-default">
             <div class="box text-center">
-                <h1 class="font-light text-white">-</h1>
-                <h6 class="text-white">Not Defined</h6>
+                <h1 class="font-light text-dark">-</h1>
+                <h6 class="text-dark">Not Defined</h6>
             </div>
         </div>
     </div>
@@ -102,8 +102,9 @@ $this->registerJs($script);
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-inverse card-dark">
             <div class="box text-center">
-                <h1 class="font-light text-white">-</h1>
-                <h6 class="text-white">Approve / Declined</h6>
+                <h1 class="font-light text-white">
+                <?= empty($sum_approve) ? '0' : $sum_approve; ?></h1>
+                <h6 class="text-white">Approved</h6>
             </div>
         </div>
     </div>
