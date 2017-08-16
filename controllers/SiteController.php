@@ -218,7 +218,7 @@ class SiteController extends Controller
             ],
             [
                 '$group' => [
-                    '_id' => '$project_no',
+                    '_id' => '$requester',
                     'count' => [
                         '$sum' => 1
                     ],
