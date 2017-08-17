@@ -90,14 +90,51 @@ $this->registerJs($script);
         </div>
     </div>
     <!-- Column -->
-    <div class="col-md-6 col-lg-3 col-xlg-3">
-        <div class="card card-inverse card-default">
-            <div class="box text-center">
-                <h1 class="font-light text-dark">-</h1>
-                <h6 class="text-dark">Not Defined</h6>
+
+    <?php if ($role == 'UserBuyer' || $role == 'User') { ?>
+
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-inverse card-info">
+                <div class="box text-center">
+                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h6 class="text-white">To Process</h6>
+                </div>
             </div>
         </div>
-    </div>
+
+
+    <?php } elseif ($role == 'Approval') { ?>
+
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-inverse card-info">
+                <div class="box text-center">
+                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h6 class="text-white">To Approve</h6>
+                </div>
+            </div>
+        </div>
+
+    <?php } elseif ($role == 'ApprovalBuyer' || $role == 'Buyer') { ?>
+
+        <div class="col-md-6 col-lg-3 col-xlg-3">
+            <div class="card card-inverse card-info">
+                <div class="box text-center">
+                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h6 class="text-white">To Process</h6>
+                </div>
+            </div>
+        </div>
+
+
+    
+
+    <?php } ?>
+   
+
+
+
+
+
     <!-- Column -->
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-inverse card-dark">

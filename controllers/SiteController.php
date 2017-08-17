@@ -205,6 +205,8 @@ class SiteController extends Controller
  
 
 
+
+
         $collection = Yii::$app->mongo->getCollection('project');
         $totalPO = $collection->aggregate([
             [
@@ -369,6 +371,54 @@ class SiteController extends Controller
             }
 
 
+            $process = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+
+                                [
+                                     'buyers.buyer' => $user->account_name
+                                ]
+                        ],
+                        '$or' => [
+
+                                [
+                                    'sellers.status' => 'Request Approval'
+                                ],
+
+                                [
+                                    'sellers.status' => 'Reject PR'
+
+                                ],
+                                [
+                                    'sellers.status' => 'Approve'
+
+                                ]
+
+
+                        ]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+
+            $sum_process =0;
+            foreach ($process as $key_process => $value_process) {
+                $sum_process += $value_process['count'];
+            }
+
+
+
 
             
 
@@ -525,6 +575,48 @@ class SiteController extends Controller
                 $sum_pending += $value_notification['count'];
             }
 
+            $process = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+
+                                [
+                                    'sellers.approval.approval' => $user->account_name
+                                ]
+                        ],
+                        '$or' => [
+
+                                [
+                                    'sellers.status' => 'Request Approval'
+                                ],
+
+                                [
+                                    'sellers.status' => 'Request Approval Next'
+                                ]
+
+                        ]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+
+            $sum_process =0;
+            foreach ($process as $key_process => $value_process) {
+                $sum_process += $value_process['count'];
+            }
+
+
+
 
 
 
@@ -617,7 +709,121 @@ class SiteController extends Controller
                 $sum_approve += $value_approve['count'];
             }
 
+            $collection_notification = Yii::$app->mongo->getCollection('notification');
+            $notification = $collection_notification->aggregate([
+                [
+                    '$unwind' => '$to_who'
+                ],
+                [
+                    '$match' => [
+                        '$and' => [
 
+                            [
+                                'to_who' => $user->account_name
+                            ],
+                            [
+                                'read_unread' => 0
+                            ]
+                            
+
+                        ],
+                        '$or' => [
+                            [
+                                'status_approver' => 'Waiting Approval'
+                            ],
+                            [
+                                'status_approver' => 'Approve'
+                            ],
+                            [
+                                'status_approver' => 'Next Approver'
+                            ],
+                            [
+                                'status_buyer' => 'Change Buyer'
+                            ],
+                            [
+                                'status_approver' => 'Reject PR'
+                            ],
+                            [
+                                'status_approver' => 'Resubmit Approval'
+                            ],
+                            [
+                                'status_from_buyer' => 'Reject PR'
+                            ]
+
+                        ]
+                        
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+
+      
+            ]);
+
+
+            $sum_pending =0;
+            foreach ($notification as $key_notification => $value_notification) {
+                $sum_pending += $value_notification['count'];
+            }
+
+
+
+
+
+            $process = $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+
+                                [
+                                     'buyers.buyer' => $user->account_name
+                                ]
+                        ],
+                        '$or' => [
+
+                                [
+                                    'sellers.status' => 'Pass PR to Buyer To Proceed PO'
+                                ],
+                                [
+                                    'sellers.status' => 'Request Approval Next'
+                                ],
+                                [
+                                    'sellers.status' => 'Reject Next'
+                                ],
+                                [
+                                    'sellers.status' => 'Approve Next'
+                                ],
+
+
+                        ]
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$project_no',
+                        'count' => [
+                            '$sum' => 1
+                        ],
+
+                
+                    ]
+                ],
+
+            ]);
+
+            $sum_process =0;
+            foreach ($process as $key_process => $value_process) {
+                $sum_process += $value_process['count'];
+            }
 
 
 
@@ -631,7 +837,9 @@ class SiteController extends Controller
             'totalPO' => $totalPO,
             'sum_overdue' => $sum_overdue,
             'sum_approve' => $sum_approve,
-            'sum_pending' => $sum_pending
+            'sum_pending' => $sum_pending,
+            'sum_process' => $sum_process,
+            'role' => $role,
         ]);
     }
 
