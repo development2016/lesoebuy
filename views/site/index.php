@@ -4,6 +4,9 @@
 use yii\helpers\Html;
 use app\models\Notification;
 use miloschuman\highcharts\Highcharts;
+use miloschuman\highcharts\HighchartsAsset;
+
+HighchartsAsset::register($this)->withScripts(['modules/data', 'modules/drilldown']);
 
 $this->title = 'Dashboard';
 
@@ -14,6 +17,12 @@ $script = <<< JS
 $(document).ready(function(){
 
         $('#myModal').modal('hide');
+
+
+
+
+
+
 
 
 }); 
@@ -238,7 +247,10 @@ $this->registerJs($script);
             <div class="card-block">
                 <h3 class="card-title">Total my PO Over Time</h3>
                 <h6 class="card-subtitle"></h6>
-                <div >
+                <div>
+
+
+
 
 
 

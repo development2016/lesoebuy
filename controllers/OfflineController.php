@@ -93,7 +93,7 @@ class OfflineController extends Controller
 
                 $model3->project_no = $project_no;
                 $model3->type_of_project = 'Direct Purchase';
-                $model3->date_create = date('Y-m-d h:i:s');
+                $model3->date_create = date('Y-m-d\Th:i:s\Z');
                 $model3->enter_by = Yii::$app->user->identity->id;
                 $model3->requester = $requester_id->account_name;
                 $model3->request_role = $combine;

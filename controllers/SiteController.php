@@ -205,8 +205,6 @@ class SiteController extends Controller
  
 
 
-
-
         $collection = Yii::$app->mongo->getCollection('project');
         $totalPO = $collection->aggregate([
             [
@@ -230,6 +228,65 @@ class SiteController extends Controller
             ],
 
         ]);
+
+/*
+        $totalmyPO = $collection->aggregate([
+          [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'PO Completed'
+                            ],
+                            [
+                                 'buyers.buyer' => $user->account_name
+                            ]
+                    ],
+                ]
+            ],
+            [
+                '$project' => [
+
+                    'yearMonthDay' => [
+                        '$dateToString' => [
+                            'format' => '%Y-%m-%d',
+                            'date' => '$date_create'
+                        ]
+                    ]
+
+                ]
+
+            ],
+
+            [
+                '$group' => [
+                    '_id' => '$yearMonthDay',
+
+                    
+                    'count' => [
+                        '$sum' => 1
+                    ],
+
+            
+                ]
+            ],
+
+        ]);
+
+        print_r($totalmyPO);
+
+        
+
+
+        exit();*/
+
+
+
+
+
+
+
+
+
 
         $current = date('Y-m-d');
 
