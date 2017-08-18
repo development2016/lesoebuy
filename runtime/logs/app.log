@@ -25784,3 +25784,306 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1503044641.889
     'REQUEST_TIME' => 1503044641
 ]
+2017-08-18 16:33:19 [192.168.0.175][-][cudrbkqrcbemfo72dh53b4r4h6][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000] [1045] Access denied for user 'proc'@'localhost' (using password: YES)' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php:646
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(646): PDO->__construct('mysql:host=loca...', 'proc', 'secret', NULL)
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(579): yii\db\Connection->createPdoInstance()
+#2 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#3 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#4 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Schema.php(483): yii\db\Connection->getSlavePdo()
+#5 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(824): yii\db\Schema->quoteValue('<span class="st...')
+#6 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(175): yii\db\Connection->quoteValue('<span class="st...')
+#7 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(866): yii\db\Command->getRawSql()
+#8 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(887): yii\db\Command->logQuery('<span class="st...')
+#9 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#10 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#11 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#12 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#13 C:\xampp\htdocs\lesoebuy\models\User.php(148): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#14 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(76): app\models\User::findByUsername('<span class="st...')
+#15 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(48): app\models\LoginForm->getUser()
+#16 [internal function]: app\models\LoginForm->validatePassword('<span class="st...', '<span class="ke...', Object(yii\validators\InlineValidator))
+#17 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\validators\InlineValidator.php(72): call_user_func('[<span class="t...', '<span class="st...', '<span class="ke...', Object(yii\validators\InlineValidator))
+#18 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\validators\Validator.php(266): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), '<span class="st...')
+#19 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Model.php(358): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), '[<span class="s...')
+#20 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(62): yii\base\Model->validate()
+#21 C:\xampp\htdocs\lesoebuy\controllers\SiteController.php(915): app\models\LoginForm->login()
+#22 [internal function]: app\controllers\SiteController->actionLogin()
+#23 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#24 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#25 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#26 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#27 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#28 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#29 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000] [1045] Access denied for user 'proc'@'localhost' (using password: YES)' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php:584
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(928): yii\db\Connection->open()
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(915): yii\db\Connection->getMasterPdo()
+#2 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Schema.php(483): yii\db\Connection->getSlavePdo()
+#3 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Connection.php(824): yii\db\Schema->quoteValue('<span class="st...')
+#4 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(175): yii\db\Connection->quoteValue('<span class="st...')
+#5 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(866): yii\db\Command->getRawSql()
+#6 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(887): yii\db\Command->logQuery('<span class="st...')
+#7 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Command.php(376): yii\db\Command->queryInternal('<span class="st...', '<span class="ke...')
+#8 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\Query.php(253): yii\db\Command->queryOne()
+#9 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\ActiveQuery.php(294): yii\db\Query->one('<span class="ke...')
+#10 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\db\BaseActiveRecord.php(107): yii\db\ActiveQuery->one()
+#11 C:\xampp\htdocs\lesoebuy\models\User.php(148): yii\db\BaseActiveRecord::findOne('[<span class="s...')
+#12 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(76): app\models\User::findByUsername('<span class="st...')
+#13 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(48): app\models\LoginForm->getUser()
+#14 [internal function]: app\models\LoginForm->validatePassword('<span class="st...', '<span class="ke...', Object(yii\validators\InlineValidator))
+#15 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\validators\InlineValidator.php(72): call_user_func('[<span class="t...', '<span class="st...', '<span class="ke...', Object(yii\validators\InlineValidator))
+#16 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\validators\Validator.php(266): yii\validators\InlineValidator->validateAttribute(Object(app\models\LoginForm), '<span class="st...')
+#17 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Model.php(358): yii\validators\Validator->validateAttributes(Object(app\models\LoginForm), '[<span class="s...')
+#18 C:\xampp\htdocs\lesoebuy\models\LoginForm.php(62): yii\base\Model->validate()
+#19 C:\xampp\htdocs\lesoebuy\controllers\SiteController.php(915): app\models\LoginForm->login()
+#20 [internal function]: app\controllers\SiteController->actionLogin()
+#21 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#22 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Controller.php(156): yii\base\InlineAction->runWithParams('[]')
+#23 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php(523): yii\base\Controller->runAction('<span class="st...', '[]')
+#24 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('<span class="st...', '[]')
+#25 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#26 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#27 {main}
+Additional Information:
+
+2017-08-18 16:33:19 [192.168.0.175][-][cudrbkqrcbemfo72dh53b4r4h6][info][application] $_POST = [
+    '_csrf' => 'GTmix0Dtruk4FHaJnvahvyJ34-zCQM6eeZVukcXurViMyevO6a_8klmWuvEATs_KuLzyvdjpLq11FEl8Annn4w=='
+    'LoginForm' => [
+        'username' => 'tasha'
+        'password' => 'tasha1234'
+    ]
+    'login-button' => ''
+]
+
+$_COOKIE = [
+    'PHPSESSID' => 'cudrbkqrcbemfo72dh53b4r4h6'
+    '_csrf' => '026cfe6a1ca82df7714166899e0b98dd3393be0810d57960f560d073b1c0c79ea:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"•ðI	©BR{a‚Ìxž¸nušËQ©à3\'íÇ—J»\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/lesoebuy/web/'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => '192.168.0.113'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '176'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_ORIGIN' => 'http://192.168.0.113'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://192.168.0.113/lesoebuy/web/site/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => 'PHPSESSID=cudrbkqrcbemfo72dh53b4r4h6; _csrf=026cfe6a1ca82df7714166899e0b98dd3393be0810d57960f560d073b1c0c79ea%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%95%F0I%09%A9BR%7Ba%82%CCx%9E%B8nu%9A%CB%11Q%1A%A9%E03%0C%81%27%ED%C7%97J%BB%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\Program Files\\Git\\cmd;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Go\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\Scripts\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\;C:\\Users\\fuad\\bin\\Sencha\\Cmd;C:\\Users\\fuad\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\fuad\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\MongoDB\\Server\\3.4\\bin;C:\\Users\\fuad\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23 Server at 192.168.0.113 Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23'
+    'SERVER_NAME' => '192.168.0.113'
+    'SERVER_ADDR' => '192.168.0.113'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '192.168.0.175'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '55607'
+    'REDIRECT_URL' => 'http://192.168.0.113/lesoebuy/web/site/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/lesoebuy/web/site/login'
+    'SCRIPT_NAME' => '/lesoebuy/web/index.php'
+    'PHP_SELF' => '/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503045199.648
+    'REQUEST_TIME' => 1503045199
+]
+2017-08-18 16:39:55 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "source/site/idle".' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('source/site/idl...', Array)
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-18 16:39:55 [::1][-][-][info][application] $_POST = [
+    'idle' => '3'
+]
+
+$_COOKIE = [
+    'whatacartFrontCurrency' => '7be3df7f9ac330b5e552b5126f50b3bc48f63ddc36961a237c74a4ab380bb25ba:2:{i:0;s:22:\"whatacartFrontCurrency\";i:1;s:3:\"GBP\";}'
+    '_backendUser' => 'f20dc165fa81df92ea78c7f16c3ba4d5913d7b0376494f6361808c029be70e3ca:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"5OyUg_R1payOvdliNrJ3r_1gdZhaixgW\",2592000]\";}'
+    '_csrf' => 'f03ffb2253ff5f20a595a0482194306c2f5120924fddcc091ce73006b13f40f6a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"u¦ª\\>Õ¸•8eõë-”L~P\0ÍOžIÝ‚ýƒ\";}'
+    'PHPSESSID' => 'c75bn47n0vam1itfa0uo05g1t1'
+    '_identity' => '70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[206,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '6'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_X_CSRF_TOKEN' => 'pY1-KqOhEURG7keJp-TxsG__3EFldiE_RERiLNfoRRvQK9R2nXSp0X6LsmKKcL3OP37fQag5vykNmeChKmteAQ=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost/lesoebuy/web/source/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'whatacartFrontCurrency=7be3df7f9ac330b5e552b5126f50b3bc48f63ddc36961a237c74a4ab380bb25ba%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22whatacartFrontCurrency%22%3Bi%3A1%3Bs%3A3%3A%22GBP%22%3B%7D; _backendUser=f20dc165fa81df92ea78c7f16c3ba4d5913d7b0376494f6361808c029be70e3ca%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%225OyUg_R1payOvdliNrJ3r_1gdZhaixgW%22%2C2592000%5D%22%3B%7D; _csrf=f03ffb2253ff5f20a595a0482194306c2f5120924fddcc091ce73006b13f40f6a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22u%A6%AA%5C%3E%D5%B8%958e%F5%EB-%94L%7EP%81%03%00%CDO%9E%16I%DD%82%8D%FD%83%1B%1A%22%3B%7D; PHPSESSID=c75bn47n0vam1itfa0uo05g1t1; _identity=70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B206%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\Program Files\\Git\\cmd;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Go\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\Scripts\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\;C:\\Users\\fuad\\bin\\Sencha\\Cmd;C:\\Users\\fuad\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\fuad\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\MongoDB\\Server\\3.4\\bin;C:\\Users\\fuad\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '59997'
+    'REDIRECT_URL' => 'http://localhost/lesoebuy/web/source/site/idle'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/lesoebuy/web/source/site/idle'
+    'SCRIPT_NAME' => '/lesoebuy/web/index.php'
+    'PHP_SELF' => '/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503045595.554
+    'REQUEST_TIME' => 1503045595
+]
+2017-08-18 16:40:07 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "source/site/online".' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Module.php:532
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php(102): yii\base\Module->runAction('source/site/onl...', Array)
+#1 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\web\Application.php:114
+Stack trace:
+#0 C:\xampp\htdocs\lesoebuy\vendor\yiisoft\yii2\base\Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\xampp\htdocs\lesoebuy\web\index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-18 16:40:07 [::1][-][-][info][application] $_POST = [
+    'online' => '1'
+]
+
+$_COOKIE = [
+    'whatacartFrontCurrency' => '7be3df7f9ac330b5e552b5126f50b3bc48f63ddc36961a237c74a4ab380bb25ba:2:{i:0;s:22:\"whatacartFrontCurrency\";i:1;s:3:\"GBP\";}'
+    '_backendUser' => 'f20dc165fa81df92ea78c7f16c3ba4d5913d7b0376494f6361808c029be70e3ca:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"5OyUg_R1payOvdliNrJ3r_1gdZhaixgW\",2592000]\";}'
+    '_csrf' => 'f03ffb2253ff5f20a595a0482194306c2f5120924fddcc091ce73006b13f40f6a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"u¦ª\\>Õ¸•8eõë-”L~P\0ÍOžIÝ‚ýƒ\";}'
+    'PHPSESSID' => 'c75bn47n0vam1itfa0uo05g1t1'
+    '_identity' => '70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[206,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'REDIRECT_MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'REDIRECT_OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'REDIRECT_PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'REDIRECT_PHPRC' => '\\xampp\\php'
+    'REDIRECT_TMP' => '\\xampp\\tmp'
+    'REDIRECT_STATUS' => '200'
+    'MIBDIRS' => 'C:/xampp/php/extras/mibs'
+    'MYSQL_HOME' => '\\xampp\\mysql\\bin'
+    'OPENSSL_CONF' => 'C:/xampp/apache/bin/openssl.cnf'
+    'PHP_PEAR_SYSCONF_DIR' => '\\xampp\\php'
+    'PHPRC' => '\\xampp\\php'
+    'TMP' => '\\xampp\\tmp'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '8'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_X_CSRF_TOKEN' => 'pY1-KqOhEURG7keJp-TxsG__3EFldiE_RERiLNfoRRvQK9R2nXSp0X6LsmKKcL3OP37fQag5vykNmeChKmteAQ=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.90 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost/lesoebuy/web/source/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.8'
+    'HTTP_COOKIE' => 'whatacartFrontCurrency=7be3df7f9ac330b5e552b5126f50b3bc48f63ddc36961a237c74a4ab380bb25ba%3A2%3A%7Bi%3A0%3Bs%3A22%3A%22whatacartFrontCurrency%22%3Bi%3A1%3Bs%3A3%3A%22GBP%22%3B%7D; _backendUser=f20dc165fa81df92ea78c7f16c3ba4d5913d7b0376494f6361808c029be70e3ca%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%225OyUg_R1payOvdliNrJ3r_1gdZhaixgW%22%2C2592000%5D%22%3B%7D; _csrf=f03ffb2253ff5f20a595a0482194306c2f5120924fddcc091ce73006b13f40f6a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22u%A6%AA%5C%3E%D5%B8%958e%F5%EB-%94L%7EP%81%03%00%CDO%9E%16I%DD%82%8D%FD%83%1B%1A%22%3B%7D; PHPSESSID=c75bn47n0vam1itfa0uo05g1t1; _identity=70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B206%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\NVIDIA Corporation\\PhysX\\Common;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Intel\\WiFi\\bin\\;C:\\Program Files\\Common Files\\Intel\\WirelessCommon\\;C:\\Program Files\\Git\\cmd;C:\\xampp\\php;C:\\ProgramData\\ComposerSetup\\bin;C:\\WINDOWS\\system32;C:\\WINDOWS;C:\\WINDOWS\\System32\\Wbem;C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn\\;C:\\Program Files (x86)\\Skype\\Phone\\;C:\\Go\\bin;C:\\Program Files\\nodejs\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\Scripts\\;C:\\Users\\fuad\\AppData\\Local\\Programs\\Python\\Python35-32\\;C:\\Users\\fuad\\bin\\Sencha\\Cmd;C:\\Users\\fuad\\AppData\\Roaming\\Composer\\vendor\\bin;C:\\Users\\fuad\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Program Files\\MongoDB\\Server\\3.4\\bin;C:\\Users\\fuad\\AppData\\Roaming\\npm'
+    'SystemRoot' => 'C:\\WINDOWS'
+    'COMSPEC' => 'C:\\WINDOWS\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\WINDOWS'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.17 (Win32) OpenSSL/1.0.2d PHP/5.6.23'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/xampp/htdocs/'
+    'SERVER_ADMIN' => 'postmaster@localhost'
+    'SCRIPT_FILENAME' => 'C:/xampp/htdocs/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '60002'
+    'REDIRECT_URL' => 'http://localhost/lesoebuy/web/source/site/online'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/lesoebuy/web/source/site/online'
+    'SCRIPT_NAME' => '/lesoebuy/web/index.php'
+    'PHP_SELF' => '/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503045607.529
+    'REQUEST_TIME' => 1503045607
+]

@@ -25,13 +25,13 @@ $this->title = 'Tutorial';
 
 
                 <div class="embed-responsive embed-responsive-21by9">
-                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/juOkF0x6OX0"></iframe>
+                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/cWMSC9m-LBQ"></iframe>
                 </div>
 
 
 
             <br>
-            <a href="http://www.youtube.com/watch?v=juOkF0x6OX0" target="_blank">View On YouTube</a>
+            <a href="http://www.youtube.com/watch?v=cWMSC9m-LBQ" target="_blank">View On YouTube</a>
 
 
 

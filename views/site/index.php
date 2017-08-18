@@ -16,7 +16,7 @@ $script = <<< JS
 
 $(document).ready(function(){
 
-        $('#myModal').modal('hide');
+        $('#myModal').modal('show');
 
 
 
@@ -62,11 +62,18 @@ $this->registerJs($script);
             </div>
             <div class="modal-body">
 
-                <p>User Now Can <a class="mytooltip" href="#">CHANGE APPROVER</a> On <b style="color: #ff0000;">(Create PR / Reject PR)</b></p>
-                <p style="font-size: 13px;color: #ff0000;">* Once User Submit For Approval, Approver Can`t Be Change Unless Approval Reject The PR</p>
-                <p>
-                    <img src="<?php echo Yii::$app->request->baseUrl; ?>/image/leso/feature-2.gif" class="card-img-top img-responsive" />
-                </p>
+                <p>User Now Can 
+                <a class="mytooltip" href="#">DELETE OR UPLOAD NEW FILE</a></p>
+                <p> 1 . Click Menu Create Or Requisition Or Order</p>
+                <p> 2 . Click Btn File</p>
+                <div class="embed-responsive embed-responsive-21by9">
+                  <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/cWMSC9m-LBQ"></iframe>
+                </div>
+
+
+
+            <br>
+            <a href="http://www.youtube.com/watch?v=cWMSC9m-LBQ" target="_blank">View On YouTube</a>
 
             </div>
             <div class="modal-footer">
