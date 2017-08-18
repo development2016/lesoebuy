@@ -151,7 +151,7 @@ $this->params['breadcrumbs'][] = $this->title;
 						    <?php } ?>
 
 							<div class="pull-right">
-				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-sm btn-info uploads','id'=>'','title'=>'Upload Image','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
+				              <?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['offline/upload','project' => $project]),'class' => 'btn btn-sm btn-info uploads','id'=>'','title'=>'Upload File','style'=>'color: #fff;cursor:pointer;text-decoration:none;']) ?>
 
 				            </div>
 

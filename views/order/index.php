@@ -85,7 +85,7 @@ $this->registerJs($script);
                                                   <li class="list-group-item"><b>Title</b> : <?= $value['title']; ?></li>
                                                   <li class="list-group-item"><b>Description</b> : <?= $value['description']; ?></li>
                                                   <li class="list-group-item"><b>Due Date</b> : <?= $value['due_date']; ?></li>
-                                                  <li class="list-group-item"><b>Date Create</b> : <?= $value['date_create']; ?></li>
+                                                  
                                                   <li class="list-group-item"><b>PO No</b> : 
 
                                                     <a href="#" class="mytooltip" ><?= $value['sellers'][0]['purchase_order_no']; ?></a>
