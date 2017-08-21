@@ -58,7 +58,7 @@ class SiteController extends Controller
                 //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial','print'],
+                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial','print','list-notify','list-overdue'],
                         'allow' => true,
                     ],
                     [
@@ -1352,6 +1352,172 @@ class SiteController extends Controller
             'model' => $model,
         ]);
     }
+
+
+    public function actionListNotify($user_id)
+    {
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('notification');
+        $listnotify = $collection->aggregate([
+            [
+                '$unwind' => '$to_who'
+            ],
+            [
+                '$match' => [
+                    '$and' => [
+
+                        [
+                            'to_who' => $user->account_name
+                        ],
+                        [
+                            'read_unread' => 0
+                        ]
+                        
+
+                    ],
+                    '$or' => [
+                        [
+                            'status_approver' => 'Waiting Approval'
+                        ],
+                        [
+                            'status_approver' => 'Approve'
+                        ],
+                        [
+                            'status_approver' => 'Next Approver'
+                        ],
+                        [
+                            'status_buyer' => 'Change Buyer'
+                        ],
+                        [
+                            'status_approver' => 'Reject PR'
+                        ],
+                        [
+                            'status_approver' => 'Resubmit Approval'
+                        ],
+                        [
+                            'status_from_buyer' => 'Reject PR'
+                        ]
+
+                    ]
+                    
+                ]
+            ],
+
+  
+        ]);
+
+       return $this->renderAjax('list-notify',[
+            'listnotify' => $listnotify,
+
+        ]);
+
+
+
+    }
+
+    public function actionListOverdue($user_id)
+    {
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $listoverdue = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ], 
+
+            [
+                '$match' => [
+                    '$or' => [
+
+                            [
+                                'sellers.status' => 'Request Approval'
+                            ],
+                            [
+                                'sellers.status' => 'Request Approval Next'
+                            ],
+
+
+
+        
+                    ],
+                    '$and' => [
+                            [
+                                'sellers.approval.approval' => $user->account_name
+                            ],
+        
+
+                    ],
+
+
+
+                    'sellers.status' => [
+                        '$ne' => 'PR Cancel'
+                    ]
+    
+                    
+
+  
+
+                ]
+            ],
+
+
+            [
+                '$group' => [
+                    '_id' => '$_id',
+                    'title' => ['$first' => '$title' ],
+                    'due_date' => ['$first' => '$due_date'],
+                    'date_create' => ['$first' => '$date_create'],
+                    'description' => ['$first' => '$description' ],
+                    'url_myspot' => ['$first' => '$url_myspot' ],
+                    'type_of_project' => ['$first' => '$type_of_project' ],
+                    'quotation_file' => ['$first' => '$quotation_file' ],
+                    'buyers' => ['$first' => '$buyers' ],
+                    'project_no' => ['$first' => '$project_no' ],
+                    'request_role' => ['$first' => '$request_role' ],
+                    'sellers' => [
+                        '$push' => [
+                            'quotation_no' => '$sellers.quotation_no',
+                            'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                            'status' => '$sellers.status',
+                            'approval' => '$sellers.approval',
+                            'seller' => '$sellers.seller',
+                            'revise' => '$sellers.revise',
+                            'approver' => '$sellers.approver',
+                            'items' => '$sellers.items',
+                            'approver_level' => '$sellers.approver_level',
+
+
+
+                            
+                        ],
+                        
+                    ],
+
+
+            
+                ]
+            ],
+            [
+                '$sort' => [
+                    '_id' => -1
+                ]
+            ],
+
+
+        ]);
+
+       return $this->renderAjax('list-overdue',[
+            'listoverdue' => $listoverdue,
+            'user' => $user
+
+        ]);
+
+
+
+    }
+
 
 
 

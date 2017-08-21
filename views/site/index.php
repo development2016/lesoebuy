@@ -5,6 +5,7 @@ use yii\helpers\Html;
 use app\models\Notification;
 use miloschuman\highcharts\Highcharts;
 use miloschuman\highcharts\HighchartsAsset;
+use yii\helpers\Url;
 
 HighchartsAsset::register($this)->withScripts(['modules/data', 'modules/drilldown']);
 
@@ -16,10 +17,21 @@ $script = <<< JS
 
 $(document).ready(function(){
 
-        $('#myModal').modal('show');
+    $('#myModal').modal('show');
 
+    $('#pending').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
 
+    });
 
+    $('#overdue').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
+
+    });
 
 
 
@@ -65,7 +77,7 @@ $this->registerJs($script);
                 <p>User Now Can 
                 <a class="mytooltip" href="#">DELETE OR UPLOAD NEW FILE</a></p>
                 <p> 1 . Click Menu Create Or Requisition Or Order</p>
-                <p> 2 . Click Btn File</p>
+                <p> 2 . Click Button File</p>
                 <div class="embed-responsive embed-responsive-21by9">
                   <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/cWMSC9m-LBQ"></iframe>
                 </div>
@@ -91,7 +103,14 @@ $this->registerJs($script);
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-inverse card-danger">
             <div class="box text-center">
-                <h1 class="font-light text-white"><?= empty($sum_pending) ? '0' : $sum_pending; ?></h1>
+
+                <h1 class="font-light text-white">
+
+
+                <?= Html::a(empty($sum_pending) ? '0' : $sum_pending,FALSE, ['value'=>Url::to(['site/list-notify','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'pending','style'=>'color:#fff;cursor:pointer;']) ?>
+
+
+                </h1>
                 <h6 class="text-white">Pending</h6>
             </div>
         </div>
@@ -100,7 +119,11 @@ $this->registerJs($script);
     <div class="col-md-6 col-lg-3 col-xlg-3">
         <div class="card card-warning card-inverse">
             <div class="box text-center">
-                <h1 class="font-light text-white"><?= empty($sum_overdue) ? '0' : $sum_overdue; ?></h1>
+                <h1 class="font-light text-white">
+
+                    <?= Html::a(empty($sum_overdue) ? '0' : $sum_overdue,FALSE, ['value'=>Url::to(['site/list-overdue','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'overdue','style'=>'color:#fff;cursor:pointer;']) ?>
+
+                </h1>
                 <h6 class="text-white">Overdue</h6>
             </div>
         </div>
@@ -255,7 +278,6 @@ $this->registerJs($script);
                 <h3 class="card-title">Total my PO Over Time</h3>
                 <h6 class="card-subtitle"></h6>
                 <div>
-
 
 
 

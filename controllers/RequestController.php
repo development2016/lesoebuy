@@ -281,9 +281,6 @@ class RequestController extends Controller
                                 'sellers.status' => 'Pending Approval'
                             ],
                             [
-                                'sellers.status' => 'Reject PR'
-                            ],
-                            [
                                 'sellers.status' => 'Request Approval Next'
                             ],
 

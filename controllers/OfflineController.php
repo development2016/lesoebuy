@@ -3,6 +3,7 @@
 namespace app\controllers;
 
 use Yii;
+use yii\helpers\Html;
 use yii\web\Controller;
 use app\models\CompanyOffline;
 use yii\web\NotFoundHttpException;
@@ -23,6 +24,12 @@ class OfflineController extends Controller
 
 	public function actionIndex()
 	{	
+
+
+        $date = new MongoDate();
+
+        print_r($date);
+        exit();
 
         $model3 = new Project();
 
@@ -67,6 +74,8 @@ class OfflineController extends Controller
 
         if ($model3->load(Yii::$app->request->post()) ) {
 
+            
+
             $getP = Project::find()->orderBy(['_id' => SORT_DESC])->limit(1)->one();
 
                 if (empty($getP['project_no'])) {
@@ -93,7 +102,7 @@ class OfflineController extends Controller
 
                 $model3->project_no = $project_no;
                 $model3->type_of_project = 'Direct Purchase';
-                //$model3->date_create = date('Y-m-d H:i:s');
+                $model3->date_create = $date;
                 $model3->enter_by = Yii::$app->user->identity->id;
                 $model3->requester = $requester_id->account_name;
                 $model3->request_role = $combine;
