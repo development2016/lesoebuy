@@ -26,11 +26,6 @@ class OfflineController extends Controller
 	{	
 
 
-        $date = new MongoDate();
-
-        print_r($date);
-        exit();
-
         $model3 = new Project();
 
         $requester_id = User::find()->where(['id'=>(int)Yii::$app->user->identity->id])->one();
@@ -102,7 +97,7 @@ class OfflineController extends Controller
 
                 $model3->project_no = $project_no;
                 $model3->type_of_project = 'Direct Purchase';
-                $model3->date_create = $date;
+                $model3->date_create = date('Y-m-d H:i:s');
                 $model3->enter_by = Yii::$app->user->identity->id;
                 $model3->requester = $requester_id->account_name;
                 $model3->request_role = $combine;
