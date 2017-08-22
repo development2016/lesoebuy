@@ -58,7 +58,7 @@ class SiteController extends Controller
                 //'only' => ['logout'],
                 'rules' => [
                     [
-                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial','print','list-notify','list-overdue'],
+                        'actions' => ['error','signup','login','request-password-reset','reset-password','state','register','seller','buyer','comming','company-name','registeration-no','username','idle','online','tutorial','print','list-notify','list-overdue','list-process','list-approve','list-process-user','list-process-buyer'],
                         'allow' => true,
                     ],
                     [
@@ -1418,10 +1418,359 @@ class SiteController extends Controller
 
     public function actionListOverdue($user_id)
     {
+
+        $current = date('Y-m-d');
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+         $connection = \Yii::$app->db;
+         $sql = $connection->createCommand('SELECT lookup_role.role AS role FROM acl 
+          RIGHT JOIN acl_menu ON acl.acl_menu_id = acl_menu.id
+          RIGHT JOIN lookup_menu ON acl_menu.menu_id = lookup_menu.menu_id
+          RIGHT JOIN lookup_role ON acl_menu.role_id = lookup_role.role_id
+          WHERE acl.user_id = "'.(int)Yii::$app->user->identity->id.'" GROUP BY lookup_role.role');
+        $getRole = $sql->queryAll(); 
+
+            function in_array_r($needle, $haystack, $strict = false) {
+                foreach ($haystack as $item) {
+                    if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+        $info_role = in_array_r('Buyer', $getRole) ? 'Buyer' : '';
+
+        $info_role_2 = in_array_r('User', $getRole) ? 'User' : '';
+
+        $info_role_3 = in_array_r('Approval', $getRole) ? 'Approval' : ''; // incase buyer as approval
+
+        // checking role
+        if ($info_role_3 == 'Approval' && $info_role == 'Buyer') {
+
+            $role = 'ApprovalBuyer';
+           
+        } elseif ($info_role_2 == 'User' && $info_role == 'Buyer') {
+            
+            $role ='UserBuyer'; // done
+
+        } elseif ($info_role == 'Buyer') {
+            
+            $role ='Buyer';
+
+        } elseif ($info_role_3 == 'Approval') {
+
+           $role ='Approval'; // done
+
+        } elseif ($info_role_2 == 'User') {
+
+           $role ='User'; // done
+        }
+
+        $collection = Yii::$app->mongo->getCollection('project');
+
+
+        if ($role == 'UserBuyer' || $role == 'User') {
+
+
+                $listoverdue = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$and' => [
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ],
+                                    [
+                                            'due_date' => [
+                                                '$lt' => $current
+                                            ]
+                                     ],
+                                    [
+                                        'sellers.status' => 'Request Approval'
+                                    ],
+
+
+
+
+                            ],
+
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+
+                return $this->renderAjax('list-overdue-user',[
+                    'listoverdue' => $listoverdue,
+                    'user' => $user
+
+                ]);
+
+
+
+
+        } elseif ($role == 'Approval') {
+
+
+                $listoverdue = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$or' => [
+
+                                    [
+                                        'sellers.status' => 'Request Approval'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Request Approval Next'
+                                    ],
+
+
+
+                
+                            ],
+                            '$and' => [
+                                    [
+                                        'sellers.approval.approval' => $user->account_name
+                                    ],
+                                    [
+                                            'due_date' => [
+                                                '$lt' => $current
+                                            ]
+                                     ],
+
+                            ],
+
+
+
+                            'sellers.status' => [
+                                '$ne' => 'PR Cancel'
+                            ]
+            
+                            
+
+          
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+                return $this->renderAjax('list-overdue',[
+                    'listoverdue' => $listoverdue,
+                    'user' => $user
+
+                ]);
+
+
+
+
+        } elseif ($role == 'ApprovalBuyer' || $role == 'Buyer') {
+
+
+                $listoverdue = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$and' => [
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ],
+                                    [
+                                            'due_date' => [
+                                                '$lt' => $current
+                                            ]
+                                     ],
+
+
+                            ],
+                            '$or' => [
+                                    [
+                                        'sellers.status' => 'Pass PR to Buyer To Proceed PO'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Request Approval Next'
+                                    ]
+
+
+                            ]
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+                return $this->renderAjax('list-overdue-buyer',[
+                    'listoverdue' => $listoverdue,
+                    'user' => $user
+
+                ]);
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+    }
+
+
+    public function actionListProcess($user_id)
+    {
         $user = User::find()->where(['id'=>$user_id])->one();
 
         $collection = Yii::$app->mongo->getCollection('project');
-        $listoverdue = $collection->aggregate([
+        $listprocess = $collection->aggregate([
             [
                 '$unwind' => '$sellers'
             ], 
@@ -1508,11 +1857,524 @@ class SiteController extends Controller
 
         ]);
 
-       return $this->renderAjax('list-overdue',[
-            'listoverdue' => $listoverdue,
+        return $this->renderAjax('list-process',[
+            'listprocess' => $listprocess,
             'user' => $user
 
         ]);
+
+
+
+    }
+
+
+    public function actionListProcessUser($user_id)
+    {
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $listprocess = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ], 
+
+            [
+                '$match' => [
+                    '$or' => [
+                                [
+                                    'sellers.status' => 'Request Approval'
+                                ],
+
+                                [
+                                    'sellers.status' => 'Reject PR'
+                                ],
+                                [
+                                    'sellers.status' => 'Approve'
+                                ]
+
+
+
+        
+                    ],
+                    '$and' => [
+                            [
+                                'buyers.buyer' => $user->account_name
+                            ],
+        
+
+                    ],
+
+
+                ]
+            ],
+
+
+            [
+                '$group' => [
+                    '_id' => '$_id',
+                    'title' => ['$first' => '$title' ],
+                    'due_date' => ['$first' => '$due_date'],
+                    'date_create' => ['$first' => '$date_create'],
+                    'description' => ['$first' => '$description' ],
+                    'url_myspot' => ['$first' => '$url_myspot' ],
+                    'type_of_project' => ['$first' => '$type_of_project' ],
+                    'quotation_file' => ['$first' => '$quotation_file' ],
+                    'buyers' => ['$first' => '$buyers' ],
+                    'project_no' => ['$first' => '$project_no' ],
+                    'request_role' => ['$first' => '$request_role' ],
+                    'sellers' => [
+                        '$push' => [
+                            'quotation_no' => '$sellers.quotation_no',
+                            'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                            'status' => '$sellers.status',
+                            'approval' => '$sellers.approval',
+                            'seller' => '$sellers.seller',
+                            'revise' => '$sellers.revise',
+                            'approver' => '$sellers.approver',
+                            'items' => '$sellers.items',
+                            'approver_level' => '$sellers.approver_level',
+
+
+
+                            
+                        ],
+                        
+                    ],
+
+
+            
+                ]
+            ],
+            [
+                '$sort' => [
+                    '_id' => -1
+                ]
+            ],
+
+
+        ]);
+
+        return $this->renderAjax('list-process-user',[
+            'listprocess' => $listprocess,
+            'user' => $user
+
+        ]);
+
+
+
+    }
+
+
+    public function actionListProcessBuyer($user_id)
+    {
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+        $collection = Yii::$app->mongo->getCollection('project');
+        $listprocess = $collection->aggregate([
+            [
+                '$unwind' => '$sellers'
+            ], 
+
+            [
+                '$match' => [
+                    '$or' => [
+                                [
+                                    'sellers.status' => 'Pass PR to Buyer To Proceed PO'
+                                ],
+                                [
+                                    'sellers.status' => 'Request Approval Next'
+                                ],
+                                [
+                                    'sellers.status' => 'Reject Next'
+                                ],
+                                [
+                                    'sellers.status' => 'Approve Next'
+                                ],
+        
+                    ],
+                    '$and' => [
+                            [
+                                'buyers.buyer' => $user->account_name
+                            ],
+        
+
+                    ],
+
+
+                ]
+            ],
+
+
+            [
+                '$group' => [
+                    '_id' => '$_id',
+                    'title' => ['$first' => '$title' ],
+                    'due_date' => ['$first' => '$due_date'],
+                    'date_create' => ['$first' => '$date_create'],
+                    'description' => ['$first' => '$description' ],
+                    'url_myspot' => ['$first' => '$url_myspot' ],
+                    'type_of_project' => ['$first' => '$type_of_project' ],
+                    'quotation_file' => ['$first' => '$quotation_file' ],
+                    'buyers' => ['$first' => '$buyers' ],
+                    'project_no' => ['$first' => '$project_no' ],
+                    'request_role' => ['$first' => '$request_role' ],
+                    'sellers' => [
+                        '$push' => [
+                            'quotation_no' => '$sellers.quotation_no',
+                            'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                            'status' => '$sellers.status',
+                            'approval' => '$sellers.approval',
+                            'seller' => '$sellers.seller',
+                            'revise' => '$sellers.revise',
+                            'approver' => '$sellers.approver',
+                            'items' => '$sellers.items',
+                            'approver_level' => '$sellers.approver_level',
+
+
+
+                            
+                        ],
+                        
+                    ],
+
+
+            
+                ]
+            ],
+            [
+                '$sort' => [
+                    '_id' => -1
+                ]
+            ],
+
+
+        ]);
+
+        return $this->renderAjax('list-process-buyer',[
+            'listprocess' => $listprocess,
+            'user' => $user
+
+        ]);
+
+
+
+    }
+
+
+
+
+    public function actionListApprove($user_id)
+    {
+        $user = User::find()->where(['id'=>$user_id])->one();
+
+         $connection = \Yii::$app->db;
+         $sql = $connection->createCommand('SELECT lookup_role.role AS role FROM acl 
+          RIGHT JOIN acl_menu ON acl.acl_menu_id = acl_menu.id
+          RIGHT JOIN lookup_menu ON acl_menu.menu_id = lookup_menu.menu_id
+          RIGHT JOIN lookup_role ON acl_menu.role_id = lookup_role.role_id
+          WHERE acl.user_id = "'.(int)Yii::$app->user->identity->id.'" GROUP BY lookup_role.role');
+        $getRole = $sql->queryAll(); 
+
+            function in_array_r($needle, $haystack, $strict = false) {
+                foreach ($haystack as $item) {
+                    if (($strict ? $item === $needle : $item == $needle) || (is_array($item) && in_array_r($needle, $item, $strict))) {
+                        return true;
+                    }
+                }
+
+                return false;
+            }
+
+        $info_role = in_array_r('Buyer', $getRole) ? 'Buyer' : '';
+
+        $info_role_2 = in_array_r('User', $getRole) ? 'User' : '';
+
+        $info_role_3 = in_array_r('Approval', $getRole) ? 'Approval' : ''; // incase buyer as approval
+
+        // checking role
+        if ($info_role_3 == 'Approval' && $info_role == 'Buyer') {
+
+            $role = 'ApprovalBuyer';
+           
+        } elseif ($info_role_2 == 'User' && $info_role == 'Buyer') {
+            
+            $role ='UserBuyer'; // done
+
+        } elseif ($info_role == 'Buyer') {
+            
+            $role ='Buyer';
+
+        } elseif ($info_role_3 == 'Approval') {
+
+           $role ='Approval'; // done
+
+        } elseif ($info_role_2 == 'User') {
+
+           $role ='User'; // done
+        }
+
+
+        $collection = Yii::$app->mongo->getCollection('project');
+
+
+        if ($role == 'UserBuyer' || $role == 'User') {
+
+
+                $listapprove = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$and' => [
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ],
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+
+                            ],
+
+                    
+          
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+
+
+
+
+
+
+        } elseif ($role == 'Approval') {
+
+                $listapprove = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$or' => [
+
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Approve Next'
+                                    ],
+
+
+
+                
+                            ],
+                            '$and' => [
+                                    [
+                                        'sellers.approval.approval' => $user->account_name
+                                    ],
+                
+
+                            ],
+
+                    
+          
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+
+        } elseif ($role == 'ApprovalBuyer' || $role == 'Buyer') {
+
+
+                $listapprove = $collection->aggregate([
+                    [
+                        '$unwind' => '$sellers'
+                    ], 
+
+                    [
+                        '$match' => [
+                            '$or' => [
+
+                                    [
+                                        'sellers.status' => 'Approve'
+                                    ],
+                                    [
+                                        'sellers.status' => 'Approve Next'
+                                    ],
+
+
+
+                
+                            ],
+                            '$and' => [
+                                    [
+                                        'buyers.buyer' => $user->account_name
+                                    ],
+                
+
+                            ],
+
+                    
+          
+
+                        ]
+                    ],
+
+
+                    [
+                        '$group' => [
+                            '_id' => '$_id',
+                            'title' => ['$first' => '$title' ],
+                            'due_date' => ['$first' => '$due_date'],
+                            'date_create' => ['$first' => '$date_create'],
+                            'description' => ['$first' => '$description' ],
+                            'url_myspot' => ['$first' => '$url_myspot' ],
+                            'type_of_project' => ['$first' => '$type_of_project' ],
+                            'quotation_file' => ['$first' => '$quotation_file' ],
+                            'buyers' => ['$first' => '$buyers' ],
+                            'project_no' => ['$first' => '$project_no' ],
+                            'request_role' => ['$first' => '$request_role' ],
+                            'sellers' => [
+                                '$push' => [
+                                    'quotation_no' => '$sellers.quotation_no',
+                                    'purchase_requisition_no' => '$sellers.purchase_requisition_no',
+                                    'status' => '$sellers.status',
+                                    'approval' => '$sellers.approval',
+                                    'seller' => '$sellers.seller',
+                                    'revise' => '$sellers.revise',
+                                    'approver' => '$sellers.approver',
+                                    'items' => '$sellers.items',
+                                    'approver_level' => '$sellers.approver_level',
+
+
+
+                                    
+                                ],
+                                
+                            ],
+
+
+                    
+                        ]
+                    ],
+                    [
+                        '$sort' => [
+                            '_id' => -1
+                        ]
+                    ],
+
+
+                ]);
+
+
+
+
+
+        }
+
+
+
+        return $this->renderAjax('list-approve',[
+            'listapprove' => $listapprove,
+            'user' => $user
+
+        ]);
+
 
 
 

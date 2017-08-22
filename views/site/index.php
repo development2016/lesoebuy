@@ -33,9 +33,19 @@ $(document).ready(function(){
 
     });
 
+    $('#process').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
 
+    });
 
+    $('#approve').click(function(){
+        $('#modalmd').modal('show')
+        .find('#modalContentMd')
+        .load($(this).attr('value'));
 
+    });
 
 }); 
 
@@ -135,7 +145,10 @@ $this->registerJs($script);
         <div class="col-md-6 col-lg-3 col-xlg-3">
             <div class="card card-inverse card-info">
                 <div class="box text-center">
-                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h1 class="font-light text-white">
+
+<?= Html::a(empty($sum_process) ? '0' : $sum_process,FALSE, ['value'=>Url::to(['site/list-process-user','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'process','style'=>'color:#fff;cursor:pointer;']) ?>
+</h1>
                     <h6 class="text-white">To Process</h6>
                 </div>
             </div>
@@ -147,7 +160,12 @@ $this->registerJs($script);
         <div class="col-md-6 col-lg-3 col-xlg-3">
             <div class="card card-inverse card-info">
                 <div class="box text-center">
-                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h1 class="font-light text-white">
+
+                         <?= Html::a(empty($sum_process) ? '0' : $sum_process,FALSE, ['value'=>Url::to(['site/list-process','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'process','style'=>'color:#fff;cursor:pointer;']) ?>
+
+
+                    </h1>
                     <h6 class="text-white">To Approve</h6>
                 </div>
             </div>
@@ -158,7 +176,10 @@ $this->registerJs($script);
         <div class="col-md-6 col-lg-3 col-xlg-3">
             <div class="card card-inverse card-info">
                 <div class="box text-center">
-                    <h1 class="font-light text-white"><?= empty($sum_process) ? '0' : $sum_process; ?></h1>
+                    <h1 class="font-light text-white">
+<?= Html::a(empty($sum_process) ? '0' : $sum_process,FALSE, ['value'=>Url::to(['site/list-process-buyer','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'process','style'=>'color:#fff;cursor:pointer;']) ?>
+                        
+                    </h1>
                     <h6 class="text-white">To Process</h6>
                 </div>
             </div>
@@ -179,7 +200,11 @@ $this->registerJs($script);
         <div class="card card-inverse card-dark">
             <div class="box text-center">
                 <h1 class="font-light text-white">
-                <?= empty($sum_approve) ? '0' : $sum_approve; ?></h1>
+
+                    <?= Html::a(empty($sum_approve) ? '0' : $sum_approve,FALSE, ['value'=>Url::to(['site/list-approve','user_id'=>Yii::$app->user->identity->id]),'class' => '','id'=>'approve','style'=>'color:#fff;cursor:pointer;']) ?>
+
+
+                </h1>
                 <h6 class="text-white">Approved</h6>
             </div>
         </div>

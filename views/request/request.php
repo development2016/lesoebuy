@@ -601,7 +601,7 @@ $this->registerJs($script);
                                                                                 
                                                                               <?php } else { ?>
 
-                                                                                  <?= Html::a('xxPurchase Requisition', ['request/direct-purchase-requisition',
+                                                                                  <?= Html::a('Purchase Requisition', ['request/direct-purchase-requisition',
                                                                                       'project'=>(string)$value['_id'],
                                                                                       'seller'=>$value2['seller'],
                                                                                       'buyer'=>$value['buyers'][0]['buyer'],

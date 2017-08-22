@@ -278,9 +278,6 @@ class RequestController extends Controller
                                 'sellers.status' => 'Request Approval'
                             ],
                             [
-                                'sellers.status' => 'Pending Approval'
-                            ],
-                            [
                                 'sellers.status' => 'Request Approval Next'
                             ],
 

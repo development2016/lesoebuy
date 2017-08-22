@@ -30715,3 +30715,1256 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1503306743.194
     'REQUEST_TIME' => 1503306743
 ]
+2017-08-22 01:57:08 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'You are not allowed to perform this action.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/filters/AccessControl.php:154
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/filters/AccessControl.php(137): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/ActionFilter.php(75): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Component.php(545): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(272): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(154): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-process', Array)
+#8 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-proce...', Array)
+#9 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#11 {main}
+2017-08-22 01:57:08 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '23yJezbRK24A0IOkvsYG6Ij5ALBwEeCckoi4ogT_5LRGbRTTG7iHF25awQ2Rm6JzDT2zxoGJXfKlqNZLmOGEFw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '52995'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-process'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-process?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367027.995
+    'REQUEST_TIME' => 1503367027
+]
+2017-08-22 01:57:17 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 01:57:17 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53006'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367037.151
+    'REQUEST_TIME' => 1503367037
+]
+2017-08-22 01:57:19 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:403] exception 'yii\web\ForbiddenHttpException' with message 'You are not allowed to perform this action.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/filters/AccessControl.php:154
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/filters/AccessControl.php(137): yii\filters\AccessControl->denyAccess(Object(yii\web\User))
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/ActionFilter.php(75): yii\filters\AccessControl->beforeAction(Object(yii\base\InlineAction))
+#2 [internal function]: yii\base\ActionFilter->beforeFilter(Object(yii\base\ActionEvent))
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Component.php(545): call_user_func(Array, Object(yii\base\ActionEvent))
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(272): yii\base\Component->trigger('beforeAction', Object(yii\base\ActionEvent))
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Controller.php(164): yii\base\Controller->beforeAction(Object(yii\base\InlineAction))
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(154): yii\web\Controller->beforeAction(Object(yii\base\InlineAction))
+#7 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-process', Array)
+#8 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-proce...', Array)
+#9 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#10 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#11 {main}
+2017-08-22 01:57:19 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53006'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-process'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-process?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367039.849
+    'REQUEST_TIME' => 1503367039
+]
+2017-08-22 01:57:43 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 01:57:43 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53103'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367063.82
+    'REQUEST_TIME' => 1503367063
+]
+2017-08-22 02:05:53 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: current' in /Users/fuad/Sites/lesoebuy/controllers/SiteController.php:1451
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(1451): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/Users/fuad/Sit...', 1451, Array)
+#1 [internal function]: app\controllers\SiteController->actionListOverdue('196')
+#2 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-overdue', Array)
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-overd...', Array)
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#8 {main}
+2017-08-22 02:05:53 [::1][-][-][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'qo2Gear-81p8gTSIica2LCisQqDVCLtkUP9gZrtGGKQ3nBvRh5dfIxILdiGmmxK3rWjx1iSQBgpn3w6PJ1h4Bw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53156'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-overdue'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-overdue?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367553.706
+    'REQUEST_TIME' => 1503367553
+]
+2017-08-22 02:06:01 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: current' in /Users/fuad/Sites/lesoebuy/controllers/SiteController.php:1451
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(1451): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/Users/fuad/Sit...', 1451, Array)
+#1 [internal function]: app\controllers\SiteController->actionListOverdue('196')
+#2 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-overdue', Array)
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-overd...', Array)
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#8 {main}
+2017-08-22 02:06:01 [::1][-][-][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'Yg0mgTOVjMcJlTXIOKmwN4OLz8AWjmLPi-v-RHa5bDj_HLspHvwgvmcfd2EX9BSsBk98tucW36G8y5Ct6qcMmw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53157'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-overdue'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-overdue?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367561.051
+    'REQUEST_TIME' => 1503367561
+]
+2017-08-22 02:06:05 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:06:05 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53166'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367565.004
+    'REQUEST_TIME' => 1503367565
+]
+2017-08-22 02:06:07 [::1][-][-][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Undefined variable: current' in /Users/fuad/Sites/lesoebuy/controllers/SiteController.php:1451
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(1451): yii\base\ErrorHandler->handleError(8, 'Undefined varia...', '/Users/fuad/Sit...', 1451, Array)
+#1 [internal function]: app\controllers\SiteController->actionListOverdue('196')
+#2 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-overdue', Array)
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-overd...', Array)
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#7 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#8 {main}
+2017-08-22 02:06:07 [::1][-][-][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53166'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-overdue'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-overdue?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367567.652
+    'REQUEST_TIME' => 1503367567
+]
+2017-08-22 02:06:29 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:06:29 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53254'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367589.39
+    'REQUEST_TIME' => 1503367589
+]
+2017-08-22 02:12:04 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "site/site/idle".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/site/idle', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:12:04 [::1][-][-][info][application] $_POST = [
+    'idle' => '3'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '6'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_X_CSRF_TOKEN' => 'zqlQUDMv8jIqxyqEK_r7r05yALoimTrr59TtoT02PyhTuM34HkZeS0RNaC0Ep180y7azzNMBh4XQ9INIoShfiw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '53653'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/site/idle'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/site/idle'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503367924.507
+    'REQUEST_TIME' => 1503367924
+]
+2017-08-22 02:20:49 [::1][-][-][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "site/site/online".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/site/onlin...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:20:49 [::1][-][-][info][application] $_POST = [
+    'online' => '1'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'CONTENT_LENGTH' => '8'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ORIGIN' => 'http://localhost'
+    'HTTP_X_CSRF_TOKEN' => 'zqlQUDMv8jIqxyqEK_r7r05yALoimTrr59TtoT02PyhTuM34HkZeS0RNaC0Ep180y7azzNMBh4XQ9INIoShfiw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'CONTENT_TYPE' => 'application/x-www-form-urlencoded; charset=UTF-8'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54212'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/site/online'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'POST'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/site/online'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503368449.488
+    'REQUEST_TIME' => 1503368449
+]
+2017-08-22 02:37:20 [::1][-][-][error][yii\base\ViewNotFoundException] exception 'yii\base\ViewNotFoundException' with message 'The view file does not exist: /Users/fuad/Sites/lesoebuy/views/site/list-approve.php' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/View.php:229
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/View.php(212): yii\base\View->renderFile('/Users/fuad/Sit...', Array, Object(app\controllers\SiteController))
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Controller.php(49): yii\web\View->renderAjax('list-approve', Array, Object(app\controllers\SiteController))
+#2 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(1720): yii\web\Controller->renderAjax('list-approve', Array)
+#3 [internal function]: app\controllers\SiteController->actionListApprove('196')
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-approve', Array)
+#7 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-appro...', Array)
+#8 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#10 {main}
+2017-08-22 02:37:19 [::1][-][-][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'text/html, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'gXhnkFHkF969cBLyz_i1cgp4g7y258I0j5nU9w5347Qcafo4fI27p9P6UFvgpRHpj7wwykd_f1q4uboekmmDFw=='
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/site/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54398'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-approve'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-approve?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369439.969
+    'REQUEST_TIME' => 1503369439
+]
+2017-08-22 02:37:23 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:37:23 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54403'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369443.825
+    'REQUEST_TIME' => 1503369443
+]
+2017-08-22 02:37:26 [::1][-][-][error][yii\base\ViewNotFoundException] exception 'yii\base\ViewNotFoundException' with message 'The view file does not exist: /Users/fuad/Sites/lesoebuy/views/site/list-approve.php' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/View.php:229
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/View.php(212): yii\base\View->renderFile('/Users/fuad/Sit...', Array, Object(app\controllers\SiteController))
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Controller.php(49): yii\web\View->renderAjax('list-approve', Array, Object(app\controllers\SiteController))
+#2 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(1720): yii\web\Controller->renderAjax('list-approve', Array)
+#3 [internal function]: app\controllers\SiteController->actionListApprove('196')
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#5 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#6 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('list-approve', Array)
+#7 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/list-appro...', Array)
+#8 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#10 {main}
+2017-08-22 02:37:26 [::1][-][-][info][application] $_GET = [
+    'user_id' => '196'
+]
+
+$_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54403'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/list-approve'
+    'REDIRECT_QUERY_STRING' => 'user_id=196'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'user_id=196'
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/list-approve?user_id=196'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369446.234
+    'REQUEST_TIME' => 1503369446
+]
+2017-08-22 02:37:53 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:37:53 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54508'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369473.903
+    'REQUEST_TIME' => 1503369473
+]
+2017-08-22 02:39:50 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:39:50 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54534'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369590.381
+    'REQUEST_TIME' => 1503369590
+]
+2017-08-22 02:40:20 [::1][196][1h34j7vvg2phagcrn9svc77je4][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:40:20 [::1][196][1h34j7vvg2phagcrn9svc77je4][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => '1h34j7vvg2phagcrn9svc77je4'
+    '_identity' => 'c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[196,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'another' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 196
+    'another' => 'Another User Using Your Account'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=1h34j7vvg2phagcrn9svc77je4; _identity=c2b7b6202f4ee9387645ae789cebffb2d27167ba43c3449616950ffea356daf9a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B196%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54651'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503369620.56
+    'REQUEST_TIME' => 1503369620
+]
+2017-08-22 02:50:09 [::1][198][makuk5l946k2pke8g2ec176dk2][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:50:09 [::1][198][makuk5l946k2pke8g2ec176dk2][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => 'makuk5l946k2pke8g2ec176dk2'
+    '_identity' => 'f2a51a7ca7e66e3e47e81d60da85c53356634ea912fe91485aa8e13ee92368aea:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[198,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 198
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=makuk5l946k2pke8g2ec176dk2; _identity=f2a51a7ca7e66e3e47e81d60da85c53356634ea912fe91485aa8e13ee92368aea%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B198%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54675'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503370209.893
+    'REQUEST_TIME' => 1503370209
+]
+2017-08-22 02:51:18 [::1][206][m1m3qh97r2p92tk2mv7nqab4v7][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map".' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php:532
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('materialpro/scs...', Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Page not found.' in /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php:114
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#2 {main}
+2017-08-22 02:51:18 [::1][206][m1m3qh97r2p92tk2mv7nqab4v7][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    '_csrf' => '258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"¨-i¬ynŠB©/]¤›…Ä³vñ˜½n7 néœ`£\";}'
+    'i18next' => 'en'
+    'PHPSESSID' => 'm1m3qh97r2p92tk2mv7nqab4v7'
+    '_identity' => '70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[206,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => [
+        'project' => -1
+        'direct' => -1
+    ]
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 206
+    'project' => 'Project Has Been Submit'
+    'direct' => 'Your Direct Purchase Has Been Submit'
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; _csrf=258624743aa9ef9d44ae8cc77177caf2a73d1dd5cb8df5708fdbb01e19519d64a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%9D%11%9D%A8-i%ACyn%8AB%A9%2F%5D%A4%9B%85%C4%B3v%F1%98%BDn7+n%E9%9C%1E%60%A3%22%3B%7D; i18next=en; PHPSESSID=m1m3qh97r2p92tk2mv7nqab4v7; _identity=70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B206%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '54685'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/materialpro/scss/icons/material-design-iconic-font/css/materialdesignicons.min.css.map'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503370278.453
+    'REQUEST_TIME' => 1503370278
+]
