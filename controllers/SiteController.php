@@ -244,7 +244,7 @@ class SiteController extends Controller
             ],
             [
                 '$group' => [
-                    '_id' => '$requester',
+                    '_id' => '$buyers.buyer',
                     'sellers' => [
                         '$push' => [
                             //'purchase_order_no' => '$sellers.purchase_order_no',
@@ -262,6 +262,8 @@ class SiteController extends Controller
             ],
 
         ]);
+
+
 
 
      /*   $month = date('n');

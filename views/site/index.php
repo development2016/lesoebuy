@@ -318,7 +318,7 @@ $this->registerJs($script);
                 $sum_all_month = $total_without_gst =0;
                 $i=0; foreach ($totalPOAll as $key_all_month => $value_all_month) { $i++;?>
                     <tr>
-                        <td><?= $value_all_month['_id'];?></td>
+                        <td><?= $value_all_month['_id'][0];?></td>
                         <td><?= count($value_all_month['sellers']); ?></td>
                         <td>
                             <?php

@@ -46974,3 +46974,73 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1503476110.118
     'REQUEST_TIME' => 1503476110
 ]
+2017-08-23 08:41:55 [::1][206][bd3pth4k7rc3llgik2pqslqk34][error][yii\base\ErrorException:8] exception 'yii\base\ErrorException' with message 'Array to string conversion' in /Users/fuad/Sites/lesoebuy/views/site/index.php:321
+Stack trace:
+#0 /Users/fuad/Sites/lesoebuy/views/site/index.php(321): yii\base\ErrorHandler->handleError(8, 'Array to string...', '/Users/fuad/Sit...', 321, Array)
+#1 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/View.php(330): require('/Users/fuad/Sit...')
+#2 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/View.php(250): yii\base\View->renderPhpFile('/Users/fuad/Sit...', Array)
+#3 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/View.php(152): yii\base\View->renderFile('/Users/fuad/Sit...', Array, Object(app\controllers\SiteController))
+#4 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(381): yii\base\View->render('index', Array, Object(app\controllers\SiteController))
+#5 /Users/fuad/Sites/lesoebuy/controllers/SiteController.php(999): yii\base\Controller->render('index', Array)
+#6 [internal function]: app\controllers\SiteController->actionIndex()
+#7 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/InlineAction.php(57): call_user_func_array(Array, Array)
+#8 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Controller.php(156): yii\base\InlineAction->runWithParams(Array)
+#9 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Module.php(523): yii\base\Controller->runAction('index', Array)
+#10 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/web/Application.php(102): yii\base\Module->runAction('site/index', Array)
+#11 /Users/fuad/Sites/lesoebuy/vendor/yiisoft/yii2/base/Application.php(380): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 /Users/fuad/Sites/lesoebuy/web/index.php(13): yii\base\Application->run()
+#13 {main}
+2017-08-23 08:41:55 [::1][206][bd3pth4k7rc3llgik2pqslqk34][info][application] $_COOKIE = [
+    '_backendUser' => '788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a:2:{i:0;s:12:\"_backendUser\";i:1;s:46:\"[1,\"JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL\",2592000]\";}'
+    '_frontendCustomer' => '471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a:2:{i:0;s:17:\"_frontendCustomer\";i:1;s:46:\"[4,\"ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw\",2592000]\";}'
+    'language' => 'en-gb'
+    'currency' => 'USD'
+    'wp-settings-time-1' => '1503380835'
+    '_csrf' => '4ab285fe7247a322df777c10ce11465bff23108da356f5ed538b39fec332b973a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"!áN‚¶q4/‡ Ô$`Æ±¨¶!\"3ªå|6È—ŸPc\";}'
+    'PHPSESSID' => 'bd3pth4k7rc3llgik2pqslqk34'
+    '_identity' => '70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa:2:{i:0;s:9:\"_identity\";i:1;s:16:\"[206,\"\",2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__returnUrl' => '/~fuad/lesoebuy/web/'
+    '__id' => 206
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.101 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/~fuad/lesoebuy/web/offline/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-GB,en-US;q=0.8,en;q=0.6'
+    'HTTP_COOKIE' => '_backendUser=788ab0b168c01a4d43b8712e627ad4ecfce801f2a5bf9905c675fc8fb72ab002a%3A2%3A%7Bi%3A0%3Bs%3A12%3A%22_backendUser%22%3Bi%3A1%3Bs%3A46%3A%22%5B1%2C%22JnOU9cCvw2UgINP3sWD0h-_qutjkz6EL%22%2C2592000%5D%22%3B%7D; _frontendCustomer=471ee01b7e0917f67e8a7768b78882548e461983e435f136853a1bd1da710a47a%3A2%3A%7Bi%3A0%3Bs%3A17%3A%22_frontendCustomer%22%3Bi%3A1%3Bs%3A46%3A%22%5B4%2C%22ojAPu4ibXBWIqkxBMTEDJhaRcAh4tUMw%22%2C2592000%5D%22%3B%7D; language=en-gb; currency=USD; wp-settings-time-1=1503380835; _csrf=4ab285fe7247a322df777c10ce11465bff23108da356f5ed538b39fec332b973a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22%21%E1N%82%B6q4%2F%87%A0%D4%04%24%60%C6%14%B1%A8%B6%21%223%AA%E5%7C6%C8%97%9FP%1Fc%22%3B%7D; PHPSESSID=bd3pth4k7rc3llgik2pqslqk34; _identity=70223e9e7e75ee19c7934be4d236e29360873afa736a1467895f8a41a4fe276fa%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A16%3A%22%5B206%2C%22%22%2C2592000%5D%22%3B%7D'
+    'PATH' => '/usr/bin:/bin:/usr/sbin:/sbin'
+    'SERVER_SIGNATURE' => ''
+    'SERVER_SOFTWARE' => 'Apache/2.4.25 (Unix) PHP/5.6.30'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => '/Library/WebServer/Documents'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => '/~fuad'
+    'CONTEXT_DOCUMENT_ROOT' => '/Users/fuad/Sites'
+    'SERVER_ADMIN' => 'you@example.com'
+    'SCRIPT_FILENAME' => '/Users/fuad/Sites/lesoebuy/web/index.php'
+    'REMOTE_PORT' => '58997'
+    'REDIRECT_URL' => '/~fuad/lesoebuy/web/site/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/~fuad/lesoebuy/web/site/index'
+    'SCRIPT_NAME' => '/~fuad/lesoebuy/web/index.php'
+    'PHP_SELF' => '/~fuad/lesoebuy/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1503477715.028
+    'REQUEST_TIME' => 1503477715
+]
