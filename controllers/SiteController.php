@@ -230,6 +230,93 @@ class SiteController extends Controller
         ]);
 
 
+        $totalPOAll= $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'PO Completed'
+                            ],
+                            
+                     
+                    ],
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$requester',
+                    'sellers' => [
+                        '$push' => [
+                            //'purchase_order_no' => '$sellers.purchase_order_no',
+                            'items' => '$sellers.items',
+                         
+      
+
+                            
+                        ],
+                        
+                    ],
+
+            
+                ]
+            ],
+
+        ]);
+
+
+        //echo date(DATE_ISO8601);
+        //exit();
+
+        /*$totalPOMonth= $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'PO Completed'
+                            ],
+                            
+                     
+                    ],
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => [
+                        'month' => [
+                            '$month' => '$date_create'
+                        ]
+                    ],
+                    'sellers' => [
+                        '$push' => [
+                            //'purchase_order_no' => '$sellers.purchase_order_no',
+                            'items' => '$sellers.items',
+                         
+      
+
+                            
+                        ],
+                        
+                    ],
+
+
+            
+                ]
+            ],
+
+        ]);
+
+
+        print_r($totalPOMonth);
+        exit(); */
+
+
+
+
+
+                                //exit();
+
+
+
        /* $totalmyPO = $collection->aggregate([
           [
                 '$match' => [
@@ -887,6 +974,8 @@ class SiteController extends Controller
         }
 
 
+
+
         return $this->render('index',[
             'online' => $online,
             'offline' => $offline,
@@ -897,6 +986,7 @@ class SiteController extends Controller
             'sum_pending' => $sum_pending,
             'sum_process' => $sum_process,
             'role' => $role,
+            'totalPOAll' => $totalPOAll
         ]);
     }
 

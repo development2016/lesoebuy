@@ -17,7 +17,7 @@ $script = <<< JS
 
 $(document).ready(function(){
 
-    $('#myModal').modal('show');
+    $('#myModal').modal('hide');
 
     $('#pending').click(function(){
         $('#modalmd').modal('show')
@@ -300,11 +300,10 @@ $this->registerJs($script);
     <div class="col-lg-5 col-md-5">
         <div class="card">
             <div class="card-block">
-                <h3 class="card-title">Total my PO Over Time</h3>
+                <h3 class="card-title">Total Amount PO Per Month : <b><?= date('F'); ?></b></h3>
                 <h6 class="card-subtitle"></h6>
                 <div>
 
-  
 
 
 
@@ -323,6 +322,77 @@ $this->registerJs($script);
 
 <div class="row">
 
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">Total Amount PO</h3>
+                <h6 class="card-subtitle"></h6>
+                <div>
+
+
+                <table class="table">
+
+                    <thead>
+                        <tr>
+                            <th>Buyer</th>
+                            <th>Total PO</th>
+                            <th>Total Amount (RM)</th>
+                        </tr>
+                    </thead>
+                
+                <?php 
+
+                $sum_all_month = $total_without_gst =0;
+                $i=0; foreach ($totalPOAll as $key_all_month => $value_all_month) { $i++;?>
+                    <tr>
+                        <td><?= $value_all_month['_id'];?></td>
+                        <td><?= count($value_all_month['sellers']); ?></td>
+                        <td>
+                            <?php
+                                $sum_all_month = $total_without_gst =0;
+
+
+                                    foreach ($value_all_month['sellers'] as $key_b => $value_b) {
+                                        foreach ($value_b as $key_v => $value_v) {
+                                            foreach ($value_v as $key_a => $value_a) {
+                                            
+                                                $o =0;
+                                                foreach ($value_a as $key_s => $value_s) {
+
+                                                    $a = $value_s['cost'] * $value_s['quantity'];
+                                                    $sum_all_month += $a;
+                                                    //echo "<br>";
+                                                    
+                                                    
+                                                }
+                                                
+                                                
+                                            }
+
+                                        }
+
+                                    }
+                                    ;
+                                    echo "<p class='text-primary'>".$o = $sum_all_month."</p>";
+
+                            ?>
+
+                        </td>
+                    </tr>
+
+                <?php } ?>
+                </table>
+
+
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
 
 
 </div>

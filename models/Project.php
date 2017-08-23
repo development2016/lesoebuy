@@ -72,6 +72,8 @@ class Project extends \yii\mongodb\ActiveRecord
 
             ['title', 'required', 'message' => 'Title Can`t Be Blank'],
             ['due_date', 'required', 'message' => 'Due Date Can`t Be Blank'],
+  
+
         ];
     }
 
