@@ -300,36 +300,9 @@ $this->registerJs($script);
     <div class="col-lg-5 col-md-5">
         <div class="card">
             <div class="card-block">
-                <h3 class="card-title">Total Amount PO Per Month : <b><?= date('F'); ?></b></h3>
+                <h3 class="card-title">Total PO Per Amount</b></h3>
                 <h6 class="card-subtitle"></h6>
                 <div>
-
-
-
-
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-
-
-
-</div>
-
-
-
-<div class="row">
-
-    <div class="col-lg-12 col-md-12">
-        <div class="card">
-            <div class="card-block">
-                <h3 class="card-title">Total Amount PO</h3>
-                <h6 class="card-subtitle"></h6>
-                <div>
-
-
                 <table class="table">
 
                     <thead>
@@ -382,6 +355,33 @@ $this->registerJs($script);
 
                 <?php } ?>
                 </table>
+
+
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-lg-12 col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h3 class="card-title">Total Amount PO Per Month</h3>
+                <h6 class="card-subtitle"></h6>
+                <div>
+
+
+
 
 
 

@@ -264,11 +264,13 @@ class SiteController extends Controller
         ]);
 
 
-        //echo date(DATE_ISO8601);
-        //exit();
+     /*   $month = date('n');
+        $date_month = (int)$month;
 
-        /*$totalPOMonth= $collection->aggregate([
+
+        $totalPOMonth= $collection->aggregate([
             [
+
                 '$match' => [
                     '$and' => [
                             [
@@ -278,39 +280,46 @@ class SiteController extends Controller
                      
                     ],
                 ]
+
+
+
             ],
+
+
             [
-                '$group' => [
-                    '_id' => [
-                        'month' => [
-                            '$month' => '$date_create'
-                        ]
-                    ],
-                    'sellers' => [
-                        '$push' => [
-                            //'purchase_order_no' => '$sellers.purchase_order_no',
-                            'items' => '$sellers.items',
-                         
-      
-
-                            
-                        ],
-                        
-                    ],
-
-
+                '$project' => [
+                    'requester' => '$requester',
+                    'cost' => '$sellers.items.cost',
+                    'quantity' => '$sellers.items.quantity',
             
+                    'month' => [
+                        '$month' => '$date_create'
+                    ],
+               
+
                 ]
+
+
             ],
 
-        ]);
+            [
+                '$match' => [
+                    'month' => $date_month
+                ]
+
+            ],
 
 
-        print_r($totalPOMonth);
-        exit(); */
 
 
 
+        ]); 
+
+
+
+
+        exit(); 
+*/
 
 
                                 //exit();
