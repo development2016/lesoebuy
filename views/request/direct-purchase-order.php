@@ -419,7 +419,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                                 <?php
 
                                     $grandTotal = $total + $deductGst;
-                                    echo number_format((float)$grandTotal,2,'.',','); 
+                                    echo $total_po =  number_format((float)$grandTotal,2,'.',','); 
 
                                  ?>
                             </span>
@@ -461,7 +461,8 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
                             'generate/generate-direct-purchase-order',
                             'seller'=>$seller,
                             'project'=> (string)$project,
-                            'buyer' => $buyer
+                            'buyer' => $buyer,
+                            'total_po' => base64_encode($total_po)
                             ], [
                             'class' => 'btn btn-info pull-right',
      

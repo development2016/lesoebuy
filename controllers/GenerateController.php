@@ -1695,8 +1695,9 @@ class GenerateController extends Controller
 
 
 
-    public function actionGenerateDirectPurchaseOrder($project,$seller,$buyer)
+    public function actionGenerateDirectPurchaseOrder($project,$seller,$buyer,$total_po)
     {
+
         $newProject_id = new \MongoDB\BSON\ObjectID($project);
 
         $collection = Yii::$app->mongo->getCollection('project');
@@ -1715,6 +1716,8 @@ class GenerateController extends Controller
 
         $po_history = serialize($model[0]['sellers']);
 
+        $month = date('F');
+        $year = date('Y');
 
         $collection = Yii::$app->mongo->getCollection('project');
         $arrUpdate = [
@@ -1725,7 +1728,10 @@ class GenerateController extends Controller
                 'sellers.$.temp_status' => '',
                 'buyers' => [
                     ['buyer' => $buyer]
-                ]
+                ],
+                'year_po' => $year,
+                'month_po' => $month,
+                'total_po' => base64_decode($total_po),
 
             ],
             '$addToSet' => [

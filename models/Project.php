@@ -58,6 +58,9 @@ class Project extends \yii\mongodb\ActiveRecord
             'requester',
             'tax_value',
             'request_role',
+            'year_po',
+            'month_po',
+            'total_po'
 
         ];
     }
@@ -68,7 +71,7 @@ class Project extends \yii\mongodb\ActiveRecord
     public function rules()
     {
         return [
-            [['description', 'sellers', 'due_date', 'title', 'project_no', 'type_of_project', 'date_create', 'buyer', 'enter_by', 'date_update','url_myspot','tax_value','requester','request_role'], 'safe'],
+            [['description', 'sellers', 'due_date', 'title', 'project_no', 'type_of_project', 'date_create', 'buyer', 'enter_by', 'date_update','url_myspot','tax_value','requester','request_role','year_po','month_po','total_po'], 'safe'],
 
             ['title', 'required', 'message' => 'Title Can`t Be Blank'],
             ['due_date', 'required', 'message' => 'Due Date Can`t Be Blank'],
@@ -98,7 +101,9 @@ class Project extends \yii\mongodb\ActiveRecord
             'tax_value' => 'Tax Value',
             'requester' => 'Requester',
             'request_role' => 'xx',
-
+            'year_po' => 'Year',
+            'month_po' => 'Month',
+            'total_po' => 'Total'
         ];
     }
 

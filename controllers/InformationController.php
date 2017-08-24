@@ -58,6 +58,10 @@ class InformationController extends Controller
                 'sellers.$.purchase_order_no' => '',
                 'sellers.$.date_purchase_order' => '',
                 'sellers.$.PO_process_by' => '',
+                'year_po' => '',
+                'month_po' => '',
+                'total_po' => '',
+
 
 
             ],
