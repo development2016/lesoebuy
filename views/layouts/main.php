@@ -436,6 +436,13 @@ $this->registerJs($script);
                                 'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-arrange-bring-to-front"></i><span class="hide-menu" data-toggle="tooltip" title="Delivery Address">{label}</a>',
                                 //'options'=>['class'=>'active open selected'],
                             ],
+
+                            [
+                                'label' => 'Analysis', 
+                                'url' => ['analysis/index'],
+                                'template'=> '<a href="{url}" class="text-uppercase" aria-expanded="false"><i class="mdi mdi-chart-areaspline"></i><span class="hide-menu" data-toggle="tooltip" title="Analysis">{label}</a>',
+                                //'options'=>['class'=>'active open selected'],
+                            ],
                             /*[
                                 'label' => 'History', 
                                 'url' => ['#'],
