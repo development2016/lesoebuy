@@ -234,6 +234,9 @@ $this->registerJs($script);
                                     <?php 
 
 
+                                    
+
+
                                    if (empty($totalPO)) {
 
                                         $user_sales = $total_sales =0 ;

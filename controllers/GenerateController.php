@@ -1718,6 +1718,7 @@ class GenerateController extends Controller
 
         $month = date('F');
         $year = date('Y');
+        $day = date('d');
 
         $collection = Yii::$app->mongo->getCollection('project');
         $arrUpdate = [
@@ -1731,6 +1732,7 @@ class GenerateController extends Controller
                 ],
                 'year_po' => $year,
                 'month_po' => $month,
+                'day_po' => $day,
                 'total_po' => base64_decode($total_po),
 
             ],
