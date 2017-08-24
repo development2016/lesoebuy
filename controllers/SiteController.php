@@ -245,23 +245,62 @@ class SiteController extends Controller
             [
                 '$group' => [
                     '_id' => '$buyers.buyer',
-                    'sellers' => [
-                        '$push' => [
-                            //'purchase_order_no' => '$sellers.purchase_order_no',
-                            'items' => '$sellers.items',
-                         
-      
-
-                            
+                                            'count' => [
+                            '$sum' => 1
                         ],
-                        
-                    ],
+                    'itemsSold' => [
+
+                        '$push' => [
+                            'total_po' => '$total_po'
+                        ]
+                    ]
+
 
             
                 ]
             ],
 
         ]);
+
+        $dateMonth =  date('F');
+
+        $totalPOMonth= $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                            [
+                                'sellers.status' => 'PO Completed'
+                            ],
+                            [
+
+                                'month_po' =>  $dateMonth
+                            ]
+                            
+                     
+                    ],
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$buyers.buyer',
+                                            'count' => [
+                            '$sum' => 1
+                        ],
+                    'itemsSold' => [
+
+                        '$push' => [
+                            'total_po' => '$total_po'
+                        ]
+                    ]
+
+
+            
+                ]
+            ],
+
+        ]);
+
+
 
 
 
@@ -997,7 +1036,8 @@ class SiteController extends Controller
             'sum_pending' => $sum_pending,
             'sum_process' => $sum_process,
             'role' => $role,
-            'totalPOAll' => $totalPOAll
+            'totalPOAll' => $totalPOAll,
+            'totalPOMonth' => $totalPOMonth
         ]);
     }
 
