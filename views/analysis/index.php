@@ -79,7 +79,7 @@ $month = [
 
                             <div class="col-md-2">
                                 <div class="form-group">
-                                    <label class="control-label">Status</label>
+                                    <label class="control-label">Type</label>
                                     <select class="form-control status" id="status" >
                                         <option value="">All</option>
                                         <option value="PO Completed">Completed PO</option>
@@ -89,6 +89,28 @@ $month = [
                                     </select>
                                 </div>
                             </div>
+
+                           <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Supplier</label>
+                                    <select class="form-control status" id="status" >
+                                        <option value="">All</option>
+                                        <?php 
+
+                                        foreach ($supplier as $key_supplier => $value_supplier) { ?>
+                                            <option value="<?= $value_supplier['company_name']; ?>"><?= $value_supplier['company_name'];?></option>
+                                        <?php }
+
+
+                                        ?>
+                                        
+                          
+                                    </select>
+                                </div>
+                            </div>
+
+
+
 
                             <div class="col-md-2">
                                 <div class="form-group">
@@ -142,15 +164,10 @@ $month = [
 
                 <h4 class="card-title">Report</h4>
                 <h6 class="card-subtitle">Description About Panel</h6>
-
-
-		        <div class="data">
                
-                
+            
 
-
-
-                <div class="table-responsive">
+                <div class="data table-responsive">
 
 
 
@@ -160,7 +177,7 @@ $month = [
 
 
 
-		        </div>
+		       
 
 		    </div>
 		</div>

@@ -25,6 +25,7 @@ use app\models\UploadForm;
 use yii\web\UploadedFile;
 use miloschuman\highcharts\Highcharts;
 use miloschuman\highcharts\HighchartsAsset;
+use app\models\CompanyOffline;
 
 
 class AnalysisController extends Controller
@@ -33,9 +34,11 @@ class AnalysisController extends Controller
     {
 
         $buyer = User::find()->all();
+        $supplier = CompanyOffline::find()->all();
 
         return $this->render('index',[
-            'buyer' => $buyer
+            'buyer' => $buyer,
+            'supplier' => $supplier
         ]);
 
     }
@@ -49,9 +52,11 @@ class AnalysisController extends Controller
 
         $buyer =  empty($_POST['buyer']) ? "" : $_POST['buyer'];
 
+        $supplier =  empty($_POST['supplier']) ? "" : $_POST['supplier'];
+
 		$collection = Yii::$app->mongo->getCollection('project');
 
-        if ($status == "" && $buyer == "") {
+        if ($status == "" && $buyer == "" && $supplier == "") {
 
             $totalPOstatus= $collection->aggregate([
                 [
