@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
                 <?= Html::a('Update', ['update', 'id' => (string)$model->_id], ['class' => 'btn btn-info pull-right']) ?>
 

@@ -43,7 +43,7 @@ $this->registerJs($script);
 <div class="row">
   <div class="col-md-12">
       <div class="card">
-        <div class="card-block">
+        <div class="card-body">
             <?= Html::a('CREATE PR', ['offline/index'],['class'=>'btn btn-info pull-right','title'=>'Create PR']) ?>
 
             <h4 class="card-title"><?= Html::encode($this->title) ?></h4>

@@ -10,7 +10,7 @@ use yii\bootstrap\ActiveForm;
 $this->title = 'Login';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="card-block">
+<div class="card-body">
 
     <?php $form = ActiveForm::begin([
         'id' => 'loginform',
@@ -46,12 +46,12 @@ $this->params['breadcrumbs'][] = $this->title;
           </div>
         </div>
         <div class="form-group">
-          <div class="col-md-12">
+          <!--<div class="col-md-12">
             <div class="checkbox checkbox-primary pull-left p-t-0">
-                <?= Html::a('Register', ['site/buyer'], ['class' => 'text-dark']) ?>
+            // site/buyer
             </div>
             <a href="javascript:void(0)" id="to-recover" class="text-dark pull-right"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a> 
-            </div>
+            </div> -->
         </div>
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">

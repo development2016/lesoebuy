@@ -216,9 +216,9 @@ $this->registerJs($script);
 
 <div class="row">
     <!-- Column -->
-    <div class="col-lg-7 col-md-7">
+    <div class="col-lg-12 col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex flex-wrap">
@@ -300,12 +300,20 @@ $this->registerJs($script);
         </div>
     </div>
 
-    <div class="col-lg-5 col-md-5">
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-lg-6">
         <div class="card">
-            <div class="card-block">
-                <h3 class="card-title">Total PO Per Amount</b></h3>
+            <div class="card-body">
+                <h4 class="card-title">Total PO Per Amount</h4>
                 <h6 class="card-subtitle"></h6>
-                <div>
+                <div class="table-responsive">
+
 
                 <table class="table">
 
@@ -351,27 +359,23 @@ $this->registerJs($script);
                 </table>
 
 
+
+
+
+
                 </div>
             </div>
-
-
         </div>
     </div>
 
 
-
-</div>
-
-
-
-<div class="row">
-
-    <div class="col-lg-12 col-md-12">
+    <div class="col-lg-6">
         <div class="card">
-            <div class="card-block">
-                <h3 class="card-title">Total Amount PO Per Month : <span style="color: #ff0000;"><?= date('F') ?></span></h3>
+            <div class="card-body">
+                <h4 class="card-title">Total Amount PO Per Month : <span style="color: #ff0000;"><?= date('F') ?></span></h4>
                 <h6 class="card-subtitle"></h6>
-                <div>
+                <div class="table-responsive">
+
 
                 <table class="table">
 
@@ -416,14 +420,15 @@ $this->registerJs($script);
 
                 </table>
 
+                
+
 
 
                 </div>
             </div>
-
-
         </div>
     </div>
+
 
 
 </div>

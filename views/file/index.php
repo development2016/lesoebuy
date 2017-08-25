@@ -42,7 +42,7 @@ $this->registerJs($script);
 <div class="row">
   	<div class="col-md-12">
 	    <div class="card">
-	        <div class="card-block">
+	        <div class="card-body">
 
 	        	<?= Html::a('UPLOAD FILE',FALSE, ['value'=>Url::to(['file/upload',
 	        	'project' => (string)$newProject_id,

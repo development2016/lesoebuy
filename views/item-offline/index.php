@@ -13,7 +13,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
                 <?= Html::a('Create', ['create'], ['class' => 'btn btn-info pull-right']) ?>
                 <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
                 <h6 class="card-subtitle">Description About Panel</h6>

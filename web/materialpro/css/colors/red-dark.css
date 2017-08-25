@@ -38,7 +38,7 @@ File: scss
 .topbar {
   background: #dc3030;
   /* Old browsers */
-  background: -moz-linear-gradient(left, #dc3030 0%, #660fb5 100%);
+  background: -moz-linear-gradient(left, #dc3030 0%, #dc3030 100%);
   /* FF3.6-15 */
   background: -webkit-linear-gradient(left, #dc3030 0%, #dc3030 100%);
   /* Chrome10-25,Safari5.1-6 */
@@ -67,15 +67,15 @@ File: scss
 /*General Elements
 *******************/
 a {
-  color: #dc3030;
+  color: #f62d51;
 }
 
 a.link:hover, a.link:focus {
-  color: #dc3030 !important;
+  color: #f62d51 !important;
 }
 
 .bg-theme {
-  background-color: #dc3030 !important;
+  background-color: #f62d51 !important;
 }
 
 .pagination > .active > a,
@@ -84,31 +84,31 @@ a.link:hover, a.link:focus {
 .pagination > .active > span:hover,
 .pagination > .active > a:focus,
 .pagination > .active > span:focus {
-  background-color: #dc3030;
-  border-color: #dc3030;
+  background-color: #f62d51;
+  border-color: #f62d51;
 }
 
 .right-sidebar .rpanel-title {
-  background: #dc3030;
+  background: #f62d51;
 }
 
 .stylish-table tbody tr:hover, .stylish-table tbody tr.active {
-  border-left: 4px solid #dc3030;
+  border-left: 4px solid #f62d51;
 }
 
 .text-themecolor {
-  color: #dc3030 !important;
+  color: #f62d51 !important;
 }
 
 .profile-tab li a.nav-link.active,
 .customtab li a.nav-link.active {
-  border-bottom: 2px solid #dc3030;
-  color: #dc3030;
+  border-bottom: 2px solid #f62d51;
+  color: #f62d51;
 }
 
 .profile-tab li a.nav-link:hover,
 .customtab li a.nav-link:hover {
-  color: #dc3030;
+  color: #f62d51;
 }
 
 /*******************
@@ -116,16 +116,16 @@ a.link:hover, a.link:focus {
 *******************/
 .btn-themecolor,
 .btn-themecolor.disabled {
-  background: #dc3030;
+  background: #f62d51;
   color: #ffffff;
-  border: 1px solid #dc3030;
+  border: 1px solid #f62d51;
 }
 
 .btn-themecolor:hover,
 .btn-themecolor.disabled:hover {
-  background: #dc3030;
+  background: #f62d51;
   opacity: 0.7;
-  border: 1px solid #dc3030;
+  border: 1px solid #f62d51;
 }
 
 .btn-themecolor.active, .btn-themecolor:focus,
@@ -160,7 +160,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav ul li a.active, .sidebar-nav ul li a:hover {
-  color: #dc3030;
+  color: #f62d51;
 }
 
 .sidebar-nav ul li a.active {
@@ -172,12 +172,12 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li.active > a, .sidebar-nav > ul > li.active:hover > a {
-  color: #ffffff;
-  background: #dc3030;
+  color: #ffffff !important;
+  background: #f62d51 !important;
 }
 
 .sidebar-nav > ul > li.active > a i, .sidebar-nav > ul > li.active:hover > a i {
-  color: #ffffff;
+  color: #ffffff !important;
 }
 
 .sidebar-nav > ul > li.active > a:after, .sidebar-nav > ul > li.active:hover > a:after {
@@ -185,7 +185,7 @@ a.link:hover, a.link:focus {
 }
 
 .sidebar-nav > ul > li > a.active i, .sidebar-nav > ul > li > a:hover i {
-  color: #dc3030;
+  color: #f62d51;
 }
 
 .sidebar-nav > ul > li > a i {
@@ -195,7 +195,7 @@ a.link:hover, a.link:focus {
 .sidebar-nav > ul > li > a.active {
   font-weight: 400;
   background: #ffffff;
-  color: #dc3030;
+  color: #f62d51;
 }
 
 .user-profile .profile-text a {

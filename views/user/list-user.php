@@ -43,7 +43,7 @@ $buyer = $approval = $user= $seller = $admin= 0;
 <div class="row">
   <div class="col-md-6">
       <div class="card">
-        <div class="card-block">
+        <div class="card-body">
    
 
             <h4 class="card-title">CHARTS</h4>
@@ -54,7 +54,7 @@ $buyer = $approval = $user= $seller = $admin= 0;
   </div>
   <div class="col-md-6">
       <div class="card">
-        <div class="card-block">
+        <div class="card-body">
 
           <?= Html::a('Add',FALSE, [
           'value'=>Url::to([

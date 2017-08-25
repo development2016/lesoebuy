@@ -232,6 +232,7 @@ sidebar navigation
             width: 27px;
             height: 27px;                                                                                                                                                                           
             font-size: 21px;
+            line-height:27px; 
             display: inline-block;
             vertical-align: middle;
             color: $sidebar-icons;
@@ -306,6 +307,9 @@ When click on sidebar toggler and also for tablet
     }
     .mini-sidebar .sidebar-nav {
         padding: 5px;
+    }
+    .mini-sidebar.fix-sidebar .left-sidebar{
+        position:absolute;
     }
     .mini-sidebar .sidebar-nav #sidebarnav > li:hover > ul {
         height: auto !important;

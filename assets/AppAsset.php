@@ -30,9 +30,10 @@ class AppAsset extends AssetBundle
         'materialpro/assets/plugins/c3-master/c3.min.css',
         
 
+
     ];
     public $js = [
-        'materialpro/assets/plugins/bootstrap/js/tether.min.js',
+        'materialpro/assets/plugins/bootstrap/js/popper.min.js',
         'materialpro/assets/plugins/bootstrap/js/bootstrap.min.js',
         'materialpro/js/jquery.slimscroll.js',
         'materialpro/js/waves.js',

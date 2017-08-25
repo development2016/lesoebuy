@@ -40,7 +40,7 @@ $this->title = strtoupper('Manage Company');
 <div class="row">
   <div class="col-md-12">
       <div class="card">
-        <div class="card-block">
+        <div class="card-body">
    
         <?= Html::a('Upload Logo <i class="fa fa-upload"></i>',FALSE, ['value'=>Url::to(['company/upload','company_id'=>$company_id]),'class' => 'btn btn-info pull-right uploads','id'=>'','title'=>'Upload Logo','style'=>'color:#fff;']) ?>
             <h4 class="card-title"><?= Html::encode($this->title) ?></h4>

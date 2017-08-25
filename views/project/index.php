@@ -25,7 +25,7 @@ $this->registerJs($script);
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
           
 
                 <h4 class="card-title"><?= Html::encode($this->title) ?></h4>

@@ -101,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="row">
   	<div class="col-md-9">
       	<div class="card">
-        	<div class="card-block">
+        	<div class="card-body">
 
             	<h4 class="card-title"><?= Html::encode($this->title) ?></h4>
             	<h6 class="card-subtitle">Description About Panel</h6> 
@@ -119,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </a>
                           </h5> </div>
                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                                <div class="card-block"> 
+                                <div class="card-body"> 
 
 							    <?= $form->field($model3, 'title')->textInput(['id'=>'id-title','placeholder'=>'-Buy What From Who For Who-']) ?>
 
@@ -138,7 +138,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </a>
                           </h5> </div>
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="card-block"> 
+                                <div class="card-body"> 
 
 							<?php if (empty($model2)) { ?>
 
@@ -235,7 +235,7 @@ $this->params['breadcrumbs'][] = $this->title;
                             </a>
                           </h5> </div>
                             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                                <div class="card-block">
+                                <div class="card-body">
                                 	
 								<?= $form->field($model, 'company_name')->textInput(['id'=>'companyname']) ?>
 
@@ -328,7 +328,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
   	<div class="col-md-3">
       	<div class="card">
-        	<div class="card-block">
+        	<div class="card-body">
 
             	<h4 class="card-title">SUPPLIER LIST</h4>
             	<h6 class="card-subtitle">Description About Panel</h6> 

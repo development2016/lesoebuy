@@ -25,15 +25,16 @@ class AppAssetLogin extends AssetBundle
 
     ];
     public $js = [
-    'materialpro/assets/plugins/bootstrap/js/tether.min.js',
-    'materialpro/assets/plugins/bootstrap/js/bootstrap.min.js',
-    'materialpro/js/jquery.slimscroll.js',
-    'materialpro/js/waves.js',
-    'materialpro/js/sidebarmenu.js',
-    'materialpro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js',
-    'materialpro/assets/plugins/sparkline/jquery.sparkline.min.js',
-    'materialpro/js/custom.min.js',
-    'materialpro/assets/plugins/styleswitcher/jQuery.style.switcher.js'
+        'materialpro/assets/plugins/bootstrap/js/popper.min.js',
+        'materialpro/assets/plugins/bootstrap/js/bootstrap.min.js',
+        'materialpro/js/jquery.slimscroll.js',
+        'materialpro/js/waves.js',
+        'materialpro/js/sidebarmenu.js',
+        'materialpro/assets/plugins/sticky-kit-master/dist/sticky-kit.min.js',
+        'materialpro/assets/plugins/sparkline/jquery.sparkline.min.js',
+        'materialpro/js/custom.min.js',
+        'materialpro/assets/plugins/styleswitcher/jQuery.style.switcher.js'
+
 
     ];
     public $depends = [

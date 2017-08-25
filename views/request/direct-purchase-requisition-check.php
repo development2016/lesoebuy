@@ -144,7 +144,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
 
                 <div class="btn-group pull-right">

@@ -21,7 +21,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <!-- Column -->
     <div class="col-lg-4 col-xlg-3 col-md-5">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
                 <center class="m-t-30"> 
                 <?php if (empty($model->img)) { ?>
 
@@ -46,7 +46,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
             <div>
                 <hr> </div>
-            <div class="card-block"> <small class="text-muted">Email address </small>
+            <div class="card-body"> <small class="text-muted">Email address </small>
                 <h6><?= $model->email ?></h6> 
                 <small class="text-muted p-t-30 db">Account Name</small>
                 <h6><?= $model->account_name ?></h6> 
@@ -59,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="col-lg-8 col-xlg-9 col-md-7">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
                 <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
                 <h6 class="card-subtitle">Description About Panel</h6> 

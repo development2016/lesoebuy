@@ -46,7 +46,7 @@ $this->registerJs($script);
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
        
                 <h4 class="card-title">Filter</h4>
                 <h6 class="card-subtitle">Description About Panel</h6>
@@ -79,13 +79,19 @@ $this->registerJs($script);
 <div class="row info-complete" style="display: none;">
 	<div class="col-md-12">
 	    <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
                 <h4 class="card-title">Report</h4>
                 <h6 class="card-subtitle">Description About Panel</h6>
 
 		        <div class="data">
-		        	<hr>
+                <div class="table-responsive">
+
+
+
+
+                </div>
+	
 
 
 

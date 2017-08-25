@@ -142,19 +142,7 @@ a.link {
             }
         }
     }
-    > ul > li {
-        &.active > a, &.active:hover > a {
-            
-            color: $white;
-            background: $themecolor-alt;
-            i {
-                color: $white;
-            }
-            &:after{
-                border-color:$white;
-            }
-        }
-    }
+    
     > ul > li > a {
         
         &.active,
@@ -171,6 +159,19 @@ a.link {
             font-weight: 400;
             background: $white;
             color: $themecolor;
+        }
+    }
+    > ul > li {
+        &.active > a, &.active:hover > a {
+            
+            color: $white;
+            background: $themecolor-alt!important;
+            i {
+                color: $white;
+            }
+            &:after{
+                border-color:$white;
+            }
         }
     }
 }

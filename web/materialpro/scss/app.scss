@@ -818,7 +818,12 @@ Table Cell
         vertical-align:middle;
     }
 }
-
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
 /*******************
 Wave Effects
 *******************/
@@ -974,6 +979,7 @@ html body .waves-notransition {
 }
 .badge-warning {
     background-color: $warning;
+    color: $white;
 }
 
 .badge-danger {
@@ -1086,12 +1092,15 @@ Buttons
 .btn-secondary.disabled {
     box-shadow: $default-shadow;
     transition: 0.2s ease-in;
+    background-color: $white;
+    color: $bodytext; 
     &:hover{
         box-shadow: $default-shadow-hover;
-        
+        color:$white!important;
     }
     &.active, &:focus{
         box-shadow: $default-shadow-hover;
+        color:$white!important;
     }
 }
 
@@ -1163,11 +1172,13 @@ Buttons
 .btn-warning,
 .btn-warning.disabled {
     background: $warning;
+    color: $white;
     box-shadow: $warning-shadow;
     border: 1px solid $warning;
     transition: 0.2s ease-in;
     &:hover{
         background: $warning;
+        color: $white;
         box-shadow: $warning-shadow-hover;
         border: 1px solid $warning;
     }

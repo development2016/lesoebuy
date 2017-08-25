@@ -32,7 +32,7 @@ $this->registerJs($script);
 <div class="row">
   <div class="col-md-6">
       <div class="card">
-        <div class="card-block">
+        <div class="card-body">
    
         <?= Html::a('Add Branch',FALSE, ['value'=>Url::to(['company/warehouse','company_id'=>(string)$newCompanyid]),'class' => 'btn btn-info pull-right warehouse-add','id'=>'create','style'=>'color:#fff;']) ?>
             <h4 class="card-title"><?= Html::encode($this->title) ?></h4>
@@ -102,7 +102,7 @@ $this->registerJs($script);
   </div>
   <div class="col-md-6">
       <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
             <h4 class="card-title">Branch</h4>
             <h6 class="card-subtitle">Description About Panel</h6> 

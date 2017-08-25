@@ -147,6 +147,7 @@
 }
 .footable > tfoot .pagination {
   margin: 0;
+  float: right;
 }
 .footable.no-paging .hide-if-no-paging {
   display: none;

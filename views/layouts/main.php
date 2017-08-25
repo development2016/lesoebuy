@@ -104,7 +104,8 @@ $this->registerJs($script);
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
         <header class="topbar">
-            <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
+
+            <nav class="navbar top-navbar navbar-expand-md navbar-light">
                 <!-- ============================================================== -->
                 <!-- Logo -->
                 <!-- ============================================================== -->

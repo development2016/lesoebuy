@@ -30,7 +30,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-block">
+            <div class="card-body">
 
                 <h4 class="card-title"><?= Html::encode($this->title) ?> - <?= $list[0]['project_no']; ?></h4>
                 <h6 class="card-subtitle">Description About Panel</h6>

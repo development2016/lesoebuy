@@ -25,7 +25,7 @@ class AppAssetHtml extends AssetBundle
         'materialpro/assets/plugins/bootstrap-datepicker/bootstrap-datepicker.min.css',
     ];
     public $js = [
-        'materialpro/assets/plugins/bootstrap/js/tether.min.js',
+        'materialpro/assets/plugins/bootstrap/js/popper.min.js',
         'materialpro/assets/plugins/bootstrap/js/bootstrap.min.js',
         'materialpro/js/jquery.slimscroll.js',
         'materialpro/js/waves.js',

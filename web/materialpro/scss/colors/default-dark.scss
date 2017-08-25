@@ -141,10 +141,10 @@ a.link {
     > ul > li {
         &.active > a, &.active:hover > a {
             
-            color: $white;
-            background: $themecolor-alt;
+            color: $white!important;
+            background: $themecolor-alt!important;
             i {
-                color: $white;
+                color: $white!important;
             }
             &:after{
                 border-color:$white;
