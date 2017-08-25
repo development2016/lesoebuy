@@ -17,7 +17,8 @@ return [
 
       
 	'class' => '\yii\mongodb\Connection',
-    'dsn' => 'mongodb://procuments:Amtujpino.2017@aws-ap-southeast-1-portal.2.dblayer.com:15429/procument',
+    //'dsn' => 'mongodb://procuments:Amtujpino.2017@aws-ap-southeast-1-portal.2.dblayer.com:15429/procument',
+    'dsn' => 'mongodb://procuments:Amtujpino.2017@aws-ap-southeast-1-portal.2.dblayer.com:15429,aws-ap-southeast-1-portal.0.dblayer.com:15429/procument',
 	'options' => [
 		'ssl' => true
 	],

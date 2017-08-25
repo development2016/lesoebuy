@@ -223,7 +223,7 @@ $this->registerJs($script);
                     <div class="col-12">
                         <div class="d-flex flex-wrap">
                             <div>
-                                <h3 class="card-title">Total PO by Buyer</h3>
+                                <h3 class="card-title">Total Project by Buyer</h3>
                                 <h6 class="card-subtitle"></h6> </div>
     
                         </div>
@@ -232,11 +232,7 @@ $this->registerJs($script);
                         <div  >
                             
                                     <?php 
-
-
-                                    
-
-
+                
                                    if (empty($totalPO)) {
 
                                         $user_sales = $total_sales =0 ;

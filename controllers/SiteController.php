@@ -245,7 +245,7 @@ class SiteController extends Controller
             [
                 '$group' => [
                     '_id' => '$buyers.buyer',
-                                            'count' => [
+                    'count' => [
                             '$sum' => 1
                         ],
                     'itemsSold' => [

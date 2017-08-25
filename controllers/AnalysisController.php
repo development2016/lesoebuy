@@ -23,64 +23,207 @@ use yii\widgets\ActiveForm;
 use app\models\Notification;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
+use miloschuman\highcharts\Highcharts;
+use miloschuman\highcharts\HighchartsAsset;
 
 
 class AnalysisController extends Controller
 {
 	public function actionIndex()
     {
-        return $this->render('index');
+
+        $buyer = User::find()->all();
+
+        return $this->render('index',[
+            'buyer' => $buyer
+        ]);
 
     }
 
 
 
-    public function actionReport()
+    public function actionReportStatus()
     {
 
 		$status =  empty($_POST['status']) ? "" : $_POST['status'];
 
+        $buyer =  empty($_POST['buyer']) ? "" : $_POST['buyer'];
+
 		$collection = Yii::$app->mongo->getCollection('project');
-        $totalPOAll= $collection->aggregate([
-            [
-                '$match' => [
-                    '$and' => [
-                            [
-                                'sellers.status' => $status
-                            ],
-                            
-                     
-                    ],
-                ]
-            ],
-            [
-                '$group' => [
-                    '_id' => '$buyers.buyer',
-                    'count' => [
-                            '$sum' => 1
-                    ],
+
+        if ($status == "" && $buyer == "") {
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
 
 
+                
+                    ]
+                ],
+
+            ]);
+
+
+
+        } else if ($status == "" && $buyer != "") {
+          
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'buyers.buyer' => $buyer
+                                ],
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]); 
+
+           
+
+
+        } else if ($status != "" && $buyer == "") {
+            
+        
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => $status
+                                ],
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]); 
+        
 
             
-                ]
-            ],
+        } else if ($status != "" && $buyer != "") {
+            
+        
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => $status
+                                ],
+                                [
+                                    'buyers.buyer' => $buyer
+                                ]
 
-        ]);
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]); 
+
+
+        }
+
 
         echo "<table class='table'>";
         echo "    <thead>";
         echo "        <tr>";
         echo "            <th>Buyer</th>";
         echo "            <th>Total PO</th>";
+        echo "            <th>Total Amount (RM)</th>";
         echo "        </tr>";
         echo "   </thead>";
         echo "   <tbody>";
-        foreach ($totalPOAll as $key_all => $value_all) {
+        foreach ($totalPOstatus as $key_all_status => $value_all_status ) {
 
         	echo "<tr>";
-        		echo "<td>".$value_all['_id'][0]."</td>";
-        		echo "<td>".$value_all['count']."</td>";
+        		echo "<td>".$value_all_status['_id'][0]."</td>";
+        		echo "<td>".$value_all_status['count']."</td>";
+                echo "<td>";
+                    $end_total = $total_all = 0;
+                        foreach ($value_all_status['itemsSold'] as $key_n => $value_n) {
+
+
+                            //print_r($value_n['total_po']);
+                            $total_po_temp =  empty($value_n['total_po']) ? "" : $value_n['total_po'];
+
+
+                            $total_all += $total_po_temp;
+                            
+                        
+                        }
+
+                        //exit();
+                        echo "<p class='text-primary'>".$end_total = $total_all."</p>";
+
+                echo "</td>";
         	echo "</tr>";
 
 
@@ -91,8 +234,14 @@ class AnalysisController extends Controller
 
 
 
-
-
     }
+
+
+
+
+     
+
+
+
 
 }
