@@ -21,11 +21,11 @@ $(document).ready(function(){
 
     	var status = $('#status').val();
         var buyer = $('#buyer').val();
+        var supplier = $('#supplier').val();
         $.ajax({
             type: 'POST',
             url: 'report-status',
-            data: 'status='+status,
-            data: 'status='+status+'&buyer='+buyer,
+            data: 'status='+status+'&buyer='+buyer+'&supplier='+supplier,
             success: function(data) {
             	$(".info-complete").show();
                 $(".data").html(data);
@@ -90,27 +90,6 @@ $month = [
                                 </div>
                             </div>
 
-                           <div class="col-md-3">
-                                <div class="form-group">
-                                    <label class="control-label">Supplier</label>
-                                    <select class="form-control status" id="status" >
-                                        <option value="">All</option>
-                                        <?php 
-
-                                        foreach ($supplier as $key_supplier => $value_supplier) { ?>
-                                            <option value="<?= $value_supplier['company_name']; ?>"><?= $value_supplier['company_name'];?></option>
-                                        <?php }
-
-
-                                        ?>
-                                        
-                          
-                                    </select>
-                                </div>
-                            </div>
-
-
-
 
                             <div class="col-md-2">
                                 <div class="form-group">
@@ -131,7 +110,25 @@ $month = [
                                     </select>
                                 </div>
                             </div>
+                            
+                           <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Supplier</label>
+                                    <select class="form-control supplier" id="supplier" >
+                                        <option value="">All</option>
+                                        <?php 
 
+                                        foreach ($supplier as $key_supplier => $value_supplier) { ?>
+                                            <option value="<?= $value_supplier['company_name']; ?>"><?= $value_supplier['company_name'];?></option>
+                                        <?php }
+
+
+                                        ?>
+                                        
+                          
+                                    </select>
+                                </div>
+                            </div>
 
 
 

@@ -54,6 +54,7 @@ class AnalysisController extends Controller
 
         $supplier =  empty($_POST['supplier']) ? "" : $_POST['supplier'];
 
+
 		$collection = Yii::$app->mongo->getCollection('project');
 
         if ($status == "" && $buyer == "" && $supplier == "") {
@@ -79,83 +80,7 @@ class AnalysisController extends Controller
 
             ]);
 
-
-
-        } else if ($status == "" && $buyer != "") {
-          
-            $totalPOstatus= $collection->aggregate([
-                [
-                    '$match' => [
-                        '$and' => [
-                                [
-                                    'buyers.buyer' => $buyer
-                                ],
-
-                         
-                        ],
-                    ]
-                ],
-                [
-                    '$group' => [
-                        '_id' => '$buyers.buyer',
-                        'count' => [
-                                '$sum' => 1
-                        ],
-                        'itemsSold' => [
-
-                            '$push' => [
-                                'total_po' => '$total_po'
-                            ]
-                        ]
-
-
-                
-                    ]
-                ],
-
-            ]); 
-
-           
-
-
-        } else if ($status != "" && $buyer == "") {
-            
-        
-            $totalPOstatus= $collection->aggregate([
-                [
-                    '$match' => [
-                        '$and' => [
-                                [
-                                    'sellers.status' => $status
-                                ],
-
-                         
-                        ],
-                    ]
-                ],
-                [
-                    '$group' => [
-                        '_id' => '$buyers.buyer',
-                        'count' => [
-                                '$sum' => 1
-                        ],
-                        'itemsSold' => [
-
-                            '$push' => [
-                                'total_po' => '$total_po'
-                            ]
-                        ]
-
-
-                
-                    ]
-                ],
-
-            ]); 
-        
-
-            
-        } else if ($status != "" && $buyer != "") {
+        } elseif ($status != "" && $buyer != "" && $supplier != "") {
             
         
             $totalPOstatus= $collection->aggregate([
@@ -167,6 +92,10 @@ class AnalysisController extends Controller
                                 ],
                                 [
                                     'buyers.buyer' => $buyer
+                                ],
+                                [
+
+                                    'sellers.seller' => $supplier
                                 ]
 
                          
@@ -191,13 +120,250 @@ class AnalysisController extends Controller
                     ]
                 ],
 
-            ]); 
+            ]);
+
+        } elseif ($status != "" && $buyer == "" && $supplier == "") {
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => $status
+                                ],
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
+
+        } elseif ($status != "" && $buyer != "" && $supplier == "") {
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => $status
+                                ],
+                                [
+
+                                    'buyers.buyer' => $buyer
+                                ]
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
+        } elseif ($status != "" && $buyer == "" && $supplier != "") {
+
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.status' => $status
+                                ],
+                                [
+
+                                    'sellers.seller' => $supplier
+                                ]
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
+        } elseif ($status == "" && $buyer != "" && $supplier == "") {
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                          
+                                [
+
+                                    'buyers.buyer' => $buyer
+                                ]
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
+
+        } elseif ($status == "" && $buyer != "" && $supplier != "") {
+
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.seller' => $supplier
+                                ],
+                                [
+
+                                    'buyers.buyer' => $buyer
+                                ]
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
+
+        } elseif ($status == "" && $buyer == "" && $supplier != "") {
+
+            $totalPOstatus= $collection->aggregate([
+                [
+                    '$match' => [
+                        '$and' => [
+                                [
+                                    'sellers.seller' => $supplier
+                                ],
+                            
+                      
+
+                         
+                        ],
+                    ]
+                ],
+                [
+                    '$group' => [
+                        '_id' => '$buyers.buyer',
+                        'count' => [
+                                '$sum' => 1
+                        ],
+                        'itemsSold' => [
+
+                            '$push' => [
+                                'total_po' => '$total_po'
+                            ]
+                        ]
+
+
+                
+                    ]
+                ],
+
+            ]);
+
+
 
 
         }
 
 
-        echo "<table class='table'>";
+        echo "<table class='table table-hover'>";
         echo "    <thead>";
         echo "        <tr>";
         echo "            <th>Buyer</th>";
@@ -226,7 +392,7 @@ class AnalysisController extends Controller
                         }
 
                         //exit();
-                        echo "<p class='text-primary'>".$end_total = $total_all."</p>";
+                        echo "<h3><b>".$end_total = $total_all."</b></h3>";
 
                 echo "</td>";
         	echo "</tr>";
