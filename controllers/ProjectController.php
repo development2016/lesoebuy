@@ -68,6 +68,66 @@ class ProjectController extends Controller
 
     }
 
+
+    public function actionList()
+    {
+        $collection = Yii::$app->mongo->getCollection('project');
+        $list = $collection->aggregate([
+            [
+                '$match' => [
+                    '$and' => [
+                        [
+                            'sellers.status' => 'PO Completed',
+                        ],
+
+
+                    ],
+
+                    
+                ]
+            ],
+            [
+                '$group' => [
+                    '_id' => '$_id',
+                    'title' => ['$first' => '$title' ],
+                    'day_po' => ['$first' => '$day_po' ],
+                    'month_po' => ['$first' => '$month_po' ],
+                    'year_po' => ['$first' => '$year_po' ],
+                    'project_no' => ['$first' => '$project_no' ],
+                    'buyers' => ['$first' => '$buyers' ],
+                    'sellers' => [
+                        '$push' => [
+                            'purchase_order_no' => '$sellers.purchase_order_no',
+                            'date_purchase_order' => '$sellers.date_purchase_order',
+
+                        ],
+                        
+                    ],
+
+
+
+                ]
+            ]   
+
+        ]);
+
+      //  print_r($list);
+        //exit();
+
+
+        return $this->render('list', [
+            'list' => $list,
+        ]);
+
+
+
+
+    }
+
+
+
+
+
     /**
      * Displays a single Project model.
      * @param integer $_id
@@ -109,7 +169,7 @@ class ProjectController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => (string)$model->_id]);
+            return $this->redirect(['list']);
         } else {
             return $this->render('update', [
                 'model' => $model,

@@ -81,7 +81,6 @@ $month = [
                                 <div class="form-group">
                                     <label class="control-label">Type</label>
                                     <select class="form-control status" id="status" >
-                                        <option value="">All</option>
                                         <option value="PO Completed">Completed PO</option>
                                         <option value="PO In Progress">PO In Progress</option>
                                         
