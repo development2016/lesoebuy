@@ -22,10 +22,11 @@ $(document).ready(function(){
     	var status = $('#status').val();
         var buyer = $('#buyer').val();
         var supplier = $('#supplier').val();
+        var item = $('#item').val();
         $.ajax({
             type: 'POST',
             url: 'report-status',
-            data: 'status='+status+'&buyer='+buyer+'&supplier='+supplier,
+            data: 'status='+status+'&buyer='+buyer+'&supplier='+supplier+'&item='+item,
             success: function(data) {
             	$(".info-complete").show();
                 $(".data").html(data);
@@ -130,6 +131,15 @@ $month = [
                             </div>
 
 
+                           <div class="col-md-3">
+                                <div class="form-group">
+                                    <label class="control-label">Item</label>
+                                    <input type="text" id="item" class="form-control item" placeholder="Item Code / Item Name">
+
+
+
+                                </div>
+                            </div>
 
                             
                         </div>

@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Project;
+use app\models\ProjectSearch;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -28,6 +29,8 @@ class ProjectController extends Controller
             ],
         ];
     }
+
+
 
     /**
      * Lists all Project models.
