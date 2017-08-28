@@ -228,7 +228,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
           <td style="padding: 10px;background-color: #dedede;""><span style="font-size: 15px;font-weight: bold;">FREIGHT</span></td>
           <td style="padding: 10px;background-color: #dedede;""><span style="font-size: 15px;font-weight: bold;">QTY</span></td>
           <td style="padding: 10px;background-color: #dedede;""><span style="font-size: 15px;font-weight: bold;">U / PRICE</span></td>
-          <td style="padding: 10px;background-color: #dedede;""><span style="font-size: 15px;font-weight: bold;">AMOUNT</span></td>
+          <td style="padding: 10px;background-color: #dedede;""><span style="font-size: 15px;font-weight: bold;">AMOUNT (RM)</span></td>
 
       </tr>
       <?php $arrayItem = -1; $i=0; foreach ($list[0]['sellers'][0]['items'] as $key => $value) { $i++; $arrayItem++; ?>
@@ -255,7 +255,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
 
           </td>
-          <td style="padding: 10px;width: 20px;">
+          <td style="padding: 10px;width: 20px;text-align: right;">
               <?php if (empty($value['install'])) { ?>
 
                     <?= '0.00'; ?>
@@ -276,7 +276,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                 <?php } ?>
           </td>
-          <td style="padding: 10px;width: 20px;">
+          <td style="padding: 10px;width: 20px;text-align: right;">
                 <?php if (empty($value['shipping'])) { ?>
 
                     <?= '0.00'; ?>
@@ -297,10 +297,10 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                 <?php } ?>
           </td>
-          <td style="padding: 10px;width: 20px;">
+          <td style="padding: 10px;width: 20px;text-align: right;">
                 <?= $value['quantity']; ?>
           </td>
-          <td style="padding: 10px;width: 20px;">
+          <td style="padding: 10px;width: 20px;text-align: right;">
                 <?= $showPrice = number_format((float)$value['cost'],2,'.',','); ?>
 
                     <?php 
@@ -308,7 +308,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
 
                     $sumPrice += $price;  ?>
           </td>
-          <td style="padding: 10px;width: 20px;">
+          <td style="padding: 10px;width: 20px;text-align: right;">
               <b><?php $amount =  $value['quantity'] * $value['cost']; 
 
                                         echo number_format((float)$amount,2,'.',','); 
@@ -376,7 +376,7 @@ $amount = $sumAmount = $install = $showInstall = $sumInstall = $shipping = $show
             </span>
           </td>
           <td style="padding: 2px;text-align: right;"><span style="font-size: 25px;font-weight: bold;">
-<?php
+RM <?php
 
     $grandTotal = $total + $deductGst;
     echo number_format((float)$grandTotal,2,'.',','); 
