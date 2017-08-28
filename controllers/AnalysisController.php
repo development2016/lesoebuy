@@ -32,8 +32,11 @@ class AnalysisController extends Controller
 {
 	public function actionIndex()
     {
+        $ids = ['220','207','218','205','203','206','214','215','197','210','198'];
 
-        $buyer = User::find()->all();
+        $buyer = User::find()->where(['in', 'id', $ids])->all();
+   
+
         $supplier = CompanyOffline::find()->all();
 
         return $this->render('index',[
@@ -695,6 +698,7 @@ class AnalysisController extends Controller
 
         return $this->render('view',[
             'model' => $model,
+            'buyer' => $buyer
 
         ]);
 

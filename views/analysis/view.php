@@ -13,7 +13,7 @@ use app\models\LookupModel;
 use app\models\LookupBrand;
 
 
-$this->title = 'Data Analysis';
+$this->title = 'Data Analysis : '.$buyer;
 $this->params['breadcrumbs'][] = $this->title;
 
 $script = <<< JS
