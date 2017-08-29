@@ -40,7 +40,7 @@ $(document).ready(function(){
     $('#startDate').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
     $('#endDate').bootstrapMaterialDatePicker({ weekStart : 0, time: false });
 
-
+    $(".select2").select2();
 
 }); 
 JS;
@@ -114,7 +114,7 @@ $month = [
                            <div class="col-md-3">
                                 <div class="form-group">
                                     <label class="control-label">Supplier</label>
-                                    <select class="form-control supplier" id="supplier" >
+                                    <select class="form-control select2 supplier" id="supplier" >
                                         <option value="">All</option>
                                         <?php 
 
